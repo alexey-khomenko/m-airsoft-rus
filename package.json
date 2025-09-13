@@ -1,7 +1,9 @@
 {
-  "name": "",
-  "type": "module",
+  "name": "m-airsoft-rus",
   "version": "0.0.1",
+  "description": "Mobile version of the website 'Airsoft-RUS'",
+  "author": "",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

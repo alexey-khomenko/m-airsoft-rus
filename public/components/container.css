@@ -1,0 +1,11 @@
+.container {
+  margin-inline: auto;
+
+  &.default {
+    width: min(100% - 1rem, var(--container-default--maw, 100%) - 1rem);
+
+    @container page-wrapper (width > 768px) {
+      --container-default--maw: 768px;
+    }
+  }
+}
