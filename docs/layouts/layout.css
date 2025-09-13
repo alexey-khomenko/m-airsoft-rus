@@ -1,0 +1,59 @@
+input {
+  font-size: max(16px, 1rem);
+}
+
+.layout {
+  scrollbar-gutter: stable;
+  font-family: Roboto, system-ui, sans-serif;
+  overflow-x: hidden;
+
+  font-size: var(--layout--fz, 12px);
+
+  @media (min-width: 320px) {
+    --layout--fz: 14px;
+  }
+
+  @media (min-width: 360px) {
+    --layout--fz: 16px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+
+  &[hidden] {
+    display: block;
+    overflow-y: hidden;
+  }
+}
+
+.page-wrapper {
+  container: page-wrapper / inline-size;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100dvh;
+
+  .main {
+    display: contents;
+  }
+}
+
+.page-backdrop {
+  container: page-wrapper / inline-size;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  height: 100dvh;
+  background-color: rgba(141, 141, 141, .8);
+  backdrop-filter: blur(10px);
+
+  &:not([hidden]) {
+    display: flex;
+  }
+
+  .modal {
+    margin: auto;
+  }
+}

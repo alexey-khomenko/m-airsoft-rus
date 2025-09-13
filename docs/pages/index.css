@@ -1,0 +1,8 @@
+.home {
+  flex-grow: 1;
+  padding-block: 1rem;
+
+  .home-wrapper {
+    overflow: hidden;
+  }
+}
