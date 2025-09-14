@@ -32,8 +32,11 @@ input {
   }
 }
 
-.main, .aside {
+#app {
   container: page-wrapper / inline-size;
+}
+
+.main, .aside {
   padding-top: var(--header--h);
   padding-bottom: var(--footer--h);
 }
