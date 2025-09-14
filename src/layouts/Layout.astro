@@ -18,16 +18,14 @@ const {title, className} = Astro.props;
 </head>
 <body>
 <div id="app">
-  <div class="page-wrapper">
-    <Header/>
-    <main class:list={['main', className]}>
-      <slot/>
-    </main>
-    <Footer/>
-  </div>
-  <div class="page-backdrop" hidden="hidden">
+  <Header/>
+  <main class:list={['main', className]}>
+    <slot/>
+  </main>
+  <aside class:list={['aside', className]} hidden="hidden">
 
-  </div>
+  </aside>
+  <Footer/>
 </div>
 </body>
 </html>

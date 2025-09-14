@@ -2,6 +2,11 @@ input {
   font-size: max(16px, 1rem);
 }
 
+:root {
+  --header--h: 64px;
+  --footer--h: 64px;
+}
+
 .layout {
   scrollbar-gutter: stable;
   font-family: Roboto, system-ui, sans-serif;
@@ -27,19 +32,19 @@ input {
   }
 }
 
-.page-wrapper {
+.main, .aside {
   container: page-wrapper / inline-size;
+  padding-top: var(--header--h);
+  padding-bottom: var(--footer--h);
+}
+
+.main {
   display: flex;
   flex-flow: column nowrap;
   min-height: 100dvh;
-
-  .main {
-    display: contents;
-  }
 }
 
-.page-backdrop {
-  container: page-wrapper / inline-size;
+.aside {
   position: fixed;
   left: 0;
   right: 0;
