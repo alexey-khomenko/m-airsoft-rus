@@ -1,5 +1,5 @@
 document.addEventListener('click', (e) => {
-  const button = e.target.closest('.header-menu .button');
+  const button = e.target.closest('.button-menu-header');
 
   if (!button) return true;
 
