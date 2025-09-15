@@ -1,12 +1,15 @@
 ---
 import Container from './Container.astro';
+import HeaderSearch from '../components/HeaderSearch.astro';
+import HeaderMenu from '../components/HeaderMenu.astro';
 ---
 
 <header class="header">
   <link rel="stylesheet" href="./components/header.css"/>
   <Container className="edge">
     <div class="header-wrapper">
-
+      <HeaderMenu/>
+      <HeaderSearch/>
     </div>
   </Container>
 </header>

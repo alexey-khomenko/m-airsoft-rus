@@ -3,8 +3,17 @@
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header--h);
-  padding-block: 1rem;
+  z-index: 2;
 
-  background-color: #B7FAA0;
+  background-color: #373635;
+  color: #FFFFFF;
+
+  .header-wrapper {
+    height: var(--header--h);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 }
