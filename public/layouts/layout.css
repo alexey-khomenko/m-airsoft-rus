@@ -65,7 +65,7 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 2;
   height: 100dvh;
   background-color: rgba(141, 141, 141, .8);
   backdrop-filter: blur(10px);
