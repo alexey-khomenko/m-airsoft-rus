@@ -6,7 +6,7 @@ const {title, className} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="ru" class="layout">
+<html lang="ru" class:list={['layout', className]}>
 <head>
   <meta charset="UTF-8"/>
   <meta name="description" content="Astro description"/>
@@ -19,10 +19,10 @@ const {title, className} = Astro.props;
 <body>
 <div id="app">
   <Header/>
-  <main class:list={['main', className]}>
+  <main class="main">
     <slot/>
   </main>
-  <aside class:list={['aside', className]} hidden="hidden">
+  <aside class="aside" hidden="hidden">
 
   </aside>
   <Footer/>

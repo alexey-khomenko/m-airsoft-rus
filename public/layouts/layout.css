@@ -7,12 +7,17 @@ input {
 }
 
 button {
+  cursor: pointer;
   padding: 0.125rem;
+}
+
+svg {
+  fill: none;
 }
 
 :root {
   --header--h: 3.75rem;
-  --footer--h: 64px;
+  --footer--h: 4rem;
 }
 
 .layout {
