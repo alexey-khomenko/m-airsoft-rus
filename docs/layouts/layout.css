@@ -8,7 +8,7 @@ input {
 
 button {
   cursor: pointer;
-  padding: 0.125rem;
+  padding: .125rem;
 }
 
 svg {
@@ -16,13 +16,20 @@ svg {
 }
 
 :root {
+  --color-light: #FFFFFF;
+  --color-border: #D9D9D9;
+  --color-placeholder: #757575;
+  --color-dark: #373635;
+  --color-link: #009AE3;
+  --color-accent: #E81331;
+
   --header--h: 3.75rem;
   --footer--h: 4rem;
 }
 
 .layout {
   scrollbar-gutter: stable;
-  font-family: Roboto, system-ui, sans-serif;
+  font-family: "PF DinDisplay Pro", system-ui, sans-serif;
   overflow-x: hidden;
 
   font-size: var(--layout--fz, 12px);
@@ -46,7 +53,7 @@ svg {
 }
 
 #app {
-  container: page-wrapper / inline-size;
+  container: app / inline-size;
 }
 
 .main, .aside {
@@ -67,6 +74,7 @@ svg {
   bottom: 0;
   z-index: 2;
   height: 100dvh;
+
   background-color: rgba(141, 141, 141, .8);
   backdrop-filter: blur(10px);
 
