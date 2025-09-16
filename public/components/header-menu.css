@@ -6,26 +6,21 @@
   justify-content: center;
   align-items: center;
 
-  .button {
+  border: none;
+  background-color: transparent;
+  color: #FFFFFF;
+
+  .icon {
     position: relative;
 
-    cursor: pointer;
-    border: none;
-
-    background-color: transparent;
-    color: #FFFFFF;
-
     .svg {
-      position: relative;
-      z-index: 0;
-
       display: block;
     }
 
     .img {
       position: absolute;
-      top: -12px;
-      right: -4px;
+      top: -14px;
+      right: -7px;
       z-index: 1;
 
       width: 21px;
