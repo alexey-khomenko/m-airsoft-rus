@@ -46,7 +46,7 @@ svg {
     scroll-behavior: smooth;
   }
 
-  &[hidden] {
+  &:has(.aside:not([hidden])) {
     display: block;
     overflow-y: hidden;
   }
@@ -62,6 +62,7 @@ svg {
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   min-height: 100dvh;
@@ -76,13 +77,63 @@ svg {
   height: 100dvh;
 
   background-color: rgba(141, 141, 141, .8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(.5rem); /* TODO: Escape key */
 
   &:not([hidden]) {
     display: flex;
   }
 
-  .modal {
-    margin: auto;
+  .popup {
+    position: relative;
+    margin-inline: auto;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    height: 100%;
+    width: min(100%, var(--popup--maw, 100%));
+
+    @container app (width > 430px) {
+      --popup--maw: 360px;
+    }
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5rem;
+    background-color: #FFFFFF;
+
+    .popup-header, .popup-main {
+      margin: 0;
+      padding-inline: .5rem;
+    }
+
+    .popup-header {
+      flex-shrink: 0;
+    }
+
+    .popup-main {
+      overflow-y: auto;
+    }
+
+    .popup-wrapper {
+      overflow: hidden;
+    }
+  }
+}
+
+.bottom-decoration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  height: .875rem;
+  pointer-events: none;
+  background-image: linear-gradient(0, var(--color-border) 0%, var(--color-light) 100%);
+
+  &.page-decoration {
+    bottom: var(--footer--h);
+  }
+
+  &.popup-decoration {
+    bottom: 0;
   }
 }

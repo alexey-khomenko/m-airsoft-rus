@@ -12,7 +12,6 @@
   &.edge {
     width: min(100% - 1rem, var(--container-edge--maw, 100%) - 1rem);
 
-
     @container app (width > 430px) {
       --container-edge--maw: 360px;
     }

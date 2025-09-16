@@ -22,8 +22,50 @@ const {title, className, isUser = true} = Astro.props;
   <main class="main">
     <slot/>
   </main>
-  <aside class="aside" hidden="hidden">
-
+  <aside class="aside backdrop">
+    <div class="popup">
+      <div class="popup-header">
+        <span>Popup title</span>
+      </div>
+      <div class="popup-main">
+        <div class="popup-wrapper">
+          11111
+          <br/>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus fuga id magnam perspiciatis placeat.
+          Delectus minus modi, nesciunt obcaecati odio optio perferendis perspiciatis quibusdam ut voluptate! Asperiores
+          atque beatae distinctio, et explicabo, ipsam itaque libero odio pariatur possimus provident qui ratione
+          reprehenderit saepe ullam, ut voluptate voluptatum. Atque dolor earum esse et ex facilis illum iusto nisi quae
+          rem, sint sunt voluptatibus voluptatum! Aliquam architecto commodi dolorem, eligendi excepturi in iure magni,
+          numquam odio omnis provident sed sequi ut? Ab, accusamus adipisci aliquid architecto commodi corporis culpa
+          cum cumque cupiditate deleniti dignissimos dolores eligendi esse exercitationem facilis illo illum impedit
+          ipsam magni minus modi molestias mollitia nemo officia pariatur quos temporibus velit voluptates voluptatibus
+          voluptatum. Blanditiis doloribus eaque eos ipsum labore, maxime mollitia nihil quam quasi reprehenderit
+          soluta, unde veritatis. Ad architecto at blanditiis commodi debitis dolore dolorum exercitationem facere ipsa
+          laudantium nemo nobis nostrum, porro quis, quo repellat repellendus, sequi veritatis? Consequatur eveniet
+          explicabo laudantium pariatur. Consectetur culpa delectus doloribus, eius esse exercitationem expedita fugit
+          in incidunt iste magnam maiores minima nemo quas repellat saepe sit sunt voluptates voluptatibus voluptatum!
+          Aliquam aperiam commodi illum impedit inventore nobis optio praesentium quo repellat voluptatem! Dignissimos
+          magnam magni natus non nostrum sed, veniam. Accusantium alias aperiam culpa cumque dolorum eligendi, facere
+          minima nesciunt nulla numquam odit, officia officiis repudiandae saepe sint unde, velit. Asperiores
+          consequatur dicta distinctio dolore, ducimus earum exercitationem facilis illum laborum maiores nemo nisi
+          numquam, odit, quas quisquam repellat sit suscipit ullam ut voluptate. Amet assumenda autem beatae cum debitis
+          dolorem dolorum eaque fugiat hic, itaque libero nemo, neque, perferendis rem repellat ullam ut vitae. Ab
+          commodi cupiditate facere similique vel. Debitis expedita maiores omnis sapiente. Alias aliquam amet assumenda
+          aut consectetur deleniti distinctio dolorum ea enim excepturi incidunt libero minima, molestias natus nobis
+          nostrum numquam odio odit officiis, perspiciatis placeat quaerat quam quia repellendus rerum soluta ullam vel
+          velit voluptates voluptatibus? Accusantium ad aliquid aperiam aspernatur corporis delectus distinctio, dolor
+          dolorem doloribus ducimus eos explicabo hic illo, ipsum mollitia nihil nobis obcaecati officiis placeat quae
+          quas quasi qui quibusdam quisquam, quo recusandae repellat similique tempore unde voluptate. Accusamus, ad
+          blanditiis culpa eius illo itaque rem vero. Ad adipisci aliquam at dignissimos dolorem dolorum eum excepturi
+          harum hic illum ipsam, laboriosam laborum maxime molestiae nemo nobis nulla officiis, possimus quasi ratione,
+          unde vel voluptates? Beatae eligendi facere ipsam libero nostrum, nulla possimus tempore tenetur! Assumenda
+          beatae eos odio officia.
+          <br/>
+          222222
+        </div>
+      </div>
+      <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
+    </div>
   </aside>
   <Footer isUser={isUser}/>
 </div>
