@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const {title, className} = Astro.props;
+const {title, className, isUser = true} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ const {title, className} = Astro.props;
   <aside class="aside" hidden="hidden">
 
   </aside>
-  <Footer/>
+  <Footer isUser={isUser}/>
 </div>
 </body>
 </html>
