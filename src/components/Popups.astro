@@ -33,7 +33,7 @@ const {isUser = true} = Astro.props;
     <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
   </div>
 
-  {isUser &&
+  {!isUser &&
     <div class="popup" data-popup-name="login" hidden="hidden">
       <div class="popup-header">
         <h2 class="popup-title">Вход</h2>
