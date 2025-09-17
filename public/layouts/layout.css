@@ -15,6 +15,10 @@ svg {
   fill: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 :root {
   --color-light: #FFFFFF;
   --color-border: #D9D9D9;
@@ -97,11 +101,10 @@ svg {
 
     display: flex;
     flex-flow: column nowrap;
-    gap: .5rem;
+
     background-color: #FFFFFF;
 
     .popup-header, .popup-main {
-      margin: 0;
       padding-inline: .5rem;
     }
 
