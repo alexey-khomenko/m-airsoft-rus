@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="./components/container.css">
   
     <div class="header-wrapper">
-      <button class="header-menu button-menu-header">
+      <button type="button" class="header-menu" data-popup-button="menu-header">
   <link rel="stylesheet" href="./components/header-menu.css">
   <span class="icon">
     <svg class="svg" width="27" height="20" viewBox="0 0 27 20" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,6 @@
     </svg>
     <img class="img" width="43" height="43" src="./images/header-menu.png" alt="">
   </span>
-  <script src="./components/header-menu.js"></script>
 </button>
       <form class="header-search" role="search" novalidate>
   <link rel="stylesheet" href="./components/header-search.css">
@@ -57,58 +56,59 @@
   <div class="bottom-decoration page-decoration" aria-hidden="true"></div>
 
   </main>
-  <aside class="aside backdrop">
-    <div class="popup">
+  <aside class="popups" data-popup-backdrop hidden="hidden">
+  <link rel="stylesheet" href="./components/popups.css">
+
+  <div class="popup" data-popup-name="menu-header" hidden="hidden">
+    <div class="popup-header">
+      <h2 class="popup-title">Каталог</h2>
+      <button class="popup-close" type="button" data-popup-close>
+        <span>Отмена</span>
+      </button>
+    </div>
+    <div class="popup-main">
+      <div class="popup-wrapper">
+
+      </div>
+    </div>
+    <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
+  </div>
+
+  <div class="popup" data-popup-name="menu-footer" hidden="hidden">
+    <div class="popup-header">
+      <h2 class="popup-title">Меню</h2>
+      <button class="popup-close" type="button" data-popup-close>Отмена</button>
+    </div>
+    <div class="popup-main">
+      <div class="popup-wrapper">
+
+      </div>
+    </div>
+    <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
+  </div>
+
+  <div class="popup" data-popup-name="login" hidden="hidden">
       <div class="popup-header">
-        <span>Popup title</span>
+        <h2 class="popup-title">Вход</h2>
+        <button class="popup-close" type="button" data-popup-close>Отмена</button>
       </div>
       <div class="popup-main">
         <div class="popup-wrapper">
-          11111
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus fuga id magnam perspiciatis placeat.
-          Delectus minus modi, nesciunt obcaecati odio optio perferendis perspiciatis quibusdam ut voluptate! Asperiores
-          atque beatae distinctio, et explicabo, ipsam itaque libero odio pariatur possimus provident qui ratione
-          reprehenderit saepe ullam, ut voluptate voluptatum. Atque dolor earum esse et ex facilis illum iusto nisi quae
-          rem, sint sunt voluptatibus voluptatum! Aliquam architecto commodi dolorem, eligendi excepturi in iure magni,
-          numquam odio omnis provident sed sequi ut? Ab, accusamus adipisci aliquid architecto commodi corporis culpa
-          cum cumque cupiditate deleniti dignissimos dolores eligendi esse exercitationem facilis illo illum impedit
-          ipsam magni minus modi molestias mollitia nemo officia pariatur quos temporibus velit voluptates voluptatibus
-          voluptatum. Blanditiis doloribus eaque eos ipsum labore, maxime mollitia nihil quam quasi reprehenderit
-          soluta, unde veritatis. Ad architecto at blanditiis commodi debitis dolore dolorum exercitationem facere ipsa
-          laudantium nemo nobis nostrum, porro quis, quo repellat repellendus, sequi veritatis? Consequatur eveniet
-          explicabo laudantium pariatur. Consectetur culpa delectus doloribus, eius esse exercitationem expedita fugit
-          in incidunt iste magnam maiores minima nemo quas repellat saepe sit sunt voluptates voluptatibus voluptatum!
-          Aliquam aperiam commodi illum impedit inventore nobis optio praesentium quo repellat voluptatem! Dignissimos
-          magnam magni natus non nostrum sed, veniam. Accusantium alias aperiam culpa cumque dolorum eligendi, facere
-          minima nesciunt nulla numquam odit, officia officiis repudiandae saepe sint unde, velit. Asperiores
-          consequatur dicta distinctio dolore, ducimus earum exercitationem facilis illum laborum maiores nemo nisi
-          numquam, odit, quas quisquam repellat sit suscipit ullam ut voluptate. Amet assumenda autem beatae cum debitis
-          dolorem dolorum eaque fugiat hic, itaque libero nemo, neque, perferendis rem repellat ullam ut vitae. Ab
-          commodi cupiditate facere similique vel. Debitis expedita maiores omnis sapiente. Alias aliquam amet assumenda
-          aut consectetur deleniti distinctio dolorum ea enim excepturi incidunt libero minima, molestias natus nobis
-          nostrum numquam odio odit officiis, perspiciatis placeat quaerat quam quia repellendus rerum soluta ullam vel
-          velit voluptates voluptatibus? Accusantium ad aliquid aperiam aspernatur corporis delectus distinctio, dolor
-          dolorem doloribus ducimus eos explicabo hic illo, ipsum mollitia nihil nobis obcaecati officiis placeat quae
-          quas quasi qui quibusdam quisquam, quo recusandae repellat similique tempore unde voluptate. Accusamus, ad
-          blanditiis culpa eius illo itaque rem vero. Ad adipisci aliquam at dignissimos dolorem dolorum eum excepturi
-          harum hic illum ipsam, laboriosam laborum maxime molestiae nemo nobis nulla officiis, possimus quasi ratione,
-          unde vel voluptates? Beatae eligendi facere ipsam libero nostrum, nulla possimus tempore tenetur! Assumenda
-          beatae eos odio officia.
-          <br>
-          222222
+
         </div>
       </div>
       <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
     </div>
-  </aside>
+
+  <script src="./components/popups.js"></script>
+</aside>
   <footer class="footer">
   <link rel="stylesheet" href="./components/footer.css">
   <div class="container edge">
   <link rel="stylesheet" href="./components/container.css">
   
     <div class="footer-wrapper">
-      <button type="button" class="button button-menu-footer">
+      <button type="button" class="button" data-popup-button="menu-footer">
         <span class="icon">
           <svg width="28" height="19" viewBox="0 0 28 19" xmlns="http://www.w3.org/2000/svg">
             <path fill="#262626" d="M0.707031 1.02148C0.707031 0.745342 0.930889 0.521484 1.20703 0.521484H26.6827C26.9589 0.521484 27.1827 0.745342 27.1827 1.02148V3.11445C27.1827 3.39059 26.9589 3.61445 26.6827 3.61445H1.20703C0.930889 3.61445 0.707031 3.39059 0.707031 3.11445V1.02148Z"></path>
@@ -119,12 +119,12 @@
         <span class="text">Меню</span>
       </button>
 
-      <button type="button" class="button button-login-footer">
-            <span class="icon">
-              <svg width="24" height="23" viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.5673 19.7043C17.0007 18.0519 14.7247 17.0121 12.1914 17.0121C9.65816 17.0121 7.38187 18.0519 5.81532 19.7043M12.1914 21.6293C6.11627 21.6293 1.19141 16.9781 1.19141 11.2405C1.19141 5.50283 6.11627 0.851562 12.1914 0.851562C18.2665 0.851562 23.1914 5.50283 23.1914 11.2405C23.1914 16.9781 18.2665 21.6293 12.1914 21.6293ZM12.1914 13.5491C10.1664 13.5491 8.52474 11.9987 8.52474 10.0861C8.52474 8.17359 10.1664 6.62317 12.1914 6.62317C14.2165 6.62317 15.8581 8.17359 15.8581 10.0861C15.8581 11.9987 14.2165 13.5491 12.1914 13.5491Z"></path>
-              </svg>
-            </span>
+      <button type="button" class="button" data-popup-button="login">
+          <span class="icon">
+            <svg width="24" height="23" viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg">
+              <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.5673 19.7043C17.0007 18.0519 14.7247 17.0121 12.1914 17.0121C9.65816 17.0121 7.38187 18.0519 5.81532 19.7043M12.1914 21.6293C6.11627 21.6293 1.19141 16.9781 1.19141 11.2405C1.19141 5.50283 6.11627 0.851562 12.1914 0.851562C18.2665 0.851562 23.1914 5.50283 23.1914 11.2405C23.1914 16.9781 18.2665 21.6293 12.1914 21.6293ZM12.1914 13.5491C10.1664 13.5491 8.52474 11.9987 8.52474 10.0861C8.52474 8.17359 10.1664 6.62317 12.1914 6.62317C14.2165 6.62317 15.8581 8.17359 15.8581 10.0861C15.8581 11.9987 14.2165 13.5491 12.1914 13.5491Z"></path>
+            </svg>
+          </span>
           <span class="text">Войти</span>
         </button>
 
@@ -165,7 +165,8 @@
     </div>
   
 </div>
-  <script src="./components/footer.js"></script>
 </footer>
 </div>
-</body></html>
+<script src="./layouts/layout.js"></script>
+</body>
+</html>
