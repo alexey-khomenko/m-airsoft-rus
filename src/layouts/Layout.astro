@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Popups from '../components/Popups.astro';
 import Footer from '../components/Footer.astro';
 
 const {title, className, isUser = true} = Astro.props;
@@ -22,32 +23,7 @@ const {title, className, isUser = true} = Astro.props;
   <main class="main">
     <slot/>
   </main>
-  <aside class="aside" data-popup-backdrop hidden="hidden">
-    <div class="popup" data-popup-name="menu-header" hidden="hidden">
-      <div class="popup-header">
-        <h2 class="popup-title">Каталог</h2>
-        <button class="popup-close" type="button" data-popup-close>Отмена</button>
-      </div>
-      <div class="popup-main">
-        <div class="popup-wrapper">
-
-        </div>
-      </div>
-      <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
-    </div>
-    <div class="popup" data-popup-name="menu-footer" hidden="hidden">
-      <div class="popup-header">
-        <h2 class="popup-title">Меню</h2>
-        <button class="popup-close" type="button" data-popup-close>Отмена</button>
-      </div>
-      <div class="popup-main">
-        <div class="popup-wrapper">
-
-        </div>
-      </div>
-      <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
-    </div>
-  </aside>
+  <Popups isUser={isUser}/>
   <Footer isUser={isUser}/>
 </div>
 <script src="./layouts/layout.js" is:inline></script>

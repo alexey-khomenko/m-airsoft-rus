@@ -15,9 +15,9 @@ svg {
   fill: none;
 }
 
-[hidden] {
-  display: none !important;
-}
+/*[hidden] {*/
+/*  display: none !important;*/
+/*}*/
 
 :root {
   --color-light: #FFFFFF;
@@ -50,7 +50,7 @@ svg {
     scroll-behavior: smooth;
   }
 
-  &:has(.aside:not([hidden])) {
+  &:has(.popups:not([hidden])) {
     display: block;
     overflow-y: hidden;
   }
@@ -60,66 +60,14 @@ svg {
   container: app / inline-size;
 }
 
-.main, .aside {
-  padding-top: var(--header--h);
-  padding-bottom: var(--footer--h);
-}
-
 .main {
   position: relative;
+  padding-top: var(--header--h);
+  padding-bottom: var(--footer--h);
+  min-height: 100dvh;
+
   display: flex;
   flex-flow: column nowrap;
-  min-height: 100dvh;
-}
-
-.aside {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  height: 100dvh;
-
-  background-color: rgba(141, 141, 141, .8);
-  backdrop-filter: blur(.5rem); /* TODO: Escape key */
-
-  &:not([hidden]) {
-    display: flex;
-  }
-
-  .popup {
-    position: relative;
-    margin-inline: auto;
-    padding-top: .5rem;
-    padding-bottom: 1rem;
-    height: 100%;
-    width: min(100%, var(--popup--maw, 100%));
-
-    @container app (width > 430px) {
-      --popup--maw: 360px;
-    }
-
-    display: flex;
-    flex-flow: column nowrap;
-
-    background-color: #FFFFFF;
-
-    .popup-header, .popup-main {
-      padding-inline: .5rem;
-    }
-
-    .popup-header {
-      flex-shrink: 0;
-    }
-
-    .popup-main {
-      overflow-y: auto;
-    }
-
-    .popup-wrapper {
-      overflow: hidden;
-    }
-  }
 }
 
 .bottom-decoration {
