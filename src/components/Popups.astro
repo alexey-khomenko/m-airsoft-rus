@@ -1,52 +1,26 @@
 ---
+import Popup from './Popup.astro';
+
+import PopupMenuHeader from './PopupMenuHeader.astro';
+import PopupMenuFooter from './PopupMenuFooter.astro';
+import PopupLogin from './PopupLogin.astro';
+
 const {isUser = true} = Astro.props;
 ---
 
 <aside class="popups" data-popup-backdrop hidden="hidden">
   <link rel="stylesheet" href="./components/popups.css"/>
-
-  <div class="popup" data-popup-name="menu-header" hidden="hidden">
-    <div class="popup-header">
-      <h2 class="popup-title">Каталог</h2>
-      <button class="popup-close" type="button" data-popup-close>
-        <span>Отмена</span>
-      </button>
-    </div>
-    <div class="popup-main">
-      <div class="popup-wrapper">
-
-      </div>
-    </div>
-    <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
-  </div>
-
-  <div class="popup" data-popup-name="menu-footer" hidden="hidden">
-    <div class="popup-header">
-      <h2 class="popup-title">Меню</h2>
-      <button class="popup-close" type="button" data-popup-close>Отмена</button>
-    </div>
-    <div class="popup-main">
-      <div class="popup-wrapper">
-
-      </div>
-    </div>
-    <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
-  </div>
+  <Popup name="menu-header" title="Каталог">
+    <PopupMenuHeader/>
+  </Popup>
+  <Popup name="menu-footer" title="Меню">
+    <PopupMenuFooter/>
+  </Popup>
 
   {!isUser &&
-    <div class="popup" data-popup-name="login" hidden="hidden">
-      <div class="popup-header">
-        <h2 class="popup-title">Вход</h2>
-        <button class="popup-close" type="button" data-popup-close>Отмена</button>
-      </div>
-      <div class="popup-main">
-        <div class="popup-wrapper">
-
-        </div>
-      </div>
-      <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
-    </div>
-  }
+    <Popup name="login" title="Вход">
+      <PopupLogin/>
+    </Popup>}
 
   <script src="./components/popups.js" is:inline></script>
 </aside>

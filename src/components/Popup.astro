@@ -1,0 +1,18 @@
+---
+const {name, title} = Astro.props;
+---
+
+<div class="popup" data-popup-name={name} hidden="hidden">
+  <div class="popup-header">
+    <h2 class="popup-title">{title}</h2>
+    <button class="popup-close" type="button" data-popup-close>
+      <span>Отмена</span>
+    </button>
+  </div>
+  <div class="popup-main">
+    <div class="popup-wrapper">
+      <slot/>
+    </div>
+  </div>
+  <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
+</div>
