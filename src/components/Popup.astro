@@ -1,8 +1,8 @@
 ---
-const {name, title} = Astro.props;
+const {name, title, bgLight} = Astro.props;
 ---
 
-<div class="popup" data-popup-name={name} hidden="hidden">
+<div class:list={['popup', bgLight ? 'bg-light' : 'bg-dark']} data-popup-name={name} hidden="hidden">
   <div class="popup-header">
     <h2 class="popup-title">{title}</h2>
     <button class="popup-close" type="button" data-popup-close>
@@ -14,5 +14,4 @@ const {name, title} = Astro.props;
       <slot/>
     </div>
   </div>
-  <div class="bottom-decoration popup-decoration" aria-hidden="true"></div>
 </div>

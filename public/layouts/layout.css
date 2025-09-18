@@ -15,10 +15,6 @@ svg {
   fill: none;
 }
 
-/*[hidden] {*/
-/*  display: none !important;*/
-/*}*/
-
 :root {
   --color-light: #FFFFFF;
   --color-border: #D9D9D9;
@@ -26,6 +22,9 @@ svg {
   --color-dark: #373635;
   --color-link: #009AE3;
   --color-accent: #E81331;
+
+  --color-bg-light: var(--color-light);
+  --color-bg-dark: #F1F4F6;
 
   --header--h: 3.75rem;
   --footer--h: 4rem;
@@ -65,26 +64,28 @@ svg {
   padding-top: var(--header--h);
   padding-bottom: var(--footer--h);
   min-height: 100dvh;
-
   display: flex;
   flex-flow: column nowrap;
+  background-color: var(--color-bg-dark);
+
+  &::after {
+    bottom: var(--footer--h);
+  }
+
+  &.detail::after {
+    bottom: 100px; /* TODO decoration */
+  }
 }
 
-.bottom-decoration {
+.main::after,
+.popup::after,
+.decoration::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   z-index: 1;
-
   height: .875rem;
   pointer-events: none;
-  background-image: linear-gradient(0, var(--color-border) 0%, var(--color-light) 100%);
-
-  &.page-decoration {
-    bottom: var(--footer--h);
-  }
-
-  &.popup-decoration {
-    bottom: 0;
-  }
+  background-image: linear-gradient(0, rgba(217, 217, 217, 1) 0%, rgba(217, 217, 217, 0) 100%);
 }

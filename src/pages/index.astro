@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
 ---
 
-<Layout title="Home" className="index" isUser={false}>
+<Layout title="Home" page="index" isUser={false}>
   <link rel="stylesheet" href="./pages/index.css"/>
   <section class="home">
     <Container>
@@ -12,5 +12,4 @@ import Container from '../components/Container.astro';
       </div>
     </Container>
   </section>
-  <div class="bottom-decoration page-decoration" aria-hidden="true"></div>
 </Layout>

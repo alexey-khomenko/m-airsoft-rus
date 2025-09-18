@@ -3,11 +3,11 @@ import Header from '../components/Header.astro';
 import Popups from '../components/Popups.astro';
 import Footer from '../components/Footer.astro';
 
-const {title, className, isUser = true} = Astro.props;
+const {title, page, isUser = true} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="ru" class:list={['layout', className]}>
+<html lang="ru" class="layout">
 <head>
   <meta charset="UTF-8"/>
   <meta name="description" content="Astro description"/>
@@ -20,7 +20,7 @@ const {title, className, isUser = true} = Astro.props;
 <body>
 <div id="app">
   <Header/>
-  <main class="main">
+  <main class:list={['main', page]}>
     <slot/>
   </main>
   <Popups isUser={isUser}/>

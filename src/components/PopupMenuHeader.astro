@@ -1,28 +1,22 @@
 ---
-
+const links: { link: string; img: string, title: string }[] = [
+  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
+  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+];
 ---
 
-<div>
-  TODO: popup menu header
-  <br/>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur distinctio eius eos facilis ipsum nemo
-  non nulla tempora voluptatum? Aspernatur, blanditiis culpa deserunt dolorem eligendi fuga maiores maxime natus, neque,
-  pariatur porro quam quod similique totam velit. Accusamus ad architecto aspernatur consectetur corporis cum dolore eum
-  ex expedita explicabo impedit itaque iure iusto maxime, mollitia nihil qui quibusdam quisquam, quos, recusandae
-  repellat repellendus rerum sint suscipit voluptas. Ab adipisci alias animi, aut delectus dignissimos doloribus earum
-  eligendi, eos error excepturi ipsa libero magni nisi nobis non nulla, quae quibusdam quis quisquam reprehenderit
-  tempora ut vero voluptates voluptatibus! Cum delectus deleniti deserunt dignissimos distinctio dolor, eaque illo in
-  ipsam itaque iusto laboriosam maxime modi molestiae natus neque nulla officia officiis pariatur perspiciatis quasi
-  quidem quos rem repellendus sed, soluta veniam? Accusantium aliquid beatae commodi, consectetur consequatur cum dolor
-  earum eius eos error et exercitationem fuga illo illum impedit incidunt inventore iure iusto laborum magnam maiores
-  mollitia natus nemo neque nesciunt non obcaecati officiis perspiciatis quae quidem ratione, recusandae reiciendis
-  sapiente sequi, similique tempore voluptatum? Ab accusamus accusantium animi architecto assumenda blanditiis commodi
-  cumque eaque eligendi enim ex expedita, explicabo fugit, inventore, maxime molestiae nisi numquam odio officia omnis
-  pariatur perferendis qui quia quisquam recusandae sequi similique sint tempora ut voluptatibus. Animi aperiam
-  architecto deleniti earum eius et eveniet inventore maiores maxime nisi nostrum odio pariatur reiciendis saepe, sequi.
-  Ad, blanditiis cupiditate exercitationem expedita minima necessitatibus numquam quia reiciendis sunt vitae. In
-  incidunt maxime nam nostrum. A, accusantium aliquid architecto at autem deleniti eum expedita explicabo fuga fugit
-  ipsam molestias nam neque nesciunt nobis nostrum odit pariatur perspiciatis, porro provident quae quaerat quidem quo
-  similique sit sunt tempora unde voluptate voluptatibus, voluptatum. Ab at consectetur dolorem esse excepturi, expedita
-  in magnam modi, pariatur quae quaerat saepe, similique soluta sunt totam unde?
+<div class="popup-menu-header">
+  <link rel="stylesheet" href="./components/popup-menu-header.css"/>
+  {links.map((item: { link: string; img: string, title: string }) => (
+    <a href={item.link} class="tile">
+      <img src={item.img} alt={item.title} decoding="async" loading="lazy" class="cover"/>
+    </a>
+  ))}
 </div>

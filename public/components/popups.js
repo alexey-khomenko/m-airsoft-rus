@@ -3,8 +3,6 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
-  e.preventDefault();
-
   const name = button.dataset.popupButton;
 
   const backdrop = document.querySelector('[data-popup-backdrop]');

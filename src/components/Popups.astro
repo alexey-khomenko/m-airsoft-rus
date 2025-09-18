@@ -10,15 +10,15 @@ const {isUser = true} = Astro.props;
 
 <aside class="popups" data-popup-backdrop hidden="hidden">
   <link rel="stylesheet" href="./components/popups.css"/>
-  <Popup name="menu-header" title="Каталог">
+  <Popup name="menu-header" title="Каталог" bgLight={true}>
     <PopupMenuHeader/>
   </Popup>
-  <Popup name="menu-footer" title="Меню">
+  <Popup name="menu-footer" title="Меню" bgLight={true}>
     <PopupMenuFooter/>
   </Popup>
 
   {!isUser &&
-    <Popup name="login" title="Вход">
+    <Popup name="login" title="Вход" bgLight={false}>
       <PopupLogin/>
     </Popup>}
 

@@ -1,0 +1,19 @@
+.popup-menu-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .25rem;
+
+  .tile {
+    display: block;
+    border-radius: .25rem;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .cover {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 112/151;
+  }
+}
