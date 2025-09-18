@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node test.js",
+    "build": "astro build && node fix-links-for-github-demo.js",
     "preview": "astro preview",
     "astro": "astro"
   },
