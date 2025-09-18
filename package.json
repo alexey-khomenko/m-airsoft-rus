@@ -4,6 +4,7 @@
   "description": "Mobile version of the website 'Airsoft-RUS'",
   "author": "",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node test.js",
