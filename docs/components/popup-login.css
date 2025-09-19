@@ -1,0 +1,23 @@
+.popup-login {
+  overflow: hidden;
+
+  .content-tile:not([hidden]) {
+    min-height: 20rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.another-login {
+  margin: 3rem auto;
+  display: block;
+  background-color: transparent;
+  border: none;
+
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  color: var(--color-dark);
+}

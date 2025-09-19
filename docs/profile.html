@@ -14,10 +14,9 @@
   <header class="header">
   <link rel="stylesheet" href="./components/header.css">
   <div class="container edge">
-  <link rel="stylesheet" href="./components/container.css">
   
     <div class="header-wrapper">
-      <button type="button" class="header-menu" data-popup-button="menu-header">
+      <button type="button" class="header-menu" data-popup-open="menu-header">
   <link rel="stylesheet" href="./components/header-menu.css">
   <span class="icon">
     <svg class="svg" width="27" height="20" viewBox="0 0 27 20" xmlns="http://www.w3.org/2000/svg">
@@ -28,13 +27,13 @@
     <img class="img" width="43" height="43" src="./images/header-menu.png" alt="">
   </span>
 </button>
-      <form class="header-search" role="search" novalidate>
+      <form class="header-search" role="search" action="/search" novalidate data-form-search>
   <link rel="stylesheet" href="./components/header-search.css">
   <input type="search" name="search" id="search" class="input" placeholder="Поиск по каталогу" aria-label="Поиск по каталогу">
   <button type="submit" class="button">
     <img class="img" width="37" height="36" src="./images/header-search.png" alt="">
   </button>
-  <script src="./components/header-search.js"></script>
+  <script src="./components/header-search.js" async></script>
 </form>
     </div>
   
@@ -42,13 +41,31 @@
 </header>
   <main class="main profile">
     <div class="container default">
-  <link rel="stylesheet" href="./components/container.css">
   
       
   <link rel="stylesheet" href="./pages/profile.css">
-  <section class="section">
-    profile
+  <section class="content-header main-header">
+    <h1 class="title">Личный кабинет</h1>
+    <button type="button" class="button" data-button-logout-to="/m-airsoft-rus/index.html">
+      <span>Выход</span>
+    </button>
   </section>
+  <section class="content-tile content-tel">
+    <span class="text">+7 (963) 040-75-12</span>
+    <button type="button" class="button" data-popup-open="change-tel">
+      <span>Изменить</span>
+    </button>
+  </section>
+  <section class="content-tile content-name">
+    Name
+  </section>
+  <section class="content-tile content-balance">
+    Balance
+  </section>
+  <section class="content-tile content-history">
+    History
+  </section>
+  <script src="./pages/profile.js" async></script>
 
     
 </div>
@@ -56,14 +73,14 @@
   <aside class="popups" data-popup-backdrop hidden="hidden">
   <link rel="stylesheet" href="./components/popups.css">
   <div class="popup bg-light" data-popup-name="menu-header" hidden="hidden">
-  <div class="popup-header">
-    <h2 class="popup-title">Каталог</h2>
-    <button class="popup-close" type="button" data-popup-close>
+  <div class="content-header popup-header">
+    <h2 class="title">Каталог</h2>
+    <button class="button" type="button" data-popup-close>
       <span>Отмена</span>
     </button>
   </div>
   <div class="popup-main">
-    <div class="popup-wrapper">
+    <div class="wrapper">
       
     <div class="popup-menu-header">
   <link rel="stylesheet" href="./components/popup-menu-header.css">
@@ -92,14 +109,14 @@
   </div>
 </div>
   <div class="popup bg-light" data-popup-name="menu-footer" hidden="hidden">
-  <div class="popup-header">
-    <h2 class="popup-title">Меню</h2>
-    <button class="popup-close" type="button" data-popup-close>
+  <div class="content-header popup-header">
+    <h2 class="title">Меню</h2>
+    <button class="button" type="button" data-popup-close>
       <span>Отмена</span>
     </button>
   </div>
   <div class="popup-main">
-    <div class="popup-wrapper">
+    <div class="wrapper">
       
     <div>
   TODO: popup menu footer
@@ -111,16 +128,43 @@
 
   
 
-  <script src="./components/popups.js"></script>
+  <div class="popup bg-dark" data-popup-name="change-tel" hidden="hidden">
+  <div class="content-header popup-header">
+    <h2 class="title">Изменение номера</h2>
+    <button class="button" type="button" data-popup-close>
+      <span>Отмена</span>
+    </button>
+  </div>
+  <div class="popup-main">
+    <div class="wrapper">
+      
+      <div class="popup-login">
+  <link rel="stylesheet" href="./components/popup-login.css">
+  <div class="content-tile" data-popup-login-step="1">
+    <label class="label">Новый номер</label>
+  </div>
+  <div class="content-tile" data-popup-login-step="2" hidden="hidden">
+    <label class="label">Введите полученный код</label>
+  </div>
+  <button type="button" class="another-login" data-popup-login-another-way>
+    <span>Подтвердить другим способом</span>
+  </button>
+  <script src="./components/popup-login.js" async></script>
+</div>
+    
+    </div>
+  </div>
+</div>
+
+  <script src="./components/popups.js" async></script>
 </aside>
   <footer class="footer">
   <link rel="stylesheet" href="./components/footer.css">
   <div class="container edge">
-  <link rel="stylesheet" href="./components/container.css">
   
     <div class="footer-wrapper">
 
-      <button type="button" class="button" data-popup-button="menu-footer">
+      <button type="button" class="button" data-popup-open="menu-footer">
         <span class="icon">
           <svg width="28" height="19" viewBox="0 0 28 19" xmlns="http://www.w3.org/2000/svg">
             <path fill="#262626" d="M0.707031 1.02148C0.707031 0.745342 0.930889 0.521484 1.20703 0.521484H26.6827C26.9589 0.521484 27.1827 0.745342 27.1827 1.02148V3.11445C27.1827 3.39059 26.9589 3.61445 26.6827 3.61445H1.20703C0.930889 3.61445 0.707031 3.39059 0.707031 3.11445V1.02148Z"></path>
@@ -128,7 +172,7 @@
             <path fill="#262626" d="M0.707031 15.5011C0.707031 15.225 0.930889 15.0011 1.20703 15.0011H26.6827C26.9589 15.0011 27.1827 15.225 27.1827 15.5011V17.5941C27.1827 17.8702 26.9589 18.0941 26.6827 18.0941H1.20703C0.930889 18.0941 0.707031 17.8702 0.707031 17.5941V15.5011Z"></path>
           </svg>
         </span>
-        <span class="text">Меню</span>
+        <span class="title">Меню</span>
       </button>
 
       <a href="/m-airsoft-rus/profile.html" class="button">
@@ -137,7 +181,7 @@
               <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.5673 19.7043C17.0007 18.0519 14.7247 17.0121 12.1914 17.0121C9.65816 17.0121 7.38187 18.0519 5.81532 19.7043M12.1914 21.6293C6.11627 21.6293 1.19141 16.9781 1.19141 11.2405C1.19141 5.50283 6.11627 0.851562 12.1914 0.851562C18.2665 0.851562 23.1914 5.50283 23.1914 11.2405C23.1914 16.9781 18.2665 21.6293 12.1914 21.6293ZM12.1914 13.5491C10.1664 13.5491 8.52474 11.9987 8.52474 10.0861C8.52474 8.17359 10.1664 6.62317 12.1914 6.62317C14.2165 6.62317 15.8581 8.17359 15.8581 10.0861C15.8581 11.9987 14.2165 13.5491 12.1914 13.5491Z"></path>
             </svg>
           </span>
-          <span class="text">Профиль</span>
+          <span class="title">Профиль</span>
         </a>
 
       <a href="/m-airsoft-rus/cart.html" class="button">
@@ -156,7 +200,7 @@
           </svg>
           <span class="number">0</span>
         </span>
-        <span class="text">Корзина</span>
+        <span class="title">Корзина</span>
       </a>
 
       <a href="/m-airsoft-rus/favourite.html" class="button">
@@ -165,7 +209,7 @@
           <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12.0078 4.72109C9.56337 -0.657052 1.00781 -0.0842307 1.00781 6.78966C1.00781 13.6635 12.0078 19.3919 12.0078 19.3919C12.0078 19.3919 23.0078 13.6635 23.0078 6.78966C23.0078 -0.0842307 14.4523 -0.657052 12.0078 4.72109Z"></path>
           </svg>
         </span>
-        <span class="text">Избранное</span>
+        <span class="title">Избранное</span>
       </a>
 
       <a href="https://t.me/airsoftrus2_bot" target="_blank" class="button">
@@ -174,13 +218,13 @@
             <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M10.5903 12.8397L16.5838 7.18308M22.7149 3.73098L17.6558 19.2488C17.2024 20.6395 16.9755 21.3352 16.5845 21.5657C16.2453 21.7658 15.8253 21.7992 15.4559 21.6545C15.03 21.4877 14.6842 20.8363 13.9946 19.5345L10.7902 13.486C10.6808 13.2794 10.626 13.1766 10.5529 13.087C10.488 13.0076 10.4131 12.9361 10.329 12.8748C10.2363 12.8074 10.1291 12.7568 9.92 12.6582L3.49648 9.62697C2.11712 8.97606 1.42738 8.6503 1.25064 8.24829C1.09736 7.89965 1.13231 7.50294 1.34424 7.18283C1.58861 6.81371 2.32566 6.59927 3.79963 6.17124L20.2418 1.39652C21.4006 1.06002 21.9802 0.891898 22.3716 1.02751C22.7125 1.14564 22.9813 1.39905 23.1065 1.72082C23.2501 2.09004 23.0718 2.63681 22.7156 3.72937L22.7149 3.73098Z"></path>
           </svg>
         </span>
-        <span class="text">Телеграм</span>
+        <span class="title">Телеграм</span>
       </a>
     </div>
   
 </div>
 </footer>
 </div>
-<script src="./layouts/layout.js"></script>
+<script src="./layouts/layout.js" async></script>
 </body>
 </html>
