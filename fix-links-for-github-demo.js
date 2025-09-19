@@ -11,13 +11,16 @@ const strings = new Map();
 
 strings.set('"/cart"', '"/m-airsoft-rus/cart.html"');
 strings.set('"/catalog"', '"/m-airsoft-rus/catalog.html"');
+strings.set('"/favourite"', '"/m-airsoft-rus/favourite.html"');
+strings.set('"/index"', '"/m-airsoft-rus/index.html"');
+strings.set('"/profile"', '"/m-airsoft-rus/profile.html"');
 
 // Функция для получения HTML-файлов только в указанной директории (без рекурсии)
 function getHtmlFiles(dirPath) {
   try {
     const files = fs.readdirSync(dirPath);
     return files
-      .filter(file => file.endsWith('.html') || file.endsWith('.htm'))
+      .filter(file => file.endsWith('.html'))
       .map(file => path.join(dirPath, file));
   }
   catch (error) {

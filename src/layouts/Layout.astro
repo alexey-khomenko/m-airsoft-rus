@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Popups from '../components/Popups.astro';
 import Footer from '../components/Footer.astro';
+import Container from '../components/Container.astro';
 
 const {title, page, isUser = true} = Astro.props;
 ---
@@ -21,7 +22,9 @@ const {title, page, isUser = true} = Astro.props;
 <div id="app">
   <Header/>
   <main class:list={['main', page]}>
-    <slot/>
+    <Container>
+      <slot/>
+    </Container>
   </main>
   <Popups isUser={isUser}/>
   <Footer isUser={isUser}/>

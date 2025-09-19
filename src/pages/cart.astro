@@ -1,15 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Container from '../components/Container.astro';
 ---
 
-<Layout title="Корзина" page="cart" isUser={false}>
+<Layout title="Корзина" page="cart" isUser={true}>
   <link rel="stylesheet" href="./pages/cart.css"/>
   <section class="section">
-    <Container>
-      <div class="section-wrapper">
-        cart
-      </div>
-    </Container>
+    cart
   </section>
 </Layout>
