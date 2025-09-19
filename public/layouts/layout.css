@@ -18,12 +18,16 @@ svg {
 :root {
   --color-light: #FFFFFF;
   --color-border: #D9D9D9;
+  --color-mute: #8F8F8F;
   --color-placeholder: #757575;
-  --color-dark: #373635;
+  --color-title: #373635;
+  --color-text: #27282B;
+  --color-dark: #151515;
+
   --color-link: #009AE3;
   --color-accent: #E81331;
 
-  --color-bg-light: var(--color-light);
+  --color-bg-light: #FFFFFF;
   --color-bg-dark: #F1F4F6;
 
   --header--h: 3.75rem;
@@ -64,15 +68,13 @@ svg {
   padding-top: var(--header--h);
   padding-bottom: var(--footer--h);
   min-height: 100dvh;
-  display: flex;
-  flex-flow: column nowrap;
   background-color: var(--color-bg-dark);
 
   &::after {
     bottom: var(--footer--h);
   }
 
-  &.detail::after {
+  &.catalog-detail::after {
     bottom: 100px; /* TODO decoration */
   }
 }
@@ -88,4 +90,70 @@ svg {
   height: .875rem;
   pointer-events: none;
   background-image: linear-gradient(0, rgba(217, 217, 217, 1) 0%, rgba(217, 217, 217, 0) 100%);
+}
+
+.container {
+  margin-inline: auto;
+
+  &.default {
+    width: min(100% - 1rem, var(--container-default--maw, 100%) - 1rem);
+
+    @container app (width > 768px) {
+      --container-default--maw: 768px;
+    }
+  }
+
+  &.edge {
+    width: min(100% - 1rem, var(--container-edge--maw, 100%) - 1rem);
+
+    @container app (width > 430px) {
+      --container-edge--maw: 360px;
+    }
+  }
+}
+
+.content-header {
+  flex-shrink: 0;
+  padding: .5rem .5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  &::before {
+    content: "";
+  }
+
+  .title {
+    flex-shrink: 0;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--color-title);
+  }
+
+  .button {
+    flex-shrink: 0;
+    min-height: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-link);
+    text-transform: lowercase;
+  }
+}
+
+.content-tile {
+  padding: .75rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-light);
+  box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
 }

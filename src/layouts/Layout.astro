@@ -26,9 +26,9 @@ const {title, page, isUser = true} = Astro.props;
       <slot/>
     </Container>
   </main>
-  <Popups isUser={isUser}/>
+  <Popups isUser={isUser} page={page}/>
   <Footer isUser={isUser}/>
 </div>
-<script src="./layouts/layout.js" is:inline></script>
+<script src="./layouts/layout.js" is:inline async></script>
 </body>
 </html>

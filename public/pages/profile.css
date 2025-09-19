@@ -1,4 +1,39 @@
-.section {
-  padding-block: 1rem;
-  overflow: hidden;
+.content-header.main-header {
+  min-height: 3.25rem;
+
+  &::before {
+    flex-basis: 3.375rem;
+  }
+}
+
+.content-tel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+
+  .text {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+
+  .button {
+    flex-shrink: 0;
+    min-height: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-mute);
+    text-transform: lowercase;
+  }
+}
+
+.main.profile .content-tile {
+  margin-top: .5rem;
 }

@@ -9,11 +9,11 @@ const __dirname = path.dirname(__filename);
 // Map со строками для замены
 const strings = new Map();
 
-strings.set('"/cart"', '"/m-airsoft-rus/cart.html"');
-strings.set('"/catalog"', '"/m-airsoft-rus/catalog.html"');
-strings.set('"/favourite"', '"/m-airsoft-rus/favourite.html"');
-strings.set('"/index"', '"/m-airsoft-rus/index.html"');
-strings.set('"/profile"', '"/m-airsoft-rus/profile.html"');
+strings.set('="/cart"', '="/m-airsoft-rus/cart.html"');
+strings.set('="/catalog"', '="/m-airsoft-rus/catalog.html"');
+strings.set('="/favourite"', '="/m-airsoft-rus/favourite.html"');
+strings.set('="/"', '="/m-airsoft-rus/index.html"');
+strings.set('="/profile"', '="/m-airsoft-rus/profile.html"');
 
 // Функция для получения HTML-файлов только в указанной директории (без рекурсии)
 function getHtmlFiles(dirPath) {

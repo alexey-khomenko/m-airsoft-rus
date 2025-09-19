@@ -1,9 +1,9 @@
 document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-button]');
+  const button = e.target.closest('[data-popup-open]');
 
   if (!button) return true;
 
-  const name = button.dataset.popupButton;
+  const name = button.dataset.popupOpen;
 
   const backdrop = document.querySelector('[data-popup-backdrop]');
   const popup = document.querySelector(`[data-popup-name="${name}"]`);
