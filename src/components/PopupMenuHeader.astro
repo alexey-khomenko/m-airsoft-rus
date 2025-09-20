@@ -12,11 +12,11 @@ const links: { link: string; img: string, title: string }[] = [
 ];
 ---
 
-<div class="popup-menu-header">
+<nav class="popup-menu-header">
   <link rel="stylesheet" href="./components/popup-menu-header.css"/>
   {links.map((item: { link: string; img: string, title: string }) => (
     <a href={item.link} class="tile">
       <img src={item.img} alt={item.title} decoding="async" loading="lazy" class="cover"/>
     </a>
   ))}
-</div>
+</nav>

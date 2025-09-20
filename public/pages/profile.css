@@ -1,4 +1,4 @@
-.content-header.main-header {
+.util-header.main-header {
   min-height: 3.25rem;
 
   &::before {
@@ -34,6 +34,6 @@
   }
 }
 
-.main.profile .content-tile {
+.main.profile .util-tile {
   margin-top: .5rem;
 }

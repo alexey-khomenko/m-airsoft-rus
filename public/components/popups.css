@@ -43,7 +43,7 @@
   }
 }
 
-.content-header.popup-header {
+.util-header.popup-header {
   min-height: 3.75rem;
 
   &::before {
