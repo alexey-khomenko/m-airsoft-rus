@@ -5,10 +5,36 @@
 <div class="popup-login">
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="util-tile" data-popup-login-step="1">
-    <label class="label">Новый номер</label>
+    <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
+      <label class="label" for="phone">Новый номер</label>
+      <div class="input-wrapper phone">
+        <input type="tel" name="phone" id="phone" class="input" maxlength="24"
+               inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
+        />
+      </div>
+      <button type="submit" class="button">
+        <span>Подтвердить через Telegram</span>
+      </button>
+    </form>
+    <button class="back" data-popup-login-cancel>
+      <span>Отмена</span>
+    </button>
   </div>
   <div class="util-tile" data-popup-login-step="2" hidden="hidden">
-    <label class="label">Введите полученный код</label>
+    <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
+      <label class="label" for="code">Введите полученный код</label>
+      <div class="input-wrapper code">
+        <input type="text" name="code" id="code" class="input" maxlength="4"
+               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+               placeholder="0000"/>
+      </div>
+      <button type="submit" class="button">
+        <span>Отправить и выполнить вход</span>
+      </button>
+    </form>
+    <button class="back" data-popup-login-back>
+      <span>Вернуться назад</span>
+    </button>
   </div>
   <button type="button" class="another-login" data-popup-login-another-way>
     <span>Подтвердить другим способом</span>

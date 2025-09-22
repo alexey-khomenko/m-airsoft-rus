@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Popups from '../components/Popups.astro';
 import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
+import Scripts from '../components/Scripts.astro';
 
 const {title, page, isUser = true} = Astro.props;
 ---
@@ -29,6 +30,6 @@ const {title, page, isUser = true} = Astro.props;
   <Popups isUser={isUser} page={page}/>
   <Footer isUser={isUser}/>
 </div>
-<script src="./layouts/layout.js" is:inline async></script>
+<Scripts/>
 </body>
 </html>
