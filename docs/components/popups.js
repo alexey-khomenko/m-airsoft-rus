@@ -20,7 +20,7 @@ document.addEventListener('click', (e) => {
   popup.hidden = false;
 });
 
-function closePopup() {
+window.closePopup = function () {
   const backdrop = document.querySelector('[data-popup-backdrop]');
 
   if (!backdrop) return true;
@@ -40,7 +40,7 @@ document.addEventListener('click', (e) => {
 
   if (!backdrop || popup) return true;
 
-  closePopup();
+  window.closePopup();
 });
 
 document.addEventListener('click', (e) => {
@@ -48,11 +48,11 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
-  closePopup();
+  window.closePopup();
 });
 
 document.addEventListener('keydown', function (e) {
   if ('Escape' !== e.key) return true;
 
-  closePopup();
+  window.closePopup();
 });

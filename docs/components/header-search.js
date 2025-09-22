@@ -6,7 +6,8 @@ document.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const action = form.action;
-  const value = form.querySelector('[name="search"]').value;
+  const input = form.querySelector('[name="search"]');
+  const value = input.value.trim();
 
   console.log('submit', action, value);
 });

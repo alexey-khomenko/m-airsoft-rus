@@ -6,6 +6,18 @@ input {
   }
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
 button {
   cursor: pointer;
   padding: .125rem;
@@ -17,6 +29,7 @@ svg {
 
 :root {
   --color-light: #FFFFFF;
+  --color-another-border: #DFE8F1;
   --color-border: #D9D9D9;
   --color-mute: #8F8F8F;
   --color-placeholder: #757575;
@@ -156,4 +169,8 @@ svg {
   border-radius: 1rem;
   background-color: var(--color-light);
   box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
+}
+
+.util-input-error {
+  border-color: var(--color-accent) !important;
 }
