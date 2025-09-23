@@ -6,16 +6,30 @@
   }
 }
 
-.content-tel {
+.content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: .5rem;
 
-  .text {
+  .info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .title {
     font-weight: 700;
     font-size: 1.125rem;
+    line-height: 1.75rem;
     color: var(--color-text);
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   .button {
