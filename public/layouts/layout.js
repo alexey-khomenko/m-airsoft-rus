@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+function initApp() {
   const placeholder = '+7(___)___-__-__';
   const mask = '+7(999)999-99-99';
 
@@ -9,4 +9,11 @@ window.addEventListener('load', () => {
     selector.placeholder = placeholder;
     im.mask(selector);
   }
-});
+}
+
+if ('complete' === document.readyState) {
+  initApp();
+}
+else {
+  document.addEventListener('DOMContentLoaded', initApp);
+}
