@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const placeholder = '+7(___)___-__-__';
   const mask = '+7(999)999-99-99';
 
