@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <title>Профиль</title>
-  <link rel="stylesheet" href="./layouts/modern-normalize.css">
+  <link rel="stylesheet" href="./layouts/plugins/modern-normalize.css">
+  <link rel="stylesheet" href="./layouts/plugins/intlTelInput/css/intlTelInput.css">
   <link rel="stylesheet" href="./layouts/layout.css">
 </head>
 <body>
@@ -144,7 +145,7 @@
     <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
       <label class="label" for="phone">Новый номер</label>
       <div class="input-wrapper phone">
-        <input type="tel" name="phone" id="phone" class="input" maxlength="24" inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false">
+        <input type="tel" name="phone" id="phone" class="input" maxlength="24" value="+79630407512" inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false">
       </div>
       <button type="submit" class="button">
         <span>Подтвердить через Telegram</span>
@@ -247,6 +248,7 @@
 </div>
 </footer>
 </div>
-<script src="./layouts/inputmask.min.js" async></script>
+<script src="./layouts/plugins/inputmask.min.js" async></script>
+<script src="./layouts/plugins/intlTelInput/intlTelInput.min.js" async></script>
 <script src="./layouts/layout.js" async></script>
 </body></html>

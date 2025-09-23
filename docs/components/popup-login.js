@@ -22,7 +22,7 @@ document.addEventListener('submit', (e) => {
   const input = form.querySelector('[name="phone"]');
   const value = input.value.trim();
 
-  if (0 === value.length) {
+  if (0 === value.length || value.includes('_')) {
     input.classList.add('util-input-error');
     return true;
   }

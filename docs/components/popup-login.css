@@ -49,11 +49,12 @@
         left: 3.875rem;
         top: .625rem;
         bottom: .625rem;
+        z-index: 1;
         border-left: 1px solid var(--color-border);
       }
 
       &.phone .input {
-        padding-left: 4.5rem;
+        padding-left: 4.5rem !important;
       }
 
       &.code .input {
