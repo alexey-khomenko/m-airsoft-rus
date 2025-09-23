@@ -11,11 +11,9 @@ function initApp() {
   }
 }
 
-console.log('document.readyState', document.readyState);
-
 if ('complete' === document.readyState) {
   initApp();
 }
 else {
-  document.addEventListener('DOMContentLoaded', initApp);
+  window.addEventListener('load', initApp);
 }
