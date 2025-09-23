@@ -11,6 +11,8 @@ function initApp() {
   }
 }
 
+console.log('document.readyState', document.readyState);
+
 if ('complete' === document.readyState) {
   initApp();
 }
