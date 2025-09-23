@@ -1,19 +1,86 @@
-// function initApp()
+function getTelMask(countryCode) {
+  let mask, placeholder;
 
-// if ('complete' === document.readyState) {
-//   initApp();
-// }
-// else {
+  mask = '+7(999)999-99-99';
+  placeholder = '+7(___)___-__-__';
+
+  switch (countryCode) {
+    case 'by':
+      mask = '+375(99)999-99-99';
+      placeholder = '+375(__)___-__-__';
+      break;
+    case 'kz':
+      mask = '+7(999)999-99-99';
+      placeholder = '+7(___)___-__-__';
+      break;
+    case 'kg':
+      mask = '+\\9\\96(999)999-999';
+      placeholder = '+996(___)___-___';
+      break;
+    case 'am':
+      mask = '+374(99)99-99-99';
+      placeholder = '+374(__)__-__-__';
+      break;
+    case 'ua':
+      mask = '+380(99)999-99-99';
+      placeholder = '+380(__)___-__-__';
+      break;
+  }
+
+  return {mask, placeholder};
+}
+
+function setTelMask(input) {
+  setTimeout(() => {
+    const country = input.parentNode.querySelector('.iti__selected-country .iti__flag');
+
+    const countryCode = country ? country.getAttribute('class').slice(15) : 'ru';
+
+    const {mask, placeholder} = getTelMask(countryCode);
+
+    input.placeholder = placeholder;
+
+    Inputmask.remove(input);
+    Inputmask(mask).mask(input);
+  }, 10);
+}
+
 window.addEventListener('load', () => {
-  const placeholder = '+7(___)___-__-__';
-  const mask = '+7(999)999-99-99';
+  const inputs = document.querySelectorAll('[type=tel]');
 
-  const selectors = document.querySelectorAll('[type=tel]');
-  const im = new Inputmask(mask);
+  for (const input of inputs) {
+    const initialCountry = 0 === input.value.length ? 'ru' : 'auto';
 
-  for (const selector of selectors) {
-    selector.placeholder = placeholder;
-    im.mask(selector);
+    intlTelInput(input, {
+      countrySearch: false,
+      autoPlaceholder: 'off',
+      i18n: {
+        'ru': 'Россия',
+        'by': 'Беларусь',
+        'kz': 'Казахстан',
+        'kg': 'Кыргызстан',
+        'am': 'Армения',
+        'ua': 'Украина',
+      },
+      onlyCountries: [
+        'ru', 'by', 'kz', 'kg', 'am', 'ua',
+      ],
+      countryOrder: [
+        'ru', 'by', 'kz', 'kg', 'am', 'ua',
+      ],
+      initialCountry,
+    });
+
+    setTelMask(input);
+
+    input.addEventListener('countrychange', (e) => {
+      const input = e.target;
+
+      input.setAttribute('value', '');
+      input.value = '';
+
+      setTelMask(input);
+    });
   }
 });
-// }
+

@@ -27,6 +27,32 @@ svg {
   fill: none;
 }
 
+.iti {
+  display: block;
+}
+
+.iti--inline-dropdown .iti__country-list {
+  max-height: 100%;
+}
+
+.iti--allow-dropdown .iti__country-container:not(:has(+ input[disabled])):not(:has(+ input[readonly])) .iti__selected-country-primary:hover,
+.iti--allow-dropdown .iti__country-container:not(:has(+ input[disabled])):not(:has(+ input[readonly])) .iti__selected-country:has(+ .iti__dropdown-content:hover) .iti__selected-country-primary {
+  background-color: transparent;
+}
+
+.iti__selected-country-primary {
+  width: 3.75rem;
+  justify-content: center;
+}
+
+.iti__flag {
+  scale: 1.2;
+}
+
+.iti__arrow {
+  margin-left: .5rem;
+}
+
 :root {
   --color-light: #FFFFFF;
   --color-another-border: #DFE8F1;
