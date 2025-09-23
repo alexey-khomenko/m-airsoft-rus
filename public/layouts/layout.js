@@ -1,4 +1,10 @@
-function initApp() {
+// function initApp()
+
+// if ('complete' === document.readyState) {
+//   initApp();
+// }
+// else {
+window.addEventListener('load', () => {
   const placeholder = '+7(___)___-__-__';
   const mask = '+7(999)999-99-99';
 
@@ -9,11 +15,5 @@ function initApp() {
     selector.placeholder = placeholder;
     im.mask(selector);
   }
-}
-
-if ('complete' === document.readyState) {
-  initApp();
-}
-else {
-  window.addEventListener('load', initApp);
-}
+});
+// }

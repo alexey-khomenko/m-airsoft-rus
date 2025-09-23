@@ -1,19 +1,19 @@
-function initApp() {
-  const placeholder = '+7(___)___-__-__';
-  const mask = '+7(999)999-99-99';
+// function initApp()
 
-  const selectors = document.querySelectorAll('[type=tel]');
-  const im = new Inputmask(mask);
+// if ('complete' === document.readyState) {
+//   initApp();
+// }
+// else {
+  window.addEventListener('load', () => {
+    const placeholder = '+7(___)___-__-__';
+    const mask = '+7(999)999-99-99';
 
-  for (const selector of selectors) {
-    selector.placeholder = placeholder;
-    im.mask(selector);
-  }
-}
+    const selectors = document.querySelectorAll('[type=tel]');
+    const im = new Inputmask(mask);
 
-if ('complete' === document.readyState) {
-  initApp();
-}
-else {
-  window.addEventListener('load', initApp);
-}
+    for (const selector of selectors) {
+      selector.placeholder = placeholder;
+      im.mask(selector);
+    }
+  });
+// }
