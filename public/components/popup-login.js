@@ -84,6 +84,10 @@ document.addEventListener('click', (e) => {
 
   step2.hidden = true;
   step1.hidden = false;
+
+  const input = document.querySelector('[data-form-login-code] [name="code"]');
+
+  input.value = '';
 });
 
 

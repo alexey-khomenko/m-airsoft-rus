@@ -4,7 +4,8 @@ import Popup from './Popup.astro';
 import PopupMenuHeader from './PopupMenuHeader.astro';
 import PopupMenuFooter from './PopupMenuFooter.astro';
 import PopupLogin from './PopupLogin.astro';
-import PopupChangeTel from './PopupChangeTel.astro';
+import PopupProfileTel from './PopupProfileTel.astro';
+import PopupProfileName from './PopupProfileName.astro';
 
 const {page, isUser = true} = Astro.props;
 ---
@@ -24,8 +25,13 @@ const {page, isUser = true} = Astro.props;
     </Popup>}
 
   {isUser && 'profile' === page &&
-    <Popup name="change-tel" title="Изменение номера" bgLight={false}>
-      <PopupChangeTel/>
+    <Popup name="profile-tel" title="Изменение номера" bgLight={false}>
+      <PopupProfileTel/>
+    </Popup>}
+
+  {isUser && 'profile' === page &&
+    <Popup name="profile-name" title="Личные данные" bgLight={false}>
+      <PopupProfileName/>
     </Popup>}
 
   <script src="./components/popups.js" is:inline async></script>

@@ -1,15 +1,15 @@
-.popup-login {
+.popup-profile-name {
   overflow: hidden;
 
   .util-tile:not([hidden]) {
-    min-height: 20rem;
+    margin-bottom: 5rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: stretch;
   }
 
-  .form-login {
+  .form-profile-name {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -43,16 +43,6 @@
       position: relative;
       margin-top: 1.125rem;
 
-      &.phone::before {
-        content: "";
-        position: absolute;
-        left: 3.875rem;
-        top: .625rem;
-        bottom: .625rem;
-        z-index: 1;
-        border-left: 1px solid var(--color-border);
-      }
-
       &.phone .input {
         padding-left: 4.5rem !important;
       }
@@ -65,35 +55,12 @@
     }
 
     .button {
-      margin-top: 2.5rem;
+      margin-top: 1.5rem;
     }
   }
 
   .back {
     margin-top: .5rem;
-  }
-
-  .yandex-id {
-    overflow: hidden;
-    position: relative;
-    margin-top: .5rem;
-
-    .svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  .another-login {
-    margin: 3rem auto;
-    display: block;
-    background-color: transparent;
-    border: none;
-    font-weight: 300;
-    font-size: 1.125rem;
-    line-height: 1.25rem;
-    color: var(--color-dark);
+    margin-bottom: .25rem;
   }
 }
