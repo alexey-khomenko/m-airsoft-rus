@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 1.125rem;
+  gap: 1rem;
 
   .item {
     display: flex;
