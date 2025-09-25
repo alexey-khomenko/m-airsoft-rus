@@ -18,8 +18,19 @@ input[type="number"]:focus {
   -moz-appearance: textfield;
 }
 
-button {
+details summary::-webkit-details-marker {
+  display: none
+}
+
+details > summary {
+  list-style: none;
+}
+
+summary, button {
   cursor: pointer;
+}
+
+button {
   padding: .125rem;
 }
 
@@ -110,6 +121,10 @@ svg {
   background-color: var(--color-bg-dark);
 
   &::after {
+    position: fixed;
+  }
+
+  &:not(.catalog-detail)::after {
     bottom: var(--footer--h);
   }
 
@@ -122,7 +137,6 @@ svg {
 .popup::after,
 .decoration::after {
   content: "";
-  position: absolute;
   left: 0;
   right: 0;
   z-index: 1;
@@ -223,7 +237,7 @@ svg {
 }
 
 .util-tile {
-  padding: .75rem 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: var(--color-light);
   box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
