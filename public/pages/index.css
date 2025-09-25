@@ -1,4 +1,92 @@
-.section {
-  padding-block: 1rem;
+.wrapper {
+  padding-top: .5rem;
+  padding-bottom: 2rem;
   overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.section-banners {
+  order: 1;
+}
+
+.section-products {
+  order: 2;
+}
+
+.section-news {
+  order: 3;
+}
+
+.section-reviews {
+  order: 4;
+}
+
+.section-brands {
+  order: 5;
+}
+
+.section-info {
+  order: 6;
+}
+
+.section-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+
+  .title {
+    margin: 0;
+  }
+
+  .link {
+    flex-shrink: 0;
+    /*font-weight: 700;*/
+    font-size: .875rem;
+    line-height: 1.125rem;
+    /*color: var(--color-text);*/
+    text-decoration: none;
+  }
+}
+
+.section-products {
+
+  .title {
+    margin: 0 0 .5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    color: var(--color-text);
+  }
+
+  .button {
+    text-decoration: none;
+    min-height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    border: 2px solid var(--color-link);
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 1.125rem;
+    text-align: center;
+    color: var(--color-link);
+  }
+}
+
+.section-info {
+  .h1 {
+    margin: 0;
+  }
+
+  p {
+    margin: 1rem 0 0;
+
+  }
 }

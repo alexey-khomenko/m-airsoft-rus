@@ -189,7 +189,7 @@ svg {
   align-items: center;
 
   border-radius: 0.25rem;
-  border: 1px solid var(--color-another-border);
+  border: 2px solid var(--color-another-border);
   background-color: transparent;
 
   font-weight: 400;
