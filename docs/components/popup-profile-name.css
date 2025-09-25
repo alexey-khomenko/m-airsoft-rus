@@ -2,7 +2,7 @@
   overflow: hidden;
 
   .util-tile:not([hidden]) {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -14,48 +14,39 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: stretch;
+    gap: 1rem;
+
+    .button {
+      margin-top: .5rem;
+    }
+  }
+
+  .fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .25rem;
 
     .label {
-      font-weight: 700;
-      font-size: 1.375rem;
-      line-height: 1.625rem;
-      text-align: center;
-      color: var(--color-text);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: var(--color-mute);
     }
 
     .input {
-      min-height: 3.125rem;
+      padding-inline: .75rem;
+      min-height: 2.5rem;
       width: 100%;
-
       border-radius: 1rem;
       border: 1px solid var(--color-border);
-
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 400;
       color: var(--color-text);
 
       &::placeholder {
         color: var(--color-placeholder);
       }
-    }
-
-    .input-wrapper {
-      position: relative;
-      margin-top: 1.125rem;
-
-      &.phone .input {
-        padding-left: 4.5rem !important;
-      }
-
-      &.code .input {
-        padding-left: 1rem;
-        text-align: center;
-        letter-spacing: 1rem;
-      }
-    }
-
-    .button {
-      margin-top: 1.5rem;
     }
   }
 
