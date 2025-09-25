@@ -1,0 +1,45 @@
+.popup-menu-footer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1.125rem;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+
+      .icon {
+        flex-shrink: 0;
+        width: 1.375rem;
+        object-fit: contain;
+        aspect-ratio: 1;
+      }
+
+      .text {
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        color: var(--color-title);
+      }
+    }
+
+    .right {
+      flex-shrink: 0;
+      padding-left: .5rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: var(--color-svg);
+      text-decoration: none;
+    }
+  }
+}
