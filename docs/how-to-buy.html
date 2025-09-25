@@ -5,7 +5,7 @@
   <meta name="description" content="Astro description">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <title>Профиль</title>
+  <title>Как купить</title>
   <link rel="stylesheet" href="./layouts/plugins/modern-normalize.css">
   <link rel="stylesheet" href="./layouts/plugins/intlTelInput/css/intlTelInput.css">
   <link rel="stylesheet" href="./layouts/layout.css">
@@ -42,84 +42,14 @@
   
 </div>
 </header>
-  <main class="main profile">
+  <main class="main how-to-buy">
     <div class="container default">
   
       
-  <link rel="stylesheet" href="./pages/profile.css">
-  <section class="util-header main-header">
-    <h1 class="title">Личный кабинет</h1>
-    <button type="button" class="button" data-button-logout-to="/m-airsoft-rus/index.html">
-      <span>Выход</span>
-    </button>
+  <link rel="stylesheet" href="./pages/how-to-buy.css">
+  <section class="section">
+    how-to-buy
   </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">+7 (963) 040-75-12</span>
-    </div>
-    <button type="button" class="button" data-popup-open="profile-tel">
-      <span>Изменить</span>
-    </button>
-  </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">Иванов Иван Иванович</span>
-      <span class="primary text">airsoftrus@gmail.com</span>
-    </div>
-    <button type="button" class="button" data-popup-open="profile-name">
-      <span>Изменить</span>
-    </button>
-  </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">38 880 руб.</span>
-      <span class="third text">Общая сумма заказов</span>
-    </div>
-    <div class="info">
-      <span class="secondary title">880 руб.</span>
-      <span class="secondary text">Бонусов на счету</span>
-    </div>
-  </section>
-  <section class="util-tile content-orders">
-    <div class="orders-title">История заказов</div>
-    <div class="orders">
-
-      <div class="order">
-        <div class="order-header">
-          <span class="title">Заказ № 457</span>
-          <span class="status">Отмена заказа, отказ от оформления</span>
-        </div>
-        <details class="order-main">
-          <summary class="order-summary">
-            <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </summary>
-          <div class="order-content">
-            &hellip;
-          </div>
-        </details>
-      </div>
-
-      <div class="order">
-        <div class="order-header">
-          <span class="title">Заказ № 458</span>
-          <span class="status">Отмена заказа, отказ от оформления</span>
-        </div>
-        <details class="order-main">
-          <summary class="order-summary">
-            <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </summary>
-          <div class="order-content">
-            &hellip;
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-  <script src="./pages/profile.js" async></script>
 
     
 </div>
@@ -323,110 +253,9 @@
 
   
 
-  <div class="popup bg-dark" data-popup-name="profile-tel" hidden="hidden">
-  <div class="util-header popup-header">
-    <h2 class="title">Изменение номера</h2>
-    <button class="button" type="button" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  </div>
-  <div class="popup-main">
-    <div class="wrapper">
-      
-      <div class="popup-login">
-  <link rel="stylesheet" href="./components/popup-login.css">
-  <div class="util-tile" data-popup-login-step="1">
-    <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
-      <label class="label" for="phone">Новый номер</label>
-      <div class="input-wrapper phone">
-        <input type="tel" name="phone" id="phone" class="input" maxlength="24" value="+79630407512" inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false">
-      </div>
-      <button type="submit" class="primary-button button">
-        <span>Подтвердить через Telegram</span>
-      </button>
-    </form>
-    <button class="secondary-button back" data-popup-login-cancel>
-      <span>Отмена</span>
-    </button>
-  </div>
-  <div class="util-tile" data-popup-login-step="2" hidden="hidden">
-    <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
-      <label class="label" for="code">Введите полученный код</label>
-      <div class="input-wrapper code">
-        <input type="text" name="code" id="code" class="input" maxlength="4" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="0000">
-      </div>
-      <button type="submit" class="primary-button button">
-        <span>Отправить и выполнить вход</span>
-      </button>
-    </form>
-    <button class="secondary-button back" data-popup-login-back>
-      <span>Вернуться назад</span>
-    </button>
-  </div>
-  <button type="button" class="another-login" data-popup-login-another-way>
-    <span>Подтвердить другим способом</span>
-  </button>
-  <script src="./components/popup-login.js" async></script>
-</div>
-    
-    </div>
-  </div>
-</div>
+  
 
-  <div class="popup bg-dark" data-popup-name="profile-name" hidden="hidden">
-  <div class="util-header popup-header">
-    <h2 class="title">Личные данные</h2>
-    <button class="button" type="button" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  </div>
-  <div class="popup-main">
-    <div class="wrapper">
-      
-      <div class="popup-profile-name">
-  <link rel="stylesheet" href="./components/popup-profile-name.css">
-  <div class="util-tile">
-    <form class="form-profile-name" action="/profile-name" novalidate data-form-profile-name>
-      <div class="fieldset">
-        <label class="label" for="last-name">Фамилия</label>
-        <input type="text" name="last-name" id="last-name" class="input" maxlength="256" value="Иванов" autocorrect="off" spellcheck="false" placeholder="Ваш текст">
-      </div>
-      <div class="fieldset">
-        <label class="label" for="first-name">Имя</label>
-        <input type="text" name="first-name" id="first-name" class="input" maxlength="256" value="Иван" autocorrect="off" spellcheck="false" placeholder="Ваш текст">
-      </div>
-      <div class="fieldset">
-        <label class="label" for="middle-name">Отчество</label>
-        <input type="text" name="middle-name" id="middle-name" class="input" maxlength="256" value="Иванович" autocorrect="off" spellcheck="false" placeholder="Ваш текст">
-      </div>
-      <div class="fieldset">
-        <label class="label" for="email">E-Mail</label>
-        <input type="email" name="email" id="email" class="input" maxlength="256" value="airsoftrus@gmail.com" inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false" placeholder="Ваш текст">
-      </div>
-      <button type="submit" class="primary-button button">
-        <span>Сохранить и применить</span>
-      </button>
-    </form>
-    <button class="secondary-button back" data-popup-profile-name-cancel>
-      <span>Отмена</span>
-    </button>
-  </div>
-
-  <div class="util-tile" hidden="hidden">
-
-    <label class="label" for="code">Введите полученный код</label>
-    <div class="input-wrapper code">
-      <input type="text" name="code" id="code" class="input" maxlength="4" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="0000">
-    </div>
-
-  </div>
-
-  <script src="./components/popup-profile-name.js" async></script>
-</div>
-    
-    </div>
-  </div>
-</div>
+  
 
   <script src="./components/popups.js" async></script>
 </aside>
