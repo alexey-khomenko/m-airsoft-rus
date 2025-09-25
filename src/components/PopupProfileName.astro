@@ -1,21 +1,42 @@
 ---
-
+const firstName: 'Иван' = 'Иван';
+const middleName: 'Иванович' = 'Иванович';
+const lastName: 'Иванов' = 'Иванов';
+const email: 'airsoftrus@gmail.com' = 'airsoftrus@gmail.com';
 ---
 
 <div class="popup-profile-name">
   <link rel="stylesheet" href="./components/popup-profile-name.css"/>
   <div class="util-tile">
     <form class="form-profile-name" action="/profile-name" novalidate data-form-profile-name>
-
-
-      <label class="label" for="phone"></label>
-      <div class="input-wrapper phone">
-        <input type="text" name="phone" id="phone" class="input" maxlength="256" value=""
+      <div class="fieldset">
+        <label class="label" for="last-name">Фамилия</label>
+        <input type="text" name="last-name" id="last-name" class="input" maxlength="256" value={lastName}
                autocorrect="off" spellcheck="false"
+               placeholder="Ваш текст"
         />
       </div>
-
-
+      <div class="fieldset">
+        <label class="label" for="first-name">Имя</label>
+        <input type="text" name="first-name" id="first-name" class="input" maxlength="256" value={firstName}
+               autocorrect="off" spellcheck="false"
+               placeholder="Ваш текст"
+        />
+      </div>
+      <div class="fieldset">
+        <label class="label" for="middle-name">Отчество</label>
+        <input type="text" name="middle-name" id="middle-name" class="input" maxlength="256" value={middleName}
+               autocorrect="off" spellcheck="false"
+               placeholder="Ваш текст"
+        />
+      </div>
+      <div class="fieldset">
+        <label class="label" for="email">E-Mail</label>
+        <input type="email" name="email" id="email" class="input" maxlength="256" value={email}
+               inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
+               placeholder="Ваш текст"
+        />
+      </div>
       <button type="submit" class="primary-button button">
         <span>Сохранить и применить</span>
       </button>
@@ -27,12 +48,12 @@
 
   <div class="util-tile" hidden="hidden">
 
-  <label class="label" for="code">Введите полученный код</label>
-      <div class="input-wrapper code">
-        <input type="text" name="code" id="code" class="input" maxlength="4"
-               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-               placeholder="0000"/>
-      </div>
+    <label class="label" for="code">Введите полученный код</label>
+    <div class="input-wrapper code">
+      <input type="text" name="code" id="code" class="input" maxlength="4"
+             inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+             placeholder="0000"/>
+    </div>
 
   </div>
 

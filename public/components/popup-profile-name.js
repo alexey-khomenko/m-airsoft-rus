@@ -1,13 +1,9 @@
-function resetError(input) {
-  input.classList.remove('util-input-error');
-}
-
 document.addEventListener('focusin', (e) => {
-  const input = e.target.closest('[data-form-profile-name] [name="phone"]');
+  const input = e.target.closest('[data-form-profile-name] input');
 
   if (!input) return true;
 
-  resetError(input);
+  input.classList.remove('util-input-error');
 });
 
 document.addEventListener('submit', (e) => {
@@ -18,15 +14,44 @@ document.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const action = form.action;
-  const input = form.querySelector('[name="phone"]');
-  const value = input.value.trim();
 
-  if (0 === value.length) {
-    input.classList.add('util-input-error');
-    return true;
+  let errors = false;
+
+  const inputLastName = form.querySelector('[name="last-name"]');
+  const valueLastName = inputLastName.value.trim();
+
+  if (0 === valueLastName.length) {
+    inputLastName.classList.add('util-input-error');
+    errors = true;
   }
 
-  console.log('submit', action, value);
+  const inputFirstName = form.querySelector('[name="first-name"]');
+  const valueFirstName = inputFirstName.value.trim();
+
+  if (0 === valueFirstName.length) {
+    inputFirstName.classList.add('util-input-error');
+    errors = true;
+  }
+
+  const inputMiddleName = form.querySelector('[name="middle-name"]');
+  const valueMiddleName = inputMiddleName.value.trim();
+
+  if (0 === valueMiddleName.length) {
+    inputMiddleName.classList.add('util-input-error');
+    errors = true;
+  }
+
+  const inputEmail = form.querySelector('[name="email"]');
+  const valueEmail = inputEmail.value.trim();
+
+  if (0 === valueEmail.length || !valueEmail.includes('@')) {
+    inputEmail.classList.add('util-input-error');
+    errors = true;
+  }
+
+  if (errors) return true;
+
+  console.log('submit', action, valueLastName, valueFirstName, valueMiddleName, valueEmail);
 
   window.location.reload();
 });
