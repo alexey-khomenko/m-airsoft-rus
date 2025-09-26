@@ -84,3 +84,10 @@ window.addEventListener('load', () => {
   }
 });
 
+window.removeError = function (input) {
+  input.classList.remove('util-input-error');
+};
+
+window.addError = function (input) {
+  input.classList.add('util-input-error');
+};

@@ -28,8 +28,10 @@
     <img class="img" width="43" height="43" src="./images/header-menu.png" alt="">
   </span>
 </button>
-      <form class="header-search" role="search" action="/m-airsoft-rus/search.html" novalidate data-form-search>
+      <div class="header-search-fake">
   <link rel="stylesheet" href="./components/header-search.css">
+</div>
+<form class="header-search" role="search" action="/m-airsoft-rus/search.html" novalidate data-form-search>
   <input type="search" name="search" id="search" class="input" maxlength="256" placeholder="Поиск по каталогу" aria-label="Поиск по каталогу">
   <button type="submit" class="button" title="Найти">
     <svg width="18" height="18" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +40,28 @@
   </button>
   <script src="./components/header-search.js" async></script>
 </form>
+<div class="header-search-results-wrapper" hidden="hidden">
+  <div class="header-search-results">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+      1
+    </a>
+    <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+      2
+    </a>
+    <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+      3
+    </a>
+    <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+      4
+    </a>
+    <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+      5
+    </a>
+  </div>
+  <button type="button" class="primary-button button" data-submit-form-search>
+    <span>Показать все результаты</span>
+  </button>
+</div>
     </div>
   
 </div>
