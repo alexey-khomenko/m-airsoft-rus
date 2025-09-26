@@ -33,39 +33,72 @@
   order: 6;
 }
 
-.section-header {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: .5rem;
+.section-info {
+  color: var(--color-title);
 
-  .title {
+  h1 {
     margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
   }
 
-  .link {
-    flex-shrink: 0;
-    /*font-weight: 700;*/
-    font-size: .875rem;
-    line-height: 1.125rem;
-    /*color: var(--color-text);*/
+  p {
+    margin: 1rem 0 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+}
+
+.section-banners {
+
+  .primary-banner {
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    display: block;
     text-decoration: none;
+    width: min(100%, var(--banner--w, 100%));
+
+    @container app (width > 430px) {
+      --banner--w: 50%;
+    }
+
+    .img {
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 344/174;
+      width: 100%;
+    }
   }
 }
 
 .section-products {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
 
   .title {
     margin: 0 0 .5rem;
     font-weight: 700;
     font-size: 1.5rem;
-    line-height: 1.75rem;
+    line-height: 1.875rem;
     color: var(--color-text);
   }
 
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
+    gap: .5rem;
+
+    .product {
+      height: 200px;
+    }
+  }
+
   .button {
-    text-decoration: none;
+    margin-top: 1rem;
     min-height: 3.125rem;
     display: flex;
     justify-content: center;
@@ -77,16 +110,54 @@
     font-size: 1.125rem;
     text-align: center;
     color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .banner {
+    margin: 1rem auto 0;
+    display: block;
+    max-width: max-content;
+    width: 100%;
+
+    .img {
+      width: 100%;
+      display: block;
+    }
   }
 }
 
-.section-info {
-  .h1 {
+
+.section-header {
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+
+  .title {
     margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: var(--color-text);
   }
 
-  p {
-    margin: 1rem 0 0;
-
+  .link {
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: var(--color-mute);
+    text-transform: lowercase;
+    text-decoration: none;
   }
+}
+
+.section-news .tiles {
+}
+
+.section-reviews .tiles {
+}
+
+.section-brands .tiles {
 }
