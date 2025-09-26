@@ -1,12 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const items: {
+  title: string,
+  link: string,
+  products: {}[],
+  banner: { title: string, link: string, img: string }
+}[] = [
+  {
+    title: 'Распродажа',
+    link: '/catalog',
+    products: [{}, {}, {}, {}],
+    banner: {
+      title: '',
+      link: '/catalog',
+      img: './content/index-products-banner.png',
+    },
+  },
+  {
+    title: 'Новинки',
+    link: '/catalog',
+    products: [{}, {}, {}, {}],
+    banner: {
+      title: '',
+      link: '/catalog',
+      img: './content/index-products-banner.png',
+    },
+  },
+  {
+    title: 'Хиты продаж',
+    link: '/catalog',
+    products: [{}, {}, {}, {}],
+    banner: {
+      title: '',
+      link: '/catalog',
+      img: './content/index-products-banner.png',
+    },
+  },
+  {
+    title: 'Рекомендуем',
+    link: '/catalog',
+    products: [{}, {}, {}, {}],
+    banner: {
+      title: '',
+      link: '/catalog',
+      img: './content/index-products-banner.png',
+    },
+  },
+];
+const news: [] = [];
+const reviews: [] = [];
+const brands: [] = [];
 ---
 
 <Layout title="Главная" page="index" isUser={false}>
   <link rel="stylesheet" href="./pages/index.css"/>
   <div class="wrapper">
     <section class="util-tile section-info">
-      <h1 class="h1">AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h1>
+      <h1>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h1>
       <p>
         В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
         гранатометы), снаряжения и экипировки для игр. Ассортимент от дешевых приводов для новичков до премиальных
@@ -35,65 +86,63 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section class="section-banners">
-      banners
+      <a href="/catalog" class="primary-banner">
+        <img src="./content/index-banners-primary.png" alt="" class="img"/>
+      </a>
     </section>
 
     <section class="section-products">
-      <div>
-        <h2 class="title">Распродажа</h2>
-
-        <a href="/catalog" class="button">
-          <span>Показать всё</span>
-        </a>
-
-      </div>
-      <div>
-        <h2 class="title">Новинки</h2>
-
-        <a href="/catalog" class="button">
-          <span>Показать всё</span>
-        </a>
-
-      </div>
-      <div>
-        <h2 class="title">Хиты продаж</h2>
-
-        <a href="/catalog" class="button">
-          <span>Показать всё</span>
-        </a>
-
-      </div>
-      <div>
-        <h2 class="title">Рекомендуем</h2>
-
-        <a href="/catalog" class="button">
-          <span>Показать всё</span>
-        </a>
-
-      </div>
+      {items.map((item: {
+        title: string,
+        link: string,
+        products: {}[],
+        banner: { title: string, link: string, img: string }
+      }) => (
+        <div>
+          <h2 class="title">{item.title}</h2>
+          <div class="tiles">
+            {item.products.map((product: {}) => (
+              <div class="util-tile product"></div>
+            ))}
+          </div>
+          <a href={item.link} class="button">
+            <span>Показать всё</span>
+          </a>
+          <a href={item.banner.link} class="banner">
+            <img src={item.banner.img} alt={item.banner.title} class="img"/>
+          </a>
+        </div>
+      ))}
     </section>
 
     <section class="util-tile section-news">
       <div class="section-header">
         <h2 class="title">Актуальные новости</h2>
-        <a href="/news" class="link">смотреть все</a>
+        <a href="/news" class="link">Смотреть все</a>
       </div>
-
+      <div class="tiles">
+        &hellip;
+      </div>
     </section>
 
     <section class="util-tile section-reviews">
       <div class="section-header">
         <h2 class="title">Последние обзоры</h2>
-        <a href="/reviews" class="link">смотреть все</a>
+        <a href="/reviews" class="link">Смотреть все</a>
+      </div>
+      <div class="tiles">
+        &hellip;
       </div>
     </section>
 
     <section class="util-tile section-brands">
       <div class="section-header">
         <h2 class="title">Популярные бренды</h2>
-        <a href="/brands" class="link">смотреть все</a>
+        <a href="/brands" class="link">Смотреть все</a>
       </div>
-
+      <div class="tiles">
+        &hellip;
+      </div>
     </section>
   </div>
 </Layout>
