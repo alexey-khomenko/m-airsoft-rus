@@ -9,8 +9,8 @@
   color: var(--color-light);
 
   .header-wrapper {
+    position: relative;
     height: var(--header--h);
-
     display: flex;
     justify-content: center;
     align-items: center;

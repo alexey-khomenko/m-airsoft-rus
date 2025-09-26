@@ -21,7 +21,7 @@ document.addEventListener('submit', (e) => {
   const valueLastName = inputLastName.value.trim();
 
   if (0 === valueLastName.length) {
-    inputLastName.classList.add('util-input-error');
+    window.addError(inputLastName);
     errors = true;
   }
 
@@ -29,7 +29,7 @@ document.addEventListener('submit', (e) => {
   const valueFirstName = inputFirstName.value.trim();
 
   if (0 === valueFirstName.length) {
-    inputFirstName.classList.add('util-input-error');
+    window.addError(inputFirstName);
     errors = true;
   }
 
@@ -37,7 +37,7 @@ document.addEventListener('submit', (e) => {
   const valueMiddleName = inputMiddleName.value.trim();
 
   if (0 === valueMiddleName.length) {
-    inputMiddleName.classList.add('util-input-error');
+    window.addError(inputMiddleName);
     errors = true;
   }
 
@@ -45,7 +45,7 @@ document.addEventListener('submit', (e) => {
   const valueEmail = inputEmail.value.trim();
 
   if (0 === valueEmail.length || !valueEmail.includes('@')) {
-    inputEmail.classList.add('util-input-error');
+    window.addError(inputEmail);
     errors = true;
   }
 

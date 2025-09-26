@@ -1,14 +1,9 @@
-function resetError(input) {
-  input.classList.remove('util-input-error');
-}
-
-
 document.addEventListener('focusin', (e) => {
   const input = e.target.closest('[data-form-login-phone] [name="phone"]');
 
   if (!input) return true;
 
-  resetError(input);
+  window.removeError(input);
 });
 
 document.addEventListener('submit', (e) => {
@@ -23,7 +18,7 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (0 === value.length || value.includes('_')) {
-    input.classList.add('util-input-error');
+    window.addError(input);
     return true;
   }
 
@@ -65,7 +60,7 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (+input.maxLength !== value.length) {
-    input.classList.add('util-input-error');
+    window.addError(input);
     return true;
   }
 

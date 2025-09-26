@@ -1,28 +1,46 @@
-.header-search {
+.header-search-fake {
   flex-grow: 1;
+  position: relative;
   height: 2.625rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: .25rem;
-
   border-radius: 1rem;
   border: 1px solid var(--color-border);
-
   background-color: var(--color-light);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: .375rem;
+    bottom: .375rem;
+    right: 2.875rem;
+    z-index: 1;
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.header-search {
+  position: absolute;
+  top: .5rem;
+  bottom: .5rem;
+  right: 0;
+  left: 3.875rem;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: .25rem;
+  border: 1px solid transparent;
+
+  &.open {
+    top: .875rem;
+    left: 0;
+    right: .375rem;
+  }
 
   .input {
     flex-grow: 1;
-    align-self: stretch;
+    padding: 0 0 0 1.25rem;
     width: 100%;
-    margin-left: 1.25rem;
-    padding: 0;
-
-    display: block;
-
     border: none;
-
     font-weight: 700;
     background-color: transparent;
     color: var(--color-text);
@@ -34,22 +52,46 @@
 
   .button {
     flex-shrink: 0;
-    width: 2.75rem;
-    height: 1.875rem;
-    margin-right: .125rem;
-
+    width: 2.875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: none;
-    border-left: 1px solid var(--color-border);
-
     background-color: transparent;
+  }
+}
 
-    .img {
-      width: 18px;
-      height: 18px;
-    }
+.header-search-results-wrapper {
+  position: absolute;
+  top: .5rem;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  padding: .125rem 1rem 1rem;
+
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-light);
+
+  .button {
+    width: 100%;
+  }
+}
+
+.header-search-results {
+  margin-top: 3rem;
+  padding-top: .875rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1.75rem;
+  border-top: 1px solid var(--color-border);
+
+  .result {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }

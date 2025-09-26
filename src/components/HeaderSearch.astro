@@ -1,9 +1,10 @@
 ---
 
 ---
-
-<form class="header-search" role="search" action="/search" novalidate data-form-search>
+<div class="header-search-fake">
   <link rel="stylesheet" href="./components/header-search.css"/>
+</div>
+<form class="header-search" role="search" action="/search" novalidate data-form-search>
   <input type="search" name="search" id="search" class="input" maxlength="256"
          placeholder="Поиск по каталогу" aria-label="Поиск по каталогу"/>
   <button type="submit" class="button" title="Найти">
@@ -14,3 +15,25 @@
   </button>
   <script src="./components/header-search.js" is:inline async></script>
 </form>
+<div class="header-search-results-wrapper" hidden="hidden">
+  <div class="header-search-results">
+    <a href="/catalog-detail" class="result">
+      1
+    </a>
+    <a href="/catalog-detail" class="result">
+      2
+    </a>
+    <a href="/catalog-detail" class="result">
+      3
+    </a>
+    <a href="/catalog-detail" class="result">
+      4
+    </a>
+    <a href="/catalog-detail" class="result">
+      5
+    </a>
+  </div>
+  <button type="button" class="primary-button button" data-submit-form-search>
+    <span>Показать все результаты</span>
+  </button>
+</div>
