@@ -1,4 +1,5 @@
 const search = {
+  backdrop: document.querySelector('[data-popup-backdrop]'),
   fake: document.querySelector('.header-search-fake'),
   wrapper: document.querySelector('.header-search-results-wrapper'),
   results: document.querySelector('.header-search-results'),
@@ -11,6 +12,7 @@ function showHeaderSearchResults() {
   window.removeError(search.wrapper);
   window.removeError(search.results);
 
+  search.backdrop.hidden = false;
   search.wrapper.hidden = false;
   search.form.classList.add('open');
 }
@@ -20,6 +22,7 @@ function hideHeaderSearchResults() {
   window.removeError(search.wrapper);
   window.removeError(search.results);
 
+  search.backdrop.hidden = true;
   search.wrapper.hidden = true;
   search.form.classList.remove('open');
 }
@@ -50,7 +53,7 @@ document.addEventListener('submit', (e) => {
     return true;
   }
 
-  console.log('submit', action, value);
+  window.location.assign(`${action}?q=${value}`);
 });
 
 document.addEventListener('click', (e) => {
