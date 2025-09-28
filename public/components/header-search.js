@@ -8,6 +8,8 @@ const search = {
 };
 
 function showHeaderSearchResults() {
+  window.closePopup();
+
   window.removeError(search.fake);
   window.removeError(search.wrapper);
   window.removeError(search.results);
@@ -70,5 +72,5 @@ document.addEventListener('click', (e) => {
 
   if (form || results) return true;
 
-  hideHeaderSearchResults();
+  if (search.form.classList.contains('open')) hideHeaderSearchResults();
 });
