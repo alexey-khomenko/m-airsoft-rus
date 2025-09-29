@@ -89,11 +89,97 @@
 
   .tiles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
     gap: .5rem;
+    /*grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));*/
+    grid-template-columns: var(--products-tiles--gtc, 1fr 1fr);
+
+    @container app (min-width: 536px) {
+      --products-tiles--gtc: 1fr 1fr 1fr;
+    }
+
+    @container app (min-width: 712px) {
+      --products-tiles--gtc: 1fr 1fr 1fr 1fr;
+    }
 
     .product {
-      height: 200px;
+      grid-row: auto / span 5;
+      display: grid;
+      gap: 0;
+      grid-template-rows: subgrid;
+
+      .cover {
+        padding-bottom: .5rem;
+        text-decoration: none;
+
+        .img {
+          width: 100%;
+          height: 5.25rem;
+          display: block;
+          object-fit: contain;
+        }
+      }
+
+      .name {
+        padding-bottom: .125rem;
+        font-weight: 700;
+        font-size: .875rem;
+        line-height: 1.125rem;
+        color: var(--color-title);
+        text-decoration: none;
+      }
+
+      .rating {
+
+      }
+
+      .prices {
+        padding-top: .75rem;
+        padding-bottom: .25rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: .5rem;
+      }
+
+      .price-old {
+
+      }
+
+      .discount {
+
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: .375rem;
+      }
+
+      .price {
+        font-weight: 700;
+        font-size: 1.375rem;
+        line-height: 1.625rem;
+        color: var(--color-title);
+      }
+
+      .currency {
+        font-weight: 700;
+        font-size: .875rem;
+        line-height: 1.125rem;
+        color: var(--color-title);
+      }
+
+      .cart {
+        flex-shrink: 0;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        color: var(--color-link);
+      }
     }
   }
 
