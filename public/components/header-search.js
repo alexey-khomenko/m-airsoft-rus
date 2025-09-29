@@ -5,8 +5,8 @@ const search = {
   wrapper: document.querySelector('.header-search-results-wrapper'),
   results: document.querySelector('.header-search-results'),
   form: document.querySelector('[data-form-search]'),
-  submit: document.querySelector('[data-form-search] [type="submit"]'),
   limit: 3,
+  debounceTimer: null,
 };
 
 function showHeaderSearchPopup() {
@@ -67,7 +67,7 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
-  search.submit.click();
+  search.form.querySelector('[type="submit"]').click();
 });
 
 document.addEventListener('click', (e) => {
@@ -79,9 +79,6 @@ document.addEventListener('click', (e) => {
   hideHeaderSearchPopup();
 });
 
-
-let debounceTimer;
-
 document.addEventListener('input', (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
 
@@ -89,17 +86,17 @@ document.addEventListener('input', (e) => {
 
   search.results.hidden = true;
 
-  clearTimeout(debounceTimer);
+  clearTimeout(search.debounceTimer);
 
   const value = input.value.trim();
 
-  if (search.limit <= value.length) {
-    debounceTimer = setTimeout(() => {
+  if (search.limit > value.length) return;
 
-      console.log('request', value);
+  search.debounceTimer = setTimeout(() => {
 
-      search.results.hidden = false;
+    console.log('request', value);
 
-    }, 500);
-  }
+    search.results.hidden = false;
+
+  }, 700);
 });

@@ -1,46 +1,43 @@
 ---
-const results: { link: string; img: string, title: string, oldPrice: string, price: string }[] = [
+const results: { link: string; img: string, title: string, oldPrice: number, price: number }[] = [
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
     title: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: '26 390 р.',
-    price: '26 390 р.',
+    oldPrice: 26390,
+    price: 26390,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
     title: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: '26 390 р.',
-    price: '16 990 р.',
+    oldPrice: 26390,
+    price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
     title: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: '26 390 р.',
-    price: '16 990 р.',
+    oldPrice: 26390,
+    price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
     title: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: '26 390 р.',
-    price: '16 990 р.',
+    oldPrice: 26390,
+    price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
     title: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: '26 390 р.',
-    price: '16 990 р.',
+    oldPrice: 26390,
+    price: 16990,
   },
 ];
 ---
 
-<div class="header-search-fake">
-  <link rel="stylesheet" href="./components/header-search.css"/>
-</div>
 <form class="header-search" role="search" action="/search" novalidate data-form-search>
   <input type="search" name="search" id="search" class="input" maxlength="256"
          placeholder="Поиск по каталогу" aria-label="Поиск по каталогу"/>
@@ -50,12 +47,11 @@ const results: { link: string; img: string, title: string, oldPrice: string, pri
             d="M13.0215 13.0801L19.0215 19.0801M8.02148 15.0801C4.15549 15.0801 1.02148 11.9461 1.02148 8.08008C1.02148 4.21409 4.15549 1.08008 8.02148 1.08008C11.8875 1.08008 15.0215 4.21409 15.0215 8.08008C15.0215 11.9461 11.8875 15.0801 8.02148 15.0801Z"/>
     </svg>
   </button>
-  <script src="./components/header-search.js" is:inline async></script>
 </form>
 <div class="header-search-popup" hidden="hidden">
   <div class="header-search-results-wrapper">
     <div class="header-search-results" hidden="hidden">
-      {results.map((result: { link: string; img: string, title: string, oldPrice: string, price: string }) => (
+      {results.map((result: { link: string; img: string, title: string, oldPrice: number, price: number }) => (
         <a href={result.link} class="result">
           <img src={result.img} alt={result.title} class="img"/>
           <div>
@@ -65,10 +61,10 @@ const results: { link: string; img: string, title: string, oldPrice: string, pri
             <div>
               <span class="text">Цена</span>
               {result.oldPrice === result.price ? (
-                <span class="price">{result.price}</span>
+                <span class="price">{result.price.toLocaleString('ru-RU')} р.</span>
               ) : (
-                <span class="price-old">{result.oldPrice}</span>
-                <span class="price-new">{result.price}</span>
+                <span class="price-old">{result.oldPrice.toLocaleString('ru-RU')} р.</span>
+                <span class="price-new">{result.price.toLocaleString('ru-RU')} р.</span>
               )}
             </div>
           </div>
@@ -79,4 +75,8 @@ const results: { link: string; img: string, title: string, oldPrice: string, pri
   <button type="button" class="primary-button button" data-submit-form-search>
     <span>Показать все результаты</span>
   </button>
+</div>
+<div class="header-search-fake">
+  <link rel="stylesheet" href="./components/header-search.css"/>
+  <script src="./components/header-search.js" is:inline async></script>
 </div>
