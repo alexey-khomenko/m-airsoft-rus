@@ -1,31 +1,35 @@
 const search = {
   backdrop: document.querySelector('[data-popup-backdrop]'),
   fake: document.querySelector('.header-search-fake'),
+  popup: document.querySelector('.header-search-popup'),
   wrapper: document.querySelector('.header-search-results-wrapper'),
   results: document.querySelector('.header-search-results'),
   form: document.querySelector('[data-form-search]'),
   submit: document.querySelector('[data-form-search] [type="submit"]'),
+  limit: 3,
 };
 
-function showHeaderSearchResults() {
+function showHeaderSearchPopup() {
   window.closePopup();
 
   window.removeError(search.fake);
+  window.removeError(search.popup);
   window.removeError(search.wrapper);
-  window.removeError(search.results);
 
   search.backdrop.hidden = false;
-  search.wrapper.hidden = false;
+  search.popup.hidden = false;
   search.form.classList.add('open');
 }
 
-function hideHeaderSearchResults() {
+function hideHeaderSearchPopup() {
+  if (!search.form.classList.contains('open')) return;
+
   window.removeError(search.fake);
+  window.removeError(search.popup);
   window.removeError(search.wrapper);
-  window.removeError(search.results);
 
   search.backdrop.hidden = true;
-  search.wrapper.hidden = true;
+  search.popup.hidden = true;
   search.form.classList.remove('open');
 }
 
@@ -34,7 +38,7 @@ document.addEventListener('focusin', (e) => {
 
   if (!input) return true;
 
-  showHeaderSearchResults();
+  showHeaderSearchPopup();
 });
 
 document.addEventListener('submit', (e) => {
@@ -48,10 +52,10 @@ document.addEventListener('submit', (e) => {
   const input = form.querySelector('[name="search"]');
   const value = input.value.trim();
 
-  if (3 > value.length) {
+  if (search.limit > value.length) {
     window.addError(search.fake);
+    window.addError(search.popup);
     window.addError(search.wrapper);
-    window.addError(search.results);
     return true;
   }
 
@@ -68,9 +72,34 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('click', (e) => {
   const form = e.target.closest('[data-form-search]');
-  const results = e.target.closest('.header-search-results-wrapper');
+  const popup = e.target.closest('.header-search-popup');
 
-  if (form || results) return true;
+  if (form || popup) return true;
 
-  if (search.form.classList.contains('open')) hideHeaderSearchResults();
+  hideHeaderSearchPopup();
+});
+
+
+let debounceTimer;
+
+document.addEventListener('input', (e) => {
+  const input = e.target.closest('[data-form-search] [name="search"]');
+
+  if (!input) return true;
+
+  search.results.hidden = true;
+
+  clearTimeout(debounceTimer);
+
+  const value = input.value.trim();
+
+  if (search.limit <= value.length) {
+    debounceTimer = setTimeout(() => {
+
+      console.log('request', value);
+
+      search.results.hidden = false;
+
+    }, 500);
+  }
 });
