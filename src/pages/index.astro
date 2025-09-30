@@ -1,7 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const items: {
+const largeBanners: { title: string, link: string, img: string }[] = [
+  {title: '1', link: '/catalog', img: './content/index-banners-primary.png'},
+  {title: '2', link: '/catalog', img: './content/index-banners-primary.png'},
+];
+const smallBanners: { title: string, link: string, img: string }[] = [];
+const productItems: {
   title: string,
   link: string,
   products: {
@@ -201,9 +206,23 @@ const items: {
     },
   },
 ];
-const news: [] = [];
-const reviews: [] = [];
-const brands: [] = [];
+const news: { title: string, link: string, date: string }[] = [
+  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
+  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
+  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
+];
+const reviews: {}[] = [];
+const brands: { title: string, link: string, img: string, width: number, height: number }[] = [
+  {title: '1', link: '/catalog', img: './content/brand-1.png', width: 40, height: 40},
+  {title: '2', link: '/catalog', img: './content/brand-2.png', width: 30, height: 30},
+  {title: '3', link: '/catalog', img: './content/brand-3.png', width: 50, height: 50},
+  {title: '4', link: '/catalog', img: './content/brand-4.png', width: 40, height: 40},
+  {title: '5', link: '/catalog', img: './content/brand-5.png', width: 30, height: 30},
+  {title: '6', link: '/catalog', img: './content/brand-6.png', width: 30, height: 30},
+  {title: '7', link: '/catalog', img: './content/brand-7.png', width: 35, height: 35},
+  {title: '8', link: '/catalog', img: './content/brand-8.png', width: 30, height: 30},
+  {title: '9', link: '/catalog', img: './content/brand-9.png', width: 30, height: 34},
+];
 ---
 
 <Layout title="Главная" page="index" isUser={false}>
@@ -239,13 +258,20 @@ const brands: [] = [];
     </section>
 
     <section class="section-banners">
-      <a href="/catalog" class="primary-banner">
-        <img src="./content/index-banners-primary.png" alt="" class="img"/>
-      </a>
+      <div class="large-banners">
+        {largeBanners.map((item: { title: string, link: string, img: string }) => (
+          <a href={item.link} class="large-banner">
+            <img src={item.img} alt={item.title} class="img"/>
+          </a>
+        ))}
+      </div>
+      <div class="small-banners">
+
+      </div>
     </section>
 
     <section class="section-products">
-      {items.map((item: {
+      {productItems.map((item: {
         title: string,
         link: string,
         products: {
@@ -311,7 +337,7 @@ const brands: [] = [];
             <span>Показать всё</span>
           </a>
           <a href={item.banner.link} class="banner">
-            <img src={item.banner.img} alt={item.banner.title} class="img"/>
+            <img src={item.banner.img} alt={item.banner.title}/>
           </a>
         </div>
       ))}
@@ -322,8 +348,13 @@ const brands: [] = [];
         <h2 class="title">Актуальные новости</h2>
         <a href="/news" class="link">Смотреть все</a>
       </div>
-      <div class="tiles">
-        &hellip;
+      <div class="items">
+        {news.map((item: { title: string, link: string, date: string }) => (
+          <a href={item.link} class="item">
+            <span class="date">{item.date}</span>
+            <span class="name">{item.title}</span>
+          </a>
+        ))}
       </div>
     </section>
 
@@ -332,7 +363,7 @@ const brands: [] = [];
         <h2 class="title">Последние обзоры</h2>
         <a href="/reviews" class="link">Смотреть все</a>
       </div>
-      <div class="tiles">
+      <div class="items">
         &hellip;
       </div>
     </section>
@@ -342,8 +373,12 @@ const brands: [] = [];
         <h2 class="title">Популярные бренды</h2>
         <a href="/brands" class="link">Смотреть все</a>
       </div>
-      <div class="tiles">
-        &hellip;
+      <div class="items">
+        {brands.map((item: { title: string, link: string, img: string, width: number, height: number }) => (
+          <a href={item.link} class="item">
+            <img src={item.img} alt={item.title} width={item.width} height={item.height}/>
+          </a>
+        ))}
       </div>
     </section>
   </div>
