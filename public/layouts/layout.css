@@ -71,12 +71,14 @@ svg {
   --color-mute: #8F8F8F;
   --color-placeholder: #757575;
   --color-svg: #626262;
+  --color-old: #4D4F53;
   --color-title: #373635;
   --color-text: #27282B;
   --color-dark: #151515;
 
   --color-link: #009AE3;
   --color-accent: #E81331;
+  --color-star: #FFD700;
 
   --color-bg-light: #FFFFFF;
   --color-bg-dark: #F1F4F6;
