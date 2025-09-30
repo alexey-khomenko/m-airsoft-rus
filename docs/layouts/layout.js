@@ -91,3 +91,13 @@ window.removeError = function (input) {
 window.addError = function (input) {
   input.classList.add('util-input-error');
 };
+
+document.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-catalog-cart-add]');
+
+  if (!button) return true;
+
+  const productId = button.dataset.catalogCartAdd;
+
+  console.log('catalogCartAdd', productId);
+});

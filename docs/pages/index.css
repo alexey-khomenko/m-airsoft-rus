@@ -108,7 +108,7 @@
       grid-template-rows: subgrid;
 
       .cover {
-        padding-bottom: .5rem;
+        margin-bottom: .5rem;
         text-decoration: none;
 
         .img {
@@ -120,7 +120,7 @@
       }
 
       .name {
-        padding-bottom: .125rem;
+        margin-bottom: .25rem;
         font-weight: 700;
         font-size: .875rem;
         line-height: 1.125rem;
@@ -129,12 +129,52 @@
       }
 
       .rating {
+        --val: 2.5;
+        --size: 1rem;
+        --mask: conic-gradient(from -18deg at 61% 34.5%, #0000 108deg, #000000 0) 0 / var(--size),
+        conic-gradient(from 270deg at 39% 34.5%, #0000 108deg, #000000 0) 0 / var(--size),
+        conic-gradient(from 54deg at 68% 56%, #0000 108deg, #000000 0) 0 / var(--size),
+        conic-gradient(from 198deg at 32% 56%, #0000 108deg, #000000 0) 0 / var(--size),
+        conic-gradient(from 126deg at 50% 69%, #0000 108deg, #000000 0) 0 / var(--size);
+        --bg: linear-gradient(90deg, var(--color-star) calc(var(--size) * var(--val)), var(--color-border) 0);
+        height: var(--size);
+        width: calc(var(--size) * 5);
+        border: 0; /* Firefox adds a default border to ranges */
+        -webkit-appearance: none;
+        appearance: none;
 
+        /* Chrome and Safari */
+
+        &::-webkit-slider-runnable-track {
+          height: 100%;
+          mask: var(--mask);
+          mask-composite: intersect;
+          background: var(--bg);
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        &::-webkit-slider-thumb {
+          opacity: 0;
+        }
+
+        /* Firefox */
+
+        &::-moz-range-track {
+          height: 100%;
+          mask: var(--mask);
+          mask-composite: intersect;
+          background: var(--bg);
+          print-color-adjust: exact;
+        }
+
+        &::-moz-range-thumb {
+          opacity: 0;
+        }
       }
 
       .prices {
-        padding-top: .75rem;
-        padding-bottom: .25rem;
+        margin-top: .75rem;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -142,14 +182,28 @@
       }
 
       .price-old {
-
+        font-weight: 400;
+        font-size: .75rem;
+        line-height: 1rem;
+        color: var(--color-old);
+        text-decoration-line: line-through;
+        text-decoration-thickness: 1px;
+        text-decoration-style: solid;
+        text-decoration-color: var(--color-accent);
       }
 
       .discount {
-
+        padding-inline: .5rem;
+        border-radius: 99999px;
+        font-weight: 500;
+        font-size: .625rem;
+        line-height: 1rem;
+        color: var(--color-light);
+        background-color: var(--color-accent);
       }
 
       .bottom {
+        margin-top: .25rem;
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
