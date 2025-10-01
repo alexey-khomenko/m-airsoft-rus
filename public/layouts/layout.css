@@ -42,6 +42,10 @@ svg {
   display: block;
 }
 
+.swiper-notification {
+  display: none;
+}
+
 .iti--inline-dropdown .iti__country-list {
   max-height: 100%;
 }
