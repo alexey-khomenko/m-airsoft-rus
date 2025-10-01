@@ -50,33 +50,37 @@
 }
 
 .section-banners {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
 
-  .large-banners {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: .5rem;
-  }
-
-  .large-banner {
-    margin-inline: auto;
+  .banner {
     overflow: hidden;
     border-radius: 1rem;
     display: block;
     text-decoration: none;
-    /*width: min(100%, var(--banner--w, 100%));*/
-
-    /*@container app (width > 430px) {*/
-    /*  --banner--w: 50%;*/
-    /*}*/
 
     .img {
+      margin-inline: auto;
       display: block;
       object-fit: cover;
-      aspect-ratio: 344/174;
-      max-width: 100%;
     }
+  }
+
+  .large-banner,
+  .large-banner .img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 344/174;
+  }
+
+  .small-banner,
+  .small-banner .img {
+    width: auto;
+    height: 7.5rem;
+    aspect-ratio: 76/120;
   }
 }
 
@@ -96,24 +100,21 @@
   }
 
   .tiles {
-    display: grid;
-    gap: .5rem;
-    /*grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));*/
-    grid-template-columns: var(--products-tiles--gtc, 1fr 1fr);
+    position: relative;
+    height: 500px; /* TODO */
 
-    @container app (min-width: 536px) {
-      --products-tiles--gtc: 1fr 1fr 1fr;
+    @container app (min-width: 360px) {
+      height: 700px;
     }
 
-    @container app (min-width: 712px) {
-      --products-tiles--gtc: 1fr 1fr 1fr 1fr;
-    }
+    /*!*grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));*!*/
+    /*@container app (min-width: 536px) { 3 */
+    /*@container app (min-width: 712px) { 4 */
 
     .product {
-      grid-row: auto / span 5;
       display: grid;
       gap: 0;
-      grid-template-rows: subgrid;
+      grid-template-rows: 5.25rem 4rem 1fr 2rem 2rem;
 
       .cover {
         margin-bottom: .5rem;
@@ -277,7 +278,6 @@
 
 .section-header {
   flex-shrink: 0;
-  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,6 +302,7 @@
 }
 
 .section-news .items {
+  margin-top: 1.25rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -337,9 +338,37 @@
 }
 
 .section-reviews .items {
+  margin-top: 1.25rem;
+  margin-bottom: .25rem;
+
+  .item {
+    width: 7rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .75rem;
+    text-decoration: none;
+  }
+
+  .img {
+    margin-inline: auto;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 112/70;
+  }
+
+  .name {
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: var(--color-text);
+  }
 }
 
 .section-brands .items {
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
