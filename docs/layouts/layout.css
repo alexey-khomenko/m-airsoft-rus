@@ -38,6 +38,10 @@ svg {
   fill: none;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 .iti {
   display: block;
 }

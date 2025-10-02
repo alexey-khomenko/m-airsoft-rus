@@ -76,11 +76,22 @@
     aspect-ratio: 344/174;
   }
 
+  .large-banner {
+    @container app (width > 430px) {
+      margin-right: .5rem;
+      width: calc(100% / 2 - .25rem);
+    }
+  }
+
   .small-banner,
   .small-banner .img {
     width: auto;
     height: 7.5rem;
     aspect-ratio: 76/120;
+  }
+
+  .small-banner {
+    margin-right: 8px;
   }
 }
 
@@ -92,7 +103,7 @@
   gap: 1rem;
 
   .title {
-    margin: 0 0 .5rem;
+    margin: 0 11rem .5rem 0;
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.875rem;
@@ -101,23 +112,27 @@
 
   .tiles {
     position: relative;
-    height: 500px; /* TODO */
-
-    @container app (min-width: 360px) {
-      height: 700px;
-    }
-
-    /*!*grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));*!*/
-    /*@container app (min-width: 536px) { 3 */
-    /*@container app (min-width: 712px) { 4 */
+    height: 30.5rem;
 
     .product {
+      padding: .5rem;
+      margin-right: .5rem;
+      width: var(--product--w, calc(100% / 2 - .25rem));
+      height: 15rem;
       display: grid;
       gap: 0;
-      grid-template-rows: 5.25rem 4rem 1fr 2rem 2rem;
+      grid-template-rows: 9.375rem 1rem 2rem 1.625rem;
 
-      .cover {
-        margin-bottom: .5rem;
+      @container app (min-width: 536px) {
+        --product--w: calc(100% / 3 - .3275rem);
+      }
+
+      @container app (min-width: 712px) {
+        --product--w: calc(100% / 4 - .375rem);
+      }
+
+      .link {
+        display: block;
         text-decoration: none;
 
         .img {
@@ -126,15 +141,20 @@
           display: block;
           object-fit: contain;
         }
-      }
 
-      .name {
-        margin-bottom: .25rem;
-        font-weight: 700;
-        font-size: .875rem;
-        line-height: 1.125rem;
-        color: var(--color-title);
-        text-decoration: none;
+        .name {
+          padding-top: .5rem;
+          padding-bottom: .25rem;
+          font-weight: 700;
+          font-size: .875rem;
+          line-height: 1.125rem;
+          color: var(--color-title);
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+        }
       }
 
       .rating {
@@ -182,66 +202,96 @@
         }
       }
 
-      .prices {
-        margin-top: .75rem;
+      .old {
+        padding-top: .75rem;
+        padding-bottom: .25rem;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         gap: .5rem;
-      }
 
-      .price-old {
-        font-weight: 400;
-        font-size: .75rem;
-        line-height: 1rem;
-        color: var(--color-old);
-        text-decoration-line: line-through;
-        text-decoration-thickness: 1px;
-        text-decoration-style: solid;
-        text-decoration-color: var(--color-accent);
-      }
+        .price {
+          font-weight: 400;
+          font-size: .75rem;
+          line-height: 1rem;
+          color: var(--color-old);
+          text-decoration-line: line-through;
+          text-decoration-thickness: 1px;
+          text-decoration-style: solid;
+          text-decoration-color: var(--color-accent);
+        }
 
-      .discount {
-        padding-inline: .5rem;
-        border-radius: 99999px;
-        font-weight: 500;
-        font-size: .625rem;
-        line-height: 1rem;
-        color: var(--color-light);
-        background-color: var(--color-accent);
+        .discount {
+          padding-inline: .5rem;
+          border-radius: 99999px;
+          font-weight: 500;
+          font-size: .625rem;
+          line-height: 1rem;
+          color: var(--color-light);
+          background-color: var(--color-accent);
+        }
       }
 
       .bottom {
-        margin-top: .25rem;
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
         gap: .375rem;
-      }
 
-      .price {
-        font-weight: 700;
-        font-size: 1.375rem;
-        line-height: 1.625rem;
-        color: var(--color-title);
-      }
+        .price {
+          font-weight: 700;
+          font-size: 1.375rem;
+          line-height: 1.625rem;
+          color: var(--color-title);
+        }
 
-      .currency {
-        font-weight: 700;
-        font-size: .875rem;
-        line-height: 1.125rem;
-        color: var(--color-title);
-      }
+        .currency {
+          font-weight: 700;
+          font-size: .875rem;
+          line-height: 1.125rem;
+          color: var(--color-title);
+        }
 
-      .cart {
-        flex-shrink: 0;
-        margin-left: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        background-color: transparent;
-        color: var(--color-link);
+        .cart {
+          flex-shrink: 0;
+          margin-left: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          background-color: transparent;
+          color: var(--color-link);
+
+          .svg {
+            width: 1.375rem;
+            height: 1.375rem;
+          }
+        }
+      }
+    }
+
+    .swiper-wrapper {
+      width: 100%;
+    }
+
+    .swiper-pagination {
+      left: auto;
+      right: 0;
+      bottom: 100%;
+      transform: translateY(-.5rem);
+      width: auto;
+      height: 1.875rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      .swiper-pagination-bullet {
+        margin: 0;
+        width: .75rem;
+        height: .75rem;
+        background-color: var(--color-link);
+        box-shadow: 0 0 .125rem 0 rgba(0, 0, 0, .2) inset;
       }
     }
   }
@@ -338,8 +388,33 @@
 }
 
 .section-reviews .items {
+  position: relative;
   margin-top: 1.25rem;
   margin-bottom: .25rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 1.25rem;
+    display: block;
+    pointer-events: none;
+  }
+
+  &::before {
+    right: 100%;
+    transform: translateX(.25rem);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &::after {
+    left: 100%;
+    transform: translateX(-.25rem);
+    background-image: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
 
   .item {
     width: 7rem;
