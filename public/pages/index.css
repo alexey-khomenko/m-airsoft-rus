@@ -96,12 +96,6 @@
 }
 
 .section-products {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 1rem;
-
   .title {
     margin: 0 11rem .5rem 0;
     font-weight: 700;
@@ -320,12 +314,12 @@
     width: 100%;
 
     .img {
-      width: 100%;
+      height: auto;
+      max-width: 100%;
       display: block;
     }
   }
 }
-
 
 .section-header {
   flex-shrink: 0;
