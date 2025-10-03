@@ -1,7 +1,7 @@
 .popup-profile-name {
   overflow: hidden;
 
-  .util-tile:not([hidden]) {
+  .step:not([hidden]) {
     margin-bottom: 3rem;
     display: flex;
     flex-flow: column nowrap;

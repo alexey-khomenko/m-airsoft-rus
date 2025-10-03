@@ -1,0 +1,6 @@
+.util-tile {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-light);
+  box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
+}

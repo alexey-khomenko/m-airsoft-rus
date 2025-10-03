@@ -45,7 +45,7 @@ document.addEventListener('focusin', (e) => {
 
   if (!input) return true;
 
-  input.classList.remove('util-input-error');
+  window.removeError(input);
 });
 
 document.addEventListener('submit', (e) => {

@@ -40,13 +40,6 @@ window.addEventListener('load', () => {
     spaceBetween: 8,
   });
 
-  new Swiper('.section-reviews .items', {
-    direction: 'horizontal',
-    loop: false,
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-  });
-
   const productGroups = document.querySelectorAll('.section-products .tiles');
 
   for (const productGroup of productGroups) {
@@ -87,4 +80,11 @@ window.addEventListener('load', () => {
       },
     });
   }
+
+  new Swiper('.section-reviews .items', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+  });
 });
