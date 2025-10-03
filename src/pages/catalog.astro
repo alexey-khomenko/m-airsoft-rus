@@ -1,10 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import UtilTile from '../components/UtilTile.astro';
+import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
+import SectionFilters from '../components/SectionFilters.astro';
+import SectionProducts from '../components/SectionProducts.astro';
+import SectionPagination from '../components/SectionPagination.astro';
 ---
 
 <Layout title="Каталог" page="catalog" isUser={true}>
   <link rel="stylesheet" href="./pages/catalog.css"/>
-  <section class="section">
-    catalog
-  </section>
+  <div class="page-wrapper">
+    <SectionBreadcrumbs/>
+
+    <PageTitle title="Пистолеты для страйкбола"/>
+
+    <SectionFilters/>
+
+    <SectionProducts/>
+
+    <SectionPagination/>
+
+    <UtilTile tag="section" classList={['section-info']} dataArray={[]} isHidden={false}>
+      <h2>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h2>
+      <p>
+        В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
+        гранатометы), снаряжения и экипировки для игр. Ассортимент от дешевых приводов для новичков до премиальных
+        моделей для опытных страйкеров.
+      </p>
+      <p>
+        Вы можете купить страйкбольные товары от 30+ брендов: Cyma, LCT, East Crane,
+        Tokyo Marui, KWC, WE, Acrturus и др. Постоянное обновление ассортимента. Порадуйте себя новой покупкой или
+        сделайте подарок любителю страйкбола, вручив подарочный сертификат от "синего магазина" (доступны номиналы от
+        1000 до 50000 рублей).
+      </p>
+      <p>
+        AirSoft-RUS — это не только интернет-магазин. Наши филиалы открыты в Москве,
+        Екатеринбурге, Санкт-Петербурге, Краснодаре и Нижнем Новгороде. Будем рады видеть вас в шоу-румах: там можно
+        лично посмотреть все наши товары для страйкбола и проконсультироваться у опытных продавцов.
+      </p>
+      <p>
+        Оплатить заказ можно
+        онлайн (с помощью банковской карты) или при получении товара (наличными и безналичным методом). Доступна
+        рассрочка и покупка в кредит.
+      </p>
+      <p>
+        Доставку снаряжения можно заказать курьером или забрать самостоятельно: из наших
+        магазинов или с широкой сети пунктов выдачи партнеров. Действует бесплатная доставка в 11 городов России.
+      </p>
+    </UtilTile>
+  </div>
 </Layout>

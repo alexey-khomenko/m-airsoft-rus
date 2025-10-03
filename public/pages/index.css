@@ -1,4 +1,8 @@
-.wrapper {
+.main.index::after {
+  bottom: var(--footer--h);
+}
+
+.page-wrapper {
   padding-top: .5rem;
   padding-bottom: 2rem;
   overflow: hidden;
@@ -8,6 +12,7 @@
   align-items: stretch;
   gap: 1rem;
 }
+
 
 .section-banners {
   order: 1;
@@ -36,7 +41,7 @@
 .section-info {
   color: var(--color-title);
 
-  h1 {
+  h1, h2 {
     margin: 0;
     font-weight: 700;
     font-size: 1rem;

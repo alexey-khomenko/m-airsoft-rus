@@ -18,6 +18,7 @@
 .popup {
   position: relative;
   margin-inline: auto;
+  padding-top: .5rem;
   height: 100%;
   width: min(100%, var(--popup--maw, 100%));
 
@@ -44,8 +45,8 @@
   }
 }
 
-.util-header.popup-header {
-  min-height: 3.75rem;
+.popup-header {
+  min-height: 3.25rem;
 
   &::before {
     flex-basis: 3.75rem;

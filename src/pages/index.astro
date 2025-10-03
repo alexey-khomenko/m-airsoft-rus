@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import UtilTile from '../components/UtilTile.astro';
 
 const largeBanners: { title: string, link: string, img: string }[] = [
   {title: '1', link: '/catalog', img: './content/index-banners-primary.png'},
@@ -470,8 +471,8 @@ const brands: { title: string, link: string, img: string, width: number, height:
 
 <Layout title="Главная" page="index" isUser={false}>
   <link rel="stylesheet" href="./pages/index.css"/>
-  <div class="wrapper">
-    <section class="util-tile section-info">
+  <div class="page-wrapper">
+    <UtilTile tag="section" classList={['section-info']} dataArray={[]} isHidden={false}>
       <h1>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h1>
       <p>
         В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
@@ -498,7 +499,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
         Доставку снаряжения можно заказать курьером или забрать самостоятельно: из наших
         магазинов или с широкой сети пунктов выдачи партнеров. Действует бесплатная доставка в 11 городов России.
       </p>
-    </section>
+    </UtilTile>
 
     <section class="section-banners">
       <div class="large-banners">
@@ -548,7 +549,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
               oldPrice: number,
               price: number,
             }) => (
-              <div class="swiper-slide util-tile product">
+              <UtilTile tag="div" classList={['swiper-slide', 'product']} dataArray={[]} isHidden={false}>
                 <div>
                   <a href={product.link} class="link">
                     <img src={product.img} alt={product.title} class="img"/>
@@ -585,7 +586,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
                     </button>
                   </div>
                 </div>
-              </div>
+              </UtilTile>
             ))}
           </div>
           <div class="swiper-pagination"></div>
@@ -599,7 +600,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
       </section>
     ))}
 
-    <section class="util-tile section-news">
+    <UtilTile tag="section" classList={['section-news']} dataArray={[]} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Актуальные новости</h2>
         <a href="/news" class="link">Смотреть все</a>
@@ -612,9 +613,9 @@ const brands: { title: string, link: string, img: string, width: number, height:
           </a>
         ))}
       </div>
-    </section>
+    </UtilTile>
 
-    <section class="util-tile section-reviews">
+    <UtilTile tag="section" classList={['section-reviews']} dataArray={[]} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Последние обзоры</h2>
         <a href="/reviews" class="link">Смотреть все</a>
@@ -629,9 +630,9 @@ const brands: { title: string, link: string, img: string, width: number, height:
           ))}
         </div>
       </div>
-    </section>
+    </UtilTile>
 
-    <section class="util-tile section-brands">
+    <UtilTile tag="section" classList={['section-brands']} dataArray={[]} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Популярные бренды</h2>
         <a href="/brands" class="link">Смотреть все</a>
@@ -643,7 +644,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
           </a>
         ))}
       </div>
-    </section>
+    </UtilTile>
   </div>
   <script src="./pages/index.js" is:inline async></script>
 </Layout>

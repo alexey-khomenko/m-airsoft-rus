@@ -1,21 +1,28 @@
-.util-header.main-header {
-  min-height: 3.25rem;
+.main.profile::after {
+  bottom: var(--footer--h);
+}
+
+.page-wrapper {
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .5rem;
+}
+
+
+.main-header {
+  min-height: 2.75rem;
 
   &::before {
     flex-basis: 3.375rem;
   }
 }
 
-.main.profile {
-
-  .util-tile {
-    margin-top: .5rem;
-  }
-
-  .content-orders {
-    margin-bottom: 1rem;
-  }
-
+.profile {
   .content {
     display: flex;
     justify-content: space-between;
@@ -78,16 +85,16 @@
     color: var(--color-text);
   }
 
-  .order {
-    position: relative;
-  }
-
   .orders {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: stretch;
     gap: 1rem;
+  }
+
+  .order {
+    position: relative;
   }
 
   .order-header {

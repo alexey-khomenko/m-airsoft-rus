@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import UtilHeader from '../components/UtilHeader.astro';
+import UtilTile from '../components/UtilTile.astro';
 
 const tel: '+7 (963) 040-75-12' = '+7 (963) 040-75-12';
 const firstName: 'Иван' = 'Иван';
@@ -13,79 +15,85 @@ const balance: '880 руб.' = '880 руб.';
 
 <Layout title="Профиль" page="profile" isUser={true}>
   <link rel="stylesheet" href="./pages/profile.css"/>
-  <section class="util-header main-header">
-    <h1 class="title">Личный кабинет</h1>
-    <button type="button" class="button" data-button-logout-to="/">
-      <span>Выход</span>
-    </button>
-  </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">{tel}</span>
-    </div>
-    <button type="button" class="button" data-popup-open="profile-tel">
-      <span>Изменить</span>
-    </button>
-  </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">{lastName} {firstName} {middleName}</span>
-      <span class="primary text">{email}</span>
-    </div>
-    <button type="button" class="button" data-popup-open="profile-name">
-      <span>Изменить</span>
-    </button>
-  </section>
-  <section class="util-tile content">
-    <div class="info">
-      <span class="primary title">{amount}</span>
-      <span class="third text">Общая сумма заказов</span>
-    </div>
-    <div class="info">
-      <span class="secondary title">{balance}</span>
-      <span class="secondary text">Бонусов на счету</span>
-    </div>
-  </section>
-  <section class="util-tile content-orders">
-    <div class="orders-title">История заказов</div>
-    <div class="orders">
+  <div class="page-wrapper">
+    <UtilHeader tag="section" classList={['main-header']}>
+      <h1 class="title">Личный кабинет</h1>
+      <button type="button" class="button" data-button-logout-to="/">
+        <span>Выход</span>
+      </button>
+    </UtilHeader>
 
-      <div class="order">
-        <div class="order-header">
-          <span class="title">Заказ № 457</span>
-          <span class="status">Отмена заказа, отказ от оформления</span>
-        </div>
-        <details class="order-main">
-          <summary class="order-summary">
-            <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <div class="order-content">
-            &hellip;
-          </div>
-        </details>
+    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+      <div class="info">
+        <span class="primary title">{tel}</span>
       </div>
+      <button type="button" class="button" data-popup-open="profile-tel">
+        <span>Изменить</span>
+      </button>
+    </UtilTile>
 
-      <div class="order">
-        <div class="order-header">
-          <span class="title">Заказ № 458</span>
-          <span class="status">Отмена заказа, отказ от оформления</span>
-        </div>
-        <details class="order-main">
-          <summary class="order-summary">
-            <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <div class="order-content">
-            &hellip;
-          </div>
-        </details>
+    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+      <div class="info">
+        <span class="primary title">{lastName} {firstName} {middleName}</span>
+        <span class="primary text">{email}</span>
       </div>
-    </div>
-  </section>
+      <button type="button" class="button" data-popup-open="profile-name">
+        <span>Изменить</span>
+      </button>
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+      <div class="info">
+        <span class="primary title">{amount}</span>
+        <span class="third text">Общая сумма заказов</span>
+      </div>
+      <div class="info">
+        <span class="secondary title">{balance}</span>
+        <span class="secondary text">Бонусов на счету</span>
+      </div>
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['content-orders']} dataArray={[]} isHidden={false}>
+      <div class="orders-title">История заказов</div>
+      <div class="orders">
+
+        <div class="order">
+          <div class="order-header">
+            <span class="title">Заказ № 457</span>
+            <span class="status">Отмена заказа, отказ от оформления</span>
+          </div>
+          <details class="order-main">
+            <summary class="order-summary">
+              <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <div class="order-content">
+              &hellip;
+            </div>
+          </details>
+        </div>
+
+        <div class="order">
+          <div class="order-header">
+            <span class="title">Заказ № 458</span>
+            <span class="status">Отмена заказа, отказ от оформления</span>
+          </div>
+          <details class="order-main">
+            <summary class="order-summary">
+              <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <div class="order-content">
+              &hellip;
+            </div>
+          </details>
+        </div>
+      </div>
+    </UtilTile>
+  </div>
   <script src="./pages/profile.js" is:inline async></script>
 </Layout>

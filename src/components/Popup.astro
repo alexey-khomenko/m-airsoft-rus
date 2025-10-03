@@ -1,14 +1,15 @@
 ---
+import UtilHeader from '../components/UtilHeader.astro';
 const {name, title, bgLight} = Astro.props;
 ---
 
 <div class:list={['popup', bgLight ? 'bg-light' : 'bg-dark']} data-popup-name={name} hidden="hidden">
-  <div class="util-header popup-header">
+  <UtilHeader tag="section" classList={['popup-header']}>
     <h2 class="title">{title}</h2>
     <button class="button" type="button" data-popup-close>
       <span>Отмена</span>
     </button>
-  </div>
+  </UtilHeader>
   <div class="popup-main">
     <div class="wrapper">
       <slot/>

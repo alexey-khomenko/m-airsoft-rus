@@ -1,4 +1,6 @@
 ---
+import UtilTile from '../components/UtilTile.astro';
+
 const firstName: 'Иван' = 'Иван';
 const middleName: 'Иванович' = 'Иванович';
 const lastName: 'Иванов' = 'Иванов';
@@ -7,7 +9,8 @@ const email: 'airsoftrus@gmail.com' = 'airsoftrus@gmail.com';
 
 <div class="popup-profile-name">
   <link rel="stylesheet" href="./components/popup-profile-name.css"/>
-  <div class="util-tile">
+
+  <UtilTile tag="div" classList={['step']} dataArray={[]} isHidden={false}>
     <form class="form-profile-name" action="/profile-name" novalidate data-form-profile-name>
       <div class="fieldset">
         <label class="label" for="last-name">Фамилия</label>
@@ -44,18 +47,7 @@ const email: 'airsoftrus@gmail.com' = 'airsoftrus@gmail.com';
     <button class="secondary-button back" data-popup-profile-name-cancel>
       <span>Отмена</span>
     </button>
-  </div>
-
-  <div class="util-tile" hidden="hidden">
-
-    <label class="label" for="code">Введите полученный код</label>
-    <div class="input-wrapper code">
-      <input type="text" name="code" id="code" class="input" maxlength="4"
-             inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-             placeholder="0000"/>
-    </div>
-
-  </div>
+  </UtilTile>
 
   <script src="./components/popup-profile-name.js" is:inline async></script>
 </div>

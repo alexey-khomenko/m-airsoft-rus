@@ -1,0 +1,17 @@
+---
+interface Props {
+  tag: 'div' | 'section';
+  classList: string[];
+  dataArray: string[];
+  isHidden: boolean;
+}
+
+const {tag, classList, dataArray, isHidden}: Props = Astro.props;
+
+const html: string = `<${tag} class="util-tile ${classList.join(' ')}" ${dataArray.join(' ')} ${isHidden ? 'hidden="hidden"' : ''}>`;
+---
+
+<Fragment set:html={html}/>
+<link rel="stylesheet" href="./components/util-tile.css"/>
+<slot/>
+<Fragment set:html={`</${tag}>`}/>

@@ -1,10 +1,11 @@
 ---
-
+import UtilTile from '../components/UtilTile.astro';
 ---
 
 <div class="popup-login">
   <link rel="stylesheet" href="./components/popup-login.css"/>
-  <div class="util-tile" data-popup-login-step="1">
+
+  <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
     <form class="form-login" action="/login-tg" novalidate data-form-login-phone>
       <label class="label" for="phone">Номер телефона</label>
       <div class="input-wrapper phone">
@@ -60,8 +61,9 @@
           fill="black"/>
       </svg>
     </button>
-  </div>
-  <div class="util-tile" data-popup-login-step="2" hidden="hidden">
+  </UtilTile>
+
+  <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
     <form class="form-login" action="/login-code" novalidate data-form-login-code>
       <label class="label" for="code">Введите полученный код</label>
       <div class="input-wrapper code">
@@ -76,7 +78,8 @@
     <button class="secondary-button back" data-popup-login-back>
       <span>Вернуться назад</span>
     </button>
-  </div>
+  </UtilTile>
+
   <button type="button" class="another-login" data-popup-login-another-way>
     <span>Другие способы входа</span>
   </button>

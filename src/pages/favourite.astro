@@ -1,10 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionFilters from '../components/SectionFilters.astro';
+import SectionProducts from '../components/SectionProducts.astro';
+import SectionPagination from '../components/SectionPagination.astro';
 ---
 
 <Layout title="Избраннное" page="favourite" isUser={true}>
   <link rel="stylesheet" href="./pages/favourite.css"/>
-  <section class="section">
+  <div class="page-wrapper">
+
     favourite
-  </section>
+
+    <SectionFilters/>
+
+    <SectionProducts/>
+
+    <SectionPagination/>
+  </div>
 </Layout>

@@ -1,4 +1,25 @@
-.section {
-  padding-block: 1rem;
-  overflow: hidden;
+.main.catalog::after {
+  bottom: var(--footer--h);
+}
+
+.page-wrapper {
+  padding-top: .25rem;
+  padding-bottom: .75rem;
+}
+
+
+.section-info {
+  color: var(--color-title);
+
+  h1, h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 1rem 0 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
 }

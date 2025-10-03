@@ -1,10 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
+import SectionFilters from '../components/SectionFilters.astro';
+import SectionProducts from '../components/SectionProducts.astro';
+import SectionPagination from '../components/SectionPagination.astro';
 ---
 
 <Layout title="Поиск" page="search" isUser={true}>
   <link rel="stylesheet" href="./pages/search.css"/>
-  <section class="section">
-    search
-  </section>
+  <div class="page-wrapper">
+    <SectionBreadcrumbs/>
+
+    <PageTitle title="Результаты поиска по запросу"/>
+
+    <SectionFilters/>
+
+    <SectionProducts/>
+
+    <SectionPagination/>
+  </div>
+  <script src="./pages/search.js" is:inline async></script>
 </Layout>

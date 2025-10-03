@@ -1,0 +1,15 @@
+---
+interface Props {
+  tag: 'div' | 'section';
+  classList: string[];
+}
+
+const {tag, classList}: Props = Astro.props;
+
+const html: string = `<${tag} class="util-header ${classList.join(' ')}">`;
+---
+
+<Fragment set:html={html}/>
+<link rel="stylesheet" href="./components/util-header.css"/>
+<slot/>
+<Fragment set:html={`</${tag}>`}/>

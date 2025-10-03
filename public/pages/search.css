@@ -1,4 +1,8 @@
-.section {
-  padding-block: 1rem;
-  overflow: hidden;
+.main.search::after {
+  bottom: var(--footer--h);
+}
+
+.page-wrapper {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
 }
