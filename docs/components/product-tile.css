@@ -1,0 +1,158 @@
+.util-tile.product {
+  padding: .5rem;
+  height: 15rem;
+  display: grid;
+  gap: 0;
+  grid-template-rows: 9.375rem 1rem 2rem 1.625rem;
+
+  &.swiper-slide {
+    margin-right: .5rem;
+    width: var(--product--w, calc(100% / 2 - .25rem));
+
+    @container app (min-width: 536px) {
+      --product--w: calc(100% / 3 - .3275rem);
+    }
+
+    @container app (min-width: 712px) {
+      --product--w: calc(100% / 4 - .375rem);
+    }
+  }
+
+  .link {
+    display: block;
+    text-decoration: none;
+
+    .img {
+      width: 100%;
+      height: 5.25rem;
+      display: block;
+      object-fit: contain;
+    }
+
+    .name {
+      padding-top: .5rem;
+      padding-bottom: .25rem;
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: var(--color-title);
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+
+  .rating {
+    --val: 2.5;
+    --size: 1rem;
+    --mask: conic-gradient(from -18deg at 61% 34.5%, #0000 108deg, #000000 0) 0 / var(--size),
+    conic-gradient(from 270deg at 39% 34.5%, #0000 108deg, #000000 0) 0 / var(--size),
+    conic-gradient(from 54deg at 68% 56%, #0000 108deg, #000000 0) 0 / var(--size),
+    conic-gradient(from 198deg at 32% 56%, #0000 108deg, #000000 0) 0 / var(--size),
+    conic-gradient(from 126deg at 50% 69%, #0000 108deg, #000000 0) 0 / var(--size);
+    --bg: linear-gradient(90deg, var(--color-star) calc(var(--size) * var(--val)), var(--color-border) 0);
+    height: var(--size);
+    width: calc(var(--size) * 5);
+    border: 0; /* Firefox adds a default border to ranges */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* Chrome and Safari */
+
+    &::-webkit-slider-runnable-track {
+      height: 100%;
+      mask: var(--mask);
+      mask-composite: intersect;
+      background: var(--bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    &::-webkit-slider-thumb {
+      opacity: 0;
+    }
+
+    /* Firefox */
+
+    &::-moz-range-track {
+      height: 100%;
+      mask: var(--mask);
+      mask-composite: intersect;
+      background: var(--bg);
+      print-color-adjust: exact;
+    }
+
+    &::-moz-range-thumb {
+      opacity: 0;
+    }
+  }
+
+  .old {
+    padding-top: .75rem;
+    padding-bottom: .25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+
+    .price {
+      font-weight: 400;
+      font-size: .75rem;
+      line-height: 1rem;
+      color: var(--color-old);
+      text-decoration-line: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-style: solid;
+      text-decoration-color: var(--color-accent);
+    }
+
+    .discount {
+      padding-inline: .5rem;
+      border-radius: 99999px;
+      font-weight: 500;
+      font-size: .625rem;
+      line-height: 1rem;
+      color: var(--color-light);
+      background-color: var(--color-accent);
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: .375rem;
+
+    .price {
+      font-weight: 700;
+      font-size: 1.375rem;
+      line-height: 1.625rem;
+      color: var(--color-title);
+    }
+
+    .currency {
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: var(--color-title);
+    }
+
+    .cart {
+      flex-shrink: 0;
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      color: var(--color-link);
+
+      .svg {
+        width: 1.375rem;
+        height: 1.375rem;
+      }
+    }
+  }
+}

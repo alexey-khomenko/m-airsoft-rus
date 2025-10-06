@@ -4,9 +4,15 @@
   left: 0;
   right: 0;
   z-index: 3;
-
+  display: block;
   background-color: var(--color-title);
   color: var(--color-light);
+  transition: transform .3s ease-in-out;
+  transform: translateY(-100%);
+
+  &:not([hidden]) {
+    transform: translateY(0);
+  }
 
   .header-wrapper {
     position: relative;
