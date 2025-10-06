@@ -40,47 +40,6 @@ window.addEventListener('load', () => {
     spaceBetween: 8,
   });
 
-  const productGroups = document.querySelectorAll('.section-products .tiles');
-
-  for (const productGroup of productGroups) {
-    new Swiper(productGroup, {
-      direction: 'horizontal',
-      loop: false,
-      breakpointsBase: 'container',
-      breakpoints: {
-        268: {
-          slidesPerView: 2,
-          spaceBetween: 6,
-          grid: {rows: 2},
-        },
-        320: {
-          slidesPerView: 2,
-          spaceBetween: 7,
-          grid: {rows: 2},
-        },
-        360: {
-          slidesPerView: 2,
-          spaceBetween: 8,
-          grid: {rows: 2},
-        },
-        520: {
-          slidesPerView: 3,
-          spaceBetween: 8,
-          grid: {rows: 2},
-        },
-        696: {
-          slidesPerView: 4,
-          spaceBetween: 8,
-          grid: {rows: 2},
-        },
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  }
-
   new Swiper('.section-reviews .items', {
     direction: 'horizontal',
     loop: false,

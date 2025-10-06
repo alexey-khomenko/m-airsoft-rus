@@ -1,0 +1,40 @@
+---
+import ProductTile from '../components/ProductTile.astro';
+
+interface Props {
+  products: {
+    id: number,
+    link: string,
+    img: string,
+    title: string,
+    rating: number,
+    oldPrice: number,
+    price: number
+  }[];
+  title: string;
+}
+
+const {products, title}: Props = Astro.props;
+---
+
+<div class="slider-products">
+  <link rel="stylesheet" href="./components/slider-products.css"/>
+  <h2 class="title">{title}</h2>
+  <div class="tiles">
+    <div class="swiper-wrapper">
+      {products.map((product: {
+        id: number,
+        link: string,
+        img: string,
+        title: string,
+        rating: number,
+        oldPrice: number,
+        price: number,
+      }) => (
+        <ProductTile product={product} isSlider={true}/>
+      ))}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <script src="./components/slider-products.js" is:inline async></script>
+</div>

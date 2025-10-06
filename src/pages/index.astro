@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
-import ProductTile from '../components/ProductTile.astro';
+import SliderProducts from '../components/SliderProducts.astro';
 
 const largeBanners: { title: string, link: string, img: string }[] = [
   {title: '1', link: '/catalog', img: './content/index-banners-primary.png'},
@@ -20,7 +20,7 @@ const smallBanners: { title: string, link: string, img: string }[] = [
   {title: '9', link: '/catalog', img: './content/index-banners-small.png'},
   {title: '10', link: '/catalog', img: './content/index-banners-small.png'},
 ];
-const productItems: {
+const productGroups: {
   title: string,
   link: string,
   products: {
@@ -505,25 +505,25 @@ const brands: { title: string, link: string, img: string, width: number, height:
     <section class="section-banners">
       <div class="large-banners">
         <div class="swiper-wrapper">
-          {largeBanners.map((item: { title: string, link: string, img: string }) => (
-            <a href={item.link} class="swiper-slide banner large-banner">
-              <img src={item.img} alt={item.title} class="img"/>
+          {largeBanners.map((banner: { title: string, link: string, img: string }) => (
+            <a href={banner.link} class="swiper-slide banner large-banner">
+              <img src={banner.img} alt={banner.title} class="img"/>
             </a>
           ))}
         </div>
       </div>
       <div class="small-banners">
         <div class="swiper-wrapper">
-          {smallBanners.map((item: { title: string, link: string, img: string }) => (
-            <a href={item.link} class="swiper-slide banner small-banner">
-              <img src={item.img} alt={item.title} class="img"/>
+          {smallBanners.map((banner: { title: string, link: string, img: string }) => (
+            <a href={banner.link} class="swiper-slide banner small-banner">
+              <img src={banner.img} alt={banner.title} class="img"/>
             </a>
           ))}
         </div>
       </div>
     </section>
 
-    {productItems.map((item: {
+    {productGroups.map((group: {
       title: string,
       link: string,
       products: {
@@ -538,28 +538,12 @@ const brands: { title: string, link: string, img: string, width: number, height:
       banner: { title: string, link: string, img: string }
     }) => (
       <section class="section-products">
-        <h2 class="title">{item.title}</h2>
-        <div class="tiles">
-          <div class="swiper-wrapper">
-            {item.products.map((product: {
-              id: number,
-              link: string,
-              img: string,
-              title: string,
-              rating: number,
-              oldPrice: number,
-              price: number,
-            }) => (
-              <ProductTile product={product} isSlider={true}/>
-            ))}
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <a href={item.link} class="button">
+        <SliderProducts products={group.products} title={group.title}/>
+        <a href={group.link} class="button">
           <span>Показать всё</span>
         </a>
-        <a href={item.banner.link} class="banner">
-          <img src={item.banner.img} alt={item.banner.title} class="img" width="344" height="62"/>
+        <a href={group.banner.link} class="banner">
+          <img src={group.banner.img} alt={group.banner.title} class="img" width="344" height="62"/>
         </a>
       </section>
     ))}
@@ -586,10 +570,10 @@ const brands: { title: string, link: string, img: string, width: number, height:
       </div>
       <div class="items">
         <div class="swiper-wrapper">
-          {reviews.map((item: { title: string, link: string, img: string }) => (
-            <a href={item.link} class="swiper-slide item">
-              <img src={item.img} alt={item.title} class="img"/>
-              <span class="name">{item.title}</span>
+          {reviews.map((review: { title: string, link: string, img: string }) => (
+            <a href={review.link} class="swiper-slide item">
+              <img src={review.img} alt={review.title} class="img"/>
+              <span class="name">{review.title}</span>
             </a>
           ))}
         </div>
@@ -602,9 +586,9 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <a href="/brands" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {brands.map((item: { title: string, link: string, img: string, width: number, height: number }) => (
-          <a href={item.link} class="item">
-            <img src={item.img} alt={item.title} width={item.width} height={item.height}/>
+        {brands.map((brand: { title: string, link: string, img: string, width: number, height: number }) => (
+          <a href={brand.link} class="item">
+            <img src={brand.img} alt={brand.title} width={brand.width} height={brand.height}/>
           </a>
         ))}
       </div>
