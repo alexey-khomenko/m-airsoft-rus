@@ -1,50 +1,12 @@
-function getTelMask(countryCode) {
-  let mask, placeholder;
+window.removeError = function (input) {
+  input.classList.remove('util-input-error');
+};
 
-  mask = '+7(999)999-99-99';
-  placeholder = '+7(___)___-__-__';
+window.addError = function (input) {
+  input.classList.add('util-input-error');
+};
 
-  switch (countryCode) {
-    case 'by':
-      mask = '+375(99)999-99-99';
-      placeholder = '+375(__)___-__-__';
-      break;
-    case 'kz':
-      mask = '+7(999)999-99-99';
-      placeholder = '+7(___)___-__-__';
-      break;
-    case 'kg':
-      mask = '+\\9\\96(999)999-999';
-      placeholder = '+996(___)___-___';
-      break;
-    case 'am':
-      mask = '+374(99)99-99-99';
-      placeholder = '+374(__)__-__-__';
-      break;
-    case 'ua':
-      mask = '+380(99)999-99-99';
-      placeholder = '+380(__)___-__-__';
-      break;
-  }
-
-  return {mask, placeholder};
-}
-
-function setTelMask(input) {
-  setTimeout(() => {
-    const country = input.parentNode.querySelector('.iti__selected-country .iti__flag');
-
-    const countryCode = country ? country.getAttribute('class').slice(15) : 'ru';
-
-    const {mask, placeholder} = getTelMask(countryCode);
-
-    input.placeholder = placeholder;
-
-    Inputmask.remove(input);
-    Inputmask(mask).mask(input);
-  }, 10);
-}
-
+// TODO tel component ?
 window.addEventListener('load', () => {
   const inputs = document.querySelectorAll('[type=tel]');
 
@@ -82,22 +44,51 @@ window.addEventListener('load', () => {
       setTelMask(input);
     });
   }
-});
 
-window.removeError = function (input) {
-  input.classList.remove('util-input-error');
-};
+  function getTelMask(countryCode) {
+    let mask, placeholder;
 
-window.addError = function (input) {
-  input.classList.add('util-input-error');
-};
+    mask = '+7(999)999-99-99';
+    placeholder = '+7(___)___-__-__';
 
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-catalog-cart-add]');
+    switch (countryCode) {
+      case 'by':
+        mask = '+375(99)999-99-99';
+        placeholder = '+375(__)___-__-__';
+        break;
+      case 'kz':
+        mask = '+7(999)999-99-99';
+        placeholder = '+7(___)___-__-__';
+        break;
+      case 'kg':
+        mask = '+\\9\\96(999)999-999';
+        placeholder = '+996(___)___-___';
+        break;
+      case 'am':
+        mask = '+374(99)99-99-99';
+        placeholder = '+374(__)__-__-__';
+        break;
+      case 'ua':
+        mask = '+380(99)999-99-99';
+        placeholder = '+380(__)___-__-__';
+        break;
+    }
 
-  if (!button) return true;
+    return {mask, placeholder};
+  }
 
-  const productId = button.dataset.catalogCartAdd;
+  function setTelMask(input) {
+    setTimeout(() => {
+      const country = input.parentNode.querySelector('.iti__selected-country .iti__flag');
 
-  console.log('catalogCartAdd', productId);
+      const countryCode = country ? country.getAttribute('class').slice(15) : 'ru';
+
+      const {mask, placeholder} = getTelMask(countryCode);
+
+      input.placeholder = placeholder;
+
+      Inputmask.remove(input);
+      Inputmask(mask).mask(input);
+    }, 10);
+  }
 });

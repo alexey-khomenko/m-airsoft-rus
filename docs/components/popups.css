@@ -12,7 +12,7 @@
 
   &:not([hidden]) {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
   }
 }
 
@@ -24,7 +24,7 @@
   opacity: 0;
   display: flex;
   flex-flow: column nowrap;
-  transition: opacity .4s ease-in-out;
+  transition: opacity .3s ease-in-out;
   width: min(100%, var(--popup--maw, 100%));
 
   @container app (width > 430px) {

@@ -23,7 +23,6 @@ document.addEventListener('click', (e) => {
   setTimeout(() => {
     popup.hidden = false;
   }, 10);
-
 });
 
 window.closePopup = function () {

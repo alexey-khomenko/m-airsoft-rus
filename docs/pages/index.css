@@ -38,22 +38,6 @@
   order: 6;
 }
 
-.section-info {
-  color: var(--color-title);
-
-  h1, h2 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  p {
-    margin: 1rem 0 0;
-    font-weight: 400;
-    font-size: 1rem;
-  }
-}
-
 .section-banners {
   display: flex;
   flex-flow: column nowrap;
@@ -101,45 +85,6 @@
 }
 
 .section-products {
-  .title {
-    margin: 0 11rem .5rem 0;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.875rem;
-    color: var(--color-text);
-  }
-
-  .tiles {
-    position: relative;
-    height: 30.5rem;
-
-    .swiper-wrapper {
-      width: 100%;
-    }
-
-    .swiper-pagination {
-      left: auto;
-      right: 0;
-      bottom: 100%;
-      z-index: 1;
-      transform: translateY(-.5rem);
-      width: auto;
-      height: 1.875rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-
-      .swiper-pagination-bullet {
-        margin: 0;
-        width: .75rem;
-        height: .75rem;
-        background-color: var(--color-link);
-        box-shadow: 0 0 .125rem 0 rgba(0, 0, 0, .2) inset;
-      }
-    }
-  }
-
   .button {
     margin-top: 1rem;
     min-height: 3.125rem;

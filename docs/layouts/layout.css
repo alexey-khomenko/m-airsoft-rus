@@ -42,12 +42,14 @@ p {
   text-wrap: pretty;
 }
 
-.iti {
-  display: block;
-}
 
 .swiper-notification {
   display: none;
+}
+
+/* TODO tel component ? */
+.iti {
+  display: block;
 }
 
 .iti--inline-dropdown .iti__country-list {
@@ -72,6 +74,7 @@ p {
   margin-left: .5rem;
 }
 
+
 :root {
   --color-light: #FFFFFF;
   --color-another-border: #DFE8F1;
@@ -93,11 +96,12 @@ p {
 
   --header--h: 3.75rem;
   --footer--h: 4rem;
+  --catalog-detail-button-buy-wrapper--h: 4.375rem;
 }
 
 .layout {
   scrollbar-gutter: stable;
-  font-family: "PF DinDisplay Pro", system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   overflow-x: hidden;
 
   font-size: var(--layout--fz, 12px);
@@ -136,9 +140,20 @@ p {
   }
 }
 
+.util-decoration {
+  position: relative;
+  height: .875rem;
+  /* TODO all width */
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
 .main::after,
 .popup::after,
-.decoration::after {
+.util-decoration::after {
   content: "";
   left: 0;
   right: 0;
@@ -148,36 +163,39 @@ p {
   background-image: linear-gradient(0, rgba(217, 217, 217, 1) 0%, rgba(217, 217, 217, 0) 100%);
 }
 
-.primary-button {
+.util-button {
   min-height: 3.125rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: .5rem;
 
-  border: none;
   border-radius: 0.25rem;
-  background-color: var(--color-link);
+  border-width: 2px;
+  border-style: solid;
 
   font-weight: 400;
   font-size: 1.125rem;
   text-align: center;
-  color: var(--color-light);
-}
 
-.secondary-button {
-  min-height: 3.125rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &.primary {
+    border-color: var(--color-link);
+    background-color: var(--color-link);
+    color: var(--color-light);
+  }
 
-  border-radius: 0.25rem;
-  border: 2px solid var(--color-another-border);
-  background-color: transparent;
+  &.secondary {
+    border-color: var(--color-another-border);
+    background-color: transparent;
+    color: var(--color-title);
+  }
 
-  font-weight: 400;
-  font-size: 1.125rem;
-  text-align: center;
-  color: var(--color-title);
+  &.buy {
+    border-color: var(--color-title);
+    background-color: var(--color-title);
+    color: var(--color-light);
+  }
 }
 
 .util-input-error {

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru" class="layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Astro description">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <title>Новость</title>
+  <link rel="stylesheet" href="./layouts/plugins/modern-normalize.css">
+  <link rel="stylesheet" href="./layouts/plugins/intlTelInput/css/intlTelInput.css">
+  <link rel="stylesheet" href="./layouts/plugins/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./layouts/layout.css">
+</head>
+<body>
+<div id="app">
+  <header class="header">
+  <link rel="stylesheet" href="./components/header.css">
+  <div class="container edge">
+  <link rel="stylesheet" href="./components/container.css">
+  
+    <div class="header-wrapper">
+      <button type="button" class="header-menu" data-popup-open="menu-header">
+  <link rel="stylesheet" href="./components/header-menu.css">
+  <span class="icon">
+    <svg class="svg" width="27" height="20" viewBox="0 0 27 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#FFFFFF" d="M0 0.710938C0 0.434795 0.223858 0.210938 0.5 0.210938H26.3235C26.5997 0.210938 26.8235 0.434795 26.8235 0.710938V3.05514C26.8235 3.33128 26.5997 3.55514 26.3235 3.55514H0.5C0.223857 3.55514 0 3.33128 0 3.05514V0.710938Z"></path>
+      <path fill="#FFFFFF" d="M0 8.53911C0 8.26297 0.223858 8.03911 0.5 8.03911H26.3235C26.5997 8.03911 26.8235 8.26297 26.8235 8.53911V10.8833C26.8235 11.1595 26.5997 11.3833 26.3235 11.3833H0.5C0.223857 11.3833 0 11.1595 0 10.8833V8.53911Z"></path>
+      <path fill="#FFFFFF" d="M0 16.3667C0 16.0906 0.223858 15.8667 0.5 15.8667H26.3235C26.5997 15.8667 26.8235 16.0906 26.8235 16.3667V18.7109C26.8235 18.9871 26.5997 19.2109 26.3235 19.2109H0.5C0.223857 19.2109 0 18.9871 0 18.7109V16.3667Z"></path>
+    </svg>
+    <img class="img" width="43" height="43" src="./images/header-menu.png" alt="">
+  </span>
+</button>
+      <form class="header-search" role="search" action="/m-airsoft-rus/search.html" novalidate data-form-search>
+  <input type="search" name="search" id="search" class="input" maxlength="256" placeholder="Поиск по каталогу" aria-label="Поиск по каталогу">
+  <button type="submit" class="button" title="Найти">
+    <svg width="18" height="18" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+      <path stroke="#009AE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.0215 13.0801L19.0215 19.0801M8.02148 15.0801C4.15549 15.0801 1.02148 11.9461 1.02148 8.08008C1.02148 4.21409 4.15549 1.08008 8.02148 1.08008C11.8875 1.08008 15.0215 4.21409 15.0215 8.08008C15.0215 11.9461 11.8875 15.0801 8.02148 15.0801Z"></path>
+    </svg>
+  </button>
+</form>
+<div class="header-search-popup" hidden="hidden">
+  <div class="header-search-results-wrapper">
+    <div class="header-search-results" hidden="hidden">
+      <a href="/m-airsoft-rus/catalog-detail.html" class="result">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img">
+          <div>
+            <div>
+              <span class="title">Автомат Суmа AKC-74Y CM035</span>
+            </div>
+            <div>
+              <span class="text">Цена</span>
+              <span class="price">26 390 р.</span>
+            </div>
+          </div>
+        </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img">
+          <div>
+            <div>
+              <span class="title">Автомат Суmа AKC-74Y CM035</span>
+            </div>
+            <div>
+              <span class="text">Цена</span>
+              <span class="price-old">26 390 р.</span>
+                <span class="price-new">16 990 р.</span>
+            </div>
+          </div>
+        </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img">
+          <div>
+            <div>
+              <span class="title">Автомат Суmа AKC-74Y CM035</span>
+            </div>
+            <div>
+              <span class="text">Цена</span>
+              <span class="price-old">26 390 р.</span>
+                <span class="price-new">16 990 р.</span>
+            </div>
+          </div>
+        </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img">
+          <div>
+            <div>
+              <span class="title">Автомат Суmа AKC-74Y CM035</span>
+            </div>
+            <div>
+              <span class="text">Цена</span>
+              <span class="price-old">26 390 р.</span>
+                <span class="price-new">16 990 р.</span>
+            </div>
+          </div>
+        </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img">
+          <div>
+            <div>
+              <span class="title">Автомат Суmа AKC-74Y CM035</span>
+            </div>
+            <div>
+              <span class="text">Цена</span>
+              <span class="price-old">26 390 р.</span>
+                <span class="price-new">16 990 р.</span>
+            </div>
+          </div>
+        </a>
+    </div>
+  </div>
+  <button type="button" class="util-button primary button" data-submit-form-search>
+    <span>Показать все результаты</span>
+  </button>
+</div>
+<div class="header-search-fake">
+  <link rel="stylesheet" href="./components/header-search.css">
+  <script src="./components/header-search.js" async></script>
+</div>
+    </div>
+  
+</div>
+  <script src="./components/header.js" async></script>
+</header>
+  <main class="main news-detail">
+    <div class="container default">
+  <link rel="stylesheet" href="./components/container.css">
+  
+      
+  <link rel="stylesheet" href="./pages/news-detail.css">
+  <div class="page-wrapper">
+    news-detail
+  </div>
+
+    
+</div>
+  </main>
+  <aside class="popups" data-popup-backdrop hidden="hidden">
+  <link rel="stylesheet" href="./components/popups.css">
+  <div class="popup bg-light" data-popup-name="menu-header" hidden="hidden">
+  <section class="util-header popup-header">
+<link rel="stylesheet" href="./components/util-header.css">
+
+    <h2 class="title">Каталог</h2>
+    <button class="button" type="button" data-popup-close>
+      <span>Отмена</span>
+    </button>
+  
+</section>
+  <div class="popup-main">
+    <div class="wrapper">
+      
+    <nav class="popup-menu-header">
+  <link rel="stylesheet" href="./components/popup-menu-header.css">
+  <a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-1.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-2.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-1.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-2.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-1.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-2.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-1.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-2.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a><a href="/m-airsoft-rus/catalog.html" class="tile">
+      <img src="./content/catalog-1.png" alt="Каталог" decoding="async" loading="lazy" class="cover">
+    </a>
+</nav>
+  
+    </div>
+  </div>
+</div>
+  <div class="popup bg-light" data-popup-name="menu-footer" hidden="hidden">
+  <section class="util-header popup-header">
+<link rel="stylesheet" href="./components/util-header.css">
+
+    <h2 class="title">Меню</h2>
+    <button class="button" type="button" data-popup-close>
+      <span>Отмена</span>
+    </button>
+  
+</section>
+  <div class="popup-main">
+    <div class="wrapper">
+      
+    <nav class="popup-menu-footer">
+  <link rel="stylesheet" href="./components/popup-menu-footer.css">
+  <div class="item">
+      <a href="/m-airsoft-rus/brands.html" class="left">
+        <img src="./images/menu-footer-icons/1.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Бренды</span>
+      </a>
+      <a href="/m-airsoft-rus/brands.html" title="Бренды" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/news.html" class="left">
+        <img src="./images/menu-footer-icons/2.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Новости</span>
+      </a>
+      <a href="/m-airsoft-rus/news.html" title="Новости" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/reviews.html" class="left">
+        <img src="./images/menu-footer-icons/3.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Обзоры</span>
+      </a>
+      <a href="/m-airsoft-rus/reviews.html" title="Обзоры" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/comparison.html" class="left">
+        <img src="./images/menu-footer-icons/4.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Товары к сравнению</span>
+      </a>
+      <a href="/m-airsoft-rus/comparison.html" title="Товары к сравнению" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/favourite.html" class="left">
+        <img src="./images/menu-footer-icons/5.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Избранное</span>
+      </a>
+      <a href="/m-airsoft-rus/favourite.html" title="Избранное" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/present.html" class="left">
+        <img src="./images/menu-footer-icons/6.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">В подарок</span>
+      </a>
+      <a href="/m-airsoft-rus/present.html" title="В подарок" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/how-to-buy.html" class="left">
+        <img src="./images/menu-footer-icons/7.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Как купить</span>
+      </a>
+      <a href="/m-airsoft-rus/how-to-buy.html" title="Как купить" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/payments.html" class="left">
+        <img src="./images/menu-footer-icons/8.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Оплата</span>
+      </a>
+      <a href="/m-airsoft-rus/payments.html" title="Оплата" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/installment.html" class="left">
+        <img src="./images/menu-footer-icons/9.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">В рассрочку</span>
+      </a>
+      <a href="/m-airsoft-rus/installment.html" title="В рассрочку" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/delivery.html" class="left">
+        <img src="./images/menu-footer-icons/10.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Доставка</span>
+      </a>
+      <a href="/m-airsoft-rus/delivery.html" title="Доставка" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/contacts.html" class="left">
+        <img src="./images/menu-footer-icons/11.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Контакты</span>
+      </a>
+      <a href="/m-airsoft-rus/contacts.html" title="Контакты" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/warranty.html" class="left">
+        <img src="./images/menu-footer-icons/12.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Гарантия возврат</span>
+      </a>
+      <a href="/m-airsoft-rus/warranty.html" title="Гарантия возврат" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/suppliers.html" class="left">
+        <img src="./images/menu-footer-icons/13.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Поставщикам</span>
+      </a>
+      <a href="/m-airsoft-rus/suppliers.html" title="Поставщикам" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div><div class="item">
+      <a href="/m-airsoft-rus/partners.html" class="left">
+        <img src="./images/menu-footer-icons/14.png" alt="" decoding="async" loading="lazy" class="icon">
+        <span class="text">Партнерам</span>
+      </a>
+      <a href="/m-airsoft-rus/partners.html" title="Партнерам" class="right">
+        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+</nav>
+  
+    </div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+
+  <script src="./components/popups.js" async></script>
+</aside>
+  <footer class="footer">
+  <link rel="stylesheet" href="./components/footer.css">
+  <div class="container edge">
+  <link rel="stylesheet" href="./components/container.css">
+  
+    <div class="footer-wrapper">
+      <button type="button" class="button" data-popup-open="menu-footer">
+        <span class="icon">
+          <svg width="28" height="19" viewBox="0 0 28 19" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#262626" d="M0.707031 1.02148C0.707031 0.745342 0.930889 0.521484 1.20703 0.521484H26.6827C26.9589 0.521484 27.1827 0.745342 27.1827 1.02148V3.11445C27.1827 3.39059 26.9589 3.61445 26.6827 3.61445H1.20703C0.930889 3.61445 0.707031 3.39059 0.707031 3.11445V1.02148Z"></path>
+            <path fill="#262626" d="M0.707031 8.26156C0.707031 7.98542 0.930889 7.76156 1.20703 7.76156H26.6827C26.9589 7.76156 27.1827 7.98542 27.1827 8.26156V10.3545C27.1827 10.6307 26.9589 10.8545 26.6827 10.8545H1.20703C0.930889 10.8545 0.707031 10.6307 0.707031 10.3545V8.26156Z"></path>
+            <path fill="#262626" d="M0.707031 15.5011C0.707031 15.225 0.930889 15.0011 1.20703 15.0011H26.6827C26.9589 15.0011 27.1827 15.225 27.1827 15.5011V17.5941C27.1827 17.8702 26.9589 18.0941 26.6827 18.0941H1.20703C0.930889 18.0941 0.707031 17.8702 0.707031 17.5941V15.5011Z"></path>
+          </svg>
+        </span>
+        <span class="title">Меню</span>
+      </button>
+
+      <a href="/m-airsoft-rus/profile.html" class="button">
+          <span class="icon">
+            <svg width="24" height="23" viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg">
+              <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.5673 19.7043C17.0007 18.0519 14.7247 17.0121 12.1914 17.0121C9.65816 17.0121 7.38187 18.0519 5.81532 19.7043M12.1914 21.6293C6.11627 21.6293 1.19141 16.9781 1.19141 11.2405C1.19141 5.50283 6.11627 0.851562 12.1914 0.851562C18.2665 0.851562 23.1914 5.50283 23.1914 11.2405C23.1914 16.9781 18.2665 21.6293 12.1914 21.6293ZM12.1914 13.5491C10.1664 13.5491 8.52474 11.9987 8.52474 10.0861C8.52474 8.17359 10.1664 6.62317 12.1914 6.62317C14.2165 6.62317 15.8581 8.17359 15.8581 10.0861C15.8581 11.9987 14.2165 13.5491 12.1914 13.5491Z"></path>
+            </svg>
+          </span>
+          <span class="title">Профиль</span>
+        </a>
+
+      <a href="/m-airsoft-rus/cart.html" class="button">
+        <span class="icon">
+          <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+          <span class="number">0</span>
+        </span>
+        <span class="title">Корзина</span>
+      </a>
+
+      <a href="/m-airsoft-rus/favourite.html" class="button">
+        <span class="icon">
+          <svg width="24" height="21" viewBox="0 0 24 21" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12.0078 4.72109C9.56337 -0.657052 1.00781 -0.0842307 1.00781 6.78966C1.00781 13.6635 12.0078 19.3919 12.0078 19.3919C12.0078 19.3919 23.0078 13.6635 23.0078 6.78966C23.0078 -0.0842307 14.4523 -0.657052 12.0078 4.72109Z"></path>
+          </svg>
+        </span>
+        <span class="title">Избранное</span>
+      </a>
+
+      <a href="https://t.me/airsoftrus2_bot" target="_blank" class="button">
+        <span class="icon">
+          <svg width="24" height="23" viewBox="0 0 24 23" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M10.5903 12.8397L16.5838 7.18308M22.7149 3.73098L17.6558 19.2488C17.2024 20.6395 16.9755 21.3352 16.5845 21.5657C16.2453 21.7658 15.8253 21.7992 15.4559 21.6545C15.03 21.4877 14.6842 20.8363 13.9946 19.5345L10.7902 13.486C10.6808 13.2794 10.626 13.1766 10.5529 13.087C10.488 13.0076 10.4131 12.9361 10.329 12.8748C10.2363 12.8074 10.1291 12.7568 9.92 12.6582L3.49648 9.62697C2.11712 8.97606 1.42738 8.6503 1.25064 8.24829C1.09736 7.89965 1.13231 7.50294 1.34424 7.18283C1.58861 6.81371 2.32566 6.59927 3.79963 6.17124L20.2418 1.39652C21.4006 1.06002 21.9802 0.891898 22.3716 1.02751C22.7125 1.14564 22.9813 1.39905 23.1065 1.72082C23.2501 2.09004 23.0718 2.63681 22.7156 3.72937L22.7149 3.73098Z"></path>
+          </svg>
+        </span>
+        <span class="title">Телеграм</span>
+      </a>
+    </div>
+  
+</div>
+</footer>
+</div>
+<script src="./layouts/plugins/inputmask.min.js" async></script>
+<script src="./layouts/plugins/intlTelInput/intlTelInput.min.js" async></script>
+<script src="./layouts/plugins/swiper/swiper-bundle.min.js" async></script>
+<script src="./layouts/layout.js" async></script>
+</body></html>

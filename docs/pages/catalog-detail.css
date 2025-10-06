@@ -1,9 +1,43 @@
 .main.catalog-detail::after {
-  bottom: 100px; /* TODO decoration */
+  bottom: calc(var(--footer--h) + var(--catalog-detail-button-buy-wrapper--h));
 }
 
-
-.section {
-  padding-block: 1rem;
+.page-wrapper {
+  /* TODO white bg ?? */
   overflow: hidden;
+  padding-top: .25rem;
+  padding-bottom: calc(var(--catalog-detail-button-buy-wrapper--h) + .875rem);
+}
+
+.section-recommendations {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.section-buy {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--footer--h);
+  z-index: 1;
+  background-color: var(--color-bg-dark);
+
+  .wrapper {
+    height: var(--catalog-detail-button-buy-wrapper--h);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button {
+    flex-grow: 1;
+
+    .svg {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+  }
 }
