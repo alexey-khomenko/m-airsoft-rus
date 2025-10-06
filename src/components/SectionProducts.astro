@@ -1,8 +1,32 @@
 ---
+import ProductTile from '../components/ProductTile.astro';
 
+interface Props {
+  products: {
+    id: number,
+    link: string,
+    img: string,
+    title: string,
+    rating: number,
+    oldPrice: number,
+    price: number
+  }[];
+}
+
+const {products}: Props = Astro.props;
 ---
 
 <section class="section-products">
   <link rel="stylesheet" href="./components/section-products.css"/>
-  products
+  {products.map((product: {
+    id: number,
+    link: string,
+    img: string,
+    title: string,
+    rating: number,
+    oldPrice: number,
+    price: number
+  }) => (
+    <ProductTile product={product} isSlider={false}/>
+  ))}
 </section>

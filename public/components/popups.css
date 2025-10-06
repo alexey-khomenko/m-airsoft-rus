@@ -12,14 +12,19 @@
 
   &:not([hidden]) {
     display: flex;
+    flex-direction: column;
   }
 }
 
 .popup {
   position: relative;
   margin-inline: auto;
-  padding-top: .5rem;
-  height: 100%;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  transition: opacity .4s ease-in-out;
   width: min(100%, var(--popup--maw, 100%));
 
   @container app (width > 430px) {
@@ -27,8 +32,8 @@
   }
 
   &:not([hidden]) {
-    display: flex;
-    flex-flow: column nowrap;
+    height: 100%;
+    opacity: 1;
   }
 
   &.bg-light {
@@ -46,7 +51,8 @@
 }
 
 .popup-header {
-  min-height: 3.25rem;
+  padding-top: .5rem;
+  min-height: 3.75rem;
 
   &::before {
     flex-basis: 3.75rem;

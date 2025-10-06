@@ -1,3 +1,13 @@
 .section-products {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: var(--section-products--gtc, 1fr 1fr);
 
+  @container app (min-width: 536px) {
+    --section-products--gtc: 1fr 1fr 1fr;
+  }
+
+  @container app (min-width: 712px) {
+    --section-products--gtc: 1fr 1fr 1fr 1fr;
+  }
 }

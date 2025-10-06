@@ -10,6 +10,8 @@ document.addEventListener('click', (e) => {
 
   if (!popup || !backdrop) return true;
 
+  document.querySelector('.header').hidden = false;
+
   const popups = document.querySelectorAll('[data-popup-name]:not([hidden])');
 
   for (const current of popups) {
@@ -17,7 +19,11 @@ document.addEventListener('click', (e) => {
   }
 
   backdrop.hidden = false;
-  popup.hidden = false;
+
+  setTimeout(() => {
+    popup.hidden = false;
+  }, 10);
+
 });
 
 window.closePopup = function () {
@@ -32,7 +38,7 @@ window.closePopup = function () {
   }
 
   backdrop.hidden = true;
-}
+};
 
 document.addEventListener('click', (e) => {
   const backdrop = e.target.closest('[data-popup-backdrop]');
