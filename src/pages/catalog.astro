@@ -7,6 +7,14 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
+const catalog: {
+  id: number,
+  name: string
+} = {
+  id: 101,
+  name: 'Пистолеты для страйкбола',
+};
+
 const products: {
   id: number,
   link: string,
@@ -161,9 +169,9 @@ const info: string = `
 <Layout title="Каталог" page="catalog" isUser={true}>
   <link rel="stylesheet" href="./pages/catalog.css"/>
   <div class="page-wrapper">
-    <SectionBreadcrumbs/>
+    <SectionBreadcrumbs pages={[]} currentPage={catalog.name}/>
 
-    <PageTitle title="Пистолеты для страйкбола"/>
+    <PageTitle title={catalog.name}/>
 
     <SectionFilters/>
 

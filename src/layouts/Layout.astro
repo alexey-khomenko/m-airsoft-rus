@@ -12,7 +12,7 @@ const {title, page, isUser = true} = Astro.props;
 <html lang="ru" class="layout">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="description" content="Astro description"/>
+  <meta name="description" content=""/>
   <meta name="viewport" content="width=device-width"/>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
   <title>{title}</title>
@@ -28,6 +28,11 @@ const {title, page, isUser = true} = Astro.props;
     <Container>
       <slot/>
     </Container>
+    <div class="page-footer">
+      <Container className="edge">
+        <slot name="page-footer"/>
+      </Container>
+    </div>
   </main>
   <Popups isUser={isUser} page={page}/>
   <Footer isUser={isUser}/>

@@ -43,11 +43,6 @@
   &.bg-dark {
     background-color: var(--color-bg-dark);
   }
-
-  &::after {
-    position: absolute;
-    bottom: 0;
-  }
 }
 
 .popup-header {
