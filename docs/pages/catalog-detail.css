@@ -1,31 +1,32 @@
-.main.catalog-detail::after {
-  bottom: calc(var(--footer--h) + var(--catalog-detail-button-buy-wrapper--h));
+.page-wrapper {
+  position: relative;
+  padding-top: .25rem;
+  width: 100cqw;
+  left: 50%;
+  transform: translateX(-50cqw);
+  background-color: var(--color-bg-light);
 }
 
-.page-wrapper {
-  /* TODO white bg ?? */
-  overflow: hidden;
-  padding-top: .25rem;
-  padding-bottom: calc(var(--catalog-detail-button-buy-wrapper--h) + .875rem);
-}
 
 .section-recommendations {
+  overflow: hidden;
+  padding-top: 1rem;
+  padding-bottom: var(--section-recommendations--pb, calc(var(--catalog-detail-button-buy-wrapper--h) + .875rem));
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: stretch;
   gap: 1rem;
+
+  .main.catalog-detail:has(.button-buy-wrapper[hidden]) & {
+    --section-recommendations--pb: .875rem;
+  }
 }
 
-.section-buy {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: var(--footer--h);
-  z-index: 1;
+.main.catalog-detail .page-footer {
   background-color: var(--color-bg-dark);
 
-  .wrapper {
+  .button-buy-wrapper:not([hidden]) {
     height: var(--catalog-detail-button-buy-wrapper--h);
     display: flex;
     justify-content: center;

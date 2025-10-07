@@ -37,7 +37,8 @@
       align-items: center;
     }
 
-    .number {
+    [data-cart-number]::after {
+      content: attr(data-cart-number);
       position: absolute;
       top: -2px;
       left: 22px;
