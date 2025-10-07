@@ -5,6 +5,8 @@ window.addEventListener('load', () => {
 
   window.productTileJsIsLoaded = true;
 
+  const cart = document.querySelector('[data-cart-number]');
+
   document.addEventListener('click', (e) => {
     const button = e.target.closest('[data-catalog-cart-add]');
 
@@ -12,6 +14,10 @@ window.addEventListener('load', () => {
 
     const productId = button.dataset.catalogCartAdd;
 
-    console.log('catalogCartAdd', productId);
+    let cartNumber = +cart.dataset.cartNumber;
+
+    cart.setAttribute('data-cart-number', ++cartNumber);
+
+    console.log('catalogCartAdd', productId, cartNumber);
   });
 });
