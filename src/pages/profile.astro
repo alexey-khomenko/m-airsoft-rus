@@ -16,14 +16,14 @@ const balance: '880 руб.' = '880 руб.';
 <Layout title="Профиль" page="profile" isUser={true}>
   <link rel="stylesheet" href="./pages/profile.css"/>
   <div class="page-wrapper">
-    <UtilHeader tag="section" classList={['main-header']}>
+    <UtilHeader tag="section" classList={['page-header']}>
       <h1 class="title">Личный кабинет</h1>
       <button type="button" class="button" data-button-logout-to="/">
         <span>Выход</span>
       </button>
     </UtilHeader>
 
-    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
       <div class="info">
         <span class="primary title">{tel}</span>
       </div>
@@ -32,7 +32,7 @@ const balance: '880 руб.' = '880 руб.';
       </button>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
       <div class="info">
         <span class="primary title">{lastName} {firstName} {middleName}</span>
         <span class="primary text">{email}</span>
@@ -42,7 +42,7 @@ const balance: '880 руб.' = '880 руб.';
       </button>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['content']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
       <div class="info">
         <span class="primary title">{amount}</span>
         <span class="third text">Общая сумма заказов</span>
@@ -53,7 +53,7 @@ const balance: '880 руб.' = '880 руб.';
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['content-orders']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-orders']} dataArray={[]} isHidden={false}>
       <div class="orders-title">История заказов</div>
       <div class="orders">
 

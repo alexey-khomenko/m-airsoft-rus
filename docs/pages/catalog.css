@@ -1,7 +1,3 @@
-.main.catalog::after {
-  bottom: var(--footer--h);
-}
-
 .page-wrapper {
   padding-top: .25rem;
   padding-bottom: 1rem;

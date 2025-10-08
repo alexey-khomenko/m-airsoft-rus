@@ -1,7 +1,3 @@
-.main.index::after {
-  bottom: var(--footer--h);
-}
-
 .page-wrapper {
   padding-top: .5rem;
   padding-bottom: 2rem;

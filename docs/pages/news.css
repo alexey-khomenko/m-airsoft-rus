@@ -1,7 +1,3 @@
-.main.news::after {
-  bottom: var(--footer--h);
-}
-
 .page-wrapper {
   padding-top: .25rem;
   padding-bottom: .25rem;
