@@ -9,11 +9,23 @@ import SectionPagination from '../components/SectionPagination.astro';
 
 const catalog: {
   id: number,
-  name: string
+  name: string,
+  link: string,
+  sections: { link: string, name: string }[],
 } = {
   id: 101,
   name: 'Пистолеты для страйкбола',
+  link: '/catalog',
+  sections: [],
 };
+
+const breadcrumbs: { link: string, name: string }[] = [{link: '/catalog', name: 'Каталог'}];
+
+for (const section of catalog.sections) {
+  breadcrumbs.push(section);
+}
+
+breadcrumbs.push({link: catalog.link, name: catalog.name});
 
 const products: {
   id: number,
@@ -169,7 +181,7 @@ const info: string = `
 <Layout title="Каталог" page="catalog" isUser={true}>
   <link rel="stylesheet" href="./pages/catalog.css"/>
   <div class="page-wrapper">
-    <SectionBreadcrumbs pages={[]} currentPage={catalog.name}/>
+    <SectionBreadcrumbs pages={breadcrumbs}/>
 
     <PageTitle title={catalog.name}/>
 

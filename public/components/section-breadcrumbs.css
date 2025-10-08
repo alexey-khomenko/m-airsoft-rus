@@ -1,3 +1,22 @@
 .section-breadcrumbs {
   padding-block: .75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .625rem;
+  font-weight: 400;
+  font-size: .75rem;
+  line-height: .875rem;
+
+  .link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .625rem;
+    color: var(--color-breadcrumb);
+    text-decoration: none;
+  }
+
+  .current-page {
+    color: var(--color-link);
+  }
 }

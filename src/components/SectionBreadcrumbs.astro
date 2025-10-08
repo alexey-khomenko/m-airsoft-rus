@@ -1,35 +1,37 @@
 ---
 interface Props {
-  pages: {}[];
-  currentPage: string;
+  pages: { link: string, name: string }[];
 }
 
-const {pages, currentPage}: Props = Astro.props;
+const {pages}: Props = Astro.props;
 
-const itemListElements: {}[] = [];
+const title: string = 'Главная';
+const host: string = 'https://example.com';
+let position: number = 1;
 
-itemListElements.push({
+const itemListElements: {}[] = [{
   '@type': 'ListItem',
-  'position': 1,
-  'item': {
-    '@id': 'https://example.com/dresses',
-    'name': 'Dresses',
-  },
-});
-itemListElements.push({
-  '@type': 'ListItem',
-  'position': 2,
-  'item': {
-    '@id': 'https://example.com/dresses/real',
-    'name': '...',
-  },
-});
+  'position': position,
+  'item': {'@id': host, 'name': title},
+}];
+
+for (const page of pages) {
+  itemListElements.push({
+    '@type': 'ListItem',
+    'position': ++position,
+    'item': {'@id': host + page.link, 'name': page.name},
+  });
+}
 
 const ldJson: {} = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   'itemListElement': itemListElements,
 };
+
+pages.unshift({link: '/', name: title});
+
+const currentPage: { link: string; name: string } | undefined = pages.pop();
 
 /*
 <svg style="margin-bottom: -3px;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -43,11 +45,16 @@ const ldJson: {} = {
 <section class="section-breadcrumbs">
   <link rel="stylesheet" href="./components/section-breadcrumbs.css"/>
 
-  <a href="/">
-    <span>Главная</span>
-  </a>
+  {pages.map((page: { link: string, name: string }) => (
+    <a href={page.link} class="link">
+      <span>{page.name}</span>
+      <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.04492 0.5L4.04492 3.5L1.04492 6.5" stroke="#9EA8B0" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  ))}
 
-  <span>{currentPage}</span>
+  <span class="current-page">{currentPage?.name}</span>
 
   <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(ldJson)}</script>`}/>
 </section>

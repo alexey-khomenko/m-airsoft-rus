@@ -7,11 +7,25 @@ import SliderProducts from '../components/SliderProducts.astro';
 
 const product: {
   id: number,
-  name: string
+  name: string,
+  link: string,
+  sections: { link: string, name: string }[],
 } = {
   id: 100,
   name: 'Дробовик Cyma SGR-12 Platinum AEG BK (CM102)',
+  link: '/catalog-detail',
+  sections: [
+    {link: '/catalog', name: 'Дробовики'},
+  ],
 };
+
+const breadcrumbs: { link: string, name: string }[] = [{link: '/catalog', name: 'Каталог'}];
+
+for (const section of product.sections) {
+  breadcrumbs.push(section);
+}
+
+breadcrumbs.push({link: product.link, name: product.name});
 
 const products: {
   id: number,
@@ -122,7 +136,7 @@ const products: {
   <div class="page-wrapper">
     <Container>
 
-      <SectionBreadcrumbs pages={[]} currentPage={product.name}/>
+      <SectionBreadcrumbs pages={breadcrumbs}/>
 
       <PageTitle title={product.name}/>
 

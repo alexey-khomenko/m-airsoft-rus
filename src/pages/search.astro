@@ -7,6 +7,12 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
 const title: string = 'Результаты поиска по запросу';
+
+const breadcrumbs: { link: string, name: string }[] = [
+  {link: '/catalog', name: 'Каталог'},
+  {link: '/catalog?q=', name: 'Поиск'},
+];
+
 const products: {
   id: number,
   link: string,
@@ -132,7 +138,7 @@ const products: {
 <Layout title="Поиск" page="search" isUser={true}>
   <link rel="stylesheet" href="./pages/search.css"/>
   <div class="page-wrapper">
-    <SectionBreadcrumbs pages={[]} currentPage={title}/>
+    <SectionBreadcrumbs pages={breadcrumbs}/>
 
     <PageTitle title={title}/>
 
