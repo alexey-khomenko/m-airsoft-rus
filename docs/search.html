@@ -126,13 +126,21 @@
     <section class="section-breadcrumbs">
   <link rel="stylesheet" href="./components/section-breadcrumbs.css">
 
-  <a href="/m-airsoft-rus/index.html">
-    <span>Главная</span>
-  </a>
+  <a href="/m-airsoft-rus/index.html" class="link">
+      <span>Главная</span>
+      <svg width="5" height="7" viewBox="0 0 5 7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.04492 0.5L4.04492 3.5L1.04492 6.5" stroke="#9EA8B0" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a><a href="/m-airsoft-rus/catalog.html" class="link">
+      <span>Каталог</span>
+      <svg width="5" height="7" viewBox="0 0 5 7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.04492 0.5L4.04492 3.5L1.04492 6.5" stroke="#9EA8B0" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
 
-  <span>Результаты поиска по запросу</span>
+  <span class="current-page">Поиск</span>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://example.com/dresses","name":"Dresses"}},{"@type":"ListItem","position":2,"item":{"@id":"https://example.com/dresses/real","name":"..."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://example.com","name":"Главная"}},{"@type":"ListItem","position":2,"item":{"@id":"https://example.com/catalog","name":"Каталог"}},{"@type":"ListItem","position":3,"item":{"@id":"https://example.com/catalog?q=","name":"Поиск"}}]}</script>
 </section>
 
     <section class="page-title">

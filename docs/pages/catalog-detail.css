@@ -13,7 +13,7 @@
   padding-top: 1rem;
   padding-bottom: var(--section-recommendations--pb, calc(var(--catalog-detail-button-buy-wrapper--h) + .875rem));
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
   gap: 1rem;
