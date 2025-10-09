@@ -1,3 +1,48 @@
 .section-filters {
   padding-block: .75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+
+  .filter-button, .sort-header {
+    min-height: 2.5rem;
+    font-size: .875rem;
+  }
+
+
+  .sort-dropdown {
+    position: relative;
+  }
+
+  .sort-dropdown[open] .sort-header .svg {
+    transform: rotate(180deg);
+  }
+
+  .sort-main {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--color-bg-light);
+    border-radius: .25rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .1);
+    transform: translateY(-1px);
+  }
+
+  .sort-link {
+    padding: .25rem 1rem;
+    min-height: 2.5rem;
+    display: flex;
+    justify-content: var(--sort-link--jc, flex-start);
+    align-items: center;
+    font-size: .875rem;
+    color: var(--color-text);
+    text-decoration: none;
+
+    @container app (width > 430px) {
+      --sort-link--jc: center;
+    }
+  }
 }

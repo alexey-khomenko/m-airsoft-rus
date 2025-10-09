@@ -79,18 +79,6 @@
 .section-products {
   .button {
     margin-top: 1rem;
-    min-height: 3.125rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.25rem;
-    border: 2px solid var(--color-link);
-    background-color: var(--color-light);
-    font-weight: 400;
-    font-size: 1.125rem;
-    text-align: center;
-    color: var(--color-link);
-    text-decoration: none;
   }
 
   .banner {

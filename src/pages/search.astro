@@ -7,11 +7,11 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
 const title: string = 'Результаты поиска по запросу';
+const link: string = '/search?q=';
 
-const breadcrumbs: { link: string, name: string }[] = [
-  {link: '/catalog', name: 'Каталог'},
-  {link: '/catalog-section?q=', name: 'Поиск'},
-];
+const breadcrumbs: { link: string, name: string }[] = [{link: '/catalog', name: 'Каталог'}];
+
+breadcrumbs.push({link: link, name: title});
 
 const products: {
   id: number,
@@ -142,7 +142,7 @@ const products: {
 
     <PageTitle title={title}/>
 
-    <SectionFilters/>
+    <SectionFilters link={`${link}&`}/>
 
     <SectionProducts products={products}/>
 

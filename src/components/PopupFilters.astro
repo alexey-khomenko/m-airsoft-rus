@@ -1,0 +1,12 @@
+---
+interface Props {
+  data: {
+    test: string,
+  };
+}
+
+const {data}: Props = Astro.props;
+---
+<span>
+  {data.test}
+</span>

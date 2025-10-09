@@ -5,6 +5,9 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
+const title: string = 'Избранное';
+const link: string = '/favourite';
+
 const products: {
   id: number,
   link: string,
@@ -58,13 +61,13 @@ const products: {
   <div class="page-wrapper">
 
     <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">Избранное</h1>
+      <h1 class="title">{title}</h1>
       <a href="/" class="button">
         <span>Назад</span>
       </a>
     </UtilHeader>
 
-    <SectionFilters/>
+    <SectionFilters link={`${link}?`}/>
 
     <SectionProducts products={products}/>
 

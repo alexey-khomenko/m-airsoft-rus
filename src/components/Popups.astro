@@ -5,6 +5,7 @@ import PopupMenuFooter from '../components/PopupMenuFooter.astro';
 import PopupLogin from '../components/PopupLogin.astro';
 import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
+import PopupFilters from '../components/PopupFilters.astro';
 
 const {page, isUser = true} = Astro.props;
 ---
@@ -18,20 +19,29 @@ const {page, isUser = true} = Astro.props;
     <PopupMenuFooter/>
   </Popup>
 
-  {!isUser &&
+  {!isUser && (
     <Popup name="login" title="Вход" bgLight={false}>
       <PopupLogin/>
-    </Popup>}
+    </Popup>
+  )}
 
-  {isUser && 'profile' === page &&
+  {isUser && 'profile' === page && (
     <Popup name="profile-tel" title="Изменение номера" bgLight={false}>
       <PopupProfileTel/>
-    </Popup>}
+    </Popup>
+  )}
 
-  {isUser && 'profile' === page &&
+  {isUser && 'profile' === page && (
     <Popup name="profile-name" title="Личные данные" bgLight={false}>
       <PopupProfileName/>
-    </Popup>}
+    </Popup>
+  )}
+
+  {['search', 'catalog-section', 'favourite'].includes(page) && (
+    <Popup name="filters" title="Фильтры" bgLight={true}>
+      <PopupFilters data={{test: page}}/>
+    </Popup>
+  )}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>

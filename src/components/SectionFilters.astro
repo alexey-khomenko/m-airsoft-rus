@@ -1,9 +1,45 @@
 ---
+interface Props {
+  link: string;
+}
 
+const {link}: Props = Astro.props;
+
+const options: { alias: string, title: string }[] = [
+  {alias: 'popular', title: 'Популярные товары'},
+  {alias: 'price', title: 'Сначала дорогие'},
+  {alias: 'price-asc', title: 'Сначала недорогие'},
+];
+
+const currentAlias: string = Astro.url.searchParams.get('sort') || 'popular';
+
+const currentTitle: string = options.find(
+  (option: { alias: string, title: string }): boolean => option.alias === currentAlias)?.title || options[0].title;
+const otherOptions: { alias: string, title: string }[] = options.filter(
+  (option: { alias: string, title: string }): boolean => option.alias !== currentAlias);
 ---
 
 <section class="section-filters">
   <link rel="stylesheet" href="./components/section-filters.css"/>
-  filters
+  <button type="button" class="util-button primary filter-button" data-popup-open="filters">
+    <img src="./images/filter.png" alt="" width="21" height="21"/>
+    <span>Фильтры</span>
+  </button>
+  <details class="sort-dropdown">
+    <summary class="util-button secondary sort-header">
+      <span>{currentTitle}</span>
+      <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </svg>
+    </summary>
+    <div class="sort-main">
+      {otherOptions.map((option: { alias: string, title: string }) => (
+        <a href={`${link}sort=${option.alias}`} class="sort-link">
+          <span>{option.title}</span>
+        </a>
+      ))}
+    </div>
+  </details>
   <script src="./components/section-filters.js" is:inline async></script>
 </section>
