@@ -1,4 +1,8 @@
 .page-wrapper {
-  padding-top: .25rem;
+  padding-top: .5rem;
   padding-bottom: .25rem;
+}
+
+.page-header::before {
+  flex-basis: 3rem;
 }
