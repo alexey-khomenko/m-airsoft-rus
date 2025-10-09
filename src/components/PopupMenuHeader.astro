@@ -15,7 +15,7 @@ const links: { link: string; img: string, name: string }[] = [
 <nav class="popup-menu-header">
   <link rel="stylesheet" href="./components/popup-menu-header.css"/>
   {links.map((item: { link: string; img: string, name: string }) => (
-    <a href={item.link} class="tile">
+    <a href={item.link} class="tile" title={item.name}>
       <img src={item.img} alt={item.name} decoding="async" loading="lazy" class="cover"/>
     </a>
   ))}

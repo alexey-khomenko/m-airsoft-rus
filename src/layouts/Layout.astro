@@ -5,7 +5,13 @@ import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
 import Scripts from '../components/Scripts.astro';
 
-const {title, page, isUser = true} = Astro.props;
+interface Props {
+  title: string;
+  page: string;
+  isUser?: boolean;
+}
+
+const {title, page, isUser = true}: Props = Astro.props;
 ---
 
 <!DOCTYPE html>

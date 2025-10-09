@@ -36,12 +36,12 @@ if (isSlider) classList.push('swiper-slide');
   <div>
     {product.oldPrice !== product.price && (
       <div class="old">
-                      <span class="price">
-                        {product.oldPrice.toLocaleString('ru-RU')} руб.
-                      </span>
+        <span class="price">
+          {product.oldPrice.toLocaleString('ru-RU')} руб.
+        </span>
         <span class="discount">
-                        -{(product.oldPrice - product.price).toLocaleString('ru-RU')}
-                      </span>
+          -{(product.oldPrice - product.price).toLocaleString('ru-RU')}
+        </span>
       </div>
     )}
   </div>

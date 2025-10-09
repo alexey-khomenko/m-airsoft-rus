@@ -1,5 +1,11 @@
 ---
-const results: { link: string; img: string, name: string, oldPrice: number, price: number }[] = [
+const results: {
+  link: string,
+  img: string,
+  name: string,
+  oldPrice: number,
+  price: number,
+}[] = [
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
@@ -36,9 +42,24 @@ const results: { link: string; img: string, name: string, oldPrice: number, pric
     price: 16990,
   },
 ];
+
+const ldJson: {} = {
+  '@context': '//schema.org',
+  '@type': 'WebSite',
+  'url': 'https://m.airsoft-rus.ru',
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': {
+      '@type': 'EntryPoint',
+      'urlTemplate': 'https://m.airsoft-rus.ru/catalog/?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
 ---
 
 <form class="header-search" role="search" action="/search" novalidate data-form-search>
+  <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(ldJson)}</script>`}/>
   <input type="search" name="search" id="search" class="input" maxlength="256"
          placeholder="Поиск по каталогу" aria-label="Поиск по каталогу"/>
   <button type="submit" class="button" title="Найти">

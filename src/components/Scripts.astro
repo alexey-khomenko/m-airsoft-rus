@@ -1,8 +1,14 @@
 ---
-
+const ldJson: {} = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'url': 'https://m.airsoft-rus.ru',
+  'logo': 'https://m.airsoft-rus.ru/logo.png', // TODO logo
+};
 ---
 
 <script src="./layouts/plugins/inputmask.min.js" is:inline async></script>
 <script src="./layouts/plugins/intlTelInput/intlTelInput.min.js" is:inline async></script>
 <script src="./layouts/plugins/swiper/swiper-bundle.min.js" is:inline async></script>
 <script src="./layouts/layout.js" is:inline async></script>
+<Fragment set:html={`<script type="application/ld+json">${JSON.stringify(ldJson)}</script>`}/>

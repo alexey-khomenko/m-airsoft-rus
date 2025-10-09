@@ -16,7 +16,7 @@ const product: {
   id: 100,
   name: 'Дробовик Cyma SGR-12 Platinum AEG BK (CM102)',
   link: '/catalog-detail',
-  rating: 5,
+  rating: 0,
   sections: [
     {link: '/catalog-section', name: 'Дробовики'},
   ],
@@ -44,7 +44,7 @@ const products: {
     link: '/catalog-detail',
     img: './content/catalog-product-3.png',
     title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
+    rating: 0,
     oldPrice: 26390,
     price: 26390,
   },
@@ -132,13 +132,30 @@ const products: {
     price: 16800,
   },
 ];
+
+// TODO https://schema.org/AggregateRating Example 2
+/* TODO
+{
+  "@context": "http://schema.org/",
+  "@type": "Organization",
+  "name": "Air-soft",
+  "url": "https://m.airsoft-rus.ru",
+  "hasMerchantReturnPolicy": {
+    "@type": "https://schema.org/MerchantReturnPolicy",
+    "merchantReturnLink": "https://m.airsoft-rus.ru/warranty-and-returns/",
+    "returnPolicyCategory": "Finite",
+    "merchantReturnDays": "20",
+    "refundType": "FullRefund",
+    "inStoreReturnsOffered": "True"
+  }
+}
+*/
 ---
 
 <Layout title="Товар" page="catalog-detail" isUser={true}>
   <link rel="stylesheet" href="./pages/catalog-detail.css"/>
   <div class="page-wrapper">
     <Container>
-
       <SectionBreadcrumbs pages={breadcrumbs}/>
 
       <PageTitle title={product.name}/>
