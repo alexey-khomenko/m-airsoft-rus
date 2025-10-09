@@ -93,21 +93,24 @@
       line-height: 1.125rem;
       color: var(--color-title);
     }
+  }
 
-    .cart {
-      flex-shrink: 0;
-      margin-left: auto;
+  .cart {
+    flex-shrink: 0;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    color: var(--color-link);
+
+    &:not([hidden]) {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: none;
-      background-color: transparent;
-      color: var(--color-link);
+    }
 
-      .svg {
-        width: 1.375rem;
-        height: 1.375rem;
-      }
+    .svg {
+      width: 1.375rem;
+      height: 1.375rem;
     }
   }
 }

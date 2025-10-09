@@ -19,5 +19,7 @@ window.addEventListener('load', () => {
     cart.setAttribute('data-cart-number', ++cartNumber);
 
     console.log('catalogCartAdd', productId, cartNumber);
+
+    button.hidden = true;
   });
 });

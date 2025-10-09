@@ -139,9 +139,9 @@
       </svg>
     </a>
 
-  <span class="current-page">Поиск</span>
+  <span class="current-page">Результаты поиска по запросу</span>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://m.airsoft-rus.ru","name":"Главная"}},{"@type":"ListItem","position":2,"item":{"@id":"https://m.airsoft-rus.ru/catalog","name":"Каталог"}},{"@type":"ListItem","position":3,"item":{"@id":"https://m.airsoft-rus.ru/catalog-section?q=","name":"Поиск"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://m.airsoft-rus.ru","name":"Главная"}},{"@type":"ListItem","position":2,"item":{"@id":"https://m.airsoft-rus.ru/catalog","name":"Каталог"}},{"@type":"ListItem","position":3,"item":{"@id":"https://m.airsoft-rus.ru/search?q=","name":"Результаты поиска по запросу"}}]}</script>
 </section>
 
     <section class="page-title">
@@ -151,7 +151,25 @@
 
     <section class="section-filters">
   <link rel="stylesheet" href="./components/section-filters.css">
-  filters
+  <button type="button" class="util-button primary filter-button" data-popup-open="filters">
+    <img src="./images/filter.png" alt="" width="21" height="21">
+    <span>Фильтры</span>
+  </button>
+  <details class="sort-dropdown">
+    <summary class="util-button secondary sort-header">
+      <span>Популярные товары</span>
+      <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </summary>
+    <div class="sort-main">
+      <a href="/search?q=&#38;sort=price" class="sort-link">
+          <span>Сначала дорогие</span>
+        </a><a href="/search?q=&#38;sort=price-asc" class="sort-link">
+          <span>Сначала недорогие</span>
+        </a>
+    </div>
+  </details>
   <script src="./components/section-filters.js" async></script>
 </section>
 
@@ -782,6 +800,27 @@
   
 
   
+
+  <div class="popup bg-light" data-popup-name="filters" hidden="hidden">
+  <div class="util-header popup-header">
+<link rel="stylesheet" href="./components/util-header.css">
+
+    <h2 class="title">Фильтры</h2>
+    <button class="button" type="button" data-popup-close>
+      <span>Отмена</span>
+    </button>
+  
+</div>
+  <div class="popup-main">
+    <div class="wrapper">
+      
+      <span>
+  search
+</span>
+    
+    </div>
+  </div>
+</div>
 
   <script src="./components/popups.js" async></script>
 </aside>
