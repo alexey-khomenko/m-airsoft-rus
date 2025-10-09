@@ -1,6 +1,6 @@
 .util-header {
   flex-shrink: 0;
-  padding-inline: .5rem;
+  min-height: 3.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,7 @@
 
   .button {
     flex-shrink: 0;
+    padding: .125rem;
     min-height: 2.25rem;
     display: flex;
     justify-content: center;
@@ -34,5 +35,6 @@
     text-align: center;
     color: var(--color-link);
     text-transform: lowercase;
+    text-decoration: none;
   }
 }

@@ -28,6 +28,10 @@
 }
 
 
+.section-1 {
+  margin-top: .25rem;
+}
+
 .section-recommendations {
   overflow: hidden;
   padding-top: 1rem;

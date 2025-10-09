@@ -1,22 +1,22 @@
 ---
-const links: { link: string; img: string, title: string }[] = [
-  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-2.png', title: 'Каталог'},
-  {link: '/catalog', img: './content/catalog-1.png', title: 'Каталог'},
+const links: { link: string; img: string, name: string }[] = [
+  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
+  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
 ];
 ---
 
 <nav class="popup-menu-header">
   <link rel="stylesheet" href="./components/popup-menu-header.css"/>
-  {links.map((item: { link: string; img: string, title: string }) => (
+  {links.map((item: { link: string; img: string, name: string }) => (
     <a href={item.link} class="tile">
-      <img src={item.img} alt={item.title} decoding="async" loading="lazy" class="cover"/>
+      <img src={item.img} alt={item.name} decoding="async" loading="lazy" class="cover"/>
     </a>
   ))}
 </nav>

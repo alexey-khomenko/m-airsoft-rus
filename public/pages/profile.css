@@ -1,24 +1,15 @@
 .page-wrapper {
   padding-top: .5rem;
   padding-bottom: 1rem;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: .5rem;
 }
 
-.page-header {
-  min-height: 2.75rem;
-
-  &::before {
-    flex-basis: 3.375rem;
-  }
+.page-header::before {
+  flex-basis: 3.375rem;
 }
 
 
 .section {
+  margin-top: .5rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -73,6 +64,8 @@
 }
 
 .section-orders {
+  margin-top: .5rem;
+
   .orders-title {
     margin-bottom: 2.25rem;
     font-weight: 700;

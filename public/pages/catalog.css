@@ -1,4 +1,17 @@
 .page-wrapper {
-  padding-top: .25rem;
-  padding-bottom: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .875rem;
+}
+
+.page-header::before {
+  flex-basis: 3rem;
+}
+
+.main.catalog {
+  background-color: var(--color-bg-light);
+}
+
+
+.section {
+  margin-top: .5rem;
 }

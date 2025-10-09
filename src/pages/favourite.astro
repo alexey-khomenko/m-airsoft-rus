@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
+import UtilHeader from '../components/UtilHeader.astro';
 
 const products: {
   id: number,
@@ -52,11 +53,16 @@ const products: {
 ];
 ---
 
-<Layout title="Избраннное" page="favourite" isUser={true}>
+<Layout title="Избранное" page="favourite" isUser={true}>
   <link rel="stylesheet" href="./pages/favourite.css"/>
   <div class="page-wrapper">
 
-    favourite
+    <UtilHeader tag="section" classList={['page-header']}>
+      <h1 class="title">Избранное</h1>
+      <a href="/" class="button">
+        <span>Назад</span>
+      </a>
+    </UtilHeader>
 
     <SectionFilters/>
 

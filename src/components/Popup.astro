@@ -4,7 +4,7 @@ const {name, title, bgLight} = Astro.props;
 ---
 
 <div class:list={['popup', bgLight ? 'bg-light' : 'bg-dark']} data-popup-name={name} hidden="hidden">
-  <UtilHeader tag="section" classList={['popup-header']}>
+  <UtilHeader tag="div" classList={['popup-header']}>
     <h2 class="title">{title}</h2>
     <button class="button" type="button" data-popup-close>
       <span>Отмена</span>

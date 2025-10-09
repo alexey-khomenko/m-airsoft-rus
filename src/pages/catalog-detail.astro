@@ -4,18 +4,21 @@ import Container from '../components/Container.astro';
 import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
 import PageTitle from '../components/PageTitle.astro';
 import SliderProducts from '../components/SliderProducts.astro';
+import Rating from '../components/Rating.astro';
 
 const product: {
   id: number,
   name: string,
   link: string,
+  rating: number,
   sections: { link: string, name: string }[],
 } = {
   id: 100,
   name: 'Дробовик Cyma SGR-12 Platinum AEG BK (CM102)',
   link: '/catalog-detail',
+  rating: 5,
   sections: [
-    {link: '/catalog', name: 'Дробовики'},
+    {link: '/catalog-section', name: 'Дробовики'},
   ],
 };
 
@@ -140,7 +143,11 @@ const products: {
 
       <PageTitle title={product.name}/>
 
-      <br><br><br><br><br>
+      <section class="section-1">
+        <Rating value={product.rating} className="detail"/>
+      </section>
+
+      <br><br><br>
 
     </Container>
     <div class="util-decoration" aria-hidden="true"></div>

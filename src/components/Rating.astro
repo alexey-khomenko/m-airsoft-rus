@@ -1,0 +1,14 @@
+---
+interface Props {
+  value: number;
+  className: string;
+}
+
+const {value, className}: Props = Astro.props;
+
+// TODO 0 отзывов
+---
+
+<link rel="stylesheet" href="./components/rating.css"/>
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly
+       class:list={['rating', className]} value={value} style={`--val: ${value}`}/>

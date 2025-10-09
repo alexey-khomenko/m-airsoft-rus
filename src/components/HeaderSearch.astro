@@ -1,37 +1,37 @@
 ---
-const results: { link: string; img: string, title: string, oldPrice: number, price: number }[] = [
+const results: { link: string; img: string, name: string, oldPrice: number, price: number }[] = [
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
+    name: 'Автомат Суmа AKC-74Y CM035',
     oldPrice: 26390,
     price: 26390,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
+    name: 'Автомат Суmа AKC-74Y CM035',
     oldPrice: 26390,
     price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
+    name: 'Автомат Суmа AKC-74Y CM035',
     oldPrice: 26390,
     price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
+    name: 'Автомат Суmа AKC-74Y CM035',
     oldPrice: 26390,
     price: 16990,
   },
   {
     link: '/catalog-detail',
     img: './content/header-search.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
+    name: 'Автомат Суmа AKC-74Y CM035',
     oldPrice: 26390,
     price: 16990,
   },
@@ -51,12 +51,12 @@ const results: { link: string; img: string, title: string, oldPrice: number, pri
 <div class="header-search-popup" hidden="hidden">
   <div class="header-search-results-wrapper">
     <div class="header-search-results" hidden="hidden">
-      {results.map((result: { link: string; img: string, title: string, oldPrice: number, price: number }) => (
+      {results.map((result: { link: string; img: string, name: string, oldPrice: number, price: number }) => (
         <a href={result.link} class="result">
-          <img src={result.img} alt={result.title} class="img"/>
+          <img src={result.img} alt={result.name} decoding="async" loading="lazy" class="img"/>
           <div>
             <div>
-              <span class="title">{result.title}</span>
+              <span class="title">{result.name}</span>
             </div>
             <div>
               <span class="text">Цена</span>
