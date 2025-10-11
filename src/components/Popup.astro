@@ -1,6 +1,13 @@
 ---
 import UtilHeader from '../components/UtilHeader.astro';
-const {name, title, bgLight} = Astro.props;
+
+interface Props {
+  name: string;
+  title: string;
+  bgLight: boolean;
+}
+
+const {name, title, bgLight}: Props = Astro.props;
 ---
 
 <div class:list={['popup', bgLight ? 'bg-light' : 'bg-dark']} data-popup-name={name} hidden="hidden">
@@ -14,5 +21,8 @@ const {name, title, bgLight} = Astro.props;
     <div class="wrapper">
       <slot/>
     </div>
+  </div>
+  <div class="popup-footer">
+    <slot name="popup-footer"/>
   </div>
 </div>

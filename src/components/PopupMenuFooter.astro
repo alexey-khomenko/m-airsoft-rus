@@ -1,4 +1,6 @@
 ---
+import Popup from '../components/Popup.astro';
+
 const links: { link: string; img: string, title: string }[] = [
   {link: '/brands', img: './images/menu-footer-icons/1.png', title: 'Бренды'},
   {link: '/news', img: './images/menu-footer-icons/2.png', title: 'Новости'},
@@ -17,20 +19,22 @@ const links: { link: string; img: string, title: string }[] = [
 ];
 ---
 
-<nav class="popup-menu-footer">
+<Popup name="menu-footer" title="Меню" bgLight={true}>
   <link rel="stylesheet" href="./components/popup-menu-footer.css"/>
-  {links.map((item: { link: string; img: string, title: string }) => (
-    <div class="item">
-      <a href={item.link} class="left">
-        <img src={item.img} alt="" decoding="async" loading="lazy" class="icon"/>
-        <span class="text">{item.title}</span>
-      </a>
-      <a href={item.link} title={item.title} class="right">
-        <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-  ))}
-</nav>
+  <nav class="popup-menu-footer">
+    {links.map((item: { link: string; img: string, title: string }) => (
+      <div class="item">
+        <a href={item.link} class="left">
+          <img src={item.img} alt="" decoding="async" loading="lazy" class="icon"/>
+          <span class="text">{item.title}</span>
+        </a>
+        <a href={item.link} title={item.title} class="right">
+          <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    ))}
+  </nav>
+</Popup>

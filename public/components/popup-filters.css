@@ -1,0 +1,38 @@
+[data-popup-name="filters"] .popup-header {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+    border-bottom: 1px solid #D6D5D5;
+  }
+}
+
+.popup-filters {
+  position: relative;
+  padding: 1rem .75rem 0;
+}
+
+.buttons-filters-wrapper {
+  position: relative;
+  padding: .5rem 1.25rem 1.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .625rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+    border-bottom: 1px solid #D6D5D5;
+  }
+
+  .button {
+    min-height: 2.75rem;
+  }
+}

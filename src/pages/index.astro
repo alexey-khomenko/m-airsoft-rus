@@ -507,7 +507,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <div class="swiper-wrapper">
           {largeBanners.map((banner: { title: string, link: string, img: string }) => (
             <a href={banner.link} class="swiper-slide banner large-banner">
-              <img src={banner.img} alt={banner.title} class="img"/>
+              <img src={banner.img} alt={banner.title} decoding="async" loading="lazy" class="img"/>
             </a>
           ))}
         </div>
@@ -516,7 +516,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <div class="swiper-wrapper">
           {smallBanners.map((banner: { title: string, link: string, img: string }) => (
             <a href={banner.link} class="swiper-slide banner small-banner">
-              <img src={banner.img} alt={banner.title} class="img"/>
+              <img src={banner.img} alt={banner.title} decoding="async" loading="lazy" class="img"/>
             </a>
           ))}
         </div>
@@ -543,7 +543,8 @@ const brands: { title: string, link: string, img: string, width: number, height:
           <span>Показать всё</span>
         </a>
         <a href={group.banner.link} class="banner">
-          <img src={group.banner.img} alt={group.banner.title} class="img" width="344" height="62"/>
+          <img src={group.banner.img} alt={group.banner.title} class="img" width="344" height="62"
+               decoding="async" loading="lazy"/>
         </a>
       </section>
     ))}
@@ -572,7 +573,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <div class="swiper-wrapper">
           {reviews.map((review: { title: string, link: string, img: string }) => (
             <a href={review.link} class="swiper-slide item">
-              <img src={review.img} alt={review.title} class="img"/>
+              <img src={review.img} alt={review.title} decoding="async" loading="lazy" class="img"/>
               <span class="name">{review.title}</span>
             </a>
           ))}
@@ -588,7 +589,8 @@ const brands: { title: string, link: string, img: string, width: number, height:
       <div class="items">
         {brands.map((brand: { title: string, link: string, img: string, width: number, height: number }) => (
           <a href={brand.link} class="item">
-            <img src={brand.img} alt={brand.title} width={brand.width} height={brand.height}/>
+            <img src={brand.img} alt={brand.title} width={brand.width} height={brand.height}
+                 decoding="async" loading="lazy"/>
           </a>
         ))}
       </div>

@@ -1,46 +1,48 @@
 ---
+import Popup from '../components/Popup.astro';
 import UtilTile from '../components/UtilTile.astro';
 ---
 
-<div class="popup-login">
+<Popup name="profile-tel" title="Изменение номера" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-login.css"/>
-
-  <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
-    <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
-      <label class="label" for="phone">Новый номер</label>
-      <div class="input-wrapper phone">
-        <input type="tel" name="phone" id="phone" class="input" maxlength="24" value="+79630407512"
-               inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
-        />
-      </div>
-      <button type="submit" class="util-button primary button">
-        <span>Подтвердить через Telegram</span>
+  <div class="popup-login">
+    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
+      <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
+        <label class="label" for="phone">Новый номер</label>
+        <div class="input-wrapper phone">
+          <input type="tel" name="phone" id="phone" class="input" maxlength="24" value="+79630407512"
+                 inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
+          />
+        </div>
+        <button type="submit" class="util-button primary button">
+          <span>Подтвердить через Telegram</span>
+        </button>
+      </form>
+      <button class="util-button secondary back" data-popup-login-cancel>
+        <span>Отмена</span>
       </button>
-    </form>
-    <button class="util-button secondary back" data-popup-login-cancel>
-      <span>Отмена</span>
-    </button>
-  </UtilTile>
+    </UtilTile>
 
-  <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
-    <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
-      <label class="label" for="code">Введите полученный код</label>
-      <div class="input-wrapper code">
-        <input type="text" name="code" id="code" class="input" maxlength="4"
-               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-               placeholder="0000"/>
-      </div>
-      <button type="submit" class="util-button primary button">
-        <span>Отправить и выполнить вход</span>
+    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
+      <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
+        <label class="label" for="code">Введите полученный код</label>
+        <div class="input-wrapper code">
+          <input type="text" name="code" id="code" class="input" maxlength="4"
+                 inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+                 placeholder="0000"/>
+        </div>
+        <button type="submit" class="util-button primary button">
+          <span>Отправить и выполнить вход</span>
+        </button>
+      </form>
+      <button class="util-button secondary back" data-popup-login-back>
+        <span>Вернуться назад</span>
       </button>
-    </form>
-    <button class="util-button secondary back" data-popup-login-back>
-      <span>Вернуться назад</span>
-    </button>
-  </UtilTile>
+    </UtilTile>
 
-  <button type="button" class="another-login" data-popup-login-another-way>
-    <span>Подтвердить другим способом</span>
-  </button>
+    <button type="button" class="another-login" data-popup-login-another-way>
+      <span>Подтвердить другим способом</span>
+    </button>
+  </div>
   <script src="./components/popup-login.js" is:inline async></script>
-</div>
+</Popup>

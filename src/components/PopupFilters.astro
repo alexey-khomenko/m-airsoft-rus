@@ -1,4 +1,6 @@
 ---
+import Popup from '../components/Popup.astro';
+
 interface Props {
   data: {
     test: string,
@@ -7,6 +9,34 @@ interface Props {
 
 const {data}: Props = Astro.props;
 ---
-<span>
-  {data.test}
-</span>
+
+<Popup name="filters" title="Фильтры" bgLight={true}>
+  <link rel="stylesheet" href="./components/popup-filters.css"/>
+  <form class="popup-filters" action="/filters" novalidate data-form-filters>
+
+
+    <input type="number" name="price-min" id="price-min" class="input" data-form-filters-price="min"
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           min="0" max="99" placeholder="0"
+           aria-label="Стоимость, от"/>
+
+    <input type="number" name="price-max" id="price-max" class="input" data-form-filters-price="max"
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           min="1" max="100" placeholder="100"
+           aria-label="Стоимость, до"/>
+
+
+    <button type="submit" hidden="hidden">
+      <span>Применить</span>
+    </button>
+  </form>
+  <div class="buttons-filters-wrapper" slot="popup-footer">
+    <button type="button" class="util-button primary button" data-submit-form-filters>
+      <span>Применить</span>
+    </button>
+    <button type="button" class="util-button secondary button" data-popup-close>
+      <span>Закрыть</span>
+    </button>
+  </div>
+  <script src="./components/popup-filters.js" is:inline async></script>
+</Popup>

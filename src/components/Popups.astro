@@ -1,5 +1,4 @@
 ---
-import Popup from '../components/Popup.astro';
 import PopupMenuHeader from '../components/PopupMenuHeader.astro';
 import PopupMenuFooter from '../components/PopupMenuFooter.astro';
 import PopupLogin from '../components/PopupLogin.astro';
@@ -7,41 +6,32 @@ import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
 
-const {page, isUser = true} = Astro.props;
+interface Props {
+  page: string;
+  isUser?: boolean;
+}
+
+const {page, isUser = true}: Props = Astro.props;
 ---
 
 <aside class="popups" data-popup-backdrop hidden="hidden">
   <link rel="stylesheet" href="./components/popups.css"/>
-  <Popup name="menu-header" title="Каталог" bgLight={true}>
-    <PopupMenuHeader/>
-  </Popup>
-  <Popup name="menu-footer" title="Меню" bgLight={true}>
-    <PopupMenuFooter/>
-  </Popup>
 
-  {!isUser && (
-    <Popup name="login" title="Вход" bgLight={false}>
-      <PopupLogin/>
-    </Popup>
-  )}
+  <PopupMenuHeader/>
 
-  {isUser && 'profile' === page && (
-    <Popup name="profile-tel" title="Изменение номера" bgLight={false}>
-      <PopupProfileTel/>
-    </Popup>
-  )}
+  <PopupMenuFooter/>
 
-  {isUser && 'profile' === page && (
-    <Popup name="profile-name" title="Личные данные" bgLight={false}>
-      <PopupProfileName/>
-    </Popup>
-  )}
+  {!isUser &&
+    <PopupLogin/>}
 
-  {['search', 'catalog-section', 'favourite'].includes(page) && (
-    <Popup name="filters" title="Фильтры" bgLight={true}>
-      <PopupFilters data={{test: page}}/>
-    </Popup>
-  )}
+  {isUser && 'profile' === page &&
+    <PopupProfileTel/>}
+
+  {isUser && 'profile' === page &&
+    <PopupProfileName/>}
+
+  {['search', 'catalog-section', 'favourite'].includes(page) &&
+    <PopupFilters data={{test: page}}/>}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>
