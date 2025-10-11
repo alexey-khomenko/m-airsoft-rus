@@ -46,6 +46,7 @@
 }
 
 .popup-header {
+  position: relative;
   margin-top: .5rem;
   padding-inline: .5rem;
 
@@ -63,3 +64,8 @@
     overflow: hidden;
   }
 }
+
+.popup-footer {
+  margin-top: auto;
+}
+
