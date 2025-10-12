@@ -35,6 +35,32 @@ strings.set('="/search"', '="/m-airsoft-rus/search.html"');
 strings.set('="/suppliers"', '="/m-airsoft-rus/suppliers.html"');
 strings.set('="/warranty"', '="/m-airsoft-rus/warranty.html"');
 
+strings.set('="/brands?', '="/m-airsoft-rus/brands.html?');
+strings.set('="/cart?', '="/m-airsoft-rus/cart.html?');
+strings.set('="/catalog?', '="/m-airsoft-rus/catalog.html?');
+strings.set('="/catalog-detail?', '="/m-airsoft-rus/catalog-detail.html?');
+strings.set('="/catalog-section?', '="/m-airsoft-rus/catalog-section.html?');
+strings.set('="/comparison?', '="/m-airsoft-rus/comparison.html?');
+strings.set('="/contacts?', '="/m-airsoft-rus/contacts.html?');
+strings.set('="/delivery?', '="/m-airsoft-rus/delivery.html?');
+strings.set('="/favourite?', '="/m-airsoft-rus/favourite.html?');
+strings.set('="/finished?', '="/m-airsoft-rus/finished.html?');
+strings.set('="/how-to-buy?', '="/m-airsoft-rus/how-to-buy.html?');
+strings.set('="/?', '="/m-airsoft-rus/index.html?');
+strings.set('="/installment?', '="/m-airsoft-rus/installment.html?');
+strings.set('="/news?', '="/m-airsoft-rus/news.html?');
+strings.set('="/news-detail?', '="/m-airsoft-rus/news-detail.html?');
+strings.set('="/order?', '="/m-airsoft-rus/order.html?');
+strings.set('="/partners?', '="/m-airsoft-rus/partners.html?');
+strings.set('="/payments?', '="/m-airsoft-rus/payments.html?');
+strings.set('="/present?', '="/m-airsoft-rus/present.html?');
+strings.set('="/profile?', '="/m-airsoft-rus/profile.html?');
+strings.set('="/reviews?', '="/m-airsoft-rus/reviews.html?');
+strings.set('="/reviews-detail?', '="/m-airsoft-rus/reviews-detail.html?');
+strings.set('="/search?', '="/m-airsoft-rus/search.html?');
+strings.set('="/suppliers?', '="/m-airsoft-rus/suppliers.html?');
+strings.set('="/warranty?', '="/m-airsoft-rus/warranty.html?');
+
 // Функция для получения HTML-файлов только в указанной директории (без рекурсии)
 function getHtmlFiles(dirPath) {
   try {

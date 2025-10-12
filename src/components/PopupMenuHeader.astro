@@ -1,25 +1,8 @@
 ---
 import Popup from '../components/Popup.astro';
-
-const links: { link: string; img: string, name: string }[] = [
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-];
+import NavCatalog from '../components/NavCatalog.astro';
 ---
+
 <Popup name="menu-header" title="Каталог" bgLight={true}>
-  <link rel="stylesheet" href="./components/popup-menu-header.css"/>
-  <nav class="popup-menu-header">
-    {links.map((item: { link: string; img: string, name: string }) => (
-      <a href={item.link} class="tile" title={item.name}>
-        <img src={item.img} alt={item.name} decoding="async" loading="lazy" class="cover"/>
-      </a>
-    ))}
-  </nav>
+  <NavCatalog/>
 </Popup>

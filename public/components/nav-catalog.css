@@ -1,4 +1,4 @@
-.popup-menu-header {
+.nav-catalog {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 112px), 1fr));
   gap: .25rem;
