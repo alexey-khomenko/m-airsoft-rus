@@ -12,7 +12,7 @@ const links: { link: string; img: string, name: string }[] = [
 ];
 ---
 
-<link rel="stylesheet" href="../public/components/nav-catalog.css"/>
+<link rel="stylesheet" href="./components/nav-catalog.css"/>
 <nav class="nav-catalog">
   {links.map((item: { link: string; img: string, name: string }) => (
     <a href={item.link} class="tile" title={item.name}>
