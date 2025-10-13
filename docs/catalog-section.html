@@ -156,7 +156,7 @@
     <span>Фильтры</span>
   </button>
   <details class="sort-dropdown">
-    <summary class="util-button secondary sort-header">
+    <summary class="util-button secondary sort-header" data-sort-value="popular" data-sort-param="sort">
       <span>Популярные товары</span>
       <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -582,34 +582,7 @@
     <section class="util-tile section-info"  >
 <link rel="stylesheet" href="./components/util-tile.css">
 
-      
-<h2>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h2>
-<p>
-  В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
-  гранатометы), снаряжения и экипировки для игр. Ассортимент от дешевых приводов для новичков до премиальных
-  моделей для опытных страйкеров.
-</p>
-<p>
-  Вы можете купить страйкбольные товары от 30+ брендов: Cyma, LCT, East Crane,
-  Tokyo Marui, KWC, WE, Acrturus и др. Постоянное обновление ассортимента. Порадуйте себя новой покупкой или
-  сделайте подарок любителю страйкбола, вручив подарочный сертификат от "синего магазина" (доступны номиналы от
-  1000 до 50000 рублей).
-</p>
-<p>
-  AirSoft-RUS — это не только интернет-магазин. Наши филиалы открыты в Москве,
-  Екатеринбурге, Санкт-Петербурге, Краснодаре и Нижнем Новгороде. Будем рады видеть вас в шоу-румах: там можно
-  лично посмотреть все наши товары для страйкбола и проконсультироваться у опытных продавцов.
-</p>
-<p>
-  Оплатить заказ можно
-  онлайн (с помощью банковской карты) или при получении товара (наличными и безналичным методом). Доступна
-  рассрочка и покупка в кредит.
-</p>
-<p>
-  Доставку снаряжения можно заказать курьером или забрать самостоятельно: из наших
-  магазинов или с широкой сети пунктов выдачи партнеров. Действует бесплатная доставка в 11 городов России.
-</p>
-
+      <h2>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h2><p>В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,гранатометы), снаряжения и экипировки для игр. Ассортимент от дешевых приводов для новичков до премиальных моделей для опытных страйкеров.</p><p>Вы можете купить страйкбольные товары от 30+ брендов: Cyma, LCT, East Crane,Tokyo Marui, KWC, WE, Acrturus и др. Постоянное обновление ассортимента. Порадуйте себя новой покупкой или сделайте подарок любителю страйкбола, вручив подарочный сертификат от "синего магазина" (доступны номиналы от1000 до 50000 рублей).</p><p>AirSoft-RUS — это не только интернет-магазин. Наши филиалы открыты в Москве,Екатеринбурге, Санкт-Петербурге, Краснодаре и Нижнем Новгороде. Будем рады видеть вас в шоу-румах: там можно лично посмотреть все наши товары для страйкбола и проконсультироваться у опытных продавцов.</p><p>Оплатить заказ можно онлайн (с помощью банковской карты) или при получении товара (наличными и безналичным методом). Доступна рассрочка и покупка в кредит.</p><p>Доставку снаряжения можно заказать курьером или забрать самостоятельно: из наших магазинов или с широкой сети пунктов выдачи партнеров. Действует бесплатная доставка в 11 городов России.</p>
     
 </section>
   </div>
@@ -856,12 +829,15 @@
     <div class="wrapper">
       
   <link rel="stylesheet" href="./components/popup-filters.css">
-  <form class="popup-filters" action="/filters" novalidate data-form-filters>
+  <form class="popup-filters" action="/m-airsoft-rus/catalog-section.html" novalidate data-form-filters>
 
 
-    <input type="number" name="price-min" id="price-min" class="input" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="99" placeholder="0" aria-label="Стоимость, от">
+    <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="40" max="99" placeholder="40" value="30" aria-label="Стоимость, от">
 
-    <input type="number" name="price-max" id="price-max" class="input" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="100" placeholder="100" aria-label="Стоимость, до">
+    <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="41" max="100" placeholder="100" aria-label="Стоимость, до">
+
+
+    <input type="checkbox" value="Y" class="checkbox" name="name-1" id="name-1" checked="checked" aria-label="name-1">
 
 
     <button type="submit" hidden="hidden">

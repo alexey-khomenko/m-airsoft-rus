@@ -142,7 +142,7 @@
     <span>Фильтры</span>
   </button>
   <details class="sort-dropdown">
-    <summary class="util-button secondary sort-header">
+    <summary class="util-button secondary sort-header" data-sort-value="popular" data-sort-param="sort">
       <span>Популярные товары</span>
       <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -554,12 +554,15 @@
     <div class="wrapper">
       
   <link rel="stylesheet" href="./components/popup-filters.css">
-  <form class="popup-filters" action="/filters" novalidate data-form-filters>
+  <form class="popup-filters" action="/m-airsoft-rus/favourite.html" novalidate data-form-filters>
 
 
-    <input type="number" name="price-min" id="price-min" class="input" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="99" placeholder="0" aria-label="Стоимость, от">
+    <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="59" placeholder="0" aria-label="Стоимость, от">
 
-    <input type="number" name="price-max" id="price-max" class="input" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="100" placeholder="100" aria-label="Стоимость, до">
+    <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="60" placeholder="60" value="80" aria-label="Стоимость, до">
+
+
+    <input type="checkbox" value="Y" class="checkbox" name="name-1" id="name-1" checked="checked" aria-label="name-1">
 
 
     <button type="submit" hidden="hidden">
