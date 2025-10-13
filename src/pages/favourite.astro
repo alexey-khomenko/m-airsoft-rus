@@ -5,55 +5,13 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
-const title: string = 'Избранное';
-const link: string = '/favourite';
+import type {IProductTile} from '../interfaces';
 
-const products: {
-  id: number,
-  link: string,
-  img: string,
-  title: string,
-  rating: number,
-  oldPrice: number,
-  price: number
-}[] = [
-  {
-    id: 5,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-  {
-    id: 6,
-    link: '/catalog-detail',
-    img: './content/catalog-product-3.png',
-    title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
-    oldPrice: 26390,
-    price: 16800,
-  },
-  {
-    id: 7,
-    link: '/catalog-detail',
-    img: './content/catalog-product-1.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 4.5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 8,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-];
+import data from '../data/favourite.json';
+
+const title: string = data.title;
+const link: string = data.link;
+const products: IProductTile[] = data.products;
 ---
 
 <Layout title="Избранное" page="favourite" isUser={true}>

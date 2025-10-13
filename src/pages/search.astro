@@ -6,6 +6,9 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
+import type {IProductTile} from '../interfaces';
+
+
 const title: string = 'Результаты поиска по запросу';
 const link: string = '/search?q=';
 
@@ -13,15 +16,7 @@ const breadcrumbs: { link: string, name: string }[] = [{link: '/catalog', name: 
 
 breadcrumbs.push({link: link, name: title});
 
-const products: {
-  id: number,
-  link: string,
-  img: string,
-  title: string,
-  rating: number,
-  oldPrice: number,
-  price: number
-}[] = [
+const products: IProductTile[] = [
   {
     id: 5,
     link: '/catalog-detail',

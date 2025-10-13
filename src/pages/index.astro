@@ -3,471 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 
-const largeBanners: { title: string, link: string, img: string }[] = [
-  {title: '1', link: '/catalog-section', img: './content/index-banners-primary.png'},
-  {title: '2', link: '/catalog-section', img: './content/index-banners-primary.png'},
-  {title: '3', link: '/catalog-section', img: './content/index-banners-primary.png'},
-];
-const smallBanners: { title: string, link: string, img: string }[] = [
-  {title: '1', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '2', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '3', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '4', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '5', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '6', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '7', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '8', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '9', link: '/catalog-section', img: './content/index-banners-small.png'},
-  {title: '10', link: '/catalog-section', img: './content/index-banners-small.png'},
-];
-const productGroups: {
-  title: string,
-  link: string,
-  products: {
-    id: number,
-    link: string,
-    img: string,
-    title: string,
-    rating: number,
-    oldPrice: number,
-    price: number
-  }[],
-  banner: { title: string, link: string, img: string }
-}[] = [
-  {
-    title: 'Распродажа',
-    link: '/catalog-section',
-    products: [
-      {
-        id: 1,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 2,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 16800,
-        price: 16800,
-      },
-      {
-        id: 3,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 4,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
+import type {IBanner, IProductGroup, INewsItem, IReview, IBrand} from '../interfaces';
 
-      {
-        id: 5,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 6,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 16800,
-      },
-      {
-        id: 7,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 8,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
+import data from '../data/index.json';
 
-      {
-        id: 9,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 10,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-    ],
-    banner: {
-      title: '',
-      link: '/catalog-section',
-      img: './content/index-products-banner.png',
-    },
-  },
-  {
-    title: 'Новинки',
-    link: '/catalog-section',
-    products: [
-      {
-        id: 5,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 6,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 16800,
-      },
-      {
-        id: 7,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 8,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-
-      {
-        id: 11,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 12,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-
-      {
-        id: 13,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 14,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 15,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 16,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-    ],
-    banner: {
-      title: '',
-      link: '/catalog-section',
-      img: './content/index-products-banner.png',
-    },
-  },
-  {
-    title: 'Хиты продаж',
-    link: '/catalog-section',
-    products: [
-      {
-        id: 5,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 6,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 16800,
-      },
-      {
-        id: 7,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 8,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-
-      {
-        id: 11,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 12,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-
-      {
-        id: 13,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 14,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 15,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 16,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-    ],
-    banner: {
-      title: '',
-      link: '/catalog-section',
-      img: './content/index-products-banner.png',
-    },
-  },
-  {
-    title: 'Рекомендуем',
-    link: '/catalog-section',
-    products: [
-      {
-        id: 5,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 6,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 16800,
-      },
-      {
-        id: 7,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 8,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-
-      {
-        id: 11,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 12,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-
-      {
-        id: 13,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 14,
-        link: '/catalog-detail',
-        img: './content/catalog-product-1.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 4.5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-      {
-        id: 15,
-        link: '/catalog-detail',
-        img: './content/catalog-product-2.png',
-        title: 'Автомат Суmа AKC-74Y CM035',
-        rating: 3,
-        oldPrice: 21800,
-        price: 16800,
-      },
-      {
-        id: 16,
-        link: '/catalog-detail',
-        img: './content/catalog-product-3.png',
-        title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-        rating: 5,
-        oldPrice: 26390,
-        price: 26390,
-      },
-    ],
-    banner: {
-      title: '',
-      link: '/catalog-section',
-      img: './content/index-products-banner.png',
-    },
-  },
-];
-const news: { title: string, link: string, date: string }[] = [
-  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
-  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
-  {title: 'График работы магазина в летние праздники 2025', link: '/news-detail', date: '06.06.2025'},
-];
-const reviews: { title: string, link: string, img: string }[] = [
-  {title: 'Обзор автомата AK-105 от Cyma', link: '/reviews', img: './content/review.png'},
-  {title: 'Обзор автомата AK-105 от Cyma 2', link: '/reviews', img: './content/review.png'},
-  {title: 'Обзор автомата AK-105 от Cyma 3', link: '/reviews', img: './content/review.png'},
-];
-const brands: { title: string, link: string, img: string, width: number, height: number }[] = [
-  {title: '1', link: '/catalog-section', img: './content/brand-1.png', width: 40, height: 40},
-  {title: '2', link: '/catalog-section', img: './content/brand-2.png', width: 30, height: 30},
-  {title: '3', link: '/catalog-section', img: './content/brand-3.png', width: 50, height: 50},
-  {title: '4', link: '/catalog-section', img: './content/brand-4.png', width: 40, height: 40},
-  {title: '5', link: '/catalog-section', img: './content/brand-5.png', width: 30, height: 30},
-  {title: '6', link: '/catalog-section', img: './content/brand-6.png', width: 30, height: 30},
-  {title: '7', link: '/catalog-section', img: './content/brand-7.png', width: 35, height: 35},
-  {title: '8', link: '/catalog-section', img: './content/brand-8.png', width: 30, height: 30},
-  {title: '9', link: '/catalog-section', img: './content/brand-9.png', width: 30, height: 34},
-];
+const largeBanners: IBanner[] = data.largeBanners;
+const smallBanners: IBanner[] = data.smallBanners;
+const productGroups: IProductGroup[] = data.productGroups;
+const news: INewsItem[] = data.news;
+const reviews: IReview[] = data.reviews;
+const brands: IBrand[] = data.brands;
 ---
 
 <Layout title="Главная" page="index" isUser={false}>
@@ -505,38 +50,25 @@ const brands: { title: string, link: string, img: string, width: number, height:
     <section class="section-banners">
       <div class="large-banners">
         <div class="swiper-wrapper">
-          {largeBanners.map((banner: { title: string, link: string, img: string }) => (
+          {largeBanners.map((banner: IBanner) => (
             <a href={banner.link} class="swiper-slide banner large-banner">
-              <img src={banner.img} alt={banner.title} decoding="async" loading="lazy" class="img"/>
+              <img src={banner.img} alt={banner.title} class="img" decoding="async" loading="lazy"/>
             </a>
           ))}
         </div>
       </div>
       <div class="small-banners">
         <div class="swiper-wrapper">
-          {smallBanners.map((banner: { title: string, link: string, img: string }) => (
+          {smallBanners.map((banner: IBanner) => (
             <a href={banner.link} class="swiper-slide banner small-banner">
-              <img src={banner.img} alt={banner.title} decoding="async" loading="lazy" class="img"/>
+              <img src={banner.img} alt={banner.title} class="img" decoding="async" loading="lazy"/>
             </a>
           ))}
         </div>
       </div>
     </section>
 
-    {productGroups.map((group: {
-      title: string,
-      link: string,
-      products: {
-        id: number,
-        link: string,
-        img: string,
-        title: string,
-        rating: number,
-        oldPrice: number,
-        price: number
-      }[],
-      banner: { title: string, link: string, img: string }
-    }) => (
+    {productGroups.map((group: IProductGroup) => (
       <section class="section-products">
         <SliderProducts products={group.products} title={group.title}/>
         <a href={group.link} class="util-button index button">
@@ -555,10 +87,10 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <a href="/news" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {news.map((item: { title: string, link: string, date: string }) => (
-          <a href={item.link} class="item">
-            <span class="date">{item.date}</span>
-            <span class="name">{item.title}</span>
+        {news.map((newsItem: INewsItem) => (
+          <a href={newsItem.link} class="item">
+            <span class="date">{newsItem.date}</span>
+            <span class="name">{newsItem.title}</span>
           </a>
         ))}
       </div>
@@ -571,9 +103,9 @@ const brands: { title: string, link: string, img: string, width: number, height:
       </div>
       <div class="items">
         <div class="swiper-wrapper">
-          {reviews.map((review: { title: string, link: string, img: string }) => (
+          {reviews.map((review: IReview) => (
             <a href={review.link} class="swiper-slide item">
-              <img src={review.img} alt={review.title} decoding="async" loading="lazy" class="img"/>
+              <img src={review.img} alt={review.title} class="img" decoding="async" loading="lazy"/>
               <span class="name">{review.title}</span>
             </a>
           ))}
@@ -587,7 +119,7 @@ const brands: { title: string, link: string, img: string, width: number, height:
         <a href="/brands" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {brands.map((brand: { title: string, link: string, img: string, width: number, height: number }) => (
+        {brands.map((brand: IBrand) => (
           <a href={brand.link} class="item">
             <img src={brand.img} alt={brand.title} width={brand.width} height={brand.height}
                  decoding="async" loading="lazy"/>

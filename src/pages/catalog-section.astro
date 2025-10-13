@@ -7,6 +7,9 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
+import type {IProductTile} from '../interfaces';
+
+
 const catalog: {
   id: number,
   name: string,
@@ -27,15 +30,7 @@ for (const section of catalog.sections) {
 
 breadcrumbs.push({link: catalog.link, name: catalog.name});
 
-const products: {
-  id: number,
-  link: string,
-  img: string,
-  title: string,
-  rating: number,
-  oldPrice: number,
-  price: number
-}[] = [
+const products: IProductTile[] = [
   {
     id: 12,
     link: '/catalog-detail',

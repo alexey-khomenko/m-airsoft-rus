@@ -1,0 +1,576 @@
+{
+  "largeBanners": [
+    {
+      "title": "1",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-primary.png"
+    },
+    {
+      "title": "2",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-primary.png"
+    },
+    {
+      "title": "3",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-primary.png"
+    }
+  ],
+  "smallBanners": [
+    {
+      "title": "1",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "2",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "3",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "4",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "5",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "6",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "7",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "8",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "9",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    },
+    {
+      "title": "10",
+      "link": "/catalog-section",
+      "img": "./content/index-banners-small.png"
+    }
+  ],
+  "productGroups": [
+    {
+      "title": "Распродажа",
+      "link": "/catalog-section",
+      "products": [
+        {
+          "id": 1,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 2,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 16800,
+          "price": 16800
+        },
+        {
+          "id": 3,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 4,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 5,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 6,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 16800
+        },
+        {
+          "id": 7,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 8,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 9,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 10,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        }
+      ],
+      "banner": {
+        "title": "",
+        "link": "/catalog-section",
+        "img": "./content/index-products-banner.png"
+      }
+    },
+    {
+      "title": "Новинки",
+      "link": "/catalog-section",
+      "products": [
+        {
+          "id": 5,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 6,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 16800
+        },
+        {
+          "id": 7,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 8,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 11,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 12,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 13,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 14,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 15,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 16,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        }
+      ],
+      "banner": {
+        "title": "",
+        "link": "/catalog-section",
+        "img": "./content/index-products-banner.png"
+      }
+    },
+    {
+      "title": "Хиты продаж",
+      "link": "/catalog-section",
+      "products": [
+        {
+          "id": 5,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 6,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 16800
+        },
+        {
+          "id": 7,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 8,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 11,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 12,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 13,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 14,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 15,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 16,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        }
+      ],
+      "banner": {
+        "title": "",
+        "link": "/catalog-section",
+        "img": "./content/index-products-banner.png"
+      }
+    },
+    {
+      "title": "Рекомендуем",
+      "link": "/catalog-section",
+      "products": [
+        {
+          "id": 5,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 6,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 16800
+        },
+        {
+          "id": 7,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 8,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 11,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 12,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 13,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 14,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-1.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 4.5,
+          "oldPrice": 26390,
+          "price": 26390
+        },
+        {
+          "id": 15,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-2.png",
+          "title": "Автомат Суmа AKC-74Y CM035",
+          "rating": 3,
+          "oldPrice": 21800,
+          "price": 16800
+        },
+        {
+          "id": 16,
+          "link": "/catalog-detail",
+          "img": "./content/catalog-product-3.png",
+          "title": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+          "rating": 5,
+          "oldPrice": 26390,
+          "price": 26390
+        }
+      ],
+      "banner": {
+        "title": "",
+        "link": "/catalog-section",
+        "img": "./content/index-products-banner.png"
+      }
+    }
+  ],
+  "news": [
+    {
+      "title": "График работы магазина в летние праздники 2025",
+      "link": "/news-detail",
+      "date": "06.06.2025"
+    },
+    {
+      "title": "График работы магазина в летние праздники 2025",
+      "link": "/news-detail",
+      "date": "06.06.2025"
+    },
+    {
+      "title": "График работы магазина в летние праздники 2025",
+      "link": "/news-detail",
+      "date": "06.06.2025"
+    }
+  ],
+  "reviews": [
+    {
+      "title": "Обзор автомата AK-105 от Cyma",
+      "link": "/reviews",
+      "img": "./content/review.png"
+    },
+    {
+      "title": "Обзор автомата AK-105 от Cyma 2",
+      "link": "/reviews",
+      "img": "./content/review.png"
+    },
+    {
+      "title": "Обзор автомата AK-105 от Cyma 3",
+      "link": "/reviews",
+      "img": "./content/review.png"
+    }
+  ],
+  "brands": [
+    {
+      "title": "1",
+      "link": "/catalog-section",
+      "img": "./content/brand-1.png",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "title": "2",
+      "link": "/catalog-section",
+      "img": "./content/brand-2.png",
+      "width": 30,
+      "height": 30
+    },
+    {
+      "title": "3",
+      "link": "/catalog-section",
+      "img": "./content/brand-3.png",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "title": "4",
+      "link": "/catalog-section",
+      "img": "./content/brand-4.png",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "title": "5",
+      "link": "/catalog-section",
+      "img": "./content/brand-5.png",
+      "width": 30,
+      "height": 30
+    },
+    {
+      "title": "6",
+      "link": "/catalog-section",
+      "img": "./content/brand-6.png",
+      "width": 30,
+      "height": 30
+    },
+    {
+      "title": "7",
+      "link": "/catalog-section",
+      "img": "./content/brand-7.png",
+      "width": 35,
+      "height": 35
+    },
+    {
+      "title": "8",
+      "link": "/catalog-section",
+      "img": "./content/brand-8.png",
+      "width": 30,
+      "height": 30
+    },
+    {
+      "title": "9",
+      "link": "/catalog-section",
+      "img": "./content/brand-9.png",
+      "width": 30,
+      "height": 34
+    }
+  ]
+}
