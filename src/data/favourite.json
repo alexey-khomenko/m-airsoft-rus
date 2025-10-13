@@ -1,6 +1,4 @@
 {
-  "title": "Избранное",
-  "link": "/favourite",
   "products": [
     {
       "id": 5,
@@ -38,5 +36,37 @@
       "oldPrice": 21800,
       "price": 16800
     }
-  ]
+  ],
+  "filter": {
+    "minPrice": 0,
+    "maxPrice": 60,
+    "switches": [
+      {
+        "name": "filter-switch-1",
+        "label": "Товар со скидкой"
+      }
+    ],
+    "groups": [
+      {
+        "title": "Модель оружия",
+        "checkboxes": []
+      },
+      {
+        "title": "Производитель бренд",
+        "checkboxes": []
+      },
+      {
+        "title": "Принцип действия",
+        "checkboxes": []
+      },
+      {
+        "title": "Материал корпуса",
+        "checkboxes": []
+      },
+      {
+        "title": "Тип магазина",
+        "checkboxes": []
+      }
+    ]
+  }
 }

@@ -6,138 +6,36 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
-import type {IProductTile} from '../interfaces';
+import type {IProductTile, IFilter, ILink, IPopupFilter} from '../interfaces';
 
+import data from '../data/search.json';
+
+const products: IProductTile[] = data.products;
 
 const title: string = 'Результаты поиска по запросу';
-const link: string = '/search?q=';
+const link: string = '/search?q=123';
+const filters: string = ''; // &...
 
-const breadcrumbs: { link: string, name: string }[] = [{link: '/catalog', name: 'Каталог'}];
+const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 
 breadcrumbs.push({link: link, name: title});
 
-const products: IProductTile[] = [
-  {
-    id: 5,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-  {
-    id: 6,
-    link: '/catalog-detail',
-    img: './content/catalog-product-3.png',
-    title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
-    oldPrice: 26390,
-    price: 16800,
-  },
-  {
-    id: 7,
-    link: '/catalog-detail',
-    img: './content/catalog-product-1.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 4.5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 8,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-
-  {
-    id: 11,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-  {
-    id: 12,
-    link: '/catalog-detail',
-    img: './content/catalog-product-3.png',
-    title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 13,
-    link: '/catalog-detail',
-    img: './content/catalog-product-3.png',
-    title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 14,
-    link: '/catalog-detail',
-    img: './content/catalog-product-1.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 4.5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-
-  {
-    id: 15,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 21800,
-    price: 16800,
-  },
-  {
-    id: 16,
-    link: '/catalog-detail',
-    img: './content/catalog-product-3.png',
-    title: 'Пистолет Cyma GRACH AEP EBB (CM136S)',
-    rating: 5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 1,
-    link: '/catalog-detail',
-    img: './content/catalog-product-1.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 4.5,
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    id: 2,
-    link: '/catalog-detail',
-    img: './content/catalog-product-2.png',
-    title: 'Автомат Суmа AKC-74Y CM035',
-    rating: 3,
-    oldPrice: 16800,
-    price: 16800,
-  },
-];
+const popupFilter: IPopupFilter = {
+  action: link,
+  filter: data.filter,
+  minPriceValue: 20,  // TODO from url
+  maxPriceValue: 80,  // TODO from url
+};
 ---
 
-<Layout title="Поиск" page="search" isUser={true}>
+<Layout title="Поиск" page="search" popupFilter={popupFilter} isUser={true}>
   <link rel="stylesheet" href="./pages/search.css"/>
   <div class="page-wrapper">
     <SectionBreadcrumbs pages={breadcrumbs}/>
 
     <PageTitle title={title}/>
 
-    <SectionFilters link={`${link}&`}/>
+    <SectionFilters link={link + '&'} filters={filters}/>
 
     <SectionProducts products={products}/>
 

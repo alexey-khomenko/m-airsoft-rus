@@ -97,6 +97,5 @@ document.addEventListener('input', (e) => {
     console.log('request', value);
 
     search.results.hidden = false;
-
-  }, 700);
+  }, 1000);
 });

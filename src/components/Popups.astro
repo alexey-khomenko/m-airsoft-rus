@@ -6,12 +6,15 @@ import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
 
+import type {IFilter, IPopupFilter} from '../interfaces';
+
 interface Props {
   page: string;
-  isUser?: boolean;
+  popupFilter?: IPopupFilter;
+  isUser: boolean;
 }
 
-const {page, isUser = true}: Props = Astro.props;
+const {page, popupFilter, isUser}: Props = Astro.props;
 ---
 
 <aside class="popups" data-popup-backdrop hidden="hidden">
@@ -31,7 +34,7 @@ const {page, isUser = true}: Props = Astro.props;
     <PopupProfileName/>}
 
   {['search', 'catalog-section', 'favourite'].includes(page) &&
-    <PopupFilters data={{test: page}}/>}
+    <PopupFilters popupFilter={popupFilter}/>}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>

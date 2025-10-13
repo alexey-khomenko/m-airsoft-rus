@@ -5,16 +5,24 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
-import type {IProductTile} from '../interfaces';
+import type {IFilter, IPopupFilter, IProductTile} from '../interfaces';
 
 import data from '../data/favourite.json';
 
-const title: string = data.title;
-const link: string = data.link;
 const products: IProductTile[] = data.products;
+
+const title: string = 'Избранное';
+const link: string = '/favourite';
+const filters: string = ''; // &...
+
+const popupFilter: IPopupFilter = {
+  action: link,
+  filter: data.filter,
+  maxPriceValue: 80,  // TODO from url
+};
 ---
 
-<Layout title="Избранное" page="favourite" isUser={true}>
+<Layout title="Избранное" page="favourite" popupFilter={popupFilter} isUser={true}>
   <link rel="stylesheet" href="./pages/favourite.css"/>
   <div class="page-wrapper">
 
@@ -25,7 +33,7 @@ const products: IProductTile[] = data.products;
       </a>
     </UtilHeader>
 
-    <SectionFilters link={`${link}?`}/>
+    <SectionFilters link={link + '?'} filters={filters}/>
 
     <SectionProducts products={products}/>
 

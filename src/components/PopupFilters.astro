@@ -1,29 +1,40 @@
 ---
 import Popup from '../components/Popup.astro';
+import type {IFilter, IPopupFilter} from '../interfaces';
 
 interface Props {
-  data: {
-    test: string,
-  };
+  popupFilter: IPopupFilter;
 }
 
-const {data}: Props = Astro.props;
+const {popupFilter}: Props = Astro.props;
 ---
 
 <Popup name="filters" title="Фильтры" bgLight={true}>
   <link rel="stylesheet" href="./components/popup-filters.css"/>
-  <form class="popup-filters" action="/filters" novalidate data-form-filters>
+  <form class="popup-filters" action={popupFilter.action} novalidate data-form-filters>
 
 
-    <input type="number" name="price-min" id="price-min" class="input" data-form-filters-price="min"
+    <input type="number" class="input"
+           name="price-min" id="price-min" data-form-filters-price="min"
            inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-           min="0" max="99" placeholder="0"
+           min={popupFilter.filter.minPrice} max={popupFilter.filter.maxPrice - 1}
+           placeholder={popupFilter.filter.minPrice}
+           value={popupFilter.minPriceValue}
            aria-label="Стоимость, от"/>
 
-    <input type="number" name="price-max" id="price-max" class="input" data-form-filters-price="max"
+    <input type="number" class="input"
+           name="price-max" id="price-max" data-form-filters-price="max"
            inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-           min="1" max="100" placeholder="100"
+           min={popupFilter.filter.minPrice + 1} max={popupFilter.filter.maxPrice}
+           placeholder={popupFilter.filter.maxPrice}
+           value={popupFilter.maxPriceValue}
            aria-label="Стоимость, до"/>
+
+
+    <input type="checkbox" value="Y" class="checkbox"
+           name="name-1" id="name-1"
+           checked="checked"
+           aria-label="name-1"/>
 
 
     <button type="submit" hidden="hidden">

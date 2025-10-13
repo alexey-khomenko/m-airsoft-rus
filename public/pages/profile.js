@@ -5,7 +5,5 @@ document.addEventListener('click', (e) => {
 
   console.log('POST request to logout'); // TODO: implement logout
 
-  const redirect = button.dataset.buttonLogoutTo;
-
-  window.location.assign(redirect);
+  window.location.assign(button.dataset.buttonLogoutTo);
 });
