@@ -1,6 +1,6 @@
 ---
 import Popup from '../components/Popup.astro';
-import type {IFilter, IPopupFilter} from '../interfaces';
+import type {IPopupFilter} from '../interfaces';
 
 interface Props {
   popupFilter: IPopupFilter;
@@ -12,36 +12,41 @@ const {popupFilter}: Props = Astro.props;
 <Popup name="filters" title="Фильтры" bgLight={true}>
   <link rel="stylesheet" href="./components/popup-filters.css"/>
   <form class="popup-filters" action={popupFilter.action} novalidate data-form-filters>
+    <div class="filters-form-group">
+      <div class="filters-form-group-header title">Стоимость</div>
+      <div class="filters-form-prices">
+        <input type="number" class="input"
+               name="price-min" id="price-min" data-form-filters-price="min"
+               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+               min={popupFilter.filter.minPrice} max={popupFilter.filter.maxPrice - 1}
+               placeholder={popupFilter.filter.minPrice.toString()}
+               value={popupFilter.minPriceValue}
+               aria-label="Стоимость, от"/>
+        <span class="separator"></span>
+        <input type="number" class="input"
+               name="price-max" id="price-max" data-form-filters-price="max"
+               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+               min={popupFilter.filter.minPrice + 1} max={popupFilter.filter.maxPrice}
+               placeholder={popupFilter.filter.maxPrice.toString()}
+               value={popupFilter.maxPriceValue}
+               aria-label="Стоимость, до"/>
+      </div>
+      <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
+    </div>
 
 
-    <input type="number" class="input"
-           name="price-min" id="price-min" data-form-filters-price="min"
-           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-           min={popupFilter.filter.minPrice} max={popupFilter.filter.maxPrice - 1}
-           placeholder={popupFilter.filter.minPrice}
-           value={popupFilter.minPriceValue}
-           aria-label="Стоимость, от"/>
+    <div class="filters-form-group">
 
-    <input type="number" class="input"
-           name="price-max" id="price-max" data-form-filters-price="max"
-           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-           min={popupFilter.filter.minPrice + 1} max={popupFilter.filter.maxPrice}
-           placeholder={popupFilter.filter.maxPrice}
-           value={popupFilter.maxPriceValue}
-           aria-label="Стоимость, до"/>
+      <label for="name-1" class="title">Товар со скидкой</label>
 
+      <input type="checkbox" value="Y" class="checkbox"
+             name="name-1" id="name-1"
+             checked="checked"
+             aria-label="name-1"/>
 
-    <input type="checkbox" value="Y" class="checkbox"
-           name="name-1" id="name-1"
-           checked="checked"
-           aria-label="name-1"/>
-
-
-    <button type="submit" hidden="hidden">
-      <span>Применить</span>
-    </button>
+    </div>
   </form>
-  <div class="buttons-filters-wrapper" slot="popup-footer">
+  <div class="filters-buttons-wrapper" slot="popup-footer">
     <button type="button" class="util-button primary button" data-submit-form-filters>
       <span>Применить</span>
     </button>

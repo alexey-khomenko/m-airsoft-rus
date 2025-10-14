@@ -1,4 +1,6 @@
 [data-popup-name="filters"] .popup-header {
+  padding-inline: 1.25rem;
+
   &::after {
     content: "";
     position: absolute;
@@ -11,10 +13,71 @@
 
 .popup-filters {
   position: relative;
-  padding: 1rem .75rem 0;
+  padding-inline: .75rem;
+
+  .filters-form-group {
+    &:first-child {
+      padding-top: .5rem;
+    }
+
+    &:not(:first-child) {
+      padding-top: 1rem;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #D6D5D5;
+    }
+  }
+
+  .filters-form-group-header {
+    margin-bottom: 1rem;
+  }
+
+  .filters-form-group-footer {
+    margin-top: .5rem;
+  }
+
+  .title {
+    display: block;
+    position: relative;
+
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    color: #373635;
+  }
+
+  .filters-form-prices {
+    margin-bottom: .25rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: .875rem;
+
+    .input {
+      flex-grow: 1;
+      height: 3.25rem;
+      border: none;
+      border-radius: 99999px;
+      background-color: #F1F4F6;
+      font-weight: 400;
+      font-size: 1.625em;
+      color: #373635;
+      text-align: center;
+    }
+
+    .separator {
+      width: .75rem;
+      height: 3px;
+      border: 1px solid #626262;
+      background-color: #626262;
+    }
+  }
 }
 
-.buttons-filters-wrapper {
+.filters-buttons-wrapper {
   position: relative;
   padding: .5rem 1.25rem 1.5rem;
   display: flex;

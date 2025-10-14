@@ -7,7 +7,7 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
-import type {IFilter, IProductTile, ILink, ICatalog, IPopupFilter} from '../interfaces';
+import type {IProductTile, ILink, ICatalog, IPopupFilter} from '../interfaces';
 
 import data from '../data/catalog-section.json';
 
@@ -27,7 +27,7 @@ breadcrumbs.push({link: catalog.link, name: catalog.name});
 const popupFilter: IPopupFilter = {
   action: catalog.link,
   filter: data.filter,
-  minPriceValue: 30, // TODO from url
+  minPriceValue: 50, // TODO from url
 };
 ---
 

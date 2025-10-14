@@ -112,7 +112,33 @@
   "filter": {
     "minPrice": 10,
     "maxPrice": 90,
-    "switches": [],
-    "groups": []
+    "switches": [
+      {
+        "name": "filter-switch-1",
+        "label": "Товар со скидкой"
+      }
+    ],
+    "groups": [
+      {
+        "title": "Модель оружия",
+        "checkboxes": []
+      },
+      {
+        "title": "Производитель бренд",
+        "checkboxes": []
+      },
+      {
+        "title": "Принцип действия",
+        "checkboxes": []
+      },
+      {
+        "title": "Материал корпуса",
+        "checkboxes": []
+      },
+      {
+        "title": "Тип магазина",
+        "checkboxes": []
+      }
+    ]
   }
 }

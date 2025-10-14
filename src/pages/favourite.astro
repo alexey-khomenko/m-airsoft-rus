@@ -5,7 +5,7 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
-import type {IFilter, IPopupFilter, IProductTile} from '../interfaces';
+import type {IPopupFilter, IProductTile} from '../interfaces';
 
 import data from '../data/favourite.json';
 
@@ -18,7 +18,7 @@ const filters: string = ''; // &...
 const popupFilter: IPopupFilter = {
   action: link,
   filter: data.filter,
-  maxPriceValue: 80,  // TODO from url
+  maxPriceValue: 50,  // TODO from url
 };
 ---
 
