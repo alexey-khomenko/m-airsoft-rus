@@ -79,6 +79,12 @@ document.addEventListener('click', (e) => {
   hideHeaderSearchPopup();
 });
 
+document.addEventListener('keydown', function (e) {
+  if ('Escape' !== e.key) return true;
+
+  hideHeaderSearchPopup();
+});
+
 document.addEventListener('input', (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
 

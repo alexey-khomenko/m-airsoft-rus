@@ -555,19 +555,24 @@
       
   <link rel="stylesheet" href="./components/popup-filters.css">
   <form class="popup-filters" action="/m-airsoft-rus/favourite.html" novalidate data-form-filters>
+    <div class="filters-form-group">
+      <div class="filters-form-group-header title">Стоимость</div>
+      <div class="filters-form-prices">
+        <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="599999" placeholder="0" aria-label="Стоимость, от">
+        <span class="separator"></span>
+        <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="600000" placeholder="600000" value="50" aria-label="Стоимость, до">
+      </div>
+      <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
+    </div>
 
 
-    <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="59" placeholder="0" aria-label="Стоимость, от">
+    <div class="filters-form-group">
 
-    <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="60" placeholder="60" value="80" aria-label="Стоимость, до">
+      <label for="name-1" class="title">Товар со скидкой</label>
 
+      <input type="checkbox" value="Y" class="checkbox" name="name-1" id="name-1" checked="checked" aria-label="name-1">
 
-    <input type="checkbox" value="Y" class="checkbox" name="name-1" id="name-1" checked="checked" aria-label="name-1">
-
-
-    <button type="submit" hidden="hidden">
-      <span>Применить</span>
-    </button>
+    </div>
   </form>
   
   <script src="./components/popup-filters.js" async></script>
@@ -575,7 +580,7 @@
     </div>
   </div>
   <div class="popup-footer">
-    <div class="buttons-filters-wrapper">
+    <div class="filters-buttons-wrapper">
     <button type="button" class="util-button primary button" data-submit-form-filters>
       <span>Применить</span>
     </button>
