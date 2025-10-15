@@ -1,6 +1,16 @@
 ---
 import Popup from '../components/Popup.astro';
 import UtilTile from '../components/UtilTile.astro';
+
+import type {IProfileInfo} from '../interfaces';
+
+interface Props {
+  userInfo: IProfileInfo;
+}
+
+const {userInfo}: Props = Astro.props;
+
+const {tel}: IProfileInfo = userInfo;
 ---
 
 <Popup name="profile-tel" title="Изменение номера" bgLight={false}>
@@ -10,9 +20,8 @@ import UtilTile from '../components/UtilTile.astro';
       <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
         <label class="label" for="phone">Новый номер</label>
         <div class="input-wrapper phone">
-          <input type="tel" name="phone" id="phone" class="input" maxlength="24" value="+79630407512"
-                 inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
-          />
+          <input type="tel" name="phone" id="phone" class="input" maxlength="24" value={tel}
+                 inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"/>
         </div>
         <button type="submit" class="util-button primary button">
           <span>Подтвердить через Telegram</span>

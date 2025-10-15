@@ -11,20 +11,19 @@ import type {IProductTile, ILink, ICatalog, IPopupFilter, IOption} from '../inte
 
 import data from '../pages/catalog-section.json';
 
-const catalog: ICatalog = data.catalog;
+const {id, name, link, sections, info}: ICatalog = data.catalog;
 const products: IProductTile[] = data.products;
-const sort: IOption[] = data.sort;
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 
-for (const section of catalog.sections) {
+for (const section of sections) {
   breadcrumbs.push(section);
 }
 
-breadcrumbs.push({link: catalog.link, name: catalog.name});
+breadcrumbs.push({link, name});
 
 const popupFilter: IPopupFilter = {
-  action: catalog.link,
+  action: link,
   filter: data.filter,
 };
 ---
@@ -34,16 +33,16 @@ const popupFilter: IPopupFilter = {
   <div class="page-wrapper">
     <SectionBreadcrumbs pages={breadcrumbs}/>
 
-    <PageTitle title={catalog.name}/>
+    <PageTitle title={name}/>
 
-    <SectionFilters options={sort}/>
+    <SectionFilters/>
 
     <SectionProducts products={products}/>
 
     <SectionPagination/>
 
-    <UtilTile tag="section" classList={['section-info']} dataArray={[]} isHidden={false}>
-      <Fragment set:html={catalog.info}/>
+    <UtilTile tag="section" classList={['section-info']} isHidden={false}>
+      <Fragment set:html={info}/>
     </UtilTile>
   </div>
 </Layout>

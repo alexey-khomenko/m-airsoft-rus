@@ -1,7 +1,11 @@
 ---
 import Container from './Container.astro';
 
-const {isUser = true} = Astro.props;
+interface Props {
+  isUser: boolean;
+}
+
+const {isUser}: Props = Astro.props;
 ---
 
 <footer class="footer">

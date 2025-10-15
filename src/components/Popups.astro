@@ -6,18 +6,19 @@ import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
 
-import type {IPopupFilter} from '../interfaces';
+import type {IPopupFilter, IProfileInfo} from '../interfaces';
 
 interface Props {
   page: string;
   isUser: boolean;
+  userInfo?: IProfileInfo;
   popupFilter?: IPopupFilter;
 }
 
-const {page, isUser, popupFilter}: Props = Astro.props;
+const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
 ---
 
-<aside class="popups" data-popup-backdrop hidden="hidden">
+<aside class="popups" data-popup-backdrop hidden>
   <link rel="stylesheet" href="./components/popups.css"/>
 
   <PopupMenuHeader/>
@@ -27,11 +28,11 @@ const {page, isUser, popupFilter}: Props = Astro.props;
   {!isUser &&
     <PopupLogin/>}
 
-  {isUser && 'profile' === page &&
-    <PopupProfileTel/>}
+  {isUser && userInfo && 'profile' === page &&
+    <PopupProfileTel userInfo={userInfo}/>}
 
-  {isUser && 'profile' === page &&
-    <PopupProfileName/>}
+  {isUser && userInfo && 'profile' === page &&
+    <PopupProfileName userInfo={userInfo}/>}
 
   {popupFilter &&
     <PopupFilters popupFilter={popupFilter}/>}

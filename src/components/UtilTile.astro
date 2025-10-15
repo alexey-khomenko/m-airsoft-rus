@@ -2,13 +2,13 @@
 interface Props {
   tag: 'div' | 'section';
   classList: string[];
-  dataArray: string[];
   isHidden: boolean;
+  dataArray?: string[];
 }
 
-const {tag, classList, dataArray, isHidden}: Props = Astro.props;
+const {tag, classList, isHidden, dataArray = []}: Props = Astro.props;
 
-const html: string = `<${tag} class="util-tile ${classList.join(' ')}" ${dataArray.join(' ')} ${isHidden ? 'hidden="hidden"' : ''}>`;
+const html: string = `<${tag} class="util-tile ${classList.join(' ')}" ${dataArray.join(' ')} ${isHidden ? 'hidden' : ''}>`;
 ---
 
 <Fragment set:html={html}/>

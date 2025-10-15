@@ -11,14 +11,13 @@ import type {IProductTile, ILink, IPopupFilter, IOption} from '../interfaces';
 import data from '../pages/search.json';
 
 const products: IProductTile[] = data.products;
-const sort: IOption[] = data.sort;
 
 const title: string = 'Результаты поиска по запросу';
 const link: string = '/search?q=123';
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 
-breadcrumbs.push({link: link, name: title});
+breadcrumbs.push({link, name: title});
 
 const popupFilter: IPopupFilter = {
   action: link,
@@ -33,7 +32,7 @@ const popupFilter: IPopupFilter = {
 
     <PageTitle title={title}/>
 
-    <SectionFilters options={sort}/>
+    <SectionFilters/>
 
     <SectionProducts products={products}/>
 

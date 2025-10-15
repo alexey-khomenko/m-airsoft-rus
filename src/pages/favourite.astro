@@ -10,7 +10,6 @@ import type {IOption, IPopupFilter, IProductTile} from '../interfaces';
 import data from '../pages/favourite.json';
 
 const products: IProductTile[] = data.products;
-const sort: IOption[] = data.sort;
 
 const title: string = 'Избранное';
 const link: string = '/favourite';
@@ -32,7 +31,7 @@ const popupFilter: IPopupFilter = {
       </a>
     </UtilHeader>
 
-    <SectionFilters options={sort}/>
+    <SectionFilters/>
 
     <SectionProducts products={products}/>
 

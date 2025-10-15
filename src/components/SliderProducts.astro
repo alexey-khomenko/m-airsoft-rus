@@ -1,16 +1,10 @@
 ---
 import ProductTile from '../components/ProductTile.astro';
 
+import type {IProductTile} from '../interfaces';
+
 interface Props {
-  products: {
-    id: number,
-    link: string,
-    img: string,
-    title: string,
-    rating: number,
-    oldPrice: number,
-    price: number
-  }[];
+  products: IProductTile[];
   title: string;
 }
 
@@ -22,15 +16,7 @@ const {products, title}: Props = Astro.props;
   <h2 class="title">{title}</h2>
   <div class="tiles">
     <div class="swiper-wrapper">
-      {products.map((product: {
-        id: number,
-        link: string,
-        img: string,
-        title: string,
-        rating: number,
-        oldPrice: number,
-        price: number,
-      }) => (
+      {products.map((product: IProductTile) => (
         <ProductTile product={product} isSlider={true}/>
       ))}
     </div>

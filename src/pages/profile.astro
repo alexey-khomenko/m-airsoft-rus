@@ -3,17 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 import UtilTile from '../components/UtilTile.astro';
 
-const tel: '+7 (963) 040-75-12' = '+7 (963) 040-75-12';
-const firstName: 'Иван' = 'Иван';
-const middleName: 'Иванович' = 'Иванович';
-const lastName: 'Иванов' = 'Иванов';
-const email: 'airsoftrus@gmail.com' = 'airsoftrus@gmail.com';
+import type {IProfileInfo, IProfileOrder} from '../interfaces';
 
-const amount: '38 880 руб.' = '38 880 руб.';
-const balance: '880 руб.' = '880 руб.';
+import data from '../pages/profile.json';
+
+const {tel, firstName, middleName, lastName, email, amount, balance}: IProfileInfo = data.info;
+const orders: IProfileOrder[] = data.orders;
 ---
 
-<Layout title="Профиль" page="profile" isUser={true}>
+<Layout title="Профиль" page="profile" isUser={true} userInfo={data.info}>
   <link rel="stylesheet" href="./pages/profile.css"/>
   <div class="page-wrapper">
     <UtilHeader tag="section" classList={['page-header']}>
@@ -23,7 +21,7 @@ const balance: '880 руб.' = '880 руб.';
       </button>
     </UtilHeader>
 
-    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
       <div class="info">
         <span class="primary title">{tel}</span>
       </div>
@@ -32,7 +30,7 @@ const balance: '880 руб.' = '880 руб.';
       </button>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
       <div class="info">
         <span class="primary title">{lastName} {firstName} {middleName}</span>
         <span class="primary text">{email}</span>
@@ -42,56 +40,39 @@ const balance: '880 руб.' = '880 руб.';
       </button>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
       <div class="info">
-        <span class="primary title">{amount}</span>
+        <span class="primary title">{amount.toLocaleString('ru-RU')} руб.</span>
         <span class="third text">Общая сумма заказов</span>
       </div>
       <div class="info">
-        <span class="secondary title">{balance}</span>
+        <span class="secondary title">{balance.toLocaleString('ru-RU')} руб.</span>
         <span class="secondary text">Бонусов на счету</span>
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section-orders']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-orders']} isHidden={false}>
       <div class="orders-title">История заказов</div>
       <div class="orders">
-
-        <div class="order">
-          <div class="order-header">
-            <span class="title">Заказ № 457</span>
-            <span class="status">Отмена заказа, отказ от оформления</span>
-          </div>
-          <details class="order-main">
-            <summary class="order-summary">
-              <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <div class="order-content">
-              &hellip;
+        {orders.map(({number, status}: IProfileOrder) => (
+          <div class="order">
+            <div class="order-header">
+              <span class="title">Заказ № {number}</span>
+              <span class="status">{status}</span>
             </div>
-          </details>
-        </div>
-
-        <div class="order">
-          <div class="order-header">
-            <span class="title">Заказ № 458</span>
-            <span class="status">Отмена заказа, отказ от оформления</span>
+            <details class="order-main">
+              <summary class="order-summary">
+                <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <div class="order-content">
+                &hellip;
+              </div>
+            </details>
           </div>
-          <details class="order-main">
-            <summary class="order-summary">
-              <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <div class="order-content">
-              &hellip;
-            </div>
-          </details>
-        </div>
+        ))}
       </div>
     </UtilTile>
   </div>

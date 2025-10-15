@@ -18,7 +18,7 @@ const brands: IBrand[] = data.brands;
 <Layout title="Главная" page="index" isUser={false}>
   <link rel="stylesheet" href="./pages/index.css"/>
   <div class="page-wrapper">
-    <UtilTile tag="section" classList={['section-info']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-info']} isHidden={false}>
       <h1>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h1>
       <p>
         В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
@@ -80,7 +80,7 @@ const brands: IBrand[] = data.brands;
       </section>
     ))}
 
-    <UtilTile tag="section" classList={['section-news']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-news']} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Актуальные новости</h2>
         <a href="/news" class="link">Смотреть все</a>
@@ -95,7 +95,7 @@ const brands: IBrand[] = data.brands;
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section-reviews']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-reviews']} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Последние обзоры</h2>
         <a href="/reviews" class="link">Смотреть все</a>
@@ -112,7 +112,7 @@ const brands: IBrand[] = data.brands;
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section-brands']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="section" classList={['section-brands']} isHidden={false}>
       <div class="section-header">
         <h2 class="title">Популярные бренды</h2>
         <a href="/brands" class="link">Смотреть все</a>

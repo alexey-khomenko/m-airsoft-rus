@@ -1,5 +1,9 @@
 ---
-const {className = 'default'} = Astro.props;
+interface Props {
+  className?: string;
+}
+
+const {className = 'default'}: Props = Astro.props;
 ---
 
 <div class:list={['container', className]}>

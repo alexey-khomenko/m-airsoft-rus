@@ -1,5 +1,9 @@
 ---
-const {title} = Astro.props;
+interface Props {
+  title: string;
+}
+
+const {title}: Props = Astro.props;
 ---
 
 <section class="page-title">

@@ -1,25 +1,27 @@
 ---
+import type {ILink} from '../interfaces';
+
 interface Props {
-  pages: { link: string, name: string }[];
+  pages: ILink[];
 }
 
 const {pages}: Props = Astro.props;
 
 const title: string = 'Главная';
 const host: string = 'https://m.airsoft-rus.ru';
-let position: number = 1;
+let position: number = 0;
 
 const itemListElements: {}[] = [{
   '@type': 'ListItem',
-  'position': position,
+  'position': ++position,
   'item': {'@id': host, 'name': title},
 }];
 
-for (const page of pages) {
+for (const {link, name}: ILink of pages) {
   itemListElements.push({
     '@type': 'ListItem',
     'position': ++position,
-    'item': {'@id': host + page.link, 'name': page.name},
+    'item': {'@id': host + link, 'name': name},
   });
 }
 
@@ -31,7 +33,7 @@ const ldJson: {} = {
 
 pages.unshift({link: '/', name: title});
 
-const currentPage: { link: string; name: string } | undefined = pages.pop();
+const currentPage: ILink = pages.pop();
 
 /*
 <svg style="margin-bottom: -3px;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -45,16 +47,16 @@ const currentPage: { link: string; name: string } | undefined = pages.pop();
 <section class="section-breadcrumbs">
   <link rel="stylesheet" href="./components/section-breadcrumbs.css"/>
 
-  {pages.map((page: { link: string, name: string }) => (
-    <a href={page.link} class="link">
-      <span>{page.name}</span>
+  {pages.map(({link, name}: ILink) => (
+    <a href={link} class="link">
+      <span>{name}</span>
       <svg width="5" height="7" viewBox="0 0 5 7" xmlns="http://www.w3.org/2000/svg">
         <path d="M1.04492 0.5L4.04492 3.5L1.04492 6.5" stroke="#9EA8B0" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
   ))}
 
-  <span class="current-page">{currentPage?.name}</span>
+  <span class="current-page">{currentPage.name}</span>
 
   <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(ldJson)}</script>`}/>
 </section>

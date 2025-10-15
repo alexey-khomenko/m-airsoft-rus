@@ -1,0 +1,21 @@
+{
+  "info": {
+    "tel": "+7 (963) 040-75-12",
+    "firstName": "Иван",
+    "middleName": "Иванович",
+    "lastName": "Иванов",
+    "email": "airsoftrus@gmail.com",
+    "amount": 38880,
+    "balance": 880
+  },
+  "orders": [
+    {
+      "number": 457,
+      "status": "Отмена заказа, отказ от оформления"
+    },
+    {
+      "number": 458,
+      "status": "Отмена заказа, отказ от оформления"
+    }
+  ]
+}

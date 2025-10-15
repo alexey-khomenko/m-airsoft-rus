@@ -2,16 +2,21 @@
 import Popup from '../components/Popup.astro';
 import UtilTile from '../components/UtilTile.astro';
 
-const firstName: 'Иван' = 'Иван';
-const middleName: 'Иванович' = 'Иванович';
-const lastName: 'Иванов' = 'Иванов';
-const email: 'airsoftrus@gmail.com' = 'airsoftrus@gmail.com';
+import type {IProfileInfo} from '../interfaces';
+
+interface Props {
+  userInfo: IProfileInfo;
+}
+
+const {userInfo}: Props = Astro.props;
+
+const {firstName, middleName, lastName, email}: IProfileInfo = userInfo;
 ---
 
 <Popup name="profile-name" title="Личные данные" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-profile-name.css"/>
   <div class="popup-profile-name">
-    <UtilTile tag="div" classList={['step']} dataArray={[]} isHidden={false}>
+    <UtilTile tag="div" classList={['step']} isHidden={false}>
       <form class="form-profile-name" action="/profile-name" novalidate data-form-profile-name>
         <div class="fieldset">
           <label class="label" for="last-name">Фамилия</label>

@@ -1,34 +1,36 @@
 ---
 import Popup from '../components/Popup.astro';
 
-const links: { link: string; img: string, title: string }[] = [
-  {link: '/brands', img: './images/menu-footer-icons/1.png', title: 'Бренды'},
-  {link: '/news', img: './images/menu-footer-icons/2.png', title: 'Новости'},
-  {link: '/reviews', img: './images/menu-footer-icons/3.png', title: 'Обзоры'},
-  {link: '/comparison', img: './images/menu-footer-icons/4.png', title: 'Товары к сравнению'},
-  {link: '/favourite', img: './images/menu-footer-icons/5.png', title: 'Избранное'},
-  {link: '/present', img: './images/menu-footer-icons/6.png', title: 'В подарок'},
-  {link: '/how-to-buy', img: './images/menu-footer-icons/7.png', title: 'Как купить'},
-  {link: '/payments', img: './images/menu-footer-icons/8.png', title: 'Оплата'},
-  {link: '/installment', img: './images/menu-footer-icons/9.png', title: 'В рассрочку'},
-  {link: '/delivery', img: './images/menu-footer-icons/10.png', title: 'Доставка'},
-  {link: '/contacts', img: './images/menu-footer-icons/11.png', title: 'Контакты'},
-  {link: '/warranty', img: './images/menu-footer-icons/12.png', title: 'Гарантия возврат'},
-  {link: '/suppliers', img: './images/menu-footer-icons/13.png', title: 'Поставщикам'},
-  {link: '/partners', img: './images/menu-footer-icons/14.png', title: 'Партнерам'},
+import type {IBanner} from '../interfaces';
+
+const links: IBanner[] = [
+  {link: '/brands', img: './images/menu-footer/1.png', title: 'Бренды'},
+  {link: '/news', img: './images/menu-footer/2.png', title: 'Новости'},
+  {link: '/reviews', img: './images/menu-footer/3.png', title: 'Обзоры'},
+  {link: '/comparison', img: './images/menu-footer/4.png', title: 'Товары к сравнению'},
+  {link: '/favourite', img: './images/menu-footer/5.png', title: 'Избранное'},
+  {link: '/present', img: './images/menu-footer/6.png', title: 'В подарок'},
+  {link: '/how-to-buy', img: './images/menu-footer/7.png', title: 'Как купить'},
+  {link: '/payments', img: './images/menu-footer/8.png', title: 'Оплата'},
+  {link: '/installment', img: './images/menu-footer/9.png', title: 'В рассрочку'},
+  {link: '/delivery', img: './images/menu-footer/10.png', title: 'Доставка'},
+  {link: '/contacts', img: './images/menu-footer/11.png', title: 'Контакты'},
+  {link: '/warranty', img: './images/menu-footer/12.png', title: 'Гарантия возврат'},
+  {link: '/suppliers', img: './images/menu-footer/13.png', title: 'Поставщикам'},
+  {link: '/partners', img: './images/menu-footer/14.png', title: 'Партнерам'},
 ];
 ---
 
 <Popup name="menu-footer" title="Меню" bgLight={true}>
   <link rel="stylesheet" href="./components/popup-menu-footer.css"/>
   <nav class="popup-menu-footer">
-    {links.map((item: { link: string; img: string, title: string }) => (
+    {links.map(({img, link, title}: IBanner) => (
       <div class="item">
-        <a href={item.link} class="left">
-          <img src={item.img} alt="" decoding="async" loading="lazy" class="icon"/>
-          <span class="text">{item.title}</span>
+        <a href={link} class="left">
+          <img src={img} alt="" class="icon" decoding="async" loading="lazy"/>
+          <span class="text">{title}</span>
         </a>
-        <a href={item.link} title={item.title} class="right">
+        <a href={link} title={title} class="right">
           <svg width="8" height="15" viewBox="0 0 8 15" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.931641 13.71L6.93164 7.70996L0.931641 1.70996" stroke="currentColor" stroke-width="1.5"
                   stroke-linecap="round" stroke-linejoin="round"/>

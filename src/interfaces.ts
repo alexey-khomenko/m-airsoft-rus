@@ -4,6 +4,14 @@ export interface IBanner {
   img: string;
 }
 
+export interface IProduct {
+  id: number;
+  name: string;
+  link: string;
+  rating: number;
+  sections: ILink[];
+}
+
 export interface IProductTile {
   id: number;
   link: string;
@@ -65,6 +73,21 @@ export interface ISearchResult {
   img: string;
   oldPrice: number;
   price: number;
+}
+
+export interface IProfileInfo {
+  tel: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  email: string;
+  amount: number;
+  balance: number;
+}
+
+export interface IProfileOrder {
+  number: number;
+  status: string;
 }
 
 export interface IFilterCheckbox {

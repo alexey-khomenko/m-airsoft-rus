@@ -1,13 +1,22 @@
 ---
 import type {IOption} from '../interfaces';
 
-interface Props {
-  options: IOption[];
-}
-
-const {options}: Props = Astro.props;
-
 const sortParam: string = 'sort';
+
+const options: IOption[] = [
+  {
+    'alias': 'popular',
+    'title': 'Популярные товары',
+  },
+  {
+    'alias': 'price',
+    'title': 'Сначала дорогие',
+  },
+  {
+    'alias': 'price-asc',
+    'title': 'Сначала недорогие',
+  },
+];
 
 const currentAlias: string = Astro.url.searchParams.get(sortParam) || 'popular';
 const currentTitle: string = options.find(

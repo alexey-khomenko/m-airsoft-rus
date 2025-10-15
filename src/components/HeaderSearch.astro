@@ -31,9 +31,9 @@ const ldJson: {} = {
     </svg>
   </button>
 </form>
-<div class="header-search-popup" hidden="hidden">
+<div class="header-search-popup" hidden>
   <div class="header-search-results-wrapper">
-    <div class="header-search-results" hidden="hidden">
+    <div class="header-search-results" hidden>
       {results.map(({img, link, name, oldPrice, price}: ISearchResult) => (
         <a href={link} class="result">
           <img src={img} alt={name} class="img" decoding="async" loading="lazy"/>

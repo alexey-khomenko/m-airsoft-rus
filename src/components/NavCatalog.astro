@@ -1,22 +1,24 @@
 ---
-const links: { link: string; img: string, name: string }[] = [
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-2.png', name: 'Каталог'},
-  {link: '/catalog-section', img: './content/catalog-1.png', name: 'Каталог'},
+import type {IBanner} from '../interfaces';
+
+const links: IBanner[] = [
+  {link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
 ];
 ---
 
 <link rel="stylesheet" href="./components/nav-catalog.css"/>
 <nav class="nav-catalog">
-  {links.map((item: { link: string; img: string, name: string }) => (
-    <a href={item.link} class="tile" title={item.name}>
-      <img src={item.img} alt={item.name} decoding="async" loading="lazy" class="cover"/>
+  {links.map(({img, link, title}: IBanner) => (
+    <a href={link} class="tile">
+      <img src={img} alt={title} class="cover" decoding="async" loading="lazy"/>
     </a>
   ))}
 </nav>
