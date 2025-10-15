@@ -6,15 +6,15 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
-import type {IProductTile, ILink, IPopupFilter} from '../interfaces';
+import type {IProductTile, ILink, IPopupFilter, IOption} from '../interfaces';
 
-import data from '../data/search.json';
+import data from '../pages/search.json';
 
 const products: IProductTile[] = data.products;
+const sort: IOption[] = data.sort;
 
 const title: string = 'Результаты поиска по запросу';
 const link: string = '/search?q=123';
-const filters: string = ''; // &...
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 
@@ -23,8 +23,6 @@ breadcrumbs.push({link: link, name: title});
 const popupFilter: IPopupFilter = {
   action: link,
   filter: data.filter,
-  minPriceValue: 20,  // TODO from url
-  maxPriceValue: 80,  // TODO from url
 };
 ---
 
@@ -35,7 +33,7 @@ const popupFilter: IPopupFilter = {
 
     <PageTitle title={title}/>
 
-    <SectionFilters link={link + '&'} filters={filters}/>
+    <SectionFilters options={sort}/>
 
     <SectionProducts products={products}/>
 

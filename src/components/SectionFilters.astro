@@ -2,25 +2,17 @@
 import type {IOption} from '../interfaces';
 
 interface Props {
-  link: string;
-  filters: string;
+  options: IOption[];
 }
 
-const {link, filters}: Props = Astro.props;
-
-const options: IOption[] = [
-  {alias: 'popular', title: 'Популярные товары'},
-  {alias: 'price', title: 'Сначала дорогие'},
-  {alias: 'price-asc', title: 'Сначала недорогие'},
-];
+const {options}: Props = Astro.props;
 
 const sortParam: string = 'sort';
 
 const currentAlias: string = Astro.url.searchParams.get(sortParam) || 'popular';
 const currentTitle: string = options.find(
-  (option: { alias: string, title: string }): boolean => option.alias === currentAlias)?.title || options[0].title;
-const otherOptions: { alias: string, title: string }[] = options.filter(
-  (option: { alias: string, title: string }): boolean => option.alias !== currentAlias);
+  (option: IOption): boolean => option.alias === currentAlias)?.title || options[0].title;
+const otherOptions: IOption[] = options.filter((option: IOption): boolean => option.alias !== currentAlias);
 ---
 
 <section class="section-filters">
@@ -30,7 +22,8 @@ const otherOptions: { alias: string, title: string }[] = options.filter(
     <span>Фильтры</span>
   </button>
   <details class="sort-dropdown">
-    <summary class="util-button secondary sort-header" data-sort-value={currentAlias} data-sort-param={sortParam}>
+    <summary class="util-button secondary sort-header" data-sort-current
+             data-sort-param={sortParam} data-sort-value={currentAlias}>
       <span>{currentTitle}</span>
       <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
@@ -38,10 +31,10 @@ const otherOptions: { alias: string, title: string }[] = options.filter(
       </svg>
     </summary>
     <div class="sort-main">
-      {otherOptions.map((option: IOption) => (
-        <a href={`${link}${sortParam}=${option.alias}${filters}`} class="sort-link">
-          <span>{option.title}</span>
-        </a>
+      {otherOptions.map(({alias, title}: IOption) => (
+        <button type="button" class="sort-link" data-sort-option data-sort-param={sortParam} data-sort-value={alias}>
+          <span>{title}</span>
+        </button>
       ))}
     </div>
   </details>

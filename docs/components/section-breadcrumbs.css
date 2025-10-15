@@ -12,11 +12,11 @@
     justify-content: flex-start;
     align-items: center;
     gap: .625rem;
-    color: var(--color-breadcrumb);
+    color: #9EA8B0;
     text-decoration: none;
   }
 
   .current-page {
-    color: var(--color-link);
+    color: #009AE3;
   }
 }

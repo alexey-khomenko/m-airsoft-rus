@@ -5,16 +5,16 @@ import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
 import Scripts from '../components/Scripts.astro';
 
-import type {IFilter, IPopupFilter} from '../interfaces';
+import type {IPopupFilter} from '../interfaces';
 
 interface Props {
   title: string;
   page: string;
   popupFilter?: IPopupFilter;
-  isUser?: boolean;
+  isUser: boolean;
 }
 
-const {title, page, popupFilter, isUser = true}: Props = Astro.props;
+const {title, page, popupFilter, isUser}: Props = Astro.props;
 ---
 
 <!DOCTYPE html>

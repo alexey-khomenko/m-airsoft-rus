@@ -106,7 +106,7 @@
     margin: 0;
     font-size: 1.25rem;
     line-height: 1.5rem;
-    color: var(--color-text);
+    color: #27282B;
   }
 
   .link {
@@ -114,7 +114,7 @@
     font-weight: 500;
     font-size: .875rem;
     line-height: 1.125rem;
-    color: var(--color-mute);
+    color: #8F8F8F;
     text-transform: lowercase;
     text-decoration: none;
   }
@@ -144,15 +144,15 @@
     font-weight: 400;
     font-size: 1.125rem;
     line-height: 2rem;
-    color: var(--color-light);
-    background-color: var(--color-mute);
+    color: #FFFFFF;
+    background-color: #8F8F8F;
   }
 
   .name {
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.125rem;
-    color: var(--color-text);
+    color: #27282B;
   }
 }
 
@@ -207,7 +207,7 @@
     font-weight: 400;
     font-size: .875rem;
     line-height: 1.125rem;
-    color: var(--color-text);
+    color: #27282B;
   }
 }
 
@@ -227,7 +227,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 99999px;
-    background-color: var(--color-another-border);
+    background-color: #DFE8F1;
     text-decoration: none;
   }
 }

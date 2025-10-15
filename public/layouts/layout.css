@@ -76,25 +76,6 @@ p {
 
 
 :root {
-  --color-light: #FFFFFF;
-  --color-another-border: #DFE8F1;
-  --color-border: #D9D9D9;
-  --color-mute: #8F8F8F;
-  --color-placeholder: #757575;
-  --color-svg: #626262;
-  --color-old: #4D4F53;
-  --color-title: #373635;
-  --color-text: #27282B;
-  --color-dark: #151515;
-
-  --color-breadcrumb: #9EA8B0;
-  --color-link: #009AE3;
-  --color-accent: #E81331;
-  --color-star: #FFD700;
-
-  --color-bg-light: #FFFFFF;
-  --color-bg-dark: #F1F4F6;
-
   --header--h: 3.75rem;
   --footer--h: 4rem;
   --catalog-detail-button-buy-wrapper--h: 4.375rem;
@@ -134,7 +115,7 @@ p {
   padding-top: var(--header--h);
   padding-bottom: var(--footer--h);
   min-height: 100dvh;
-  background-color: var(--color-bg-dark);
+  background-color: #F1F4F6;
 }
 
 .page-footer {
@@ -191,34 +172,34 @@ p {
   user-select: none;
 
   &.primary {
-    border-color: var(--color-link);
-    background-color: var(--color-link);
-    color: var(--color-light);
+    border-color: #009AE3;
+    background-color: #009AE3;
+    color: #FFFFFF;
   }
 
   &.secondary {
-    border-color: var(--color-border);
-    background-color: var(--color-light);
-    color: var(--color-title);
+    border-color: #D9D9D9;
+    background-color: #FFFFFF;
+    color: #373635;
   }
 
   &.buy {
-    border-color: var(--color-title);
-    background-color: var(--color-title);
-    color: var(--color-light);
+    border-color: #373635;
+    background-color: #373635;
+    color: #FFFFFF;
   }
 
   &.index {
-    border-color: var(--color-link);
-    background-color: var(--color-light);
-    color: var(--color-link);
+    border-color: #009AE3;
+    background-color: #FFFFFF;
+    color: #009AE3;
   }
 }
 
 .util-input-error {
-  border-color: var(--color-accent) !important;
+  border-color: #E81331 !important;
 
   &::before, &::after {
-    border-color: var(--color-accent) !important;
+    border-color: #E81331 !important;
   }
 }

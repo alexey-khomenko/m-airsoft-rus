@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 
-import type {IBanner, IProductGroup, INewsItem, IReview, IBrand} from '../interfaces';
+import type {IBanner, IProductGroup, INews, IReview, IBrand} from '../interfaces';
 
-import data from '../data/index.json';
+import data from '../pages/index.json';
 
 const largeBanners: IBanner[] = data.largeBanners;
 const smallBanners: IBanner[] = data.smallBanners;
 const productGroups: IProductGroup[] = data.productGroups;
-const news: INewsItem[] = data.news;
+const news: INews[] = data.news;
 const reviews: IReview[] = data.reviews;
 const brands: IBrand[] = data.brands;
 ---
@@ -50,33 +50,32 @@ const brands: IBrand[] = data.brands;
     <section class="section-banners">
       <div class="large-banners">
         <div class="swiper-wrapper">
-          {largeBanners.map((banner: IBanner) => (
-            <a href={banner.link} class="swiper-slide banner large-banner">
-              <img src={banner.img} alt={banner.title} class="img" decoding="async" loading="lazy"/>
+          {largeBanners.map(({img, link, title}: IBanner) => (
+            <a href={link} class="swiper-slide banner large-banner">
+              <img src={img} alt={title} class="img" decoding="async" loading="lazy"/>
             </a>
           ))}
         </div>
       </div>
       <div class="small-banners">
         <div class="swiper-wrapper">
-          {smallBanners.map((banner: IBanner) => (
-            <a href={banner.link} class="swiper-slide banner small-banner">
-              <img src={banner.img} alt={banner.title} class="img" decoding="async" loading="lazy"/>
+          {smallBanners.map(({img, link, title}: IBanner) => (
+            <a href={link} class="swiper-slide banner small-banner">
+              <img src={img} alt={title} class="img" decoding="async" loading="lazy"/>
             </a>
           ))}
         </div>
       </div>
     </section>
 
-    {productGroups.map((group: IProductGroup) => (
+    {productGroups.map(({banner, link, products, title}: IProductGroup) => (
       <section class="section-products">
-        <SliderProducts products={group.products} title={group.title}/>
-        <a href={group.link} class="util-button index button">
+        <SliderProducts products={products} title={title}/>
+        <a href={link} class="util-button index button">
           <span>Показать всё</span>
         </a>
-        <a href={group.banner.link} class="banner">
-          <img src={group.banner.img} alt={group.banner.title} class="img" width="344" height="62"
-               decoding="async" loading="lazy"/>
+        <a href={banner.link} class="banner">
+          <img src={banner.img} alt={banner.title} width="344" height="62" class="img" decoding="async" loading="lazy"/>
         </a>
       </section>
     ))}
@@ -87,10 +86,10 @@ const brands: IBrand[] = data.brands;
         <a href="/news" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {news.map((newsItem: INewsItem) => (
-          <a href={newsItem.link} class="item">
-            <span class="date">{newsItem.date}</span>
-            <span class="name">{newsItem.title}</span>
+        {news.map(({date, link, name}: INews) => (
+          <a href={link} class="item">
+            <span class="date">{date}</span>
+            <span class="name">{name}</span>
           </a>
         ))}
       </div>
@@ -103,10 +102,10 @@ const brands: IBrand[] = data.brands;
       </div>
       <div class="items">
         <div class="swiper-wrapper">
-          {reviews.map((review: IReview) => (
-            <a href={review.link} class="swiper-slide item">
-              <img src={review.img} alt={review.title} class="img" decoding="async" loading="lazy"/>
-              <span class="name">{review.title}</span>
+          {reviews.map(({img, link, name}: IReview) => (
+            <a href={link} class="swiper-slide item">
+              <img src={img} alt={name} class="img" decoding="async" loading="lazy"/>
+              <span class="name">{name}</span>
             </a>
           ))}
         </div>
@@ -119,10 +118,9 @@ const brands: IBrand[] = data.brands;
         <a href="/brands" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {brands.map((brand: IBrand) => (
-          <a href={brand.link} class="item">
-            <img src={brand.img} alt={brand.title} width={brand.width} height={brand.height}
-                 decoding="async" loading="lazy"/>
+        {brands.map(({height, img, link, name, width}: IBrand) => (
+          <a href={link} class="item">
+            <img src={img} alt={name} width={width} height={height} class="img" decoding="async" loading="lazy"/>
           </a>
         ))}
       </div>

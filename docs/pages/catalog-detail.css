@@ -4,11 +4,11 @@
   width: 100cqw;
   left: 50%;
   transform: translateX(-50cqw);
-  background-color: var(--color-bg-light);
+  background-color: #FFFFFF;
 }
 
 .page-footer {
-  background-color: var(--color-bg-dark);
+  background-color: #F1F4F6;
 
   .button-buy-wrapper:not([hidden]) {
     height: var(--catalog-detail-button-buy-wrapper--h);

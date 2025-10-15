@@ -6,7 +6,7 @@
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.875rem;
-    color: var(--color-text);
+    color: #27282B;
   }
 
   .tiles {
@@ -34,7 +34,7 @@
         margin: 0;
         width: .75rem;
         height: .75rem;
-        background-color: var(--color-link);
+        background-color: #009AE3;
         box-shadow: 0 0 .125rem 0 rgba(0, 0, 0, .2) inset;
       }
     }

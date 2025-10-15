@@ -5,8 +5,8 @@
   right: 0;
   z-index: 3;
   display: block;
-  background-color: var(--color-title);
-  color: var(--color-light);
+  background-color: #373635;
+  color: #FFFFFF;
   transition: transform .3s ease-in-out;
   transform: translateY(-100%);
 

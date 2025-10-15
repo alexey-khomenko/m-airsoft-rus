@@ -8,7 +8,7 @@ export interface IProductTile {
   id: number;
   link: string;
   img: string;
-  title: string;
+  title: string; // TODO name
   rating: number;
   oldPrice: number;
   price: number;
@@ -21,20 +21,20 @@ export interface IProductGroup {
   banner: IBanner;
 }
 
-export interface INewsItem {
-  title: string;
+export interface INews {
+  name: string;
   link: string;
   date: string;
 }
 
 export interface IReview {
-  title: string;
+  name: string;
   link: string;
   img: string;
 }
 
 export interface IBrand {
-  title: string;
+  name: string;
   link: string;
   img: string;
   width: number;
@@ -59,14 +59,21 @@ export interface ILink {
   name: string;
 }
 
+export interface ISearchResult {
+  name: string;
+  link: string;
+  img: string;
+  oldPrice: number;
+  price: number;
+}
+
 export interface IFilterCheckbox {
   name: string;
   label: string;
   icon?: string;
-  checked?: boolean;
 }
 
-export interface IFilterGroups {
+export interface IFilterGroup {
   title: string;
   checkboxes: IFilterCheckbox[];
 }
@@ -75,12 +82,10 @@ export interface IFilter {
   minPrice: number;
   maxPrice: number;
   switches: IFilterCheckbox[];
-  groups: IFilterGroups[];
+  groups: IFilterGroup[];
 }
 
 export interface IPopupFilter {
   action: string;
   filter: IFilter;
-  minPriceValue?: number;
-  maxPriceValue?: number;
 }

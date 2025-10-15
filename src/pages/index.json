@@ -476,97 +476,97 @@
   ],
   "news": [
     {
-      "title": "График работы магазина в летние праздники 2025",
+      "name": "График работы магазина в летние праздники 2025",
       "link": "/news-detail",
       "date": "06.06.2025"
     },
     {
-      "title": "График работы магазина в летние праздники 2025",
+      "name": "График работы магазина в летние праздники 2025",
       "link": "/news-detail",
       "date": "06.06.2025"
     },
     {
-      "title": "График работы магазина в летние праздники 2025",
+      "name": "График работы магазина в летние праздники 2025",
       "link": "/news-detail",
       "date": "06.06.2025"
     }
   ],
   "reviews": [
     {
-      "title": "Обзор автомата AK-105 от Cyma",
+      "name": "Обзор автомата AK-105 от Cyma",
       "link": "/reviews",
       "img": "./content/review.png"
     },
     {
-      "title": "Обзор автомата AK-105 от Cyma 2",
+      "name": "Обзор автомата AK-105 от Cyma 2",
       "link": "/reviews",
       "img": "./content/review.png"
     },
     {
-      "title": "Обзор автомата AK-105 от Cyma 3",
+      "name": "Обзор автомата AK-105 от Cyma 3",
       "link": "/reviews",
       "img": "./content/review.png"
     }
   ],
   "brands": [
     {
-      "title": "1",
+      "name": "1",
       "link": "/catalog-section",
       "img": "./content/brand-1.png",
       "width": 40,
       "height": 40
     },
     {
-      "title": "2",
+      "name": "2",
       "link": "/catalog-section",
       "img": "./content/brand-2.png",
       "width": 30,
       "height": 30
     },
     {
-      "title": "3",
+      "name": "3",
       "link": "/catalog-section",
       "img": "./content/brand-3.png",
       "width": 50,
       "height": 50
     },
     {
-      "title": "4",
+      "name": "4",
       "link": "/catalog-section",
       "img": "./content/brand-4.png",
       "width": 40,
       "height": 40
     },
     {
-      "title": "5",
+      "name": "5",
       "link": "/catalog-section",
       "img": "./content/brand-5.png",
       "width": 30,
       "height": 30
     },
     {
-      "title": "6",
+      "name": "6",
       "link": "/catalog-section",
       "img": "./content/brand-6.png",
       "width": 30,
       "height": 30
     },
     {
-      "title": "7",
+      "name": "7",
       "link": "/catalog-section",
       "img": "./content/brand-7.png",
       "width": 35,
       "height": 35
     },
     {
-      "title": "8",
+      "name": "8",
       "link": "/catalog-section",
       "img": "./content/brand-8.png",
       "width": 30,
       "height": 30
     },
     {
-      "title": "9",
+      "name": "9",
       "link": "/catalog-section",
       "img": "./content/brand-9.png",
       "width": 30,

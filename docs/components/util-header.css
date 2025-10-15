@@ -18,7 +18,7 @@
     font-weight: 700;
     font-size: 1.5rem;
     text-align: center;
-    color: var(--color-title);
+    color: #373635;
   }
 
   .button {
@@ -33,7 +33,7 @@
     font-weight: 700;
     font-size: 1rem;
     text-align: center;
-    color: var(--color-link);
+    color: #009AE3;
     text-transform: lowercase;
     text-decoration: none;
   }

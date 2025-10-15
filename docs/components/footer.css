@@ -5,7 +5,7 @@
   right: 0;
   z-index: 3;
 
-  background-color: var(--color-light);
+  background-color: #FFFFFF;
 
   .footer-wrapper {
     height: var(--footer--h);
@@ -56,8 +56,8 @@
       font-size: .5rem;
       line-height: .875rem;
       text-align: center;
-      color: var(--color-light);
-      background-color: var(--color-accent);
+      color: #FFFFFF;
+      background-color: #E81331;
     }
 
     .title {
@@ -65,7 +65,7 @@
       font-size: .5rem;
       line-height: .75rem;
       text-align: center;
-      color: var(--color-title);
+      color: #373635;
     }
   }
 }

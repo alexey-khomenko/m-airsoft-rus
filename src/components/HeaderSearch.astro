@@ -1,47 +1,9 @@
 ---
-const results: {
-  link: string,
-  img: string,
-  name: string,
-  oldPrice: number,
-  price: number,
-}[] = [
-  {
-    link: '/catalog-detail',
-    img: './content/header-search.png',
-    name: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: 26390,
-    price: 26390,
-  },
-  {
-    link: '/catalog-detail',
-    img: './content/header-search.png',
-    name: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: 26390,
-    price: 16990,
-  },
-  {
-    link: '/catalog-detail',
-    img: './content/header-search.png',
-    name: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: 26390,
-    price: 16990,
-  },
-  {
-    link: '/catalog-detail',
-    img: './content/header-search.png',
-    name: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: 26390,
-    price: 16990,
-  },
-  {
-    link: '/catalog-detail',
-    img: './content/header-search.png',
-    name: 'Автомат Суmа AKC-74Y CM035',
-    oldPrice: 26390,
-    price: 16990,
-  },
-];
+import type {ISearchResult} from '../interfaces';
+
+import data from '../components/HeaderSearch.json';
+
+const results: ISearchResult[] = data.results;
 
 const ldJson: {} = {
   '@context': '//schema.org',
@@ -72,20 +34,20 @@ const ldJson: {} = {
 <div class="header-search-popup" hidden="hidden">
   <div class="header-search-results-wrapper">
     <div class="header-search-results" hidden="hidden">
-      {results.map((result: { link: string; img: string, name: string, oldPrice: number, price: number }) => (
-        <a href={result.link} class="result">
-          <img src={result.img} alt={result.name} decoding="async" loading="lazy" class="img"/>
+      {results.map(({img, link, name, oldPrice, price}: ISearchResult) => (
+        <a href={link} class="result">
+          <img src={img} alt={name} class="img" decoding="async" loading="lazy"/>
           <div>
             <div>
-              <span class="title">{result.name}</span>
+              <span class="title">{name}</span>
             </div>
             <div>
               <span class="text">Цена</span>
-              {result.oldPrice === result.price ? (
-                <span class="price">{result.price.toLocaleString('ru-RU')} р.</span>
+              {oldPrice === price ? (
+                <span class="price">{price.toLocaleString('ru-RU')} р.</span>
               ) : (
-                <span class="price-old">{result.oldPrice.toLocaleString('ru-RU')} р.</span>
-                <span class="price-new">{result.price.toLocaleString('ru-RU')} р.</span>
+                <span class="price-old">{oldPrice.toLocaleString('ru-RU')} р.</span>
+                <span class="price-new">{price.toLocaleString('ru-RU')} р.</span>
               )}
             </div>
           </div>

@@ -1,51 +1,36 @@
 ---
 import Popup from '../components/Popup.astro';
-import type {IPopupFilter} from '../interfaces';
+import FiltersPrices from '../components/FiltersPrices.astro';
+import FiltersSwitch from '../components/FiltersSwitch.astro';
+import FiltersGroup from '../components/FiltersGroup.astro';
+
+import type {IFilter, IFilterCheckbox, IFilterGroup, IPopupFilter} from '../interfaces';
 
 interface Props {
   popupFilter: IPopupFilter;
 }
 
 const {popupFilter}: Props = Astro.props;
+
+const {action, filter}: IPopupFilter = popupFilter;
+const {minPrice, maxPrice, switches, groups}: IFilter = filter;
 ---
 
 <Popup name="filters" title="Фильтры" bgLight={true}>
   <link rel="stylesheet" href="./components/popup-filters.css"/>
-  <form class="popup-filters" action={popupFilter.action} novalidate data-form-filters>
-    <div class="filters-form-group">
-      <div class="filters-form-group-header title">Стоимость</div>
-      <div class="filters-form-prices">
-        <input type="number" class="input"
-               name="price-min" id="price-min" data-form-filters-price="min"
-               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-               min={popupFilter.filter.minPrice} max={popupFilter.filter.maxPrice - 1}
-               placeholder={popupFilter.filter.minPrice.toString()}
-               value={popupFilter.minPriceValue}
-               aria-label="Стоимость, от"/>
-        <span class="separator"></span>
-        <input type="number" class="input"
-               name="price-max" id="price-max" data-form-filters-price="max"
-               inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-               min={popupFilter.filter.minPrice + 1} max={popupFilter.filter.maxPrice}
-               placeholder={popupFilter.filter.maxPrice.toString()}
-               value={popupFilter.maxPriceValue}
-               aria-label="Стоимость, до"/>
-      </div>
-      <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
-    </div>
 
+  <form class="popup-filters" action={action} novalidate data-form-filters>
+    <FiltersPrices minPrice={minPrice} maxPrice={maxPrice}/>
 
-    <div class="filters-form-group">
+    {switches.map((checkbox: IFilterCheckbox) => (
+      <FiltersSwitch checkbox={checkbox}/>
+    ))}
 
-      <label for="name-1" class="title">Товар со скидкой</label>
-
-      <input type="checkbox" value="Y" class="checkbox"
-             name="name-1" id="name-1"
-             checked="checked"
-             aria-label="name-1"/>
-
-    </div>
+    {groups.map((group: IFilterGroup) => (
+      <FiltersGroup group={group}/>
+    ))}
   </form>
+
   <div class="filters-buttons-wrapper" slot="popup-footer">
     <button type="button" class="util-button primary button" data-submit-form-filters>
       <span>Применить</span>
@@ -54,5 +39,6 @@ const {popupFilter}: Props = Astro.props;
       <span>Закрыть</span>
     </button>
   </div>
+
   <script src="./components/popup-filters.js" is:inline async></script>
 </Popup>

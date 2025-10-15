@@ -5,6 +5,7 @@ const search = {
   wrapper: document.querySelector('.header-search-results-wrapper'),
   results: document.querySelector('.header-search-results'),
   form: document.querySelector('[data-form-search]'),
+  input: document.querySelector('[data-form-search] [name="search"]'),
   limit: 3,
   debounceTimer: null,
 };
@@ -48,9 +49,8 @@ document.addEventListener('submit', (e) => {
 
   e.preventDefault();
 
-  const action = form.action;
-  const input = form.querySelector('[name="search"]');
-  const value = input.value.trim();
+  const action = search.form.action;
+  const value = search.input.value.trim();
 
   if (search.limit > value.length) {
     window.addError(search.fake);
@@ -83,6 +83,7 @@ document.addEventListener('keydown', function (e) {
   if ('Escape' !== e.key) return true;
 
   hideHeaderSearchPopup();
+  search.input.blur();
 });
 
 document.addEventListener('input', (e) => {
@@ -90,11 +91,15 @@ document.addEventListener('input', (e) => {
 
   if (!input) return true;
 
-  search.results.hidden = true;
-
   clearTimeout(search.debounceTimer);
 
-  const value = input.value.trim();
+  search.results.hidden = true;
+
+  window.removeError(search.fake);
+  window.removeError(search.popup);
+  window.removeError(search.wrapper);
+
+  const value = search.input.value.trim();
 
   if (search.limit > value.length) return;
 

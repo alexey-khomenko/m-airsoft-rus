@@ -1,0 +1,30 @@
+---
+interface Props {
+  minPrice: number;
+  maxPrice: number;
+}
+
+const {minPrice, maxPrice}: Props = Astro.props;
+---
+
+<div class="filters-form-group">
+  <link rel="stylesheet" href="./components/filters-prices.css"/>
+  <div class="filters-form-group-header title">Стоимость</div>
+  <div class="filters-prices">
+    <input type="number" class="input"
+           name="price-min" id="price-min" data-form-filters-price="min"
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           min={minPrice} max={maxPrice - 1}
+           placeholder={minPrice.toString()}
+           aria-label="Стоимость, от"/>
+    <span class="separator"></span>
+    <input type="number" class="input"
+           name="price-max" id="price-max" data-form-filters-price="max"
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           min={minPrice + 1} max={maxPrice}
+           placeholder={maxPrice.toString()}
+           aria-label="Стоимость, до"/>
+  </div>
+  <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
+  <script src="./components/filters-prices.js" is:inline async></script>
+</div>

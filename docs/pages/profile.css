@@ -23,15 +23,15 @@
     gap: .125rem;
 
     .primary {
-      color: var(--color-text);
+      color: #27282B;
     }
 
     .secondary {
-      color: var(--color-link);
+      color: #009AE3;
     }
 
     .third {
-      color: var(--color-mute);
+      color: #8F8F8F;
     }
   }
 
@@ -58,7 +58,7 @@
     font-weight: 300;
     font-size: 1rem;
     text-align: center;
-    color: var(--color-mute);
+    color: #8F8F8F;
     text-transform: lowercase;
   }
 }
@@ -71,7 +71,7 @@
     font-weight: 700;
     font-size: 1.125rem;
     line-height: 1.5rem;
-    color: var(--color-text);
+    color: #27282B;
   }
 
   .orders {
@@ -98,14 +98,14 @@
       font-weight: 700;
       font-size: 1.125rem;
       line-height: 1.375rem;
-      color: var(--color-text);
+      color: #27282B;
     }
 
     .status {
       font-weight: 400;
       font-size: .875rem;
       line-height: 1rem;
-      color: var(--color-link);
+      color: #009AE3;
     }
   }
 
@@ -126,7 +126,7 @@
     align-items: center;
 
     .svg {
-      color: var(--color-text);
+      color: #27282B;
     }
   }
 

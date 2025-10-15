@@ -37,9 +37,23 @@
       "price": 16800
     }
   ],
+  "sort": [
+    {
+      "alias": "popular",
+      "title": "Популярные товары"
+    },
+    {
+      "alias": "price",
+      "title": "Сначала дорогие"
+    },
+    {
+      "alias": "price-asc",
+      "title": "Сначала недорогие"
+    }
+  ],
   "filter": {
     "minPrice": 0,
-    "maxPrice": 600000,
+    "maxPrice": 10000,
     "switches": [
       {
         "name": "filter-switch-1",

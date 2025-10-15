@@ -43,7 +43,7 @@
   <div class="header-search-results-wrapper">
     <div class="header-search-results" hidden="hidden">
       <a href="/m-airsoft-rus/catalog-detail.html" class="result">
-          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" decoding="async" loading="lazy" class="img">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img" decoding="async" loading="lazy">
           <div>
             <div>
               <span class="title">Автомат Суmа AKC-74Y CM035</span>
@@ -54,7 +54,7 @@
             </div>
           </div>
         </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
-          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" decoding="async" loading="lazy" class="img">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img" decoding="async" loading="lazy">
           <div>
             <div>
               <span class="title">Автомат Суmа AKC-74Y CM035</span>
@@ -66,7 +66,7 @@
             </div>
           </div>
         </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
-          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" decoding="async" loading="lazy" class="img">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img" decoding="async" loading="lazy">
           <div>
             <div>
               <span class="title">Автомат Суmа AKC-74Y CM035</span>
@@ -78,7 +78,7 @@
             </div>
           </div>
         </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
-          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" decoding="async" loading="lazy" class="img">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img" decoding="async" loading="lazy">
           <div>
             <div>
               <span class="title">Автомат Суmа AKC-74Y CM035</span>
@@ -90,7 +90,7 @@
             </div>
           </div>
         </a><a href="/m-airsoft-rus/catalog-detail.html" class="result">
-          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" decoding="async" loading="lazy" class="img">
+          <img src="./content/header-search.png" alt="Автомат Суmа AKC-74Y CM035" class="img" decoding="async" loading="lazy">
           <div>
             <div>
               <span class="title">Автомат Суmа AKC-74Y CM035</span>
@@ -156,18 +156,18 @@
     <span>Фильтры</span>
   </button>
   <details class="sort-dropdown">
-    <summary class="util-button secondary sort-header" data-sort-value="popular" data-sort-param="sort">
+    <summary class="util-button secondary sort-header" data-sort-current data-sort-param="sort" data-sort-value="popular">
       <span>Популярные товары</span>
       <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
     </summary>
     <div class="sort-main">
-      <a href="/m-airsoft-rus/search.html?q=123&#38;sort=price" class="sort-link">
+      <button type="button" class="sort-link" data-sort-option data-sort-param="sort" data-sort-value="price">
           <span>Сначала дорогие</span>
-        </a><a href="/m-airsoft-rus/search.html?q=123&#38;sort=price-asc" class="sort-link">
+        </button><button type="button" class="sort-link" data-sort-option data-sort-param="sort" data-sort-value="price-asc">
           <span>Сначала недорогие</span>
-        </a>
+        </button>
     </div>
   </details>
   <script src="./components/section-filters.js" async></script>
@@ -823,27 +823,88 @@
     <div class="wrapper">
       
   <link rel="stylesheet" href="./components/popup-filters.css">
+
   <form class="popup-filters" action="/m-airsoft-rus/search.html?q=123" novalidate data-form-filters>
     <div class="filters-form-group">
-      <div class="filters-form-group-header title">Стоимость</div>
-      <div class="filters-form-prices">
-        <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="10" max="89" placeholder="10" value="20" aria-label="Стоимость, от">
-        <span class="separator"></span>
-        <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="11" max="90" placeholder="90" value="80" aria-label="Стоимость, до">
-      </div>
-      <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
-    </div>
-
+  <link rel="stylesheet" href="./components/filters-prices.css">
+  <div class="filters-form-group-header title">Стоимость</div>
+  <div class="filters-prices">
+    <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="10" max="8999" placeholder="10" aria-label="Стоимость, от">
+    <span class="separator"></span>
+    <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="11" max="9000" placeholder="9000" aria-label="Стоимость, до">
+  </div>
+  <button type="submit" hidden="hidden" aria-hidden="true">Применить</button>
+  <script src="./components/filters-prices.js" async></script>
+</div>
 
     <div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-switch.css">
+  <div class="filters-switch">
+    <label for="filter-switch-1" class="label title">Товар со скидкой</label>
+    <input type="checkbox" value="Y" class="input" name="filter-switch-1" id="filter-switch-1">
+  </div>
+</div>
 
-      <label for="name-1" class="title">Товар со скидкой</label>
+    <div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-group.css">
+  <div class="filters-form-group-header title">Модель оружия</div>
 
-      <input type="checkbox" value="Y" class="checkbox" name="name-1" id="name-1" checked="checked" aria-label="name-1">
+  <div class="filters-form-group-main">
+    
+  </div>
 
-    </div>
+  <div class="filters-form-group-footer">&hellip;</div>
+
+  <script src="../../public/components/filters-group.js" async></script>
+</div><div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-group.css">
+  <div class="filters-form-group-header title">Производитель бренд</div>
+
+  <div class="filters-form-group-main">
+    
+  </div>
+
+  <div class="filters-form-group-footer">&hellip;</div>
+
+  <script src="../../public/components/filters-group.js" async></script>
+</div><div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-group.css">
+  <div class="filters-form-group-header title">Принцип действия</div>
+
+  <div class="filters-form-group-main">
+    
+  </div>
+
+  <div class="filters-form-group-footer">&hellip;</div>
+
+  <script src="../../public/components/filters-group.js" async></script>
+</div><div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-group.css">
+  <div class="filters-form-group-header title">Материал корпуса</div>
+
+  <div class="filters-form-group-main">
+    
+  </div>
+
+  <div class="filters-form-group-footer">&hellip;</div>
+
+  <script src="../../public/components/filters-group.js" async></script>
+</div><div class="filters-form-group">
+  <link rel="stylesheet" href="../../public/components/filters-group.css">
+  <div class="filters-form-group-header title">Тип магазина</div>
+
+  <div class="filters-form-group-main">
+    
+  </div>
+
+  <div class="filters-form-group-footer">&hellip;</div>
+
+  <script src="../../public/components/filters-group.js" async></script>
+</div>
   </form>
+
   
+
   <script src="./components/popup-filters.js" async></script>
 
     </div>

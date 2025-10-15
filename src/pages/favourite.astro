@@ -5,20 +5,19 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
-import type {IPopupFilter, IProductTile} from '../interfaces';
+import type {IOption, IPopupFilter, IProductTile} from '../interfaces';
 
-import data from '../data/favourite.json';
+import data from '../pages/favourite.json';
 
 const products: IProductTile[] = data.products;
+const sort: IOption[] = data.sort;
 
 const title: string = 'Избранное';
 const link: string = '/favourite';
-const filters: string = ''; // &...
 
 const popupFilter: IPopupFilter = {
   action: link,
   filter: data.filter,
-  maxPriceValue: 50,  // TODO from url
 };
 ---
 
@@ -33,7 +32,7 @@ const popupFilter: IPopupFilter = {
       </a>
     </UtilHeader>
 
-    <SectionFilters link={link + '?'} filters={filters}/>
+    <SectionFilters options={sort}/>
 
     <SectionProducts products={products}/>
 
