@@ -20,14 +20,20 @@ const {minPrice, maxPrice, switches, groups}: IFilter = filter;
   <link rel="stylesheet" href="./components/popup-filters.css"/>
 
   <form class="popup-filters" action={action} novalidate data-form-filters>
-    <FiltersPrices minPrice={minPrice} maxPrice={maxPrice}/>
+    <div class="filters-form-group">
+      <FiltersPrices minPrice={minPrice} maxPrice={maxPrice}/>
+    </div>
 
     {switches.map((checkbox: IFilterCheckbox) => (
-      <FiltersSwitch checkbox={checkbox}/>
+      <div class="filters-form-group">
+        <FiltersSwitch checkbox={checkbox}/>
+      </div>
     ))}
 
     {groups.map((group: IFilterGroup) => (
-      <FiltersGroup group={group}/>
+      <div class="filters-form-group">
+        <FiltersGroup group={group}/>
+      </div>
     ))}
   </form>
 

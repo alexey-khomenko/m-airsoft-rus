@@ -7,10 +7,10 @@ interface Props {
 const {minPrice, maxPrice}: Props = Astro.props;
 ---
 
-<div class="filters-form-group">
+<div class="filters-prices">
   <link rel="stylesheet" href="./components/filters-prices.css"/>
-  <div class="title">Стоимость</div>
-  <div class="filters-prices">
+  <div class="title filters-prices-title">Стоимость</div>
+  <div class="filters-prices-row">
     <input type="number" class="input"
            name="price-min" id="price-min" data-form-filters-price="min"
            inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"

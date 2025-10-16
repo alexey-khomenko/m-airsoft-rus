@@ -27,45 +27,43 @@ if (condition) {
 }
 ---
 
-<div class="filters-form-group">
+<div class="filters-group" data-filters-group>
   <link rel="stylesheet" href="./components/filters-group.css"/>
-  <div class="title">{title}</div>
+  <div class="title filters-group-title">{title}</div>
 
-  <div class="filters-group" data-filters-group>
-    {condition ? (
-      <div class="checkboxes first-group">
-        {firstGroup.map(({label, name}: IFilterCheckbox) => (
-          <div class="checkbox">
-            <input type="checkbox" id={name} name={name} value="Y"/>
-            <label for={name}>{label}</label>
-          </div>
-        ))}
-      </div>
-      <div class="checkboxes second-group" hidden>
-        {secondGroup.map(({label, name}: IFilterCheckbox) => (
-          <div class="checkbox">
-            <input type="checkbox" id={name} name={name} value="Y"/>
-            <label for={name}>{label}</label>
-          </div>
-        ))}
-      </div>
-      <button type="button" class="util-link" data-filters-group-show>
-        <span>Смотреть все</span>
-      </button>
-      <button type="button" class="util-link" data-filters-group-hide hidden>
-        <span>Скрыть</span>
-      </button>
-    ) : (
-      <div class="checkboxes all">
-        {checkboxes.map(({label, name}: IFilterCheckbox) => (
-          <div class="checkbox">
-            <input type="checkbox" id={name} name={name} value="Y"/>
-            <label for={name}>{label}</label>
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
+  {condition ? (
+    <div class="checkboxes first-group">
+      {firstGroup.map(({label, name}: IFilterCheckbox) => (
+        <div class="checkbox">
+          <input type="checkbox" id={name} name={name} value="Y"/>
+          <label for={name}>{label}</label>
+        </div>
+      ))}
+    </div>
+    <div class="checkboxes second-group" hidden>
+      {secondGroup.map(({label, name}: IFilterCheckbox) => (
+        <div class="checkbox">
+          <input type="checkbox" id={name} name={name} value="Y"/>
+          <label for={name}>{label}</label>
+        </div>
+      ))}
+    </div>
+    <button type="button" class="util-link" data-filters-group-show>
+      <span>Смотреть все</span>
+    </button>
+    <button type="button" class="util-link" data-filters-group-hide hidden>
+      <span>Скрыть</span>
+    </button>
+  ) : (
+    <div class="checkboxes all">
+      {checkboxes.map(({label, name}: IFilterCheckbox) => (
+        <div class="checkbox">
+          <input type="checkbox" id={name} name={name} value="Y"/>
+          <label for={name}>{label}</label>
+        </div>
+      ))}
+    </div>
+  )}
 
   <script src="./components/filters-group.js" is:inline async></script>
 </div>

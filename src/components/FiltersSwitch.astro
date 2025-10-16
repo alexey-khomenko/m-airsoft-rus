@@ -10,10 +10,8 @@ const {checkbox}: Props = Astro.props;
 const {label, name}: IFilterCheckbox = checkbox;
 ---
 
-<div class="filters-form-group">
+<div class="filters-switch">
   <link rel="stylesheet" href="./components/filters-switch.css"/>
-  <div class="filters-switch">
-    <label for={name} class="label title">{label}</label>
-    <input type="checkbox" value="Y" class="input" name={name} id={name}/>
-  </div>
+  <label for={name} class="label title">{label}</label>
+  <input type="checkbox" value="Y" class="input" name={name} id={name}/>
 </div>

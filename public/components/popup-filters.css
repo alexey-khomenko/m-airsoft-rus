@@ -15,18 +15,8 @@
   position: relative;
   padding-inline: .75rem;
 
-  .filters-form-group {
-    &:first-child {
-      padding-top: .5rem;
-    }
-
-    &:not(:first-child) {
-      padding-top: 1rem;
-    }
-
-    &:not(:last-child) {
-      border-bottom: 1px solid #D6D5D5;
-    }
+  .filters-form-group:not(:last-child) {
+    border-bottom: 1px solid #D6D5D5;
   }
 
   .title {
