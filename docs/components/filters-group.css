@@ -19,20 +19,4 @@
       padding-bottom: .5rem;
     }
   }
-
-  .button:not([hidden]) {
-    padding: .125rem;
-    min-height: 2.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background-color: transparent;
-    font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
-    color: #009AE3;
-    text-transform: lowercase;
-    text-decoration: none;
-  }
 }

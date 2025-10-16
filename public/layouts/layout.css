@@ -196,6 +196,26 @@ p {
   }
 }
 
+.util-link {
+  flex-shrink: 0;
+  padding: .125rem;
+  min-height: 2.25rem;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: #009AE3;
+  text-transform: lowercase;
+  text-decoration: none;
+
+  &:not([hidden]) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .util-input-error {
   border-color: #E81331 !important;
 
