@@ -157,37 +157,37 @@
           {
             "name": "filter-checkbox-2-1",
             "label": "Cyma",
-            "img": ""
+            "img": "./content/brand-1.png"
           },
           {
             "name": "filter-checkbox-2-2",
             "label": "LCT",
-            "img": ""
+            "img": "./content/brand-2.png"
           },
           {
             "name": "filter-checkbox-2-3",
             "label": "East Crane",
-            "img": ""
+            "img": "./content/brand-3.png"
           },
           {
             "name": "filter-checkbox-2-4",
             "label": "Tokyo Marui",
-            "img": ""
+            "img": "./content/brand-4.png"
           },
           {
             "name": "filter-checkbox-2-5",
             "label": "Arcturus",
-            "img": ""
+            "img": "./content/brand-5.png"
           },
           {
             "name": "filter-checkbox-2-6",
             "label": "Snow Wolf",
-            "img": ""
+            "img": "./content/brand-6.png"
           },
           {
             "name": "filter-checkbox-2-7",
             "label": "Galaxy",
-            "img": ""
+            "img": "./content/brand-7.png"
           }
         ]
       },

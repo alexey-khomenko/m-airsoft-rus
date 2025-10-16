@@ -104,7 +104,7 @@ const brands: IBrand[] = data.brands;
         <div class="swiper-wrapper">
           {reviews.map(({img, link, name}: IReview) => (
             <a href={link} class="swiper-slide item">
-              <img src={img} alt={name} class="img" decoding="async" loading="lazy"/>
+              <img src={img} alt="" class="img" decoding="async" loading="lazy"/>
               <span class="name">{name}</span>
             </a>
           ))}

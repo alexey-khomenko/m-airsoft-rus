@@ -2,7 +2,7 @@
   padding-bottom: 1rem;
 
   .filters-group-title {
-    margin-block: 1rem;
+    padding-block: 1rem;
   }
 
   .checkboxes {

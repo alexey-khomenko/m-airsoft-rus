@@ -1,0 +1,36 @@
+.filters-group-checkbox {
+  display: contents;
+
+  .label {
+    min-height: 2.625rem;
+    padding-inline: 1.25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 99999px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+
+    color: var(--c, #373635);
+    background-color: var(--bgc, #F1F4F6);
+
+    &.long {
+      width: 100%;
+    }
+
+    .input:checked + & {
+      --c: #FFFFFF;
+      --bgc: #009AE3;
+    }
+
+    .img {
+      width: 2.5rem;
+      height: 1.875rem;
+      object-fit: contain;
+      aspect-ratio: 1;
+    }
+  }
+}

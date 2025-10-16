@@ -1,4 +1,6 @@
 ---
+import FiltersGroupCheckbox from '../components/FiltersGroupCheckbox.astro';
+
 import type {IFilterCheckbox, IFilterGroup} from '../interfaces';
 
 interface Props {
@@ -33,19 +35,13 @@ if (condition) {
 
   {condition ? (
     <div class="checkboxes first-group">
-      {firstGroup.map(({label, name}: IFilterCheckbox) => (
-        <div class="checkbox">
-          <input type="checkbox" id={name} name={name} value="Y"/>
-          <label for={name}>{label}</label>
-        </div>
+      {firstGroup.map((checkbox: IFilterCheckbox) => (
+        <FiltersGroupCheckbox checkbox={checkbox}/>
       ))}
     </div>
     <div class="checkboxes second-group" hidden>
-      {secondGroup.map(({label, name}: IFilterCheckbox) => (
-        <div class="checkbox">
-          <input type="checkbox" id={name} name={name} value="Y"/>
-          <label for={name}>{label}</label>
-        </div>
+      {secondGroup.map((checkbox: IFilterCheckbox) => (
+        <FiltersGroupCheckbox checkbox={checkbox}/>
       ))}
     </div>
     <button type="button" class="util-link" data-filters-group-show>
@@ -56,11 +52,8 @@ if (condition) {
     </button>
   ) : (
     <div class="checkboxes all">
-      {checkboxes.map(({label, name}: IFilterCheckbox) => (
-        <div class="checkbox">
-          <input type="checkbox" id={name} name={name} value="Y"/>
-          <label for={name}>{label}</label>
-        </div>
+      {checkboxes.map((checkbox: IFilterCheckbox) => (
+        <FiltersGroupCheckbox checkbox={checkbox}/>
       ))}
     </div>
   )}
