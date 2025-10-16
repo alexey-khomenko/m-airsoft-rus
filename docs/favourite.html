@@ -557,9 +557,10 @@
 
   <form class="popup-filters" action="/m-airsoft-rus/favourite.html" novalidate data-form-filters>
     <div class="filters-form-group">
+      <div class="filters-prices">
   <link rel="stylesheet" href="./components/filters-prices.css">
-  <div class="title">Стоимость</div>
-  <div class="filters-prices">
+  <div class="title filters-prices-title">Стоимость</div>
+  <div class="filters-prices-row">
     <input type="number" class="input" name="price-min" id="price-min" data-form-filters-price="min" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="9999" placeholder="0" aria-label="Стоимость, от">
     <span class="separator"></span>
     <input type="number" class="input" name="price-max" id="price-max" data-form-filters-price="max" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="1" max="10000" placeholder="10000" aria-label="Стоимость, до">
@@ -567,14 +568,15 @@
   <button type="submit" hidden aria-hidden="true">Применить</button>
   <script src="./components/filters-prices.js" async></script>
 </div>
+    </div>
 
     <div class="filters-form-group">
+        <div class="filters-switch">
   <link rel="stylesheet" href="./components/filters-switch.css">
-  <div class="filters-switch">
-    <label for="filter-switch-1" class="label title">Товар со скидкой</label>
-    <input type="checkbox" value="Y" class="input" name="filter-switch-1" id="filter-switch-1">
-  </div>
+  <label for="filter-switch-1" class="label title">Товар со скидкой</label>
+  <input type="checkbox" value="Y" class="input" name="filter-switch-1" id="filter-switch-1">
 </div>
+      </div>
 
     
   </form>
