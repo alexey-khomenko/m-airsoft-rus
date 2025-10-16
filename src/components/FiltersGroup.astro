@@ -8,22 +8,64 @@ interface Props {
 const {group}: Props = Astro.props;
 
 const {title, checkboxes}: IFilterGroup = group;
+
+const limit: number = 6;
+const condition: boolean = limit < checkboxes.length;
+
+const firstGroup: IFilterCheckbox[] = [];
+const secondGroup: IFilterCheckbox[] = [];
+
+if (condition) {
+  for (let i: number = 0, n: number = checkboxes.length; i < n; i++) {
+    if (i < limit - 1) {
+      firstGroup.push(checkboxes[i]);
+    }
+    else {
+      secondGroup.push(checkboxes[i]);
+    }
+  }
+}
 ---
 
 <div class="filters-form-group">
   <link rel="stylesheet" href="./components/filters-group.css"/>
-  <div class="filters-form-group-header title">{title}</div>
+  <div class="title">{title}</div>
 
-  <div class="filters-form-group-main">
-    {checkboxes.map(({label, name}: IFilterCheckbox) => (
-      <div class="filters-form-group-checkbox">
-        <input type="checkbox" id={name} name={name} value="Y"/>
-        <label for={name}>{label}</label>
+  <div class="filters-group" data-filters-group>
+    {condition ? (
+      <div class="checkboxes first-group">
+        {firstGroup.map(({label, name}: IFilterCheckbox) => (
+          <div class="checkbox">
+            <input type="checkbox" id={name} name={name} value="Y"/>
+            <label for={name}>{label}</label>
+          </div>
+        ))}
       </div>
-    ))}
+      <div class="checkboxes second-group" hidden>
+        {secondGroup.map(({label, name}: IFilterCheckbox) => (
+          <div class="checkbox">
+            <input type="checkbox" id={name} name={name} value="Y"/>
+            <label for={name}>{label}</label>
+          </div>
+        ))}
+      </div>
+      <button type="button" class="button" data-filters-group-show>
+        <span>Смотреть все</span>
+      </button>
+      <button type="button" class="button" data-filters-group-hide hidden>
+        <span>Скрыть</span>
+      </button>
+    ) : (
+      <div class="checkboxes all">
+        {checkboxes.map(({label, name}: IFilterCheckbox) => (
+          <div class="checkbox">
+            <input type="checkbox" id={name} name={name} value="Y"/>
+            <label for={name}>{label}</label>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
-
-  <div class="filters-form-group-footer">&hellip;</div>
 
   <script src="./components/filters-group.js" is:inline async></script>
 </div>

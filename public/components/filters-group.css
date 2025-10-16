@@ -1,0 +1,38 @@
+.filters-group {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+
+  .checkboxes:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem .75rem;
+
+    &.first-group {
+
+    }
+
+    &.second-group {
+      margin-top: .5rem;
+    }
+
+    &.all {
+      padding-bottom: .5rem;
+    }
+  }
+
+  .button:not([hidden]) {
+    padding: .125rem;
+    min-height: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: #009AE3;
+    text-transform: lowercase;
+    text-decoration: none;
+  }
+}

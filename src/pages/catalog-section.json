@@ -128,23 +128,147 @@
     "groups": [
       {
         "title": "Модель оружия",
-        "checkboxes": []
+        "checkboxes": [
+          {
+            "name": "filter-checkbox-1-1",
+            "label": "АА-12"
+          },
+          {
+            "name": "filter-checkbox-1-2",
+            "label": "AAP01"
+          },
+          {
+            "name": "filter-checkbox-1-3",
+            "label": "AG36"
+          },
+          {
+            "name": "filter-checkbox-1-4",
+            "label": "АR15 Pistol"
+          },
+          {
+            "name": "filter-checkbox-1-5",
+            "label": "АR15 custom"
+          }
+        ]
       },
       {
         "title": "Производитель бренд",
-        "checkboxes": []
+        "checkboxes": [
+          {
+            "name": "filter-checkbox-2-1",
+            "label": "Cyma",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-2",
+            "label": "LCT",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-3",
+            "label": "East Crane",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-4",
+            "label": "Tokyo Marui",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-5",
+            "label": "Arcturus",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-6",
+            "label": "Snow Wolf",
+            "img": ""
+          },
+          {
+            "name": "filter-checkbox-2-7",
+            "label": "Galaxy",
+            "img": ""
+          }
+        ]
       },
       {
         "title": "Принцип действия",
-        "checkboxes": []
+        "checkboxes": [
+          {
+            "name": "filter-checkbox-3-1",
+            "label": "АEG"
+          },
+          {
+            "name": "filter-checkbox-3-2",
+            "label": "AEG (Blow Black)"
+          },
+          {
+            "name": "filter-checkbox-3-3",
+            "label": "C02 (Blow Black)"
+          },
+          {
+            "name": "filter-checkbox-3-4",
+            "label": "Spring"
+          },
+          {
+            "name": "filter-checkbox-3-5",
+            "label": "Green Gas (Blow Back)"
+          },
+          {
+            "name": "filter-checkbox-3-6",
+            "label": "Green Gas (Non Blow Back)"
+          }
+        ]
       },
       {
         "title": "Материал корпуса",
-        "checkboxes": []
+        "checkboxes": [
+          {
+            "name": "filter-checkbox-4-1",
+            "label": "ABS-пластик"
+          },
+          {
+            "name": "filter-checkbox-4-2",
+            "label": "Дерево"
+          },
+          {
+            "name": "filter-checkbox-4-3",
+            "label": "ABS-пластик, алюминиевый"
+          },
+          {
+            "name": "filter-checkbox-4-4",
+            "label": "ABS-пластик, сталь"
+          },
+          {
+            "name": "filter-checkbox-4-5",
+            "label": "Сталь"
+          }
+        ]
       },
       {
         "title": "Тип магазина",
-        "checkboxes": []
+        "checkboxes": [
+          {
+            "name": "filter-checkbox-5-1",
+            "label": "Бункерный"
+          },
+          {
+            "name": "filter-checkbox-5-2",
+            "label": "Встроенный"
+          },
+          {
+            "name": "filter-checkbox-5-3",
+            "label": "Бункерный/механический"
+          },
+          {
+            "name": "filter-checkbox-5-4",
+            "label": "Механический"
+          },
+          {
+            "name": "filter-checkbox-5-5",
+            "label": "Шелл"
+          }
+        ]
       }
     ]
   }

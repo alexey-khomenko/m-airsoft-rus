@@ -93,7 +93,7 @@ export interface IProfileOrder {
 export interface IFilterCheckbox {
   name: string;
   label: string;
-  icon?: string;
+  img?: string;
 }
 
 export interface IFilterGroup {

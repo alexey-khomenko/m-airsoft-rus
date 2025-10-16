@@ -1,4 +1,5 @@
 .filters-prices {
+  margin-top: 1rem;
   margin-bottom: 1.25rem;
   display: flex;
   flex-flow: row nowrap;
