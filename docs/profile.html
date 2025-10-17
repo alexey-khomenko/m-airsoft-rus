@@ -137,40 +137,40 @@
     <section class="util-tile section"  >
 <link rel="stylesheet" href="./components/util-tile.css">
 
-      <div class="info">
-        <span class="primary title">+7 (963) 040-75-12</span>
-      </div>
-      <button type="button" class="button" data-popup-open="profile-tel">
-        <span>Изменить</span>
-      </button>
-    
+        <div class="info">
+          <span class="primary title">+7 (963) 040-75-12</span>
+        </div>
+        <button type="button" class="button" data-popup-open="profile-tel">
+          <span>Изменить</span>
+        </button>
+      
 </section>
 
-    <section class="util-tile section"  >
+      <section class="util-tile section"  >
 <link rel="stylesheet" href="./components/util-tile.css">
 
-      <div class="info">
-        <span class="primary title">Иванов Иван Иванович</span>
-        <span class="primary text">airsoftrus@gmail.com</span>
-      </div>
-      <button type="button" class="button" data-popup-open="profile-name">
-        <span>Изменить</span>
-      </button>
-    
+        <div class="info">
+          <span class="primary title">Иванов Иван Иванович</span>
+          <span class="primary text">airsoftrus@gmail.com</span>
+        </div>
+        <button type="button" class="button" data-popup-open="profile-name">
+          <span>Изменить</span>
+        </button>
+      
 </section>
 
-    <section class="util-tile section"  >
+      <section class="util-tile section"  >
 <link rel="stylesheet" href="./components/util-tile.css">
 
-      <div class="info">
-        <span class="primary title">38 880 руб.</span>
-        <span class="third text">Общая сумма заказов</span>
-      </div>
-      <div class="info">
-        <span class="secondary title">880 руб.</span>
-        <span class="secondary text">Бонусов на счету</span>
-      </div>
-    
+        <div class="info">
+          <span class="primary title">38 880 руб.</span>
+          <span class="third text">Общая сумма заказов</span>
+        </div>
+        <div class="info">
+          <span class="secondary title">880 руб.</span>
+          <span class="secondary text">Бонусов на счету</span>
+        </div>
+      
 </section>
 
     <section class="util-tile section-orders"  >
@@ -211,6 +211,49 @@
           </div>
       </div>
     
+</section>
+
+    <section class="section-pagination">
+  <link rel="stylesheet" href="./components/section-pagination.css">
+  <button type="button" class="show-more">
+    <svg width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.3691 1.6123L6.86914 7.6123L1.36914 1.6123" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <span>Показать ещё</span>
+  </button>
+  <div class="pages">
+    <div class="page disabled" data-pages-prev>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      <div class="page current">
+        <span class="text">1</span>
+      </div>
+
+
+    <!--<span class="text dots">&hellip;</span>-->
+
+    <a href="/m-airsoft-rus/profile.html?page=2" class="page">
+      <span class="text">2</span>
+    </a>
+    <a href="/m-airsoft-rus/profile.html?page=3" class="page">
+      <span class="text">3</span>
+    </a>
+
+    <span class="text dots">&hellip;</span>
+
+
+    <a href="/m-airsoft-rus/profile.html?page=11" class="page">
+        <span class="text">11</span>
+      </a>
+      <a href="/m-airsoft-rus/profile.html?page=2" class="page" data-pages-next>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+  </div>
+  <script src="./components/section-pagination.js" async></script>
 </section>
   </div>
   <script src="./pages/profile.js" async></script>
