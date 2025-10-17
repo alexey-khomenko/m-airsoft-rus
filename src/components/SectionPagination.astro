@@ -1,9 +1,91 @@
 ---
+interface Props {
+  currentPage: number;
+  lastPage: number;
+  baseLink: string;
+}
 
+const {currentPage, lastPage, baseLink}: Props = Astro.props;
+
+const pageParam: string = 'page';
+
+const firstPage: number = 1;
+const prevPage: number = currentPage - 1;
+const nextPage: number = currentPage + 1;
+const separator: string = baseLink.includes('?') ? '&' : '?';
+
+const firstLink: string = baseLink;
+const prevLink: string = firstPage < prevPage ? `${baseLink}${separator}${pageParam}=${prevPage}` : baseLink;
+const nextLink: string = `${baseLink}${separator}${pageParam}=${nextPage}`;
+const lastLink: string = `${baseLink}${separator}${pageParam}=${lastPage}`;
 ---
 
 <section class="section-pagination">
   <link rel="stylesheet" href="./components/section-pagination.css"/>
-  pagination
+  <button type="button" class="show-more">
+    <svg width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.3691 1.6123L6.86914 7.6123L1.36914 1.6123" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Показать ещё</span>
+  </button>
+  <div class="pages">
+    {firstPage === currentPage ? (
+      <div class="page disabled" data-pages-prev>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="page current">
+        <span class="text">{firstPage}</span>
+      </div>
+    ) : (
+      <a href={prevLink} class="page" data-pages-prev>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href={firstLink} class="page">
+        <span class="text">{firstPage}</span>
+      </a>
+    )}
+
+
+    <!--<span class="text dots">&hellip;</span>-->
+
+    <a href={`${baseLink}${separator}${pageParam}=${2}`} class="page">
+      <span class="text">2</span>
+    </a>
+    <a href={`${baseLink}${separator}${pageParam}=${3}`} class="page">
+      <span class="text">3</span>
+    </a>
+
+    <span class="text dots">&hellip;</span>
+
+
+    {lastPage === currentPage ? (
+      <div class="page current">
+        <span class="text">{lastPage}</span>
+      </div>
+      <div class="page disabled" data-pages-next>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </div>
+    ) : (
+      <a href={lastLink} class="page">
+        <span class="text">{lastPage}</span>
+      </a>
+      <a href={nextLink} class="page" data-pages-next>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </a>
+    )}
+  </div>
   <script src="./components/section-pagination.js" is:inline async></script>
 </section>

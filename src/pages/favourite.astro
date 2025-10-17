@@ -5,7 +5,7 @@ import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 
-import type {IOption, IPopupFilter, IProductTile} from '../interfaces';
+import type {IPopupFilter, IProductTile} from '../interfaces';
 
 import data from '../pages/favourite.json';
 
@@ -13,6 +13,9 @@ const products: IProductTile[] = data.products;
 
 const title: string = 'Избранное';
 const link: string = '/favourite';
+
+const currentPage: number = 1; // TODO pages
+const lastPage: number = 1;
 
 const popupFilter: IPopupFilter = {
   action: link,
@@ -35,6 +38,7 @@ const popupFilter: IPopupFilter = {
 
     <SectionProducts products={products}/>
 
-    <SectionPagination/>
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
 </Layout>

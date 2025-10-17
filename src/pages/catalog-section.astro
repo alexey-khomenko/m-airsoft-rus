@@ -7,11 +7,11 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
-import type {IProductTile, ILink, ICatalog, IPopupFilter, IOption} from '../interfaces';
+import type {IProductTile, ILink, ICatalog, IPopupFilter} from '../interfaces';
 
 import data from '../pages/catalog-section.json';
 
-const {id, name, link, sections, info}: ICatalog = data.catalog;
+const {name, link, sections, info}: ICatalog = data.catalog;
 const products: IProductTile[] = data.products;
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
@@ -21,6 +21,9 @@ for (const section of sections) {
 }
 
 breadcrumbs.push({link, name});
+
+const currentPage: number = 1; // TODO pages
+const lastPage: number = 11;
 
 const popupFilter: IPopupFilter = {
   action: link,
@@ -39,10 +42,13 @@ const popupFilter: IPopupFilter = {
 
     <SectionProducts products={products}/>
 
-    <SectionPagination/>
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
 
-    <UtilTile tag="section" classList={['section-info']} isHidden={false}>
-      <Fragment set:html={info}/>
-    </UtilTile>
+    {1 === currentPage && (
+      <UtilTile tag="section" classList={['section-info']} isHidden={false}>
+        <Fragment set:html={info}/>
+      </UtilTile>
+    )}
   </div>
 </Layout>

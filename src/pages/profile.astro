@@ -6,50 +6,59 @@ import UtilTile from '../components/UtilTile.astro';
 import type {IProfileInfo, IProfileOrder} from '../interfaces';
 
 import data from '../pages/profile.json';
+import SectionPagination from '../components/SectionPagination.astro';
 
 const {tel, firstName, middleName, lastName, email, amount, balance}: IProfileInfo = data.info;
 const orders: IProfileOrder[] = data.orders;
+
+const title: string = 'Личный кабинет';
+const link: string = '/profile';
+
+const currentPage: number = 1; // TODO pages
+const lastPage: number = 11;
 ---
 
 <Layout title="Профиль" page="profile" isUser={true} userInfo={data.info}>
   <link rel="stylesheet" href="./pages/profile.css"/>
   <div class="page-wrapper">
     <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">Личный кабинет</h1>
+      <h1 class="title">{title}</h1>
       <button type="button" class="util-link" data-button-logout-to="/">
         <span>Выход</span>
       </button>
     </UtilHeader>
 
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <div class="info">
-        <span class="primary title">{tel}</span>
-      </div>
-      <button type="button" class="button" data-popup-open="profile-tel">
-        <span>Изменить</span>
-      </button>
-    </UtilTile>
+    {1 === currentPage &&
+      <UtilTile tag="section" classList={['section']} isHidden={false}>
+        <div class="info">
+          <span class="primary title">{tel}</span>
+        </div>
+        <button type="button" class="button" data-popup-open="profile-tel">
+          <span>Изменить</span>
+        </button>
+      </UtilTile>
 
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <div class="info">
-        <span class="primary title">{lastName} {firstName} {middleName}</span>
-        <span class="primary text">{email}</span>
-      </div>
-      <button type="button" class="button" data-popup-open="profile-name">
-        <span>Изменить</span>
-      </button>
-    </UtilTile>
+      <UtilTile tag="section" classList={['section']} isHidden={false}>
+        <div class="info">
+          <span class="primary title">{lastName} {firstName} {middleName}</span>
+          <span class="primary text">{email}</span>
+        </div>
+        <button type="button" class="button" data-popup-open="profile-name">
+          <span>Изменить</span>
+        </button>
+      </UtilTile>
 
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <div class="info">
-        <span class="primary title">{amount.toLocaleString('ru-RU')} руб.</span>
-        <span class="third text">Общая сумма заказов</span>
-      </div>
-      <div class="info">
-        <span class="secondary title">{balance.toLocaleString('ru-RU')} руб.</span>
-        <span class="secondary text">Бонусов на счету</span>
-      </div>
-    </UtilTile>
+      <UtilTile tag="section" classList={['section']} isHidden={false}>
+        <div class="info">
+          <span class="primary title">{amount.toLocaleString('ru-RU')} руб.</span>
+          <span class="third text">Общая сумма заказов</span>
+        </div>
+        <div class="info">
+          <span class="secondary title">{balance.toLocaleString('ru-RU')} руб.</span>
+          <span class="secondary text">Бонусов на счету</span>
+        </div>
+      </UtilTile>
+    }
 
     <UtilTile tag="section" classList={['section-orders']} isHidden={false}>
       <div class="orders-title">История заказов</div>
@@ -75,6 +84,9 @@ const orders: IProfileOrder[] = data.orders;
         ))}
       </div>
     </UtilTile>
+
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
   <script src="./pages/profile.js" is:inline async></script>
 </Layout>

@@ -15,9 +15,13 @@ const products: IProductTile[] = data.products;
 const title: string = 'Результаты поиска по запросу';
 const link: string = '/search?q=123';
 
-const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
+const breadcrumbs: ILink[] = [
+  {link: '/catalog', name: 'Каталог'},
+  {link, name: title},
+];
 
-breadcrumbs.push({link, name: title});
+const currentPage: number = 1; // TODO pages
+const lastPage: number = 2;
 
 const popupFilter: IPopupFilter = {
   action: link,
@@ -36,7 +40,8 @@ const popupFilter: IPopupFilter = {
 
     <SectionProducts products={products}/>
 
-    <SectionPagination/>
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
   <script src="./pages/search.js" is:inline async></script>
 </Layout>
