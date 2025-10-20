@@ -5,21 +5,17 @@ window.addEventListener('load', () => {
 
   window.productTileJsIsLoaded = true;
 
-  const cart = document.querySelector('[data-cart-number]');
-
   document.addEventListener('click', (e) => {
-    const button = e.target.closest('[data-catalog-cart-add]');
+    const button = e.target.closest('.cart[data-cart-add]');
 
     if (!button) return true;
 
-    const productId = button.dataset.catalogCartAdd;
+    const productId = button.dataset.cartAdd;
 
-    let cartNumber = +cart.dataset.cartNumber;
+    const buttons = document.querySelectorAll(`.cart[data-cart-add="${productId}"]`);
 
-    cart.setAttribute('data-cart-number', ++cartNumber);
-
-    console.log('catalogCartAdd', productId, cartNumber);
-
-    button.hidden = true;
+    for (const current of buttons) {
+      current.hidden = true;
+    }
   });
 });

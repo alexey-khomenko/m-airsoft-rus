@@ -10,16 +10,18 @@ export interface IProduct {
   link: string;
   rating: number;
   sections: ILink[];
+  inCart: boolean;
 }
 
 export interface IProductTile {
   id: number;
   link: string;
   img: string;
-  title: string; // TODO name
+  name: string;
   rating: number;
   oldPrice: number;
   price: number;
+  inCart: boolean;
 }
 
 export interface IProductGroup {
