@@ -7,6 +7,10 @@ interface Props {
 const {tag, classList}: Props = Astro.props;
 
 const html: string = `<${tag} class="util-header ${classList.join(' ')}">`;
+// TODO Сделать компонент для большинства страниц (кроме профиля?)
+//  profile
+//  popup
+//  page
 ---
 
 <Fragment set:html={html}/>

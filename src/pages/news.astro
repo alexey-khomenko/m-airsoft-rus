@@ -1,19 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+import SectionPagination from '../components/SectionPagination.astro';
+
+const title: string = 'Новости';
+const link: string = '/news';
+
+const currentPage: number = 1; // TODO pages
+const lastPage: number = 11;
 ---
 
 <Layout title="Новости" page="news" isUser={true}>
   <link rel="stylesheet" href="./pages/news.css"/>
   <div class="page-wrapper">
+
     <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">Новости</h1>
+      <h1 class="title">{title}</h1>
       <a href="/" class="util-link">
         <span>Назад</span>
       </a>
     </UtilHeader>
+
     <section class="section">
       news
     </section>
+
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
 </Layout>
