@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+import UtilTile from '../components/UtilTile.astro';
 
 const title: string = 'Оплата';
 ---
@@ -10,8 +11,28 @@ const title: string = 'Оплата';
   <div class="page-wrapper">
     <UtilHeader type="page" title={title}/>
 
-    <section class="section">
-      payments
-    </section>
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
+
+    <UtilTile tag="section" classList={['section']} isHidden={false}>
+      &hellip;
+    </UtilTile>
   </div>
 </Layout>
