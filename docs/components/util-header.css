@@ -23,14 +23,28 @@
     flex-basis: 3.375rem;
   }
 
+  &.type-long::before {
+    flex-basis: 0;
+  }
+
   .title {
-    flex-shrink: 0;
     flex-grow: 1;
     margin: 0;
     padding: 0;
     font-weight: 700;
-    font-size: 1.5rem;
-    text-align: center;
+
     color: #373635;
+
+    .type-page &,
+    .type-popup &,
+    .type-profile & {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .type-long & {
+      font-size: 1.125rem;
+      text-align: left;
+    }
   }
 }

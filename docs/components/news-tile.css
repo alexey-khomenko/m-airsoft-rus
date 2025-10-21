@@ -1,3 +1,50 @@
 .util-tile.news {
   padding: 1.25rem 1rem 1rem;
+  display: grid;
+  grid-row: auto / span 3;
+  grid-template-rows: subgrid;
+  gap: .625rem;
+
+  .top-link {
+    display: block;
+    text-decoration: none;
+
+    .img {
+      width: 100%;
+      height: 5.25rem;
+      display: block;
+      object-fit: contain;
+    }
+
+    .name {
+      padding-top: 1rem;
+      display: block;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.375rem;
+      color: #27282B;
+    }
+  }
+
+  .date {
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: #BABABA;
+  }
+
+  .bottom-link {
+    padding-bottom: .25rem;
+
+    .details {
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1rem;
+      color: #009AE3;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .375rem;
+      text-decoration-style: solid;
+    }
+  }
 }
