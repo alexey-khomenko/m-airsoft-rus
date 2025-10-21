@@ -15,7 +15,7 @@ const {name, info}: INews = data.news;
   <div class="page-wrapper">
     <UtilHeader type="long" title={name} link={'/news'}/>
 
-    <UtilTile tag="section" classList={['section-info']} isHidden={false}>
+    <UtilTile tag="section" classList={['section-info', 'mt1']} isHidden={false}>
       <Fragment set:html={info}/>
     </UtilTile>
   </div>
