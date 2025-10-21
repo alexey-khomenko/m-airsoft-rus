@@ -2,9 +2,10 @@
 interface Props {
   type: 'page' | 'popup' | 'profile';
   title: string;
+  link?: string;
 }
 
-const {type, title}: Props = Astro.props;
+const {type, title, link = '/'}: Props = Astro.props;
 ---
 
 {'popup' === type ? (
@@ -21,7 +22,7 @@ const {type, title}: Props = Astro.props;
   <h1 class="title">{title}</h1>
 
   {'page' === type &&
-    <a href="/" class="util-link">
+    <a href={link} class="util-link">
       <span>Назад</span>
     </a>}
 

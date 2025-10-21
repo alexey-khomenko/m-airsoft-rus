@@ -2,26 +2,38 @@
   "news": [
     {
       "link": "/news-detail",
-      "img": "",
+      "img": "./content/news-1.png",
       "name": "5-7 от SRC",
       "date": "04.09.2025"
     },
     {
       "link": "/news-detail",
-      "img": "",
+      "img": "./content/news-2.png",
       "name": "Больше SIG MCX от East Crane",
       "date": "04.09.2025"
     },
     {
       "link": "/news-detail",
-      "img": "",
+      "img": "./content/news-3.png",
       "name": "Пистолет в дробовик на ВВД",
       "date": "04.09.2025"
     },
     {
       "link": "/news-detail",
-      "img": "",
+      "img": "./content/news-4.png",
       "name": "ВВД анонс от E&L",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/news-detail",
+      "img": "./content/news-1.png",
+      "name": "5-7 от SRC",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/news-detail",
+      "img": "./content/news-2.png",
+      "name": "Больше SIG MCX от East Crane",
       "date": "04.09.2025"
     }
   ],

@@ -16,8 +16,12 @@ const classList: string[] = ['news'];
 
 <UtilTile tag="div" classList={classList} isHidden={false}>
   <link rel="stylesheet" href="./components/news-tile.css"/>
-  <div>{link}</div>
-  <div>{img}</div>
-  <div>{name}</div>
-  <div>{date}</div>
+  <a href={link} class="top-link">
+    <img src={img} alt="" class="img" decoding="async" loading="lazy"/>
+    <span class="name">{name}</span>
+  </a>
+  <div class="date">{date}</div>
+  <div class="bottom-link">
+    <a href={link} class="details">Подробнее</a>
+  </div>
 </UtilTile>
