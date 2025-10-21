@@ -125,14 +125,16 @@
   <link rel="stylesheet" href="./pages/favourite.css">
   <div class="page-wrapper">
 
-    <section class="util-header page-header">
-<link rel="stylesheet" href="./components/util-header.css">
+    <section class="util-header type-page">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h1 class="title">Избранное</h1>
 
-      <h1 class="title">Избранное</h1>
-      <a href="/m-airsoft-rus/index.html" class="util-link">
-        <span>Назад</span>
-      </a>
-    
+  <a href="/m-airsoft-rus/index.html" class="util-link">
+      <span>Назад</span>
+    </a>
+
+  
+
 </section>
 
     <section class="section-filters">
@@ -142,7 +144,7 @@
     <span>Фильтры</span>
   </button>
   <details class="sort-dropdown">
-    <summary class="util-button secondary sort-header" data-sort-current data-sort-param="sort" data-sort-value="popular">
+    <summary class="util-button secondary sort-header" data-sort-current data-sort-param="sort" data-sort-value>
       <span>Популярные товары</span>
       <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -159,7 +161,7 @@
   <script src="./components/section-filters.js" async></script>
 </section>
 
-    <section class="section-products">
+    <section class="section-products" data-page-items>
   <link rel="stylesheet" href="./components/section-products.css">
   <div class="util-tile product"  >
 <link rel="stylesheet" href="./components/util-tile.css">
@@ -189,11 +191,7 @@
     <div class="bottom">
       <span class="price">16 800</span>
       <span class="currency">₽</span>
-      <button type="button" class="cart" data-catalog-cart-add="5">
-        <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
-        </svg>
-      </button>
+      
     </div>
   </div>
   <script src="./components/product-tile.js" async></script>
@@ -226,11 +224,7 @@
     <div class="bottom">
       <span class="price">16 800</span>
       <span class="currency">₽</span>
-      <button type="button" class="cart" data-catalog-cart-add="6">
-        <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
-        </svg>
-      </button>
+      
     </div>
   </div>
   <script src="./components/product-tile.js" async></script>
@@ -256,11 +250,11 @@
     <div class="bottom">
       <span class="price">26 390</span>
       <span class="currency">₽</span>
-      <button type="button" class="cart" data-catalog-cart-add="7">
-        <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
-        </svg>
-      </button>
+      <button type="button" class="cart" data-cart-add="7">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
     </div>
   </div>
   <script src="./components/product-tile.js" async></script>
@@ -293,11 +287,11 @@
     <div class="bottom">
       <span class="price">16 800</span>
       <span class="currency">₽</span>
-      <button type="button" class="cart" data-catalog-cart-add="8">
-        <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
-        </svg>
-      </button>
+      <button type="button" class="cart" data-cart-add="8">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
     </div>
   </div>
   <script src="./components/product-tile.js" async></script>
@@ -323,15 +317,15 @@
   <link rel="stylesheet" href="./components/popups.css">
 
   <div class="popup bg-light" data-popup-name="menu-header" hidden>
-  <div class="util-header popup-header">
-<link rel="stylesheet" href="./components/util-header.css">
-
-    <h2 class="title">Каталог</h2>
-    <button type="button" class="util-link" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">Каталог</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
 </div>
+  </div>
   <div class="popup-main">
     <div class="wrapper">
       
@@ -366,15 +360,15 @@
 </div>
 
   <div class="popup bg-light" data-popup-name="menu-footer" hidden>
-  <div class="util-header popup-header">
-<link rel="stylesheet" href="./components/util-header.css">
-
-    <h2 class="title">Меню</h2>
-    <button type="button" class="util-link" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">Меню</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
 </div>
+  </div>
   <div class="popup-main">
     <div class="wrapper">
       
@@ -537,15 +531,15 @@
   
 
   <div class="popup bg-light" data-popup-name="filters" hidden>
-  <div class="util-header popup-header">
-<link rel="stylesheet" href="./components/util-header.css">
-
-    <h2 class="title">Фильтры</h2>
-    <button type="button" class="util-link" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">Фильтры</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
 </div>
+  </div>
   <div class="popup-main">
     <div class="wrapper">
       

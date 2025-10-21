@@ -1,7 +1,5 @@
 document.addEventListener('click', (e) => {
-  const button = e.target.closest('.buy.button[data-catalog-cart-add]');
+  const button = e.target.closest('.buy.button[data-cart-add]');
 
-  if (!button) return true;
-
-  document.querySelector('.button-buy-wrapper').hidden = true;
+  if (button) button.closest('.button-buy-wrapper').hidden = true;
 });

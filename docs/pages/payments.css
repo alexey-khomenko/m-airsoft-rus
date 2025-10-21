@@ -3,10 +3,6 @@
   padding-bottom: .25rem;
 }
 
-.page-header::before {
-  flex-basis: 3rem;
-}
-
 
 .section {
   margin-top: .5rem;

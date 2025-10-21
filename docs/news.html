@@ -124,18 +124,103 @@
       
   <link rel="stylesheet" href="./pages/news.css">
   <div class="page-wrapper">
-    <section class="util-header page-header">
-<link rel="stylesheet" href="./components/util-header.css">
 
-      <h1 class="title">Новости</h1>
-      <a href="/m-airsoft-rus/index.html" class="util-link">
-        <span>Назад</span>
-      </a>
-    
+    <section class="util-header type-page">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h1 class="title">Новости</h1>
+
+  <a href="/m-airsoft-rus/index.html" class="util-link">
+      <span>Назад</span>
+    </a>
+
+  
+
 </section>
-    <section class="section">
-      news
-    </section>
+
+    <section class="section-news" data-page-items>
+  <link rel="stylesheet" href="./components/section-news.css">
+  <div class="util-tile news"  >
+<link rel="stylesheet" href="./components/util-tile.css">
+
+  <link rel="stylesheet" href="./components/news-tile.css">
+  <div>/news-detail</div>
+  <div></div>
+  <div>5-7 от SRC</div>
+  <div>04.09.2025</div>
+
+</div><div class="util-tile news"  >
+<link rel="stylesheet" href="./components/util-tile.css">
+
+  <link rel="stylesheet" href="./components/news-tile.css">
+  <div>/news-detail</div>
+  <div></div>
+  <div>Больше SIG MCX от East Crane</div>
+  <div>04.09.2025</div>
+
+</div><div class="util-tile news"  >
+<link rel="stylesheet" href="./components/util-tile.css">
+
+  <link rel="stylesheet" href="./components/news-tile.css">
+  <div>/news-detail</div>
+  <div></div>
+  <div>Пистолет в дробовик на ВВД</div>
+  <div>04.09.2025</div>
+
+</div><div class="util-tile news"  >
+<link rel="stylesheet" href="./components/util-tile.css">
+
+  <link rel="stylesheet" href="./components/news-tile.css">
+  <div>/news-detail</div>
+  <div></div>
+  <div>ВВД анонс от E&amp;L</div>
+  <div>04.09.2025</div>
+
+</div>
+</section>
+
+    <section class="section-pagination" data-page-param="page" data-page-current="1">
+  <link rel="stylesheet" href="./components/section-pagination.css">
+  <button type="button" class="show-more">
+      <svg width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.3691 1.6123L6.86914 7.6123L1.36914 1.6123" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span>Показать ещё</span>
+    </button>
+
+  <div class="pages">
+    <div class="page disabled">
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      <div class="page current">
+        <span class="text">1</span>
+      </div>
+
+
+    
+
+    <a href="/m-airsoft-rus/news.html?page=2" class="page" data-page-number="2">
+        <span class="text">2</span>
+      </a>
+      <a href="/m-airsoft-rus/news.html?page=3" class="page" data-page-number="3">
+        <span class="text">3</span>
+      </a>
+
+      <span class="text dots">&hellip;</span>
+
+
+    <a href="/m-airsoft-rus/news.html?page=11" class="page" data-page-number="11" data-page-last>
+        <span class="text">11</span>
+      </a>
+      <a href="/m-airsoft-rus/news.html?page=2" class="page" data-page-next>
+        <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+  </div>
+  <script src="./components/section-pagination.js" async></script>
+</section>
   </div>
 
     
@@ -153,15 +238,15 @@
   <link rel="stylesheet" href="./components/popups.css">
 
   <div class="popup bg-light" data-popup-name="menu-header" hidden>
-  <div class="util-header popup-header">
-<link rel="stylesheet" href="./components/util-header.css">
-
-    <h2 class="title">Каталог</h2>
-    <button type="button" class="util-link" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">Каталог</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
 </div>
+  </div>
   <div class="popup-main">
     <div class="wrapper">
       
@@ -196,15 +281,15 @@
 </div>
 
   <div class="popup bg-light" data-popup-name="menu-footer" hidden>
-  <div class="util-header popup-header">
-<link rel="stylesheet" href="./components/util-header.css">
-
-    <h2 class="title">Меню</h2>
-    <button type="button" class="util-link" data-popup-close>
-      <span>Отмена</span>
-    </button>
-  
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">Меню</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
 </div>
+  </div>
   <div class="popup-main">
     <div class="wrapper">
       

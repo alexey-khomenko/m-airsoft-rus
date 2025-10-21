@@ -2,12 +2,25 @@
   flex-shrink: 0;
   min-height: 3.25rem;
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   gap: .5rem;
 
   &::before {
     content: "";
+  }
+
+  &.type-page::before {
+    flex-basis: 3rem;
+  }
+
+  &.type-popup::before {
+    flex-basis: 3.75rem;
+  }
+
+  &.type-profile::before {
+    flex-basis: 3.375rem;
   }
 
   .title {

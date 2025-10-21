@@ -3,9 +3,6 @@
   padding-bottom: .875rem;
 }
 
-.page-header::before {
-  flex-basis: 3rem;
-}
 
 .main.catalog {
   background-color: #FFFFFF;

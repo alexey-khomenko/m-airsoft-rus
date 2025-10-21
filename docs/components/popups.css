@@ -49,10 +49,6 @@
   position: relative;
   margin-top: .5rem;
   padding-inline: .5rem;
-
-  &::before {
-    flex-basis: 3.75rem;
-  }
 }
 
 .popup-main {

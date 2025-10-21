@@ -5,6 +5,7 @@
   box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
 
   &.section-info {
+    margin-top: 1rem;
     hyphens: auto;
     color: #373635;
 
