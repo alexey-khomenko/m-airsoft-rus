@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type: 'page' | 'popup' | 'profile';
+  type: 'page' | 'popup' | 'profile' | 'long';
   title: string;
   link?: string;
 }
@@ -21,7 +21,7 @@ const {type, title, link = '/'}: Props = Astro.props;
   <link rel="stylesheet" href="./components/util-header.css"/>
   <h1 class="title">{title}</h1>
 
-  {'page' === type &&
+  {('page' === type || 'long' === type) &&
     <a href={link} class="util-link">
       <span>Назад</span>
     </a>}

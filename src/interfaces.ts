@@ -68,6 +68,13 @@ export interface IProduct {
   inCart: boolean;
 }
 
+export interface INews {
+  id: number;
+  name: string;
+  link: string;
+  info: string;
+}
+
 export interface ISearchResult {
   name: string;
   link: string;

@@ -16,9 +16,21 @@
     }
 
     p {
-      margin: 1rem 0 0;
       font-weight: 400;
       font-size: 1rem;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      &:not(:first-child) {
+        margin: 1rem 0 0;
+      }
+    }
+
+    strong {
+      font-weight: 400;
+      color: #009AE3;
     }
   }
 }

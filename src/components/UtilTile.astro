@@ -12,6 +12,6 @@ const html: string = `<${tag} class="util-tile ${classList.join(' ')}" ${dataArr
 ---
 
 <Fragment set:html={html}/>
-<link rel="stylesheet" href="./components/util-tile.css"/>
 <slot/>
+<link rel="stylesheet" href="./components/util-tile.css"/>
 <Fragment set:html={`</${tag}>`}/>
