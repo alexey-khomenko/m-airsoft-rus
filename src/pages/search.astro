@@ -6,11 +6,13 @@ import SectionFilters from '../components/SectionFilters.astro';
 import SectionProducts from '../components/SectionProducts.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 
-import type {IProductTile, ILink, IPopupFilter, IOption} from '../interfaces';
+import type {IProductTile, ILink, IPopupFilter} from '../interfaces';
 
 import data from '../pages/search.json';
 
 const products: IProductTile[] = data.products;
+const lastPage: number = data.lastPage;
+const currentPage: number = 1;
 
 const title: string = 'Результаты поиска по запросу';
 const link: string = '/search?q=123';
@@ -19,9 +21,6 @@ const breadcrumbs: ILink[] = [
   {link: '/catalog', name: 'Каталог'},
   {link, name: title},
 ];
-
-const currentPage: number = 1; // TODO pages
-const lastPage: number = 2;
 
 const popupFilter: IPopupFilter = {
   action: link,

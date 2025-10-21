@@ -10,12 +10,11 @@ import type {IPopupFilter, IProductTile} from '../interfaces';
 import data from '../pages/favourite.json';
 
 const products: IProductTile[] = data.products;
+const lastPage: number = data.lastPage;
+const currentPage: number = 1;
 
 const title: string = 'Избранное';
 const link: string = '/favourite';
-
-const currentPage: number = 1; // TODO pages
-const lastPage: number = 1;
 
 const popupFilter: IPopupFilter = {
   action: link,
@@ -27,12 +26,7 @@ const popupFilter: IPopupFilter = {
   <link rel="stylesheet" href="./pages/favourite.css"/>
   <div class="page-wrapper">
 
-    <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">{title}</h1>
-      <a href="/" class="util-link">
-        <span>Назад</span>
-      </a>
-    </UtilHeader>
+    <UtilHeader type="page" title={title}/>
 
     <SectionFilters/>
 

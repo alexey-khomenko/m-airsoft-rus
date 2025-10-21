@@ -121,6 +121,7 @@
       "inCart": false
     }
   ],
+  "lastPage": 2,
   "filter": {
     "minPrice": 10,
     "maxPrice": 9000,

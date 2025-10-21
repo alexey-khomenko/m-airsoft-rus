@@ -6,12 +6,12 @@ import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
 
-import type {IPopupFilter, IProfileInfo} from '../interfaces';
+import type {IPopupFilter, IUser} from '../interfaces';
 
 interface Props {
   page: string;
   isUser: boolean;
-  userInfo?: IProfileInfo;
+  userInfo?: IUser;
   popupFilter?: IPopupFilter;
 }
 

@@ -5,13 +5,13 @@ import Footer from '../components/Footer.astro';
 import Container from '../components/Container.astro';
 import Scripts from '../components/Scripts.astro';
 
-import type {IPopupFilter, IProfileInfo} from '../interfaces';
+import type {IPopupFilter, IUser} from '../interfaces';
 
 interface Props {
   title: string;
   page: string;
   isUser: boolean;
-  userInfo?: IProfileInfo;
+  userInfo?: IUser;
   popupFilter?: IPopupFilter;
 }
 

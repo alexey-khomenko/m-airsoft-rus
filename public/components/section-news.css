@@ -1,0 +1,14 @@
+.section-news {
+  margin-top: .25rem;
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: var(--section-products--gtc, 1fr 1fr);
+
+  @container app (min-width: 538px) {
+    --section-products--gtc: 1fr 1fr 1fr;
+  }
+
+  @container app (min-width: 716px) {
+    --section-products--gtc: 1fr 1fr 1fr 1fr;
+  }
+}

@@ -13,6 +13,8 @@ import data from '../pages/catalog-section.json';
 
 const {name, link, sections, info}: ICatalog = data.catalog;
 const products: IProductTile[] = data.products;
+const lastPage: number = data.lastPage;
+const currentPage: number = 10;
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 
@@ -21,9 +23,6 @@ for (const section of sections) {
 }
 
 breadcrumbs.push({link, name});
-
-const currentPage: number = 1; // TODO pages
-const lastPage: number = 11;
 
 const popupFilter: IPopupFilter = {
   action: link,

@@ -41,6 +41,7 @@
       "inCart": false
     }
   ],
+  "lastPage": 1,
   "filter": {
     "minPrice": 0,
     "maxPrice": 10000,

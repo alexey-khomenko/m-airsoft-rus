@@ -1,29 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+import SectionNews from '../components/SectionNews.astro';
 import SectionPagination from '../components/SectionPagination.astro';
+
+import type {INewsTile} from '../interfaces';
+
+import data from '../pages/news.json';
+
+const news: INewsTile[] = data.news;
+const lastPage: number = data.lastPage;
+const currentPage: number = 1;
 
 const title: string = 'Новости';
 const link: string = '/news';
-
-const currentPage: number = 1; // TODO pages
-const lastPage: number = 11;
 ---
 
 <Layout title="Новости" page="news" isUser={true}>
   <link rel="stylesheet" href="./pages/news.css"/>
   <div class="page-wrapper">
 
-    <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">{title}</h1>
-      <a href="/" class="util-link">
-        <span>Назад</span>
-      </a>
-    </UtilHeader>
+    <UtilHeader type="page" title={title}/>
 
-    <section class="section">
-      news
-    </section>
+    <SectionNews news={news}/>
 
     {1 < lastPage &&
       <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}

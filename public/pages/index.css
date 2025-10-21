@@ -6,7 +6,6 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 1rem;
 }
 
 
@@ -77,6 +76,8 @@
 }
 
 .section-products {
+  margin-top: 1rem;
+
   .button {
     margin-top: 1rem;
   }
@@ -120,114 +121,126 @@
   }
 }
 
-.section-news .items {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1.25rem;
+.section-news {
+  margin-top: 1rem;
 
-  .item {
-    text-decoration: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .date {
-    flex-shrink: 0;
-    margin-top: .125rem;
-    padding-inline: 1.25rem;
-    border-radius: 99999px;
-    font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 2rem;
-    color: #FFFFFF;
-    background-color: #8F8F8F;
-  }
-
-  .name {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.125rem;
-    color: #27282B;
-  }
-}
-
-.section-reviews .items {
-  position: relative;
-  margin-top: 1.25rem;
-  margin-bottom: .25rem;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    width: 1.25rem;
-    display: block;
-    pointer-events: none;
-  }
-
-  &::before {
-    right: 100%;
-    transform: translateX(.25rem);
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  }
-
-  &::after {
-    left: 100%;
-    transform: translateX(-.25rem);
-    background-image: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  }
-
-  .item {
-    width: 7rem;
+  .items {
+    margin-top: 1.25rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: .75rem;
-    text-decoration: none;
-  }
+    gap: 1.25rem;
 
-  .img {
-    margin-inline: auto;
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    aspect-ratio: 112/70;
-  }
+    .item {
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+    }
 
-  .name {
-    font-weight: 400;
-    font-size: .875rem;
-    line-height: 1.125rem;
-    color: #27282B;
+    .date {
+      flex-shrink: 0;
+      margin-top: .125rem;
+      padding-inline: 1.25rem;
+      border-radius: 99999px;
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 2rem;
+      color: #FFFFFF;
+      background-color: #8F8F8F;
+    }
+
+    .name {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.125rem;
+      color: #27282B;
+    }
   }
 }
 
-.section-brands .items {
+.section-reviews {
   margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: .625rem .5rem;
 
-  .item {
-    height: 2.625rem;
-    overflow: hidden;
-    padding-inline: .75rem;
+  .items {
+    position: relative;
+    margin-top: 1.25rem;
+    margin-bottom: .25rem;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 1.25rem;
+      display: block;
+      pointer-events: none;
+    }
+
+    &::before {
+      right: 100%;
+      transform: translateX(.25rem);
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &::after {
+      left: 100%;
+      transform: translateX(-.25rem);
+      background-image: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .item {
+      width: 7rem;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: .75rem;
+      text-decoration: none;
+    }
+
+    .img {
+      margin-inline: auto;
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      aspect-ratio: 112/70;
+    }
+
+    .name {
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #27282B;
+    }
+  }
+}
+
+.section-brands {
+  margin-top: 1rem;
+
+  .items {
+    margin-top: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 99999px;
-    background-color: #DFE8F1;
-    text-decoration: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: .625rem .5rem;
+
+    .item {
+      height: 2.625rem;
+      overflow: hidden;
+      padding-inline: .75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 99999px;
+      background-color: #DFE8F1;
+      text-decoration: none;
+    }
   }
 }

@@ -4,6 +4,61 @@ export interface IBanner {
   img: string;
 }
 
+export interface IOption {
+  alias: string;
+  title: string;
+}
+
+export interface ILink {
+  link: string;
+  name: string;
+}
+
+export interface IProductGroup {
+  title: string;
+  link: string;
+  products: IProductTile[];
+  banner: IBanner;
+}
+
+export interface IIndexNews {
+  name: string;
+  link: string;
+  date: string;
+}
+
+export interface IIndexReview {
+  name: string;
+  link: string;
+  img: string;
+}
+
+export interface IIndexBrand {
+  name: string;
+  link: string;
+  img: string;
+  width: number;
+  height: number;
+}
+
+export interface IUser {
+  tel: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  email: string;
+  amount: number;
+  balance: number;
+}
+
+export interface ICatalog {
+  id: number;
+  name: string;
+  link: string;
+  sections: ILink[];
+  info: string;
+}
+
 export interface IProduct {
   id: number;
   name: string;
@@ -11,6 +66,14 @@ export interface IProduct {
   rating: number;
   sections: ILink[];
   inCart: boolean;
+}
+
+export interface ISearchResult {
+  name: string;
+  link: string;
+  img: string;
+  oldPrice: number;
+  price: number;
 }
 
 export interface IProductTile {
@@ -24,70 +87,14 @@ export interface IProductTile {
   inCart: boolean;
 }
 
-export interface IProductGroup {
-  title: string;
+export interface INewsTile {
   link: string;
-  products: IProductTile[];
-  banner: IBanner;
-}
-
-export interface INews {
+  img: string;
   name: string;
-  link: string;
   date: string;
 }
 
-export interface IReview {
-  name: string;
-  link: string;
-  img: string;
-}
-
-export interface IBrand {
-  name: string;
-  link: string;
-  img: string;
-  width: number;
-  height: number;
-}
-
-export interface ICatalog {
-  id: number;
-  name: string;
-  link: string;
-  sections: ILink[];
-  info: string;
-}
-
-export interface IOption {
-  alias: string;
-  title: string;
-}
-
-export interface ILink {
-  link: string;
-  name: string;
-}
-
-export interface ISearchResult {
-  name: string;
-  link: string;
-  img: string;
-  oldPrice: number;
-  price: number;
-}
-
-export interface IProfileInfo {
-  tel: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  email: string;
-  amount: number;
-  balance: number;
-}
-
-export interface IProfileOrder {
+export interface IOrderTile {
   number: number;
   status: string;
 }

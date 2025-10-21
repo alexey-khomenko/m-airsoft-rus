@@ -10,7 +10,7 @@ interface Props {
 const {products}: Props = Astro.props;
 ---
 
-<section class="section-products">
+<section class="section-products" data-page-items>
   <link rel="stylesheet" href="./components/section-products.css"/>
   {products.map((product: IProductTile) => (
     <ProductTile product={product} isSlider={false}/>

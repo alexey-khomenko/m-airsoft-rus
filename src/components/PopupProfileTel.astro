@@ -2,15 +2,15 @@
 import Popup from '../components/Popup.astro';
 import UtilTile from '../components/UtilTile.astro';
 
-import type {IProfileInfo} from '../interfaces';
+import type {IUser} from '../interfaces';
 
 interface Props {
-  userInfo: IProfileInfo;
+  userInfo: IUser;
 }
 
 const {userInfo}: Props = Astro.props;
 
-const {tel}: IProfileInfo = userInfo;
+const {tel}: IUser = userInfo;
 ---
 
 <Popup name="profile-tel" title="Изменение номера" bgLight={false}>

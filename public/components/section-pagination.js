@@ -1,22 +1,47 @@
-window.sectionPaginationJsIsLoaded = false;
+document.addEventListener('click', (e) => {
+  const linkA = e.target.closest('.section-pagination .page.disabled');
+  const linkB = e.target.closest('.section-pagination .page.current');
 
-window.addEventListener('load', () => {
-  if (window.sectionPaginationJsIsLoaded) return true;
+  if (linkA || linkB) e.preventDefault();
+});
 
-  window.sectionPaginationJsIsLoaded = true;
+document.addEventListener('click', (e) => {
+  const showMore = e.target.closest('.show-more');
 
-  document.addEventListener('click', (e) => {
-    const linkA = e.target.closest('.section-pagination .page.disabled');
-    const linkB = e.target.closest('.section-pagination .page.current');
+  if (!showMore) return true;
 
-    if (linkA || linkB) e.preventDefault();
-  });
+  const pagination = document.querySelector('.section-pagination');
 
-  document.addEventListener('click', (e) => {
-    const button = e.target.closest('.section-pagination .show-more');
+  const {pageParam, pageCurrent} = pagination.dataset;
 
-    if (!button) return true;
+  const oldNumber = +pageCurrent;
 
-    console.log(button);
-  });
+  console.log(oldNumber);
+
+  const newPage = document.querySelector(`[data-page-number="${oldNumber + 1}"]`);
+
+  if (newPage) newPage.classList.add('current');
+
+  pagination.setAttribute('data-page-current', oldNumber + 1);
+
+  const lastPage = document.querySelector('[data-page-last]');
+  const nextPage = document.querySelector('[data-page-next]');
+
+  if (newPage === lastPage) {
+    showMore.hidden = true;
+    nextPage.classList.add('disabled');
+  }
+  else {
+    const url = new URL(nextPage.href);
+    url.searchParams.set(pageParam, oldNumber + 2);
+    nextPage.href = url.toString();
+  }
+
+  const content = document.querySelector('[data-page-items]');
+
+  const testElem = content.querySelector(':scope > div');
+  const newElem = testElem.cloneNode(true);
+  console.log('newElem', testElem);
+
+  content.appendChild(newElem);
 });

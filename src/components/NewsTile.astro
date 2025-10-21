@@ -1,0 +1,23 @@
+---
+import UtilTile from '../components/UtilTile.astro';
+
+import type {INewsTile} from '../interfaces';
+
+interface Props {
+  news: INewsTile;
+}
+
+const {news}: Props = Astro.props;
+
+const {link, img, name, date}: INewsTile = news;
+
+const classList: string[] = ['news'];
+---
+
+<UtilTile tag="div" classList={classList} isHidden={false}>
+  <link rel="stylesheet" href="./components/news-tile.css"/>
+  <div>{link}</div>
+  <div>{img}</div>
+  <div>{name}</div>
+  <div>{date}</div>
+</UtilTile>

@@ -11,41 +11,54 @@ window.addEventListener('load', () => {
 
     document.querySelector(`[name="${name}"]`).checked = true;
   }
+});
 
-  document.addEventListener('submit', (e) => {
-    const form = e.target.closest('[data-form-filters]');
+document.addEventListener('submit', (e) => {
+  const form = e.target.closest('[data-form-filters]');
 
-    if (!form) return true;
+  if (!form) return true;
 
-    e.preventDefault();
+  e.preventDefault();
 
-    const sort = document.querySelector('[data-sort-current]');
-    const urlParams = new URLSearchParams(window.location.search);
+  const urlParams = new URLSearchParams(window.location.search);
+  const pagination = document.querySelector('[data-page-param]');
 
-    const {sortParam, sortValue} = sort.dataset;
+  if (pagination) {
+    urlParams.delete(pagination.dataset.pageParam);
+  }
 
-    let filters = `${form.action}${urlParams.get('q') ? '&' : '?'}${sortParam}=${sortValue}`;
+  const params = [];
 
-    const formData = new FormData(form);
-    for (let pair of formData.entries()) {
-      let [name, value] = pair;
+  const {sortParam, sortValue} = document.querySelector('[data-sort-current]').dataset;
+  if (0 < sortValue.length) {
+    params.push(`${sortParam}=${sortValue}`);
+  }
 
-      name = name.trim();
-      value = value.trim();
+  const formData = new FormData(form);
+  for (let pair of formData.entries()) {
+    let [name, value] = pair;
 
-      if (0 === name.length || 0 === value.length) continue;
+    name = name.trim();
+    value = value.trim();
 
-      filters += `&${name}=${value}`;
-    }
+    if (0 === name.length || 0 === value.length) continue;
 
-    window.location.assign(filters);
-  });
+    params.push(`${name}=${value}`);
+  }
 
-  document.addEventListener('click', (e) => {
-    const button = e.target.closest('[data-submit-form-filters]');
+  let link = form.action;
 
-    if (!button) return true;
+  if (0 < params.length) {
+    link += `${urlParams.get('q') ? '&' : '?'}${params.join('&')}`;
+  }
 
-    document.querySelector('[data-form-filters] [type="submit"]').click();
-  });
+  window.location.assign(link);
+});
+
+document.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-submit-form-filters]');
+
+  if (!button) return true;
+
+  document.querySelector('[data-form-filters] [type="submit"]').click();
 });

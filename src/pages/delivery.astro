@@ -1,17 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+
+const title: string = 'Доставка';
+const link: string = '/delivery';
 ---
 
 <Layout title="Доставка" page="delivery" isUser={true}>
   <link rel="stylesheet" href="./pages/delivery.css"/>
   <div class="page-wrapper">
-    <UtilHeader tag="section" classList={['page-header']}>
-      <h1 class="title">Доставка</h1>
-      <a href="/" class="util-link">
-        <span>Назад</span>
-      </a>
-    </UtilHeader>
+    <UtilHeader type="page" title={title}/>
+
     <section class="section">
       delivery
     </section>

@@ -1,0 +1,29 @@
+{
+  "news": [
+    {
+      "link": "/news-detail",
+      "img": "",
+      "name": "5-7 от SRC",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/news-detail",
+      "img": "",
+      "name": "Больше SIG MCX от East Crane",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/news-detail",
+      "img": "",
+      "name": "Пистолет в дробовик на ВВД",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/news-detail",
+      "img": "",
+      "name": "ВВД анонс от E&L",
+      "date": "04.09.2025"
+    }
+  ],
+  "lastPage": 11
+}

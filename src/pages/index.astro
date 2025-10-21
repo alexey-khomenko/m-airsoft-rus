@@ -3,16 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 
-import type {IBanner, IProductGroup, INews, IReview, IBrand} from '../interfaces';
+import type {IBanner, IProductGroup, IIndexNews, IIndexReview, IIndexBrand} from '../interfaces';
 
 import data from '../pages/index.json';
 
 const largeBanners: IBanner[] = data.largeBanners;
 const smallBanners: IBanner[] = data.smallBanners;
 const productGroups: IProductGroup[] = data.productGroups;
-const news: INews[] = data.news;
-const reviews: IReview[] = data.reviews;
-const brands: IBrand[] = data.brands;
+const news: IIndexNews[] = data.news;
+const reviews: IIndexReview[] = data.reviews;
+const brands: IIndexBrand[] = data.brands;
 ---
 
 <Layout title="Главная" page="index" isUser={false}>
@@ -86,7 +86,7 @@ const brands: IBrand[] = data.brands;
         <a href="/news" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {news.map(({date, link, name}: INews) => (
+        {news.map(({date, link, name}: IIndexNews) => (
           <a href={link} class="item">
             <span class="date">{date}</span>
             <span class="name">{name}</span>
@@ -102,7 +102,7 @@ const brands: IBrand[] = data.brands;
       </div>
       <div class="items">
         <div class="swiper-wrapper">
-          {reviews.map(({img, link, name}: IReview) => (
+          {reviews.map(({img, link, name}: IIndexReview) => (
             <a href={link} class="swiper-slide item">
               <img src={img} alt="" class="img" decoding="async" loading="lazy"/>
               <span class="name">{name}</span>
@@ -118,7 +118,7 @@ const brands: IBrand[] = data.brands;
         <a href="/brands" class="link">Смотреть все</a>
       </div>
       <div class="items">
-        {brands.map(({height, img, link, name, width}: IBrand) => (
+        {brands.map(({height, img, link, name, width}: IIndexBrand) => (
           <a href={link} class="item">
             <img src={img} alt={name} width={width} height={height} class="img" decoding="async" loading="lazy"/>
           </a>

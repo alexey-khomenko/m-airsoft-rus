@@ -1,4 +1,6 @@
 ---
+import type {IFilterCheckbox} from '../interfaces';
+import FiltersGroupCheckbox from './FiltersGroupCheckbox.astro';
 interface Props {
   currentPage: number;
   lastPage: number;
@@ -18,20 +20,31 @@ const firstLink: string = baseLink;
 const prevLink: string = firstPage < prevPage ? `${baseLink}${separator}${pageParam}=${prevPage}` : baseLink;
 const nextLink: string = `${baseLink}${separator}${pageParam}=${nextPage}`;
 const lastLink: string = `${baseLink}${separator}${pageParam}=${lastPage}`;
+
+const pages: number[] = [];
+
+if (10 > lastPage) {
+  for (let i = 2; i < lastPage; i++) {
+    pages.push(i);
+  }
+}
 ---
 
-<section class="section-pagination">
+<section class="section-pagination" data-page-param={pageParam} data-page-current={currentPage}>
   <link rel="stylesheet" href="./components/section-pagination.css"/>
-  <button type="button" class="show-more">
-    <svg width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12.3691 1.6123L6.86914 7.6123L1.36914 1.6123" stroke="currentColor" stroke-width="1.6"
-            stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>Показать ещё</span>
-  </button>
+  {currentPage < lastPage && (
+    <button type="button" class="show-more">
+      <svg width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.3691 1.6123L6.86914 7.6123L1.36914 1.6123" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Показать ещё</span>
+    </button>
+  )}
+
   <div class="pages">
     {firstPage === currentPage ? (
-      <div class="page disabled" data-pages-prev>
+      <div class="page disabled">
         <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
           <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round"/>
@@ -41,45 +54,59 @@ const lastLink: string = `${baseLink}${separator}${pageParam}=${lastPage}`;
         <span class="text">{firstPage}</span>
       </div>
     ) : (
-      <a href={prevLink} class="page" data-pages-prev>
+      <a href={prevLink} class="page">
         <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
           <path d="M7.44922 12.377L1.44922 6.87695L7.44922 1.37695" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round"/>
         </svg>
       </a>
-      <a href={firstLink} class="page">
+      <a href={firstLink} class="page" data-page-number={firstPage}>
         <span class="text">{firstPage}</span>
       </a>
     )}
 
 
-    <!--<span class="text dots">&hellip;</span>-->
+    {0 < pages.length && (
+      pages.map((i: number) => (
+        i === currentPage ? (
+          <div class="page current" data-page-number={i}>
+            <span class="text">{i}</span>
+          </div>
+        ) : (
+          <a href={`${baseLink}${separator}${pageParam}=${i}`} class="page" data-page-number={i}>
+            <span class="text">{i}</span>
+          </a>
+        )
+      ))
+    )}
 
-    <a href={`${baseLink}${separator}${pageParam}=${2}`} class="page">
-      <span class="text">2</span>
-    </a>
-    <a href={`${baseLink}${separator}${pageParam}=${3}`} class="page">
-      <span class="text">3</span>
-    </a>
+    {0 === pages.length && 2 < lastPage && (
+      <a href={`${baseLink}${separator}${pageParam}=${2}`} class="page" data-page-number={2}>
+        <span class="text">2</span>
+      </a>
+      <a href={`${baseLink}${separator}${pageParam}=${3}`} class="page" data-page-number={3}>
+        <span class="text">3</span>
+      </a>
 
-    <span class="text dots">&hellip;</span>
+      <span class="text dots">&hellip;</span>
+    )}
 
 
     {lastPage === currentPage ? (
       <div class="page current">
         <span class="text">{lastPage}</span>
       </div>
-      <div class="page disabled" data-pages-next>
+      <div class="page disabled">
         <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round"/>
         </svg>
       </div>
     ) : (
-      <a href={lastLink} class="page">
+      <a href={lastLink} class="page" data-page-number={lastPage} data-page-last>
         <span class="text">{lastPage}</span>
       </a>
-      <a href={nextLink} class="page" data-pages-next>
+      <a href={nextLink} class="page" data-page-next>
         <svg width="8" height="13" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.44922 1.37695L7.44922 6.87695L1.44922 12.377" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round"/>

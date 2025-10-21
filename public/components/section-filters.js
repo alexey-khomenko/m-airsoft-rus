@@ -15,11 +15,21 @@ document.addEventListener('click', (e) => {
 
   if (!option) return true;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const pagination = document.querySelector('[data-page-param]');
+
+  if (pagination) {
+    urlParams.delete(pagination.dataset.pageParam);
+  }
+
   const {sortParam, sortValue} = option.dataset;
 
-  const urlParams = new URLSearchParams(window.location.search);
-
-  urlParams.set(sortParam, sortValue);
+  if (0 < sortValue.length) {
+    urlParams.set(sortParam, sortValue);
+  }
+  else {
+    urlParams.delete(sortParam);
+  }
 
   window.location.search = urlParams.toString();
 });

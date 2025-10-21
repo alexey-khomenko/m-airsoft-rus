@@ -1,19 +1,34 @@
 ---
 interface Props {
-  tag: 'div' | 'section';
-  classList: string[];
+  type: 'page' | 'popup' | 'profile';
+  title: string;
 }
 
-const {tag, classList}: Props = Astro.props;
-
-const html: string = `<${tag} class="util-header ${classList.join(' ')}">`;
-// TODO Сделать компонент для большинства страниц (кроме профиля?)
-//  profile
-//  popup
-//  page
+const {type, title}: Props = Astro.props;
 ---
 
-<Fragment set:html={html}/>
-<link rel="stylesheet" href="./components/util-header.css"/>
-<slot/>
-<Fragment set:html={`</${tag}>`}/>
+{'popup' === type ? (
+<div class:list={['util-header', `type-${type}`]}>
+  <link rel="stylesheet" href="./components/util-header.css"/>
+  <h2 class="title">{title}</h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
+</div>
+  ) : (
+<section class:list={['util-header', `type-${type}`]}>
+  <link rel="stylesheet" href="./components/util-header.css"/>
+  <h1 class="title">{title}</h1>
+
+  {'page' === type &&
+    <a href="/" class="util-link">
+      <span>Назад</span>
+    </a>}
+
+  {'profile' === type &&
+    <button type="button" class="util-link" data-button-logout-to="/">
+      <span>Выход</span>
+    </button>}
+
+</section>
+  )}

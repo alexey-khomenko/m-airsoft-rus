@@ -5,7 +5,7 @@ const sortParam: string = 'sort';
 
 const options: IOption[] = [
   {
-    'alias': 'popular',
+    'alias': '',
     'title': 'Популярные товары',
   },
   {
@@ -18,7 +18,7 @@ const options: IOption[] = [
   },
 ];
 
-const currentAlias: string = Astro.url.searchParams.get(sortParam) || 'popular';
+const currentAlias: string = Astro.url.searchParams.get(sortParam) || '';
 const currentTitle: string = options.find(
   (option: IOption): boolean => option.alias === currentAlias)?.title || options[0].title;
 const otherOptions: IOption[] = options.filter((option: IOption): boolean => option.alias !== currentAlias);

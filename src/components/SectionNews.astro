@@ -1,0 +1,18 @@
+---
+import NewsTile from '../components/NewsTile.astro';
+
+import type {INewsTile} from '../interfaces';
+
+interface Props {
+  news: INewsTile[];
+}
+
+const {news}: Props = Astro.props;
+---
+
+<section class="section-news" data-page-items>
+  <link rel="stylesheet" href="./components/section-news.css"/>
+  {news.map((tile: INewsTile) => (
+    <NewsTile news={tile}/>
+  ))}
+</section>
