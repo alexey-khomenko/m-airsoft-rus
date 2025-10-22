@@ -1,14 +1,11 @@
 .util-tile {
-  padding-inline: 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: #FFFFFF;
   box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
 
-  &:not(.section-info) {
-    padding-block: 1rem;
-  }
-
   &.section-info {
+    padding-block: 0;
     overflow: hidden;
     hyphens: auto;
     color: #373635;

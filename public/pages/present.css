@@ -1,4 +1,30 @@
 .page-wrapper {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+
+.section {
+  color: #373635;
+
+  .title {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .text {
+    margin-block: 1.125rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+
+  .form {
+
+    .button {
+      width: 100%;
+    }
+  }
 }
