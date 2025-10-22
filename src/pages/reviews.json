@@ -1,0 +1,41 @@
+{
+  "news": [
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-1.png",
+      "name": "Обзор 1",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-2.png",
+      "name": "Обзор 2",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-3.png",
+      "name": "Обзор 3",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-4.png",
+      "name": "Обзор 4",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-1.png",
+      "name": "Обзор 5",
+      "date": "04.09.2025"
+    },
+    {
+      "link": "/reviews-detail",
+      "img": "./content/news-2.png",
+      "name": "Обзор 6",
+      "date": "04.09.2025"
+    }
+  ],
+  "lastPage": 11
+}

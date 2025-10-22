@@ -1,10 +1,15 @@
 .util-tile {
-  padding: 1rem;
+  padding-inline: 1rem;
   border-radius: 1rem;
   background-color: #FFFFFF;
   box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
 
+  &:not(.section-info) {
+    padding-block: 1rem;
+  }
+
   &.section-info {
+    overflow: hidden;
     hyphens: auto;
     color: #373635;
 
@@ -16,14 +21,16 @@
       margin-top: .5rem;
     }
 
+    h1, h2, h3, p {
+      margin-block: 1.125rem;
+    }
+
     h1, h2 {
-      margin: 0;
       font-weight: 700;
       font-size: 1rem;
     }
 
     h3 {
-      margin: 0 0 1.5rem;
       font-weight: 700;
       font-size: 1.125rem;
     }
@@ -31,14 +38,6 @@
     p {
       font-weight: 400;
       font-size: 1rem;
-
-      &:first-child {
-        margin: 0;
-      }
-
-      &:not(:first-child) {
-        margin: 1rem 0 0;
-      }
     }
 
     ol, ul {

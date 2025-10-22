@@ -534,17 +534,17 @@
   "reviews": [
     {
       "name": "Обзор автомата AK-105 от Cyma",
-      "link": "/reviews",
+      "link": "/reviews-detail",
       "img": "./content/review.png"
     },
     {
       "name": "Обзор автомата AK-105 от Cyma 2",
-      "link": "/reviews",
+      "link": "/reviews-detail",
       "img": "./content/review.png"
     },
     {
       "name": "Обзор автомата AK-105 от Cyma 3",
-      "link": "/reviews",
+      "link": "/reviews-detail",
       "img": "./content/review.png"
     }
   ],

@@ -1,6 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+import SectionNews from '../components/SectionNews.astro';
+import SectionPagination from '../components/SectionPagination.astro';
+
+import type {INewsTile} from '../interfaces';
+
+import data from '../pages/reviews.json';
+
+const news: INewsTile[] = data.news;
+const lastPage: number = data.lastPage;
+const currentPage: number = 1;
 
 const title: string = 'Обзоры';
 const link: string = '/reviews';
@@ -11,8 +21,9 @@ const link: string = '/reviews';
   <div class="page-wrapper">
     <UtilHeader type="page" title={title}/>
 
-    <section class="section">
-      reviews
-    </section>
+    <SectionNews news={news}/>
+
+    {1 < lastPage &&
+      <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
 </Layout>

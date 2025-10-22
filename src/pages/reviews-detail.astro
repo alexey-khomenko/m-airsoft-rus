@@ -4,16 +4,16 @@ import UtilHeader from '../components/UtilHeader.astro';
 
 import type {INews} from '../interfaces';
 
-import data from '../pages/news-detail.json';
+import data from '../pages/reviews-detail.json';
 import UtilTile from '../components/UtilTile.astro';
 
-const {name, info}: INews = data.news;
+const {name, info}: INews = data.reviews;
 ---
 
-<Layout title="Новость" page="news-detail" isUser={true}>
-  <link rel="stylesheet" href="./pages/news-detail.css"/>
+<Layout title="Новость" page="reviews-detail" isUser={true}>
+  <link rel="stylesheet" href="./pages/reviews-detail.css"/>
   <div class="page-wrapper">
-    <UtilHeader type="long" title={name} link={'/news'}/>
+    <UtilHeader type="long" title={name} link={'/reviews'}/>
 
     <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
       <Fragment set:html={info}/>
