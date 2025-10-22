@@ -6,4 +6,44 @@
 
 .section {
   margin-top: .5rem;
+
+  .payment[open] .payment-summary .svg {
+    transform: rotate(180deg);
+  }
+
+  .payment-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: #27282B;
+
+    .title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.375rem;
+      user-select: none;
+    }
+
+    .svg {
+      margin-top: .125rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .payment-content {
+    overflow: hidden;
+
+    p {
+      margin-block: 1rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: #373635;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
