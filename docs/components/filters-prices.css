@@ -19,7 +19,7 @@
       border-radius: 99999px;
       background-color: #F1F4F6;
       font-weight: 400;
-      font-size: 1.625em;
+      --input--fz: 1.625rem;
       color: #373635;
       text-align: center;
     }

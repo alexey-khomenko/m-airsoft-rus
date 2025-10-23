@@ -22,9 +22,6 @@
   }
 
   .fieldset {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
     align-items: flex-start;
     gap: .25rem;
 
@@ -37,16 +34,6 @@
 
     .input {
       padding-inline: .75rem;
-      min-height: 2.5rem;
-      width: 100%;
-      border-radius: 1rem;
-      border: 1px solid #D9D9D9;
-      font-weight: 400;
-      color: #27282B;
-
-      &::placeholder {
-        color: #757575;
-      }
     }
   }
 

@@ -16,14 +16,39 @@
   .text {
     margin-block: 1.125rem;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: .875rem;
     line-height: 1.25;
   }
 
+  .form-present {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1.25rem;
 
-  .form {
+    .fieldset {
+      align-items: flex-start;
+      gap: .375rem;
+    }
 
-    .button {
+    .label {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      color: #8F8F8F;
+    }
+
+    .input {
+      padding-inline: 1.25rem;
+    }
+
+    .textarea {
+      resize: none;
+      padding: 1.125rem 1.25rem;
+    }
+
+    .progressbar {
       width: 100%;
     }
   }

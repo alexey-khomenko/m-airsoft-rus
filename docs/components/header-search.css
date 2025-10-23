@@ -41,8 +41,9 @@
     margin-left: 1.125rem;
     width: 100%;
     border: none;
-    font-weight: 700;
     background-color: transparent;
+    font-weight: 700;
+    --input--fz: 1rem;
     color: #27282B;
 
     &::placeholder {

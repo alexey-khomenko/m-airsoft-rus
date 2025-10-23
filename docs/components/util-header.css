@@ -5,7 +5,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
+  gap: .25rem;
 
   &::before {
     content: "";
