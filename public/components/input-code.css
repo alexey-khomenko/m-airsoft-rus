@@ -1,0 +1,9 @@
+.code-wrapper {
+  width: 100%;
+
+  .input {
+    padding-left: 1rem;
+    text-align: center;
+    letter-spacing: 1rem;
+  }
+}

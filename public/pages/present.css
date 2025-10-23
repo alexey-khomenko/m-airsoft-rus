@@ -22,15 +22,12 @@
 
   .form-present {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: stretch;
     gap: 1.25rem;
 
     .fieldset {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
       align-items: flex-start;
       gap: .375rem;
     }
@@ -46,14 +43,13 @@
       padding-inline: 1.25rem;
     }
 
-    .input-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
     .textarea {
       resize: none;
       padding: 1.125rem 1.25rem;
+    }
+
+    .progressbar {
+      width: 100%;
     }
   }
 }

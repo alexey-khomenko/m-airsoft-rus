@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  classList: string[];
+  value?: string;
+}
+
+const {label, name, classList, value}: Props = Astro.props;
+---
+
+<div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-tel.css"/>
+  <label class="label" for={name}>{label}</label>
+  <div class="phone-wrapper">
+    <input type="tel" name={name} id={name} maxlength="24" value={value}
+           inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
+           class:list={['util-form-field', 'input', ...classList]}/>
+  </div>
+  <script src="./components/input-tel.js" is:inline async></script>
+</div>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  classList: string[];
+}
+
+const {classList}: Props = Astro.props;
+---
+
+<div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-code.css"/>
+  <label class="label" for="code">Введите полученный код</label>
+  <div class="code-wrapper">
+    <input type="text" name="code" id="code" maxlength="4" placeholder="0000"
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           class:list={['util-form-field', 'input', ...classList]}/>
+  </div>
+</div>

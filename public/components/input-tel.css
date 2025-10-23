@@ -1,0 +1,45 @@
+.iti {
+  display: block;
+}
+
+.iti--inline-dropdown .iti__country-list {
+  max-height: 100%;
+}
+
+.iti--allow-dropdown .iti__country-container:not(:has(+ input[disabled])):not(:has(+ input[readonly])) .iti__selected-country-primary:hover,
+.iti--allow-dropdown .iti__country-container:not(:has(+ input[disabled])):not(:has(+ input[readonly])) .iti__selected-country:has(+ .iti__dropdown-content:hover) .iti__selected-country-primary {
+  background-color: transparent;
+}
+
+.iti__selected-country-primary {
+  width: 3.75rem;
+  justify-content: center;
+}
+
+.iti__flag {
+  scale: 1.2;
+}
+
+.iti__arrow {
+  margin-left: .5rem;
+}
+
+
+.phone-wrapper {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 3.875rem;
+    top: .625rem;
+    bottom: .625rem;
+    z-index: 1;
+    border-left: 1px solid #D9D9D9;
+  }
+
+  .input {
+    padding-left: 4.5rem !important;
+  }
+}

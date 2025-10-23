@@ -1,6 +1,8 @@
 ---
 import Popup from '../components/Popup.astro';
 import UtilTile from '../components/UtilTile.astro';
+import InputTel from '../components/InputTel.astro';
+import InputCode from '../components/InputCode.astro';
 
 import type {IUser} from '../interfaces';
 
@@ -18,12 +20,7 @@ const {tel}: IUser = userInfo;
   <div class="popup-login">
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
       <form class="form-login" action="/api-change-tel-tg" novalidate data-form-login-phone>
-        <label class="label" for="phone">Новый номер</label>
-        <div class="input-wrapper phone">
-          <input type="tel" name="phone" id="phone" maxlength="24" value={tel}
-                 inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
-                 class="util-form-field large strong high input"/>
-        </div>
+        <InputTel label="Новый номер" name="phone" classList={['strong', 'high']} value={tel}/>
         <button type="submit" class="util-button primary button">
           <span>Подтвердить через Telegram</span>
         </button>
@@ -35,12 +32,7 @@ const {tel}: IUser = userInfo;
 
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
       <form class="form-login" action="/api-change-tel-code" novalidate data-form-login-code>
-        <label class="label" for="code">Введите полученный код</label>
-        <div class="input-wrapper code">
-          <input type="text" name="code" id="code" maxlength="4" placeholder="0000"
-                 inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-                 class="util-form-field large strong high input"/>
-        </div>
+        <InputCode classList={['strong', 'high']}/>
         <button type="submit" class="util-button primary button">
           <span>Отправить и выполнить вход</span>
         </button>

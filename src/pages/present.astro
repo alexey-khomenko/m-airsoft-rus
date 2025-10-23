@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
+import InputTel from '../components/InputTel.astro';
 ---
 
 <Layout title="В подарок" page="present" isUser={true}>
@@ -23,54 +24,42 @@ import UtilTile from '../components/UtilTile.astro';
       </p>
 
       <form class="form-present" action="/api-present" novalidate data-form-present>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="sender-name">Имя отправителя:</label>
           <input type="text" name="sender-name" id="sender-name" maxlength="256"
                  autocorrect="off" spellcheck="false"
                  class="util-form-field large high input"/>
         </div>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="sender-email">E-mail отправителя:</label>
           <input type="email" name="sender-email" id="sender-email" maxlength="256"
                  inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
                  class="util-form-field large high input"/>
         </div>
-        <div class="fieldset">
-          <label class="label" for="sender-phone">Телефон отправителя:</label>
-          <div class="input-wrapper phone">
-            <input type="tel" name="sender-phone" id="sender-phone" maxlength="24"
-                   inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
-                   class="util-form-field large high input"/>
-          </div>
-        </div>
 
-        <div class="fieldset">
+        <InputTel label="Телефон отправителя:" name="sender-phone" classList={['large', 'high']}/>
+
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="recipient-name">Имя получателя:</label>
           <input type="text" name="recipient-name" id="recipient-name" maxlength="256"
                  autocorrect="off" spellcheck="false"
                  class="util-form-field large high input"/>
         </div>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="recipient-email">E-mail получателя:</label>
           <input type="email" name="recipient-email" id="recipient-email" maxlength="256"
                  inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
                  class="util-form-field large high input"/>
         </div>
-        <div class="fieldset">
-          <label class="label" for="recipient-phone">Телефон получателя:</label>
-          <div class="input-wrapper phone">
-            <input type="tel" name="recipient-phone" id="recipient-phone" maxlength="24"
-                   inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
-                   class="util-form-field large high input"/>
-          </div>
-        </div>
 
-        <div class="fieldset">
+        <InputTel label="Телефон получателя:" name="recipient-phone" classList={['large', 'high']}/>
+
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="present-sum">Сумма сертификата</label>
-
+          <div class="progressbar">TODO progressbar</div>
         </div>
 
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="present-text">Текст поздравления:</label>
           <textarea name="present-text" id="present-text" maxlength="512"
                     autocorrect="off" spellcheck="false" placeholder="Просьбы и пожелания..."

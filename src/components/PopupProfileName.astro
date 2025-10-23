@@ -18,25 +18,25 @@ const {firstName, middleName, lastName, email}: IUser = userInfo;
   <div class="popup-profile-name">
     <UtilTile tag="div" classList={['step']} isHidden={false}>
       <form class="form-profile-name" action="/api-profile-name" novalidate data-form-profile-name>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="last-name">Фамилия</label>
           <input type="text" name="last-name" id="last-name" maxlength="256" value={lastName}
                  autocorrect="off" spellcheck="false"
                  class="util-form-field low input"/>
         </div>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="first-name">Имя</label>
           <input type="text" name="first-name" id="first-name" maxlength="256" value={firstName}
                  autocorrect="off" spellcheck="false"
                  class="util-form-field low input"/>
         </div>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="middle-name">Отчество</label>
           <input type="text" name="middle-name" id="middle-name" maxlength="256" value={middleName}
                  autocorrect="off" spellcheck="false"
                  class="util-form-field low input"/>
         </div>
-        <div class="fieldset">
+        <div class="util-form-fieldset fieldset">
           <label class="label" for="email">E-Mail</label>
           <input type="email" name="email" id="email" maxlength="256" value={email}
                  inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
