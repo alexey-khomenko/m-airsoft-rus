@@ -13,7 +13,7 @@
     font-weight: 400;
     font-size: 1rem;
     text-align: center;
-
+    user-select: none;
     color: var(--c, #373635);
     background-color: var(--bgc, #F1F4F6);
 
@@ -21,7 +21,7 @@
       width: 100%;
     }
 
-    .input:checked + & {
+    .checkbox:checked + & {
       --c: #FFFFFF;
       --bgc: #009AE3;
     }

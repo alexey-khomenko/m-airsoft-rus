@@ -12,7 +12,7 @@ const {name, label, img}: IFilterCheckbox = checkbox;
 
 <div class="filters-group-checkbox">
   <link rel="stylesheet" href="./components/filters-group-checkbox.css"/>
-  <input type="checkbox" value="Y" class="input" id={name} name={name} hidden/>
+  <input type="checkbox" value="Y" class="checkbox" id={name} name={name} hidden/>
   <label for={name} class:list={['label', img ? 'long' : '']}>
     {img && <img src={img} alt="" class="img" decoding="async" loading="lazy"/>}
     <span>{label}</span>

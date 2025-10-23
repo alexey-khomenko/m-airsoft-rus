@@ -10,7 +10,9 @@ import UtilTile from '../components/UtilTile.astro';
       <form class="form-login" action="/login-tg" novalidate data-form-login-phone>
         <label class="label" for="phone">Номер телефона</label>
         <div class="input-wrapper phone">
-          <input type="tel" name="phone" id="phone" class="input" maxlength="24"
+          <input type="tel" name="phone" id="phone"
+                 class="util-input input"
+                 maxlength="24"
                  inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"
           />
         </div>
@@ -68,7 +70,9 @@ import UtilTile from '../components/UtilTile.astro';
       <form class="form-login" action="/login-code" novalidate data-form-login-code>
         <label class="label" for="code">Введите полученный код</label>
         <div class="input-wrapper code">
-          <input type="text" name="code" id="code" class="input" maxlength="4"
+          <input type="text" name="code" id="code"
+                 class="util-input input"
+                 maxlength="4"
                  inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
                  placeholder="0000"/>
         </div>

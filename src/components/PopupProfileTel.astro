@@ -13,14 +13,16 @@ const {userInfo}: Props = Astro.props;
 const {tel}: IUser = userInfo;
 ---
 
-<Popup name="profile-tel" title="Изменение номера" bgLight={false}>
+<Popup name="profile-tel" title="Изменение&nbsp;номера" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="popup-login">
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
       <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
         <label class="label" for="phone">Новый номер</label>
         <div class="input-wrapper phone">
-          <input type="tel" name="phone" id="phone" class="input" maxlength="24" value={tel}
+          <input type="tel" name="phone" id="phone"
+                 class="util-input input"
+                 maxlength="24" value={tel}
                  inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"/>
         </div>
         <button type="submit" class="util-button primary button">
@@ -36,7 +38,9 @@ const {tel}: IUser = userInfo;
       <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
         <label class="label" for="code">Введите полученный код</label>
         <div class="input-wrapper code">
-          <input type="text" name="code" id="code" class="input" maxlength="4"
+          <input type="text" name="code" id="code"
+                 class="util-input input"
+                 maxlength="4"
                  inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
                  placeholder="0000"/>
         </div>

@@ -22,9 +22,69 @@ import UtilTile from '../components/UtilTile.astro';
         нашем сайте, так и в розничном магазине.
       </p>
 
-      <form class="form" data-form-present>
+      <form class="form-present" action="/api-present" novalidate data-form-present>
+        <div class="fieldset">
+          <label class="label" for="sender-name">Имя отправителя:</label>
+          <input type="text" name="sender-name" id="sender-name"
+                 class="util-input input"
+                 maxlength="256"
+                 autocorrect="off" spellcheck="false"/>
+        </div>
+        <div class="fieldset">
+          <label class="label" for="sender-email">E-mail отправителя:</label>
+          <input type="email" name="sender-email" id="sender-email"
+                 class="util-input input"
+                 maxlength="256"
+                 inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"/>
+        </div>
+        <div class="fieldset">
+          <label class="label" for="sender-phone">Телефон отправителя:</label>
+          <div class="input-wrapper phone">
+            <input type="tel" name="sender-phone" id="sender-phone"
+                   class="util-input input"
+                   maxlength="24"
+                   inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"/>
+          </div>
+        </div>
 
-        <button type="submit" class="util-button primary button">
+        <div class="fieldset">
+          <label class="label" for="recipient-name">Имя получателя:</label>
+          <input type="text" name="recipient-name" id="recipient-name"
+                 class="util-input input"
+                 maxlength="256"
+                 autocorrect="off" spellcheck="false"/>
+        </div>
+        <div class="fieldset">
+          <label class="label" for="recipient-email">E-mail получателя:</label>
+          <input type="email" name="recipient-email" id="recipient-email"
+                 class="util-input input"
+                 maxlength="256"
+                 inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"/>
+        </div>
+        <div class="fieldset">
+          <label class="label" for="recipient-phone">Телефон получателя:</label>
+          <div class="input-wrapper phone">
+            <input type="tel" name="recipient-phone" id="recipient-phone"
+                   class="util-input input"
+                   maxlength="24"
+                   inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false"/>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label class="label" for="present-sum">Сумма сертификата</label>
+
+        </div>
+
+        <div class="fieldset">
+          <label class="label" for="present-text">Текст поздравления:</label>
+          <textarea name="present-text" id="present-text"
+                    class="util-input textarea"
+                    maxlength="512"
+                    autocorrect="off" spellcheck="false" placeholder="Просьбы и пожелания..."></textarea>
+        </div>
+
+        <button type="submit" class="util-button primary">
           <span>
             Перейти к оплате
           </span>

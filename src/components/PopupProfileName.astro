@@ -17,31 +17,39 @@ const {firstName, middleName, lastName, email}: IUser = userInfo;
   <link rel="stylesheet" href="./components/popup-profile-name.css"/>
   <div class="popup-profile-name">
     <UtilTile tag="div" classList={['step']} isHidden={false}>
-      <form class="form-profile-name" action="/profile-name" novalidate data-form-profile-name>
+      <form class="form-profile-name" action="/api-profile-name" novalidate data-form-profile-name>
         <div class="fieldset">
           <label class="label" for="last-name">Фамилия</label>
-          <input type="text" name="last-name" id="last-name" class="input" maxlength="256" value={lastName}
+          <input type="text" name="last-name" id="last-name"
+                 class="util-input input"
+                 maxlength="256" value={lastName}
                  autocorrect="off" spellcheck="false"
                  placeholder="Ваш текст"
           />
         </div>
         <div class="fieldset">
           <label class="label" for="first-name">Имя</label>
-          <input type="text" name="first-name" id="first-name" class="input" maxlength="256" value={firstName}
+          <input type="text" name="first-name" id="first-name"
+                 class="util-input input"
+                 maxlength="256" value={firstName}
                  autocorrect="off" spellcheck="false"
                  placeholder="Ваш текст"
           />
         </div>
         <div class="fieldset">
           <label class="label" for="middle-name">Отчество</label>
-          <input type="text" name="middle-name" id="middle-name" class="input" maxlength="256" value={middleName}
+          <input type="text" name="middle-name" id="middle-name"
+                 class="util-input input"
+                 maxlength="256" value={middleName}
                  autocorrect="off" spellcheck="false"
                  placeholder="Ваш текст"
           />
         </div>
         <div class="fieldset">
           <label class="label" for="email">E-Mail</label>
-          <input type="email" name="email" id="email" class="input" maxlength="256" value={email}
+          <input type="email" name="email" id="email"
+                 class="util-input input"
+                 maxlength="256" value={email}
                  inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
                  placeholder="Ваш текст"
           />
