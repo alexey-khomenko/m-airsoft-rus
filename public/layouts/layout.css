@@ -1,5 +1,5 @@
 input, textarea {
-  font-size: max(16px, 1rem);
+  font-size: max(16px, var(--input--fz));
 
   &:focus-visible {
     outline: none;
@@ -216,7 +216,7 @@ p {
   }
 }
 
-.util-input-error {
+.util-form-field-error {
   border-color: #E81331 !important;
 
   &::before, &::after {
@@ -224,7 +224,7 @@ p {
   }
 }
 
-.util-input {
+.util-form-field {
   width: 100%;
   border-radius: 1rem;
   border: 1px solid #D9D9D9;
@@ -232,5 +232,33 @@ p {
 
   &::placeholder {
     color: #757575;
+  }
+
+  &:not(.strong) {
+    font-weight: 400;
+  }
+
+  &.strong {
+    font-weight: 700;
+  }
+
+  &:not(.large) {
+    --input--fz: 1rem;
+  }
+
+  &.large {
+    --input--fz: 1.125rem;
+  }
+
+  &.low {
+    min-height: 2.5rem;
+  }
+
+  &.high {
+    min-height: 3.125rem;
+  }
+
+  &.textarea {
+    min-height: 7rem;
   }
 }

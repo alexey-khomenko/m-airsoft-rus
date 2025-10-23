@@ -20,39 +20,27 @@ const {firstName, middleName, lastName, email}: IUser = userInfo;
       <form class="form-profile-name" action="/api-profile-name" novalidate data-form-profile-name>
         <div class="fieldset">
           <label class="label" for="last-name">Фамилия</label>
-          <input type="text" name="last-name" id="last-name"
-                 class="util-input input"
-                 maxlength="256" value={lastName}
+          <input type="text" name="last-name" id="last-name" maxlength="256" value={lastName}
                  autocorrect="off" spellcheck="false"
-                 placeholder="Ваш текст"
-          />
+                 class="util-form-field low input"/>
         </div>
         <div class="fieldset">
           <label class="label" for="first-name">Имя</label>
-          <input type="text" name="first-name" id="first-name"
-                 class="util-input input"
-                 maxlength="256" value={firstName}
+          <input type="text" name="first-name" id="first-name" maxlength="256" value={firstName}
                  autocorrect="off" spellcheck="false"
-                 placeholder="Ваш текст"
-          />
+                 class="util-form-field low input"/>
         </div>
         <div class="fieldset">
           <label class="label" for="middle-name">Отчество</label>
-          <input type="text" name="middle-name" id="middle-name"
-                 class="util-input input"
-                 maxlength="256" value={middleName}
+          <input type="text" name="middle-name" id="middle-name" maxlength="256" value={middleName}
                  autocorrect="off" spellcheck="false"
-                 placeholder="Ваш текст"
-          />
+                 class="util-form-field low input"/>
         </div>
         <div class="fieldset">
           <label class="label" for="email">E-Mail</label>
-          <input type="email" name="email" id="email"
-                 class="util-input input"
-                 maxlength="256" value={email}
+          <input type="email" name="email" id="email" maxlength="256" value={email}
                  inputmode="email" autocomplete="email" autocorrect="off" spellcheck="false"
-                 placeholder="Ваш текст"
-          />
+                 class="util-form-field low input"/>
         </div>
         <button type="submit" class="util-button primary button">
           <span>Сохранить и применить</span>

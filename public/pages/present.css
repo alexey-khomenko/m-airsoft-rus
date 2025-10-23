@@ -44,10 +44,6 @@
 
     .input {
       padding-inline: 1.25rem;
-      min-height: 3.125rem;
-
-      font-weight: 400;
-      font-size: 1.125rem;
     }
 
     .input-wrapper {
@@ -57,13 +53,7 @@
 
     .textarea {
       resize: none;
-      min-height: 7rem;
-      padding-block: 1.125rem;
-
-      padding-inline: 1.25rem;
-
-      font-weight: 400;
-      font-size: 1.125rem;
+      padding: 1.125rem 1.25rem;
     }
   }
 }

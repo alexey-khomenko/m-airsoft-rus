@@ -13,7 +13,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 
     .label {
       font-weight: 700;
@@ -21,13 +21,6 @@
       line-height: 1.625rem;
       text-align: center;
       color: #27282B;
-    }
-
-    .input {
-      min-height: 3.125rem;
-
-      font-weight: 700;
-      font-size: 1.125rem;
     }
 
     .input-wrapper {
@@ -58,6 +51,7 @@
 
     .button {
       margin-top: 2.5rem;
+      width: 100%;
     }
   }
 
