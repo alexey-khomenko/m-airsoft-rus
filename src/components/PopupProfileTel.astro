@@ -17,7 +17,7 @@ const {tel}: IUser = userInfo;
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="popup-login">
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
-      <form class="form-login" action="/change-tel-tg" novalidate data-form-login-phone>
+      <form class="form-login" action="/api-change-tel-tg" novalidate data-form-login-phone>
         <label class="label" for="phone">Новый номер</label>
         <div class="input-wrapper phone">
           <input type="tel" name="phone" id="phone" maxlength="24" value={tel}
@@ -34,7 +34,7 @@ const {tel}: IUser = userInfo;
     </UtilTile>
 
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
-      <form class="form-login" action="/change-tel-code" novalidate data-form-login-code>
+      <form class="form-login" action="/api-change-tel-code" novalidate data-form-login-code>
         <label class="label" for="code">Введите полученный код</label>
         <div class="input-wrapper code">
           <input type="text" name="code" id="code" maxlength="4" placeholder="0000"

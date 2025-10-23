@@ -7,7 +7,7 @@ import UtilTile from '../components/UtilTile.astro';
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="popup-login">
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
-      <form class="form-login" action="/login-tg" novalidate data-form-login-phone>
+      <form class="form-login" action="/api-login-tg" novalidate data-form-login-phone>
         <label class="label" for="phone">Номер телефона</label>
         <div class="input-wrapper phone">
           <input type="tel" name="phone" id="phone" maxlength="24"
@@ -65,7 +65,7 @@ import UtilTile from '../components/UtilTile.astro';
     </UtilTile>
 
     <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="2"']} isHidden={true}>
-      <form class="form-login" action="/login-code" novalidate data-form-login-code>
+      <form class="form-login" action="/api-login-code" novalidate data-form-login-code>
         <label class="label" for="code">Введите полученный код</label>
         <div class="input-wrapper code">
           <input type="text" name="code" id="code" maxlength="4" placeholder="0000"
