@@ -1,0 +1,22 @@
+---
+interface Props {
+  label: string;
+  name: string;
+}
+
+const {label, name}: Props = Astro.props;
+---
+
+<div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-slider.css"/>
+  <label class="label" for={name}>{label}</label>
+  <div class="slider-wrapper">
+    <div class="slider-track" id="sliderTrack" data-slider-track>
+      <div class="slider-markers" id="sliderMarkers" data-slider-markers></div>
+      <div class="slider-thumb" id="sliderThumb" data-slider-thumb></div>
+    </div>
+    <div class="slider-value" id="sliderValue" data-slider-value></div>
+  </div>
+  <input type="hidden" name={name} id={name} data-slider-input/>
+  <script src="./components/input-slider.js" is:inline async></script>
+</div>
