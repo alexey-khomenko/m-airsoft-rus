@@ -18,6 +18,7 @@
     font-weight: 400;
     font-size: .875rem;
     line-height: 1.25;
+    hyphens: auto;
   }
 
   .form-present {
