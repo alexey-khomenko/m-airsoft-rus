@@ -55,11 +55,3 @@ document.addEventListener('submit', (e) => {
 
   window.location.reload();
 });
-
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-profile-name-cancel]');
-
-  if (!button) return true;
-
-  window.closePopup();
-});
