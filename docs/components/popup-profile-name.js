@@ -44,7 +44,7 @@ document.addEventListener('submit', (e) => {
   const inputEmail = form.querySelector('[name="email"]');
   const valueEmail = inputEmail.value.trim();
 
-  if (0 === valueEmail.length || !valueEmail.includes('@')) {
+  if (0 === valueEmail.length || !valueEmail.includes('@') || !valueEmail.includes('.')) {
     window.addError(inputEmail);
     errors = true;
   }

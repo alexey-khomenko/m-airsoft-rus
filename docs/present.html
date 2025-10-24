@@ -179,9 +179,18 @@
 </div>
 
         <div class="util-form-fieldset fieldset">
-          <label class="label" for="present-sum">Сумма сертификата</label>
-          <div class="progressbar">TODO progressbar</div>
-        </div>
+  <link rel="stylesheet" href="./components/input-slider.css">
+  <label class="label" for="present-sum">Сумма сертификата</label>
+  <div class="slider-wrapper">
+    <div class="slider-track" id="sliderTrack" data-slider-track>
+      <div class="slider-markers" id="sliderMarkers" data-slider-markers></div>
+      <div class="slider-thumb" id="sliderThumb" data-slider-thumb></div>
+    </div>
+    <div class="slider-value" id="sliderValue" data-slider-value></div>
+  </div>
+  <input type="hidden" name="present-sum" id="present-sum" data-slider-input>
+  <script src="./components/input-slider.js" async></script>
+</div>
 
         <div class="util-form-fieldset fieldset">
           <label class="label" for="present-text">Текст поздравления:</label>

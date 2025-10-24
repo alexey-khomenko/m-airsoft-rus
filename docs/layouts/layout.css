@@ -129,10 +129,6 @@ p {
 
 .util-button {
   min-height: 3.125rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: .5rem;
 
   border-radius: 0.25rem;
   border-width: 1px;
@@ -143,6 +139,13 @@ p {
   text-align: center;
   text-decoration: none;
   user-select: none;
+
+  &:not([hidden]) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+  }
 
   &.primary {
     border-color: #009AE3;
