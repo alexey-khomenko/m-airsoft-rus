@@ -4,6 +4,33 @@ import UtilHeader from '../components/UtilHeader.astro';
 import UtilTile from '../components/UtilTile.astro';
 
 const title: string = 'Оплата';
+
+const data: { title: string, text: string }[] = [
+  {
+    title: 'Оплата наличными при получении',
+    text: '<p>Расплатиться наличными можно непосредственно с курьером, когда он доставит заказ, в пункте выдачи заказов, либо в магазине AirSoft-RUS.</p><p>Возможные способы доставки: Доставка до пункта выдачи заказов в Вашем городе / Доставка курьером / Самовывоз</p>',
+  },
+  {
+    title: 'Покупка в рассрочку, не выходя из дома от Тинькофф банк',
+    text: '<p>&hellip;</p>',
+  },
+  {
+    title: 'Покупка в кредит от Покупай со Сбербанком',
+    text: '<p>&hellip;</p>',
+  },
+  {
+    title: 'Оплата банковской картой на сайте',
+    text: '<p>&hellip;</p>',
+  },
+  {
+    title: 'Оплата по счету в банке',
+    text: '<p>&hellip;</p>',
+  },
+  {
+    title: 'Я.Pay',
+    text: '<p>&hellip;</p>',
+  },
+];
 ---
 
 <Layout title="Оплата" page="payments" isUser={true}>
@@ -11,112 +38,21 @@ const title: string = 'Оплата';
   <div class="page-wrapper">
     <UtilHeader type="page" title={title}/>
 
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Оплата наличными при получении
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>
-            Расплатиться наличными можно непосредственно с курьером, когда он доставит заказ, в пункте выдачи заказов,
-            либо в магазине AirSoft-RUS.
-          </p>
-          <p>
-            Возможные способы доставки: Доставка до пункта выдачи заказов в Вашем городе/ Доставка курьером/ Самовывоз
-          </p>
-        </div>
-      </details>
-    </UtilTile>
-
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Покупка в рассрочку, не выходя из дома от Тинькофф банк
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>&hellip;</p>
-        </div>
-      </details>
-    </UtilTile>
-
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Покупка в кредит от Покупай со Сбербанком
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>&hellip;</p>
-        </div>
-      </details>
-    </UtilTile>
-
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Оплата банковской картой на сайте
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>&hellip;</p>
-        </div>
-      </details>
-    </UtilTile>
-
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Оплата по счету в банке
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>&hellip;</p>
-        </div>
-      </details>
-    </UtilTile>
-
-    <UtilTile tag="section" classList={['section']} isHidden={false}>
-      <details class="payment">
-        <summary class="payment-summary">
-          <span class="title">
-            Я.Pay
-          </span>
-          <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="payment-content">
-          <p>&hellip;</p>
-        </div>
-      </details>
-    </UtilTile>
+    {data.map(({title, text}: { title: string, text: string }) => (
+      <UtilTile tag="section" classList={['section']} isHidden={false}>
+        <details class="payment">
+          <summary class="payment-summary">
+            <span class="title">{title}</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="payment-content">
+            <Fragment set:html={text}/>
+          </div>
+        </details>
+      </UtilTile>
+    ))}
   </div>
 </Layout>
