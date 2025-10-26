@@ -3,16 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 
-import type {IBanner, IProductGroup, IIndexNews, IIndexReview, IIndexBrand} from '../interfaces';
+import type {IBanner, IProductGroup, IIndexNews, IIndexReview, IIndexBrand, IIndex} from '../interfaces';
 
 import data from '../pages/index.json';
 
-const largeBanners: IBanner[] = data.largeBanners;
-const smallBanners: IBanner[] = data.smallBanners;
-const productGroups: IProductGroup[] = data.productGroups;
-const news: IIndexNews[] = data.news;
-const reviews: IIndexReview[] = data.reviews;
-const brands: IIndexBrand[] = data.brands;
+const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex = data;
 ---
 
 <Layout title="Главная" page="index" isUser={false}>

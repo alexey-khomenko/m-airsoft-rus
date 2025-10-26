@@ -1,0 +1,19 @@
+{
+  "number": 749466,
+  "date": "03.06.25",
+  "payment": {
+    "type": "Оплата банковской картой",
+    "amount": 8500
+  },
+  "delivery": {
+    "type": "Самовывоз AirSoft-rus",
+    "info": "Россия Свердловская область г. Екатеринбург ул. Хохрякова, 72",
+    "price": 0
+  },
+  "positions": [
+    {
+      "title": "Пистолет WE Big Bird Semi GGBB TAN (GP432-T)",
+      "price": 8500
+    }
+  ]
+}

@@ -41,6 +41,15 @@ export interface IIndexBrand {
   height: number;
 }
 
+export interface IIndex {
+  largeBanners: IBanner[];
+  smallBanners: IBanner[];
+  productGroups: IProductGroup[];
+  news: IIndexNews[];
+  reviews: IIndexReview[];
+  brands: IIndexBrand[];
+}
+
 export interface IUser {
   tel: string;
   firstName: string;
@@ -73,6 +82,30 @@ export interface INews {
   name: string;
   link: string;
   info: string;
+}
+
+export interface IOrderPayment {
+  type: string;
+  amount: number;
+}
+
+export interface IOrderDelivery {
+  type: string;
+  info: string;
+  price: number;
+}
+
+export interface IOrderPosition {
+  title: string;
+  price: number;
+}
+
+export interface IOrder {
+  number: number;
+  date: string;
+  payment: IOrderPayment;
+  delivery: IOrderDelivery;
+  positions: IOrderPosition[];
 }
 
 export interface ISearchResult {
