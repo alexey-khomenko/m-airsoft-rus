@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
 
     const productId = button.dataset.cartAdd;
 
+    window.cartAdd(productId, 1);
+
     const buttons = document.querySelectorAll(`.cart[data-cart-add="${productId}"]`);
 
     for (const current of buttons) {

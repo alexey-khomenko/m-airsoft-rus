@@ -1,11 +1,3 @@
-document.addEventListener('focusin', (e) => {
-  const input = e.target.closest('[data-form-present] input');
-
-  if (!input) return true;
-
-  window.removeError(input);
-});
-
 document.addEventListener('submit', (e) => {
   const form = e.target.closest('[data-form-present]');
 
@@ -22,7 +14,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderName = inputSenderName.value.trim();
 
   if (0 === valueSenderName.length) {
-    window.addError(inputSenderName);
+    window.fieldErrorAdd(inputSenderName);
     errors = true;
   }
 
@@ -30,7 +22,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientName = inputRecipientName.value.trim();
 
   if (0 === valueRecipientName.length) {
-    window.addError(inputRecipientName);
+    window.fieldErrorAdd(inputRecipientName);
     errors = true;
   }
 
@@ -39,7 +31,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderEmail = inputSenderEmail.value.trim();
 
   if (0 === valueSenderEmail.length || !valueSenderEmail.includes('@') || !valueSenderEmail.includes('.')) {
-    window.addError(inputSenderEmail);
+    window.fieldErrorAdd(inputSenderEmail);
     errors = true;
   }
 
@@ -47,7 +39,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientEmail = inputRecipientEmail.value.trim();
 
   if (0 === valueRecipientEmail.length || !valueRecipientEmail.includes('@') || !valueRecipientEmail.includes('.')) {
-    window.addError(inputRecipientEmail);
+    window.fieldErrorAdd(inputRecipientEmail);
     errors = true;
   }
 
@@ -56,7 +48,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderPhone = inputSenderPhone.value.trim();
 
   if (0 === valueSenderPhone.length || valueSenderPhone.includes('_')) {
-    window.addError(inputSenderPhone);
+    window.fieldErrorAdd(inputSenderPhone);
     errors = true;
   }
 
@@ -64,7 +56,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientPhone = inputRecipientPhone.value.trim();
 
   if (0 === valueRecipientPhone.length || valueRecipientPhone.includes('_')) {
-    window.addError(inputRecipientPhone);
+    window.fieldErrorAdd(inputRecipientPhone);
     errors = true;
   }
 
@@ -81,7 +73,7 @@ document.addEventListener('submit', (e) => {
   const valuePresentText = inputPresentText.value.trim();
 
   if (0 === valuePresentText.length) {
-    window.addError(inputPresentText);
+    window.fieldErrorAdd(inputPresentText);
     errors = true;
   }
 
