@@ -1,0 +1,12 @@
+---
+interface Props {
+  title: string;
+}
+
+const {title}: Props = Astro.props;
+---
+
+<section class="section-page-title">
+  <link rel="stylesheet" href="./components/section-page-title.css"/>
+  <h1 class="title">{title}</h1>
+</section>

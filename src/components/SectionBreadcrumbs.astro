@@ -17,7 +17,7 @@ const itemListElements: {}[] = [{
   'item': {'@id': host, 'name': title},
 }];
 
-for (const {link, name}: ILink of pages) {
+for (const {link, name} of pages) {
   itemListElements.push({
     '@type': 'ListItem',
     'position': ++position,
@@ -33,7 +33,8 @@ const ldJson: {} = {
 
 pages.unshift({link: '/', name: title});
 
-const currentPage: ILink = pages.pop();
+const lastLink: ILink | undefined = pages.pop();
+const currentPage: string = lastLink ? lastLink.name : '';
 
 /*
 <svg style="margin-bottom: -3px;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -56,7 +57,7 @@ const currentPage: ILink = pages.pop();
     </a>
   ))}
 
-  <span class="current-page">{currentPage.name}</span>
+  <span class="current-page">{currentPage}</span>
 
   <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(ldJson)}</script>`}/>
 </section>

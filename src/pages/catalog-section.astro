@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PageTitle from '../components/PageTitle.astro';
+import SectionPageTitle from '../components/SectionPageTitle.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
 import SectionFilters from '../components/SectionFilters.astro';
@@ -35,7 +35,7 @@ const popupFilter: IPopupFilter = {
   <div class="page-wrapper">
     <SectionBreadcrumbs pages={breadcrumbs}/>
 
-    <PageTitle title={name}/>
+    <SectionPageTitle title={name}/>
 
     <SectionFilters/>
 

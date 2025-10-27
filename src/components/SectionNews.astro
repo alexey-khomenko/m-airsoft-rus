@@ -1,5 +1,5 @@
 ---
-import NewsTile from '../components/NewsTile.astro';
+import TileNews from '../components/TileNews.astro';
 
 import type {INewsTile} from '../interfaces';
 
@@ -13,6 +13,6 @@ const {news}: Props = Astro.props;
 <section class="section-news" data-page-items>
   <link rel="stylesheet" href="./components/section-news.css"/>
   {news.map((tile: INewsTile) => (
-    <NewsTile news={tile}/>
+    <TileNews news={tile}/>
   ))}
 </section>

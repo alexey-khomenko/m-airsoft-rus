@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
 import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
-import PageTitle from '../components/PageTitle.astro';
+import SectionPageTitle from '../components/SectionPageTitle.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 import Rating from '../components/Rating.astro';
 
@@ -46,7 +46,7 @@ breadcrumbs.push({link, name});
     <Container>
       <SectionBreadcrumbs pages={breadcrumbs}/>
 
-      <PageTitle title={name}/>
+      <SectionPageTitle title={name}/>
 
 
       <br><br><br>
