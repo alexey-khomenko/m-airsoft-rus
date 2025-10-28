@@ -1,0 +1,91 @@
+.comment-news {
+  .comment-news-header,
+  .comment-news-header .text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem .875rem;
+  }
+
+  .comment-news-header:before {
+    content: "";
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: .625rem;
+    border: 1px solid #D9D9D9;
+    background-color: #D9D9D9;
+  }
+
+  .comment-news-header .text {
+    flex-wrap: wrap;
+
+    .name {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      color: #373635;
+    }
+
+    .date {
+      font-weight: 300;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #9EA8B0;
+    }
+  }
+
+  .comment-news-main {
+    overflow: hidden;
+
+    p, img {
+      margin-block: 0.75rem;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      color: #373635;
+    }
+
+    img {
+      margin-inline: auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .comment-news-footer {
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    border-top: 1px solid #D9D9D9;
+
+    &:after {
+      order: 2;
+      content: "";
+      height: 1.125rem;
+      border-left: 1px solid #D9D9D9;
+    }
+
+    .button {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      font-weight: 300;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #9EA8B0;
+
+      &.l {
+        order: 1;
+      }
+
+      &.r {
+        order: 3;
+      }
+    }
+  }
+}

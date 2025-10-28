@@ -1,5 +1,3 @@
-console.log('PageNewsDetail');
-
 document.addEventListener('submit', (e) => {
   const form = e.target.closest('[data-form-comment]');
 
@@ -28,8 +26,12 @@ document.addEventListener('submit', (e) => {
     errors = true;
   }
 
+  const inputImage = form.querySelector('[name="image"]');
+  let file = inputImage.files[0];
 
-  // TODO [name="image"] type files images
+  if (file && !file.type.startsWith('image/')) {
+    file = undefined;
+  }
 
 
   if (errors) return true;
@@ -38,6 +40,7 @@ document.addEventListener('submit', (e) => {
 
   console.log('valueName', valueName);
   console.log('valueText', valueText);
+  console.log('valueImage', file);
 
   form.querySelector('[type="submit"]').hidden = true;
 });

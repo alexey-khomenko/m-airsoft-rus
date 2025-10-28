@@ -1,4 +1,26 @@
-.textarea {
-  resize: vertical;
-  padding: 1.125rem 1.25rem;
+.textarea-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .textarea,
+  .textarea-fake {
+    resize: none;
+    padding: 1.125rem 1.25rem;
+  }
+
+  .textarea {
+    position: relative;
+    z-index: 1;
+  }
+
+  .textarea-fake {
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
 }

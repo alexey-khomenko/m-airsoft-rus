@@ -1,4 +1,6 @@
 .slider-news {
+  overflow: hidden;
+
   .items {
     position: relative;
     margin-top: 1.25rem;
@@ -40,9 +42,8 @@
 
     .img {
       margin-inline: auto;
-      display: block;
-      object-fit: cover;
       width: 100%;
+      object-fit: cover;
       aspect-ratio: 112/70;
     }
 

@@ -204,39 +204,57 @@
 
     <h2 class="title">Комментарии</h2>
     <div class="comments">
-        <div class="comment-news">
+        <div class="comment-news" data-comment-id="321">
   <link rel="stylesheet" href="./components/comment-news.css">
 
-  <span>321</span>
-  <span>Алексей</span>
-  <span>15.02.2024 17:44</span>
-
-  <div>
+  <div class="comment-news-header">
+    <div class="text">
+      <div class="name" data-comment-name>Алексей</div>
+      <div class="date">15.02.2024 17:44</div>
+    </div>
+  </div>
+  <div class="comment-news-main" data-comment-text>
     <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+  <div class="comment-news-footer">
+    <button type="button" class="button l" data-comment-btn-name>Имя</button>
+    <button type="button" class="button r" data-comment-btn-text>Цитировать</button>
   </div>
 
   <script src="./components/comment-news.js" async></script>
-</div><div class="comment-news">
+</div><div class="comment-news" data-comment-id="322">
   <link rel="stylesheet" href="./components/comment-news.css">
 
-  <span>322</span>
-  <span>Алексей</span>
-  <span>15.02.2024 17:44</span>
-
-  <div>
+  <div class="comment-news-header">
+    <div class="text">
+      <div class="name" data-comment-name>Алексей</div>
+      <div class="date">15.02.2024 17:44</div>
+    </div>
+  </div>
+  <div class="comment-news-main" data-comment-text>
     <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+  <div class="comment-news-footer">
+    <button type="button" class="button l" data-comment-btn-name>Имя</button>
+    <button type="button" class="button r" data-comment-btn-text>Цитировать</button>
   </div>
 
   <script src="./components/comment-news.js" async></script>
-</div><div class="comment-news">
+</div><div class="comment-news" data-comment-id="323">
   <link rel="stylesheet" href="./components/comment-news.css">
 
-  <span>323</span>
-  <span>Алексей</span>
-  <span>15.02.2024 17:44</span>
-
-  <div>
+  <div class="comment-news-header">
+    <div class="text">
+      <div class="name" data-comment-name>Алексей</div>
+      <div class="date">15.02.2024 17:44</div>
+    </div>
+  </div>
+  <div class="comment-news-main" data-comment-text>
     <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+  <div class="comment-news-footer">
+    <button type="button" class="button l" data-comment-btn-name>Имя</button>
+    <button type="button" class="button r" data-comment-btn-text>Цитировать</button>
   </div>
 
   <script src="./components/comment-news.js" async></script>
@@ -255,7 +273,10 @@
       <div class="util-form-fieldset fieldset">
   <link rel="stylesheet" href="./components/input-textarea.css">
   <label class="label" for="text">Текст сообщения:</label>
-  <textarea name="text" id="text" maxlength="512" autocorrect="off" spellcheck="true" class="util-form-field textarea large"></textarea>
+  <div class="textarea-wrapper">
+    <textarea name="text" id="text" maxlength="512" autocorrect="off" spellcheck="true" class="util-form-field textarea large"></textarea>
+    <textarea maxlength="512" aria-label="" autocorrect="off" spellcheck="true" class="util-form-field textarea-fake large"></textarea>
+  </div>
   <script src="./components/input-textarea.js" async></script>
 </div>
 
