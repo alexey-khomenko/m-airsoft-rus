@@ -89,9 +89,17 @@ export interface IPageNews {
   lastPage: number;
 }
 
+export interface INewsComment {
+  id: number;
+  author: string;
+  text: string;
+  date: string;
+}
+
 export interface INewsDetail {
   news: INews;
   items: INewsSlide[];
+  comments: INewsComment[];
 }
 
 export interface IOrderPayment {

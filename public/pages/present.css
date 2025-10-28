@@ -43,14 +43,5 @@
     .input {
       padding-inline: 1.25rem;
     }
-
-    .textarea {
-      resize: none;
-      padding: 1.125rem 1.25rem;
-    }
-
-    .progressbar {
-      width: 100%;
-    }
   }
 }

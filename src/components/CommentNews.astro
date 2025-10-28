@@ -1,0 +1,24 @@
+---
+import type {INewsComment} from '../interfaces.ts';
+
+interface Props {
+  comment: INewsComment;
+}
+
+const {comment}: Props = Astro.props;
+const {id, author, text, date}: INewsComment = comment;
+---
+
+<div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css"/>
+
+  <span>{id}</span>
+  <span>{author}</span>
+  <span>{date}</span>
+
+  <div>
+    <Fragment set:html={text}/>
+  </div>
+
+  <script src="./components/comment-news.js" is:inline async></script>
+</div>

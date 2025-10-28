@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 import InputTel from '../components/InputTel.astro';
 import InputSlider from '../components/InputSlider.astro';
+import InputTextarea from '../components/InputTextarea.astro';
 ---
 
 <Layout title="В подарок" page="present" isUser={true}>
@@ -56,13 +57,8 @@ import InputSlider from '../components/InputSlider.astro';
         <InputTel label="Телефон получателя:" name="recipient-phone" classList={['large', 'high']}/>
 
         <InputSlider label="Сумма сертификата" name="present-sum"/>
-
-        <div class="util-form-fieldset fieldset">
-          <label class="label" for="present-text">Текст поздравления:</label>
-          <textarea name="present-text" id="present-text" maxlength="512"
-                    autocorrect="off" spellcheck="false" placeholder="Пожелания..."
-                    class="util-form-field large textarea"></textarea>
-        </div>
+        <InputTextarea label="Текст поздравления:" name="present-text" classList={['large']}
+                       placeholder="Пожелания..."/>
 
         <button type="submit" class="util-button primary">
           <span>Перейти к оплате</span>

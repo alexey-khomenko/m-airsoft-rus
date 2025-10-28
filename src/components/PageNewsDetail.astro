@@ -2,8 +2,11 @@
 import UtilHeader from '../components/UtilHeader.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SliderNews from '../components/SliderNews.astro';
+import CommentNews from '../components/CommentNews.astro';
 
 import type {INewsDetail} from '../interfaces';
+import InputTextarea from './InputTextarea.astro';
+import type {INewsComment} from '../interfaces.ts';
 
 interface Props {
   data: INewsDetail;
@@ -11,7 +14,7 @@ interface Props {
 }
 
 const {data, root}: Props = Astro.props;
-const {news, items}: INewsDetail = data;
+const {news, items, comments}: INewsDetail = data;
 ---
 
 <div class="page-wrapper">
@@ -24,6 +27,35 @@ const {news, items}: INewsDetail = data;
   </UtilTile>
 
   <SliderNews classList={['section-items']} title="Читайте другие обзоры" link={root} items={items}/>
+
+  <UtilTile tag="section" classList={['section-comments']} isHidden={false}>
+    <h2 class="title">Комментарии</h2>
+    {0 < comments.length && (
+      <div class="comments">
+        {comments.map((comment: INewsComment) => (
+          <CommentNews comment={comment}/>
+        ))}
+      </div>
+    )}
+  </UtilTile>
+
+  <UtilTile tag="section" classList={['section-comment-form']} isHidden={false}>
+    <form class="form-comment" action="/api-comment" novalidate data-form-comment>
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="name">Ваше имя:</label>
+        <input type="text" name="name" id="name" maxlength="256"
+               autocorrect="off" spellcheck="false"
+               class="util-form-field large high input"/>
+      </div>
+      <InputTextarea label="Текст сообщения:" name="text" classList={['large']}/>
+
+      <label class="image-file"><input type="file" name="image" hidden>Загрузить изображение</label>
+
+      <button type="submit" class="util-button primary button">
+        <span>Отправить</span>
+      </button>
+    </form>
+  </UtilTile>
 
   <script src="./components/page-news-detail.js" is:inline async></script>
 </div>

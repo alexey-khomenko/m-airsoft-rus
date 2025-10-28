@@ -1,0 +1,19 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  classList: string[];
+  placeholder?: string;
+}
+
+const {label, name, classList, placeholder}: Props = Astro.props;
+---
+
+<div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css"/>
+  <label class="label" for={name}>{label}</label>
+  <textarea name={name} id={name} maxlength="512"
+            autocorrect="off" spellcheck="true" placeholder={placeholder}
+            class:list={['util-form-field', 'textarea', ...classList]}></textarea>
+  <script src="./components/input-textarea.js" is:inline async></script>
+</div>
