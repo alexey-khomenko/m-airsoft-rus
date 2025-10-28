@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import SliderProducts from '../components/SliderProducts.astro';
+import SliderNews from '../components/SliderNews.astro';
 
-import type {IBanner, IProductGroup, IIndexNews, IIndexReview, IIndexBrand, IIndex} from '../interfaces';
+import type {IBanner, IProductGroup, IIndexNews, IIndexBrand, IIndex} from '../interfaces';
 
 import data from '../pages/index.json';
 
@@ -76,10 +78,7 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
     ))}
 
     <UtilTile tag="section" classList={['section-news']} isHidden={false}>
-      <div class="section-header">
-        <h2 class="title">Актуальные новости</h2>
-        <a href="/news" class="link">Смотреть все</a>
-      </div>
+      <SectionHeader title="Актуальные новости" link="/news"/>
       <div class="items">
         {news.map(({date, link, name}: IIndexNews) => (
           <a href={link} class="item">
@@ -90,28 +89,10 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section-reviews']} isHidden={false}>
-      <div class="section-header">
-        <h2 class="title">Последние обзоры</h2>
-        <a href="/reviews" class="link">Смотреть все</a>
-      </div>
-      <div class="items">
-        <div class="swiper-wrapper">
-          {reviews.map(({img, link, name}: IIndexReview) => (
-            <a href={link} class="swiper-slide item">
-              <img src={img} alt="" class="img" decoding="async" loading="lazy"/>
-              <span class="name">{name}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </UtilTile>
+    <SliderNews classList={['section-reviews']} title="Последние обзоры" link="/reviews" items={reviews}/>
 
     <UtilTile tag="section" classList={['section-brands']} isHidden={false}>
-      <div class="section-header">
-        <h2 class="title">Популярные бренды</h2>
-        <a href="/brands" class="link">Смотреть все</a>
-      </div>
+      <SectionHeader title="Популярные бренды" link="/brands"/>
       <div class="items">
         {brands.map(({height, img, link, name, width}: IIndexBrand) => (
           <a href={link} class="item">

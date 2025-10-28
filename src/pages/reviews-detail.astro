@@ -1,22 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import UtilHeader from '../components/UtilHeader.astro';
-
-import type {INews} from '../interfaces';
+import PageNewsDetail from '../components/PageNewsDetail.astro';
 
 import data from '../pages/reviews-detail.json';
-import UtilTile from '../components/UtilTile.astro';
-
-const {name, info}: INews = data.reviews;
 ---
 
 <Layout title="Обзор" page="reviews-detail" isUser={true}>
-  <link rel="stylesheet" href="./pages/reviews-detail.css"/>
-  <div class="page-wrapper">
-    <UtilHeader type="long" title={name} link={'/reviews'}/>
-
-    <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
-      <Fragment set:html={info}/>
-    </UtilTile>
-  </div>
+  <PageNewsDetail data={data} root="/reviews"/>
 </Layout>

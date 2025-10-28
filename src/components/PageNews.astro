@@ -1,0 +1,27 @@
+---
+import UtilHeader from '../components/UtilHeader.astro';
+import SectionNews from '../components/SectionNews.astro';
+import SectionPagination from '../components/SectionPagination.astro';
+
+import type {INewsTile} from '../interfaces';
+
+interface Props {
+  title: string;
+  link: string;
+  news: INewsTile[];
+  lastPage: number;
+  currentPage: number;
+}
+
+const {title, link, news, lastPage, currentPage}: Props = Astro.props;
+---
+
+<div class="page-wrapper">
+  <link rel="stylesheet" href="./components/page-news.css"/>
+  <UtilHeader type="page" title={title}/>
+
+  <SectionNews news={news}/>
+
+  {1 < lastPage &&
+    <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
+</div>

@@ -14,6 +14,12 @@ export interface ILink {
   name: string;
 }
 
+export interface INewsSlide {
+  name: string;
+  link: string;
+  img: string;
+}
+
 export interface IProductGroup {
   title: string;
   link: string;
@@ -25,12 +31,6 @@ export interface IIndexNews {
   name: string;
   link: string;
   date: string;
-}
-
-export interface IIndexReview {
-  name: string;
-  link: string;
-  img: string;
 }
 
 export interface IIndexBrand {
@@ -46,7 +46,7 @@ export interface IIndex {
   smallBanners: IBanner[];
   productGroups: IProductGroup[];
   news: IIndexNews[];
-  reviews: IIndexReview[];
+  reviews: INewsSlide[];
   brands: IIndexBrand[];
 }
 
@@ -82,6 +82,16 @@ export interface INews {
   name: string;
   link: string;
   info: string;
+}
+
+export interface IPageNews {
+  news: INewsTile[];
+  lastPage: number;
+}
+
+export interface INewsDetail {
+  news: INews;
+  items: INewsSlide[];
 }
 
 export interface IOrderPayment {

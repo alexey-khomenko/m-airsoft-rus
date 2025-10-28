@@ -1,0 +1,31 @@
+---
+import UtilTile from '../components/UtilTile.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+import type {INewsSlide} from '../interfaces.ts';
+
+interface Props {
+  classList: string[];
+  title: string;
+  link: string;
+  items: INewsSlide[];
+}
+
+const {classList, title, link, items}: Props = Astro.props;
+---
+
+<UtilTile tag="section" classList={['slider-news', ...classList]} isHidden={false}>
+  <link rel="stylesheet" href="./components/slider-news.css"/>
+  <SectionHeader title={title} link={link}/>
+  <div class="items">
+    <div class="swiper-wrapper">
+      {items.map(({img, link, name}: INewsSlide) => (
+        <a href={link} class="swiper-slide item">
+          <img src={img} alt="" class="img" decoding="async" loading="lazy"/>
+          <span class="name">{name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+  <script src="./components/slider-news.js" is:inline async></script>
+</UtilTile>

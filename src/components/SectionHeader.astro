@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  link: string;
+}
+
+const {title, link}: Props = Astro.props;
+---
+
+<div class="section-header">
+  <link rel="stylesheet" href="./components/section-header.css"/>
+  <h2 class="title">{title}</h2>
+  <a href={link} class="link">Смотреть все</a>
+</div>

@@ -1,0 +1,29 @@
+---
+import UtilHeader from '../components/UtilHeader.astro';
+import UtilTile from '../components/UtilTile.astro';
+import SliderNews from '../components/SliderNews.astro';
+
+import type {INewsDetail} from '../interfaces';
+
+interface Props {
+  data: INewsDetail;
+  root: string;
+}
+
+const {data, root}: Props = Astro.props;
+const {news, items}: INewsDetail = data;
+---
+
+<div class="page-wrapper">
+  <link rel="stylesheet" href="./components/page-news-detail.css"/>
+
+  <UtilHeader type="long" title={news.name} link={root}/>
+
+  <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
+    <Fragment set:html={news.info}/>
+  </UtilTile>
+
+  <SliderNews classList={['section-items']} title="Читайте другие обзоры" link={root} items={items}/>
+
+  <script src="./components/page-news-detail.js" is:inline async></script>
+</div>

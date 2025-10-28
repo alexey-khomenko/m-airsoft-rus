@@ -39,11 +39,4 @@ window.addEventListener('load', () => {
     slidesPerView: 'auto',
     spaceBetween: 8,
   });
-
-  new Swiper('.section-reviews .items', {
-    direction: 'horizontal',
-    loop: false,
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-  });
 });
