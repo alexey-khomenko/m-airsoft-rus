@@ -42,6 +42,9 @@ p {
   text-wrap: pretty;
 }
 
+img {
+  display: block;
+}
 
 .swiper-notification {
   display: none;

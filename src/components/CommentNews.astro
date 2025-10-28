@@ -9,15 +9,21 @@ const {comment}: Props = Astro.props;
 const {id, author, text, date}: INewsComment = comment;
 ---
 
-<div class="comment-news">
+<div class="comment-news" data-comment-id={id}>
   <link rel="stylesheet" href="./components/comment-news.css"/>
 
-  <span>{id}</span>
-  <span>{author}</span>
-  <span>{date}</span>
-
-  <div>
+  <div class="comment-news-header">
+    <div class="text">
+      <div class="name" data-comment-name>{author}</div>
+      <div class="date">{date}</div>
+    </div>
+  </div>
+  <div class="comment-news-main" data-comment-text>
     <Fragment set:html={text}/>
+  </div>
+  <div class="comment-news-footer">
+    <button type="button" class="button l" data-comment-btn-name>Имя</button>
+    <button type="button" class="button r" data-comment-btn-text>Цитировать</button>
   </div>
 
   <script src="./components/comment-news.js" is:inline async></script>

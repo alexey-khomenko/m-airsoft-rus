@@ -48,7 +48,6 @@
 
     .img {
       margin-inline: auto;
-      display: block;
       object-fit: cover;
     }
   }
@@ -91,7 +90,6 @@
     .img {
       height: auto;
       max-width: 100%;
-      display: block;
     }
   }
 }
