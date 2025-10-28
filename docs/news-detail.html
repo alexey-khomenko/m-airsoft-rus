@@ -122,9 +122,10 @@
   <link rel="stylesheet" href="./components/container.css">
   
       
-  <link rel="stylesheet" href="./pages/news-detail.css">
   <div class="page-wrapper">
-    <section class="util-header type-long">
+  <link rel="stylesheet" href="./components/page-news-detail.css">
+
+  <section class="util-header type-long">
   <link rel="stylesheet" href="./components/util-header.css">
   <h1 class="title">График работы магазина в майские праздники 2025 год</h1>
 
@@ -136,19 +137,117 @@
 
 </section>
 
-    <section class="util-tile section-info mt2"  >
+  <section class="util-tile section-info mt2"  >
 
-      <p>Друзья!</p>
+    <p>Друзья!</p>
 <p>Обратите, пожалуйста, внимание на график работы наших магазинов в праздничные дни:</p>
 <p>Наши розничные магазины <strong>1,2,8,9,10,11 мая</strong> работают <strong>с 11.00 до 17.00</strong> по местному времени.</p>
 <p><strong>3,4 мая</strong> магазины в городах: Москва, Санкт-Петербург, Нижний Новгород не будут работать.</p>
 <p><strong>4 мая</strong> магазины в городах: Екатеринбург, Краснодар не будут работать.</p>
 <p>Интернет-магазин <strong>1,2,3,4,8,9,10,11 мая</strong> обрабатывает заказы <strong>с 8.00 до 20.00</strong> по московскому времени.</p>
 <p>В остальные дни работаем в штатном режиме по стандартному графику.</p>
-    
+  
 <link rel="stylesheet" href="./components/util-tile.css">
 </section>
+
+  <section class="util-tile slider-news section-items"  >
+
+  <link rel="stylesheet" href="./components/slider-news.css">
+  <div class="section-header">
+  <link rel="stylesheet" href="./components/section-header.css">
+  <h2 class="title">Читайте другие обзоры</h2>
+  <a href="/m-airsoft-rus/news.html" class="link">Смотреть все</a>
+</div>
+  <div class="items">
+    <div class="swiper-wrapper">
+      <a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma</span>
+        </a><a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma 2</span>
+        </a><a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma 3</span>
+        </a>
+    </div>
   </div>
+  <script src="./components/slider-news.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <section class="util-tile section-comments"  >
+
+    <h2 class="title">Комментарии</h2>
+    <div class="comments">
+        <div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>321</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div><div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>322</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div><div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>323</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div>
+      </div>
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <section class="util-tile section-comment-form"  >
+
+    <form class="form-comment" action="/api-comment" novalidate data-form-comment>
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="name">Ваше имя:</label>
+        <input type="text" name="name" id="name" maxlength="256" autocorrect="off" spellcheck="false" class="util-form-field large high input">
+      </div>
+      <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  <label class="label" for="text">Текст сообщения:</label>
+  <textarea name="text" id="text" maxlength="512" autocorrect="off" spellcheck="true" class="util-form-field textarea large"></textarea>
+  <script src="./components/input-textarea.js" async></script>
+</div>
+
+      <label class="image-file"><input type="file" name="image" hidden>Загрузить изображение</label>
+
+      <button type="submit" class="util-button primary button">
+        <span>Отправить</span>
+      </button>
+    </form>
+  
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <script src="./components/page-news-detail.js" async></script>
+</div>
 
     
 </div>

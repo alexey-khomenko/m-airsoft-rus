@@ -1,11 +1,3 @@
-document.addEventListener('focusin', (e) => {
-  const input = e.target.closest('[data-form-login-phone] [name="phone"]');
-
-  if (!input) return true;
-
-  window.removeError(input);
-});
-
 document.addEventListener('submit', (e) => {
   const form = e.target.closest('[data-form-login-phone]');
 
@@ -18,7 +10,7 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (0 === value.length || value.includes('_')) {
-    window.addError(input);
+    window.fieldErrorAdd(input);
     return true;
   }
 
@@ -29,23 +21,6 @@ document.addEventListener('submit', (e) => {
 
   step1.hidden = true;
   step2.hidden = false;
-});
-
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-login-cancel]');
-
-  if (!button) return true;
-
-  window.closePopup();
-});
-
-
-document.addEventListener('focusin', (e) => {
-  const input = e.target.closest('[data-form-login-code] [name="code"]');
-
-  if (!input) return true;
-
-  window.removeError(input);
 });
 
 document.addEventListener('submit', (e) => {
@@ -60,7 +35,7 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (+input.maxLength !== value.length) {
-    window.addError(input);
+    window.fieldErrorAdd(input);
     return true;
   }
 

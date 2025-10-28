@@ -122,9 +122,10 @@
   <link rel="stylesheet" href="./components/container.css">
   
       
-  <link rel="stylesheet" href="./pages/reviews-detail.css">
   <div class="page-wrapper">
-    <section class="util-header type-long">
+  <link rel="stylesheet" href="./components/page-news-detail.css">
+
+  <section class="util-header type-long">
   <link rel="stylesheet" href="./components/util-header.css">
   <h1 class="title">Обзор на LCT АКС-74Н UP от LCT</h1>
 
@@ -136,9 +137,9 @@
 
 </section>
 
-    <section class="util-tile section-info mt2"  >
+  <section class="util-tile section-info mt2"  >
 
-      <p>Всем привет!</p>
+    <p>Всем привет!</p>
 <p>Версия UP отличается от обычной установленными на заводе калёными шестернями и усиленной пружиной. На сайте заявлено, что начальная скорость шара составляет 135 м/с (против 120 у обычной). Разница в цене всего 1575р.</p>
 <img src="./content/reviews-detail-1.png" alt="Фото" width="540" height="205"/>
 <p>Почему я выбрал для себя именно этот привод?:</p>
@@ -168,10 +169,108 @@
 Переводчик огня справа.
 </li>
 </ul>
-    
+  
 <link rel="stylesheet" href="./components/util-tile.css">
 </section>
+
+  <section class="util-tile slider-news section-items"  >
+
+  <link rel="stylesheet" href="./components/slider-news.css">
+  <div class="section-header">
+  <link rel="stylesheet" href="./components/section-header.css">
+  <h2 class="title">Читайте другие обзоры</h2>
+  <a href="/m-airsoft-rus/reviews.html" class="link">Смотреть все</a>
+</div>
+  <div class="items">
+    <div class="swiper-wrapper">
+      <a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma</span>
+        </a><a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma 2</span>
+        </a><a href="/m-airsoft-rus/reviews-detail.html" class="swiper-slide item">
+          <img src="./content/review.png" alt="" class="img" decoding="async" loading="lazy">
+          <span class="name">Обзор автомата AK-105 от Cyma 3</span>
+        </a>
+    </div>
   </div>
+  <script src="./components/slider-news.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <section class="util-tile section-comments"  >
+
+    <h2 class="title">Комментарии</h2>
+    <div class="comments">
+        <div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>321</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div><div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>322</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div><div class="comment-news">
+  <link rel="stylesheet" href="./components/comment-news.css">
+
+  <span>323</span>
+  <span>Алексей</span>
+  <span>15.02.2024 17:44</span>
+
+  <div>
+    <p>Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно и надёжно</p>
+  </div>
+
+  <script src="./components/comment-news.js" async></script>
+</div>
+      </div>
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <section class="util-tile section-comment-form"  >
+
+    <form class="form-comment" action="/api-comment" novalidate data-form-comment>
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="name">Ваше имя:</label>
+        <input type="text" name="name" id="name" maxlength="256" autocorrect="off" spellcheck="false" class="util-form-field large high input">
+      </div>
+      <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  <label class="label" for="text">Текст сообщения:</label>
+  <textarea name="text" id="text" maxlength="512" autocorrect="off" spellcheck="true" class="util-form-field textarea large"></textarea>
+  <script src="./components/input-textarea.js" async></script>
+</div>
+
+      <label class="image-file"><input type="file" name="image" hidden>Загрузить изображение</label>
+
+      <button type="submit" class="util-button primary button">
+        <span>Отправить</span>
+      </button>
+    </form>
+  
+<link rel="stylesheet" href="./components/util-tile.css">
+</section>
+
+  <script src="./components/page-news-detail.js" async></script>
+</div>
 
     
 </div>

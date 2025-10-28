@@ -1,11 +1,3 @@
-document.addEventListener('focusin', (e) => {
-  const input = e.target.closest('[data-form-profile-name] input');
-
-  if (!input) return true;
-
-  window.removeError(input);
-});
-
 document.addEventListener('submit', (e) => {
   const form = e.target.closest('[data-form-profile-name]');
 
@@ -21,7 +13,7 @@ document.addEventListener('submit', (e) => {
   const valueLastName = inputLastName.value.trim();
 
   if (0 === valueLastName.length) {
-    window.addError(inputLastName);
+    window.fieldErrorAdd(inputLastName);
     errors = true;
   }
 
@@ -29,7 +21,7 @@ document.addEventListener('submit', (e) => {
   const valueFirstName = inputFirstName.value.trim();
 
   if (0 === valueFirstName.length) {
-    window.addError(inputFirstName);
+    window.fieldErrorAdd(inputFirstName);
     errors = true;
   }
 
@@ -37,7 +29,7 @@ document.addEventListener('submit', (e) => {
   const valueMiddleName = inputMiddleName.value.trim();
 
   if (0 === valueMiddleName.length) {
-    window.addError(inputMiddleName);
+    window.fieldErrorAdd(inputMiddleName);
     errors = true;
   }
 
@@ -45,7 +37,7 @@ document.addEventListener('submit', (e) => {
   const valueEmail = inputEmail.value.trim();
 
   if (0 === valueEmail.length || !valueEmail.includes('@') || !valueEmail.includes('.')) {
-    window.addError(inputEmail);
+    window.fieldErrorAdd(inputEmail);
     errors = true;
   }
 

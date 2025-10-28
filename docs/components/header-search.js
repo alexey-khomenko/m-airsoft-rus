@@ -13,9 +13,9 @@ const search = {
 function showHeaderSearchPopup() {
   window.closePopup();
 
-  window.removeError(search.fake);
-  window.removeError(search.popup);
-  window.removeError(search.wrapper);
+  window.fieldErrorRemove(search.fake);
+  window.fieldErrorRemove(search.popup);
+  window.fieldErrorRemove(search.wrapper);
 
   search.backdrop.hidden = false;
   search.popup.hidden = false;
@@ -25,9 +25,9 @@ function showHeaderSearchPopup() {
 function hideHeaderSearchPopup() {
   if (!search.form.classList.contains('open')) return;
 
-  window.removeError(search.fake);
-  window.removeError(search.popup);
-  window.removeError(search.wrapper);
+  window.fieldErrorRemove(search.fake);
+  window.fieldErrorRemove(search.popup);
+  window.fieldErrorRemove(search.wrapper);
 
   search.backdrop.hidden = true;
   search.popup.hidden = true;
@@ -53,9 +53,9 @@ document.addEventListener('submit', (e) => {
   const value = search.input.value.trim();
 
   if (search.limit > value.length) {
-    window.addError(search.fake);
-    window.addError(search.popup);
-    window.addError(search.wrapper);
+    window.fieldErrorAdd(search.fake);
+    window.fieldErrorAdd(search.popup);
+    window.fieldErrorAdd(search.wrapper);
     return true;
   }
 
@@ -95,9 +95,9 @@ document.addEventListener('input', (e) => {
 
   search.results.hidden = true;
 
-  window.removeError(search.fake);
-  window.removeError(search.popup);
-  window.removeError(search.wrapper);
+  window.fieldErrorRemove(search.fake);
+  window.fieldErrorRemove(search.popup);
+  window.fieldErrorRemove(search.wrapper);
 
   const value = search.input.value.trim();
 

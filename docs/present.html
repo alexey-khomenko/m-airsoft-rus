@@ -191,11 +191,12 @@
   <input type="hidden" name="present-sum" id="present-sum" data-slider-input>
   <script src="./components/input-slider.js" async></script>
 </div>
-
         <div class="util-form-fieldset fieldset">
-          <label class="label" for="present-text">Текст поздравления:</label>
-          <textarea name="present-text" id="present-text" maxlength="512" autocorrect="off" spellcheck="false" placeholder="Пожелания..." class="util-form-field large textarea"></textarea>
-        </div>
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  <label class="label" for="present-text">Текст поздравления:</label>
+  <textarea name="present-text" id="present-text" maxlength="512" autocorrect="off" spellcheck="true" placeholder="Пожелания..." class="util-form-field textarea large"></textarea>
+  <script src="./components/input-textarea.js" async></script>
+</div>
 
         <button type="submit" class="util-button primary">
           <span>Перейти к оплате</span>
