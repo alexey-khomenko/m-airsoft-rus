@@ -1,4 +1,6 @@
 .slider-news {
+  overflow: hidden;
+
   .items {
     position: relative;
     margin-top: 1.25rem;

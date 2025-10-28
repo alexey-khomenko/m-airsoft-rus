@@ -12,8 +12,13 @@ const {label, name, classList, placeholder}: Props = Astro.props;
 <div class="util-form-fieldset fieldset">
   <link rel="stylesheet" href="./components/input-textarea.css"/>
   <label class="label" for={name}>{label}</label>
-  <textarea name={name} id={name} maxlength="512"
-            autocorrect="off" spellcheck="true" placeholder={placeholder}
-            class:list={['util-form-field', 'textarea', ...classList]}></textarea>
+  <div class="textarea-wrapper">
+    <textarea name={name} id={name} maxlength="512"
+              autocorrect="off" spellcheck="true" placeholder={placeholder}
+              class:list={['util-form-field', 'textarea', ...classList]}></textarea>
+    <textarea maxlength="512" aria-label=""
+              autocorrect="off" spellcheck="true"
+              class:list={['util-form-field', 'textarea-fake', ...classList]}></textarea>
+  </div>
   <script src="./components/input-textarea.js" is:inline async></script>
 </div>

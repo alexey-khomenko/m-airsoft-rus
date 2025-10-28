@@ -5,30 +5,29 @@ window.addEventListener('load', () => {
 
   window.inputTextareaJsIsLoaded = true;
 
-  console.log('TODO textarea');
+  const textareaAll = document.querySelectorAll('.textarea');
 
-  // function textareaFixHeight(textarea) {
-  //   textarea.style.height = 'auto';
-  //   textarea.style.height = 2 + +textarea.scrollHeight + 'px';
-  // }
-  //
-  // window.addEventListener('load', () => {
-  //   const textarea = document.querySelector('[data-form-present] .textarea');
-  //
-  //   textareaFixHeight(textarea);
-  // });
-  //
-  // window.addEventListener('resize', () => {
-  //   const textarea = document.querySelector('[data-form-present] .textarea');
-  //
-  //   textareaFixHeight(textarea);
-  // });
-  //
-  // document.addEventListener('input', function (e) {
-  //   const textarea = e.target.closest('[data-form-present] .textarea');
-  //
-  //   if (!textarea) return true;
-  //
-  //   textareaFixHeight(textarea);
-  // });
+  for (const textarea of textareaAll) {
+    textareaFixHeight(textarea);
+  }
+
+  window.addEventListener('resize', () => {
+    for (const textarea of textareaAll) {
+      textareaFixHeight(textarea);
+    }
+  });
+
+  document.addEventListener('input', function (e) {
+    const textarea = e.target.closest('.textarea');
+
+    if (textarea) textareaFixHeight(textarea);
+  });
+
+  function textareaFixHeight(textarea) {
+    const textareaFake = textarea.nextElementSibling;
+
+    textareaFake.value = textarea.value;
+
+    textarea.style.height = `${2 + +textareaFake.scrollHeight}px`;
+  }
 });
