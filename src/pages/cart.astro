@@ -1,6 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
+import UtilTile from '../components/UtilTile.astro';
+import TilePosition from '../components/TilePosition.astro';
+
+import type {ICartPosition} from '../interfaces';
+
+import data from '../pages/cart.json';
+
+const positions: ICartPosition[] = data; // []
 
 const title: string = 'Корзина';
 const link: string = '/cart';
@@ -11,8 +19,49 @@ const link: string = '/cart';
   <div class="page-wrapper">
     <UtilHeader type="page" title={title}/>
 
-    <section class="section">
-      cart
-    </section>
+    {0 < positions.length && (
+      <section class="section-positions">
+        {positions.map((position: ICartPosition) => (
+          <TilePosition position={position}/>
+        ))}
+      </section>
+      <UtilTile tag="section" classList={['section-summary']} isHidden={false}>
+        <div>
+          <span>Стоимость товаров:</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Общая скидка:</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Стоимость доставки:</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Общая сумма заказа:</span>
+          <span></span>
+        </div>
+        <a href="/order" class="util-button primary button">
+          <span>Перейти к оформлению</span>
+        </a>
+      </UtilTile>
+    )}
   </div>
+
+  {0 < positions.length && (
+    <div class="checkout-wrapper" slot="page-footer">
+      <div>
+        <div class="old-amount">
+
+        </div>
+        <div class="amount">
+
+        </div>
+      </div>
+      <a href="/order" class="util-button primary button">
+        <span>Перейти к оформлению</span>
+      </a>
+    </div>
+  )}
 </Layout>

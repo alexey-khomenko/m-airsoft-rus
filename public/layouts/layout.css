@@ -55,6 +55,7 @@ img {
   --header--h: 3.75rem;
   --footer--h: 4rem;
   --catalog-detail-button-buy-wrapper--h: 4.375rem;
+  --cart-checkout-wrapper--h: 3.375rem;
 }
 
 .layout {

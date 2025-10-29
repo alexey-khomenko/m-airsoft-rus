@@ -3,7 +3,47 @@
   padding-bottom: .25rem;
 }
 
+.page-footer {
+  background-color: #F1F4F6;
 
-.section {
+  .checkout-wrapper {
+    padding-inline: 1rem;
+    height: var(--cart-checkout-wrapper--h);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .old-amount {
+  }
+
+  .amount {
+  }
+
+  .button {
+    min-width: 10.625rem;
+    min-height: 2.25rem;
+    font-size: .875rem;
+  }
+}
+
+
+.section-positions {
   margin-top: .5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .625rem;
+}
+
+.section-summary {
+  margin-top: .625rem;
+  margin-bottom: calc(var(--cart-checkout-wrapper--h) + .875rem);
+
+
+  .button {
+    margin-top: 1.125rem;
+  }
 }

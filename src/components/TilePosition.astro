@@ -1,0 +1,23 @@
+---
+import UtilTile from '../components/UtilTile.astro';
+
+import type {ICartPosition} from '../interfaces';
+
+interface Props {
+  position: ICartPosition;
+}
+
+const {position}: Props = Astro.props;
+const {cartId, name, quantity, price, oldPrice, img}: ICartPosition = position;
+---
+
+<UtilTile tag="div" classList={['tile-position']} isHidden={false}>
+  <link rel="stylesheet" href="./components/tile-position.css"/>
+  <div>{cartId}</div>
+  <div>{name}</div>
+  <div>{quantity}</div>
+  <div>{price}</div>
+  <div>{oldPrice}</div>
+  <div>{img}</div>
+  <script src="./components/tile-position.js" is:inline async></script>
+</UtilTile>

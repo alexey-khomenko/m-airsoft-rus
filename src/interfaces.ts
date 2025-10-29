@@ -126,6 +126,15 @@ export interface IOrder {
   positions: IOrderPosition[];
 }
 
+export interface ICartPosition {
+  cartId: number;
+  name: string;
+  quantity: number;
+  price: number;
+  oldPrice: number;
+  img: string;
+}
+
 export interface ISearchResult {
   name: string;
   link: string;

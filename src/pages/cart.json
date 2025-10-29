@@ -1,0 +1,26 @@
+[
+  {
+    "cartId": 1,
+    "name": "Автомат Cyma АК Magpul custom Sport Series BK CM680C",
+    "quantity": 1,
+    "price": 15030,
+    "oldPrice": 23530,
+    "img": "./content/review.png"
+  },
+  {
+    "cartId": 2,
+    "name": "Автомат Cyma АК Magpul custom Sport Series BK CM680C",
+    "quantity": 1,
+    "price": 15030,
+    "oldPrice": 23530,
+    "img": "./content/review.png"
+  },
+  {
+    "cartId": 3,
+    "name": "Автомат Cyma АК Magpul custom Sport Series BK CM680C",
+    "quantity": 3,
+    "price": 20000,
+    "oldPrice": 20000,
+    "img": "./content/review.png"
+  }
+]
