@@ -8,7 +8,6 @@
 }
 
 .page-footer {
-  background-color: #F1F4F6;
 
   .button-buy-wrapper:not([hidden]) {
     height: var(--catalog-detail-button-buy-wrapper--h);

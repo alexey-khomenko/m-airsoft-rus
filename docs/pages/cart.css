@@ -4,8 +4,6 @@
 }
 
 .page-footer {
-  background-color: #F1F4F6;
-
   .checkout-wrapper {
     padding-inline: 1rem;
     height: var(--cart-checkout-wrapper--h);
@@ -15,10 +13,19 @@
     gap: .5rem;
   }
 
-  .old-amount {
+  .amount-old {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: #E81331;
+    text-decoration: line-through;
   }
 
-  .amount {
+  .amount-total {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    color: #27282B;
   }
 
   .button {
@@ -40,8 +47,46 @@
 
 .section-summary {
   margin-top: .625rem;
-  margin-bottom: calc(var(--cart-checkout-wrapper--h) + .875rem);
+  margin-bottom: calc(var(--cart-checkout-wrapper--h) + .625rem);
 
+  .row {
+    margin-bottom: .25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+
+    &.total {
+      margin-top: .75rem;
+    }
+
+    .left {
+      font-weight: 300;
+      font-size: .875rem;
+      line-height: 1.25rem;
+    }
+
+    .right {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+
+    .black {
+      color: #27282B;
+    }
+
+    .red {
+      color: #E81331;
+    }
+
+    .blue {
+      font-weight: 700;
+      font-size: 1.375rem;
+      line-height: 1.625rem;
+      color: #009AE3;
+    }
+  }
 
   .button {
     margin-top: 1.125rem;
