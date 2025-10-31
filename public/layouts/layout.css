@@ -101,6 +101,7 @@ img {
   right: 0;
   bottom: var(--footer--h);
   z-index: 1;
+  background-color: #F1F4F6;
 }
 
 .util-decoration {

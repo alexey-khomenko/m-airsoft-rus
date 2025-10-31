@@ -34,7 +34,7 @@ const ldJson: {} = {
 <div class="header-search-popup" hidden>
   <div class="header-search-results-wrapper">
     <div class="header-search-results" hidden>
-      {results.map(({img, link, name, oldPrice, price}: ISearchResult) => (
+      {results.map(({img, link, name, priceOld, price}: ISearchResult) => (
         <a href={link} class="result">
           <img src={img} alt={name} class="img" decoding="async" loading="lazy"/>
           <div>
@@ -43,10 +43,10 @@ const ldJson: {} = {
             </div>
             <div>
               <span class="text">Цена</span>
-              {oldPrice === price ? (
+              {priceOld === price ? (
                 <span class="price">{price.toLocaleString('ru-RU')} р.</span>
               ) : (
-                <span class="price-old">{oldPrice.toLocaleString('ru-RU')} р.</span>
+                <span class="price-old">{priceOld.toLocaleString('ru-RU')} р.</span>
                 <span class="price-new">{price.toLocaleString('ru-RU')} р.</span>
               )}
             </div>

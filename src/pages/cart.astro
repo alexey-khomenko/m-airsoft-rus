@@ -8,10 +8,25 @@ import type {ICartPosition} from '../interfaces';
 
 import data from '../pages/cart.json';
 
-const positions: ICartPosition[] = data; // []
+const positions: ICartPosition[] = data;
 
 const title: string = 'Корзина';
 const link: string = '/cart';
+
+let amountOld: number = 0;
+let amountPositions: number = 0; // TODO Может сюда amountOld ???
+let amountSale: number = 0;
+
+for (const {quantity, price, priceOld}: ICartPosition of positions) {
+  amountOld += priceOld * quantity;
+  amountPositions += price * quantity;
+  amountSale += (priceOld - price) * quantity;
+}
+
+const amountDelivery: number = 300; // TODO delivery price ???
+
+const amountTotal: number = amountPositions + amountDelivery;
+amountOld += amountDelivery;
 ---
 
 <Layout title="Корзина" page="cart" isUser={true}>
@@ -26,21 +41,29 @@ const link: string = '/cart';
         ))}
       </section>
       <UtilTile tag="section" classList={['section-summary']} isHidden={false}>
-        <div>
-          <span>Стоимость товаров:</span>
-          <span></span>
+        <div class="row">
+          <div class="left black">Стоимость товаров:</div>
+          <div class="right black">
+            <span data-amount-positions>{amountPositions.toLocaleString('ru-RU')}</span> ₽
+          </div>
         </div>
-        <div>
-          <span>Общая скидка:</span>
-          <span></span>
+        <div class="row">
+          <div class="left red">Общая скидка:</div>
+          <div class="right red">
+            <span data-amount-sale>{amountSale.toLocaleString('ru-RU')}</span> ₽
+          </div>
         </div>
-        <div>
-          <span>Стоимость доставки:</span>
-          <span></span>
+        <div class="row">
+          <div class="left black">Стоимость доставки:</div>
+          <div class="right black">
+            <span data-amount-delivery>{amountDelivery.toLocaleString('ru-RU')}</span> ₽
+          </div>
         </div>
-        <div>
-          <span>Общая сумма заказа:</span>
-          <span></span>
+        <div class="row total">
+          <div class="left black">Общая сумма заказа:</div>
+          <div class="blue">
+            <span data-amount-total>{amountTotal.toLocaleString('ru-RU')}</span> ₽
+          </div>
         </div>
         <a href="/order" class="util-button primary button">
           <span>Перейти к оформлению</span>
@@ -52,11 +75,13 @@ const link: string = '/cart';
   {0 < positions.length && (
     <div class="checkout-wrapper" slot="page-footer">
       <div>
-        <div class="old-amount">
-
-        </div>
-        <div class="amount">
-
+        {amountTotal < amountOld && (
+          <div class="amount-old">
+            <span data-amount-old>{amountOld.toLocaleString('ru-RU')}</span>
+          </div>
+        )}
+        <div class="amount-total">
+          <span data-amount-total>{amountTotal.toLocaleString('ru-RU')}</span> ₽
         </div>
       </div>
       <a href="/order" class="util-button primary button">

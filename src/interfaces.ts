@@ -130,8 +130,9 @@ export interface ICartPosition {
   cartId: number;
   name: string;
   quantity: number;
+  quantityMax: number;
   price: number;
-  oldPrice: number;
+  priceOld: number;
   img: string;
 }
 
@@ -139,7 +140,7 @@ export interface ISearchResult {
   name: string;
   link: string;
   img: string;
-  oldPrice: number;
+  priceOld: number;
   price: number;
 }
 

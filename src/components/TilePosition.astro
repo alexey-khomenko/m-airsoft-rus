@@ -8,16 +8,62 @@ interface Props {
 }
 
 const {position}: Props = Astro.props;
-const {cartId, name, quantity, price, oldPrice, img}: ICartPosition = position;
+const {cartId, name, quantity, quantityMax, price, priceOld, img}: ICartPosition = position;
+
+const economy: number = (priceOld - price) * quantity;
+const sum: number = price * quantity;
+const sumOld: number = priceOld * quantity;
 ---
 
 <UtilTile tag="div" classList={['tile-position']} isHidden={false}>
   <link rel="stylesheet" href="./components/tile-position.css"/>
-  <div>{cartId}</div>
-  <div>{name}</div>
-  <div>{quantity}</div>
-  <div>{price}</div>
-  <div>{oldPrice}</div>
-  <div>{img}</div>
+
+  <div class="position-in" data-position-in={cartId} hidden>
+    <div class="left">
+      <button type="button" class="remove" title="Удалить позицию из корзины" data-position-remove={cartId}>
+        <img src="./images/position-del.png" alt="" class="del" width="20" height="20"/>
+      </button>
+      <img src={img} alt="" class="cover"/>
+    </div>
+    <div class="right">
+      <div class="name">{name}</div>
+      <div class="interactive" data-position-price={price} data-position-price-old={priceOld}>
+        <div class="buttons">
+          <button type="button" class="button minus" title="Уменьшить количество"
+                  data-position-minus={cartId}></button>
+          <input type="text" name="quantity" maxlength="4" class="quantity" value={quantity}
+                 inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+                 aria-label="Количество" data-position-quantity={cartId}/>
+          <button type="button" class="button plus" title="Увеличить количество"
+                  data-position-plus={cartId} data-quantity-max={quantityMax}></button>
+        </div>
+        <div class="prices">
+          {price < priceOld && (
+            <div class="sum-old">
+              <span data-position-sum-old={cartId}>{sumOld.toLocaleString('ru-RU')}</span> ₽
+            </div>
+          )}
+          <div class="sum">
+            <span data-position-sum={cartId}>{sum.toLocaleString('ru-RU')}</span> ₽
+          </div>
+        </div>
+      </div>
+      {0 < economy && (
+        <div class="economy">Экономия <strong>
+          <span data-position-economy={cartId}>{economy.toLocaleString('ru-RU')}</span> ₽
+        </strong></div>
+      )}
+    </div>
+  </div>
+
+  <div class="position-out" data-position-out={cartId}>
+    <img src="./images/position-del.png" alt="" class="img" width="20" height="20"/>
+    <div>
+      <div class="name">{name}</div>
+      <div class="info">был удален из корзины</div>
+    </div>
+    <button type="button" class="button" data-position-restore={cartId}>Восстановить</button>
+  </div>
+
   <script src="./components/tile-position.js" is:inline async></script>
 </UtilTile>
