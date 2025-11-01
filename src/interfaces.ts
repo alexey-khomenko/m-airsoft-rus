@@ -128,7 +128,8 @@ export interface IOrder {
 
 export interface ICartPosition {
   cartId: number;
-  name: string;
+  productId: number;
+  productName: string;
   quantity: number;
   quantityMax: number;
   price: number;

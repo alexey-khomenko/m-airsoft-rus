@@ -1,11 +1,11 @@
-window.cartAdd = function (productId, number) {
+window.cartAdd = function (productId, quantity) {
   const cart = document.querySelector('[data-cart-number]');
 
   let cartNumber = +cart.dataset.cartNumber;
 
   cart.setAttribute('data-cart-number', ++cartNumber);
 
-  console.log('cartAdd', productId, number);
+  console.log('cartAdd productId', productId, quantity);
 };
 
 

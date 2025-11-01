@@ -8,61 +8,68 @@ interface Props {
 }
 
 const {position}: Props = Astro.props;
-const {cartId, name, quantity, quantityMax, price, priceOld, img}: ICartPosition = position;
+const {cartId, productId, productName, quantity, quantityMax, price, priceOld, img}: ICartPosition = position;
 
 const economy: number = (priceOld - price) * quantity;
 const sum: number = price * quantity;
 const sumOld: number = priceOld * quantity;
+
+const dataArray: string[] = [
+  `data-product-id="${productId}"`,
+  `data-position-id="${cartId}"`,
+  `data-position-price="${price}"`,
+  `data-position-price-old="${priceOld}"`,
+  `data-position-quantity-max="${quantityMax}"`,
+];
 ---
 
-<UtilTile tag="div" classList={['tile-position']} isHidden={false}>
+<UtilTile tag="div" classList={['tile-position']} isHidden={false} dataArray={dataArray}>
   <link rel="stylesheet" href="./components/tile-position.css"/>
 
-  <div class="position-in" data-position-in={cartId} hidden>
+  <div class="position-in" data-position-in>
     <div class="left">
-      <button type="button" class="remove" title="Удалить позицию из корзины" data-position-remove={cartId}>
+      <button type="button" class="remove" title="Удалить позицию из корзины" data-position-remove>
         <img src="./images/position-del.png" alt="" class="del" width="20" height="20"/>
       </button>
       <img src={img} alt="" class="cover"/>
     </div>
     <div class="right">
-      <div class="name">{name}</div>
-      <div class="interactive" data-position-price={price} data-position-price-old={priceOld}>
+      <div class="name">{productName}</div>
+      <div class="interactive">
         <div class="buttons">
-          <button type="button" class="button minus" title="Уменьшить количество"
-                  data-position-minus={cartId}></button>
-          <input type="text" name="quantity" maxlength="4" class="quantity" value={quantity}
-                 inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
-                 aria-label="Количество" data-position-quantity={cartId}/>
-          <button type="button" class="button plus" title="Увеличить количество"
-                  data-position-plus={cartId} data-quantity-max={quantityMax}></button>
+          <button type="button" class="button minus" title="Уменьшить количество" data-position-minus></button>
+          <input type="text" name="quantity" aria-label="Количество" maxlength="4" class="quantity" value={quantity}
+                 inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" data-position-quantity/>
+          <button type="button" class="button plus" title="Увеличить количество" data-position-plus></button>
         </div>
         <div class="prices">
           {price < priceOld && (
             <div class="sum-old">
-              <span data-position-sum-old={cartId}>{sumOld.toLocaleString('ru-RU')}</span> ₽
+              <span data-position-sum-old>{sumOld.toLocaleString('ru-RU')}</span> ₽
             </div>
           )}
           <div class="sum">
-            <span data-position-sum={cartId}>{sum.toLocaleString('ru-RU')}</span> ₽
+            <span data-position-sum>{sum.toLocaleString('ru-RU')}</span> ₽
           </div>
         </div>
       </div>
       {0 < economy && (
         <div class="economy">Экономия <strong>
-          <span data-position-economy={cartId}>{economy.toLocaleString('ru-RU')}</span> ₽
+          <span data-position-sum-sale>{economy.toLocaleString('ru-RU')}</span> ₽
         </strong></div>
       )}
     </div>
   </div>
 
-  <div class="position-out" data-position-out={cartId}>
-    <img src="./images/position-del.png" alt="" class="img" width="20" height="20"/>
-    <div>
-      <div class="name">{name}</div>
+  <div class="position-out" data-position-out hidden>
+    <button type="button" class="destroy" title="Удалить позицию окончательно" data-position-destroy>
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20"/>
+    </button>
+    <div class="text">
+      <div class="name">{productName}</div>
       <div class="info">был удален из корзины</div>
     </div>
-    <button type="button" class="button" data-position-restore={cartId}>Восстановить</button>
+    <button type="button" class="button" data-position-restore>Восстановить</button>
   </div>
 
   <script src="./components/tile-position.js" is:inline async></script>

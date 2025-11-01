@@ -14,19 +14,15 @@ const title: string = 'Корзина';
 const link: string = '/cart';
 
 let amountOld: number = 0;
-let amountPositions: number = 0; // TODO Может сюда amountOld ???
 let amountSale: number = 0;
 
 for (const {quantity, price, priceOld}: ICartPosition of positions) {
   amountOld += priceOld * quantity;
-  amountPositions += price * quantity;
   amountSale += (priceOld - price) * quantity;
 }
 
-const amountDelivery: number = 300; // TODO delivery price ???
-
-const amountTotal: number = amountPositions + amountDelivery;
-amountOld += amountDelivery;
+const amountDelivery: number = 300;
+const amountTotal: number = amountOld - amountSale + amountDelivery;
 ---
 
 <Layout title="Корзина" page="cart" isUser={true}>
@@ -44,7 +40,7 @@ amountOld += amountDelivery;
         <div class="row">
           <div class="left black">Стоимость товаров:</div>
           <div class="right black">
-            <span data-amount-positions>{amountPositions.toLocaleString('ru-RU')}</span> ₽
+            <span data-amount-old>{amountOld.toLocaleString('ru-RU')}</span> ₽
           </div>
         </div>
         <div class="row">
@@ -56,7 +52,7 @@ amountOld += amountDelivery;
         <div class="row">
           <div class="left black">Стоимость доставки:</div>
           <div class="right black">
-            <span data-amount-delivery>{amountDelivery.toLocaleString('ru-RU')}</span> ₽
+            <span data-amount-delivery={amountDelivery}>{amountDelivery.toLocaleString('ru-RU')}</span> ₽
           </div>
         </div>
         <div class="row total">
@@ -75,13 +71,11 @@ amountOld += amountDelivery;
   {0 < positions.length && (
     <div class="checkout-wrapper" slot="page-footer">
       <div>
-        {amountTotal < amountOld && (
-          <div class="amount-old">
-            <span data-amount-old>{amountOld.toLocaleString('ru-RU')}</span>
-          </div>
-        )}
-        <div class="amount-total">
-          <span data-amount-total>{amountTotal.toLocaleString('ru-RU')}</span> ₽
+        <div class="bottom-old" hidden={amountTotal === amountOld}>
+          <span data-bottom-old>{(amountOld + amountDelivery).toLocaleString('ru-RU')}</span>
+        </div>
+        <div class="bottom-total">
+          <span data-bottom-total>{amountTotal.toLocaleString('ru-RU')}</span> ₽
         </div>
       </div>
       <a href="/order" class="util-button primary button">
