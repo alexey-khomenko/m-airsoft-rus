@@ -117,21 +117,38 @@
     gap: .5rem;
   }
 
-  .img {
+  .destroy {
     flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
   }
 
-  .name {
-    color: #27282B;
+  .text {
+    font-size: .875rem;
+    line-height: 1.125rem;
+
+    .name {
+      font-weight: 400;
+      color: #27282B;
+    }
+
+    .info {
+      font-weight: 700;
+      color: #BABABA;
+    }
   }
 
-  .info {
-    color: #BABABA;
-  }
 
   .button {
     flex-shrink: 0;
     margin-left: auto;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: .875rem;
+    color: #BABABA;
     text-transform: lowercase;
   }
 }
