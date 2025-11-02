@@ -42,14 +42,14 @@ window.addEventListener('load', () => {
     const input = position.querySelector('[data-position-quantity]');
     const quantity = parseInt(input.value);
 
-    window.cartAdd(position.dataset.productId, quantity);
-    updateCartSummary();
-
     const positionIn = position.querySelector('[data-position-in]');
     const positionOut = position.querySelector('[data-position-out]');
 
     positionOut.hidden = true;
     positionIn.hidden = false;
+
+    window.cartAdd(position.dataset.productId, quantity);
+    updateCartSummary();
   });
 
 
