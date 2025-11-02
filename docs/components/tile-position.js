@@ -28,7 +28,8 @@ window.addEventListener('load', () => {
     positionIn.hidden = true;
     positionOut.hidden = false;
 
-    cartRemove(position.dataset.positionId);
+    window.cartRemove(position.dataset.positionId);
+    updateCartSummary();
   });
 
   document.addEventListener('click', (e) => {
@@ -42,6 +43,7 @@ window.addEventListener('load', () => {
     const quantity = parseInt(input.value);
 
     window.cartAdd(position.dataset.productId, quantity);
+    updateCartSummary();
 
     const positionIn = position.querySelector('[data-position-in]');
     const positionOut = position.querySelector('[data-position-out]');
@@ -66,7 +68,8 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    cartUpdate(position.dataset.positionId, quantity);
+    window.cartUpdate(position.dataset.positionId, quantity);
+    updateCartSummary();
   });
 
   document.addEventListener('click', (e) => {
@@ -84,7 +87,8 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    cartUpdate(position.dataset.positionId, quantity);
+    window.cartUpdate(position.dataset.positionId, quantity);
+    updateCartSummary();
   });
 
   let updateDebounceTimer;
@@ -109,22 +113,10 @@ window.addEventListener('load', () => {
     updateDebounceTimer = setTimeout(() => {
       input.value = quantity;
 
-      cartUpdate(position.dataset.positionId, quantity);
+      window.cartUpdate(position.dataset.positionId, quantity);
+      updateCartSummary();
     }, 1000);
   });
-
-
-  function cartRemove(positionId) {
-    console.log('cartRemove positionId', positionId);
-
-    updateCartSummary();
-  }
-
-  function cartUpdate(positionId, quantity) {
-    console.log('cartUpdate positionId', positionId, quantity);
-
-    updateCartSummary();
-  }
 
   function updateCartSummary() {
     const amountDelivery = document.querySelector('[data-amount-delivery]');

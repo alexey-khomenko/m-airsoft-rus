@@ -1,11 +1,21 @@
 window.cartAdd = function (productId, quantity) {
   const cart = document.querySelector('[data-cart-number]');
-
-  let cartNumber = +cart.dataset.cartNumber;
-
-  cart.setAttribute('data-cart-number', ++cartNumber);
+  const cartNumber = parseInt(cart.dataset.cartNumber);
+  cart.setAttribute('data-cart-number', cartNumber + 1);
 
   console.log('cartAdd productId', productId, quantity);
+};
+
+window.cartRemove = function (positionId) {
+  const cart = document.querySelector('[data-cart-number]');
+  const cartNumber = parseInt(cart.dataset.cartNumber);
+  cart.setAttribute('data-cart-number', cartNumber - 1);
+
+  console.log('cartRemove positionId', positionId);
+};
+
+window.cartUpdate = function (positionId, quantity) {
+  console.log('cartUpdate positionId', positionId, quantity);
 };
 
 
