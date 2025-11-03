@@ -35,6 +35,10 @@ strings.set('="/search"', '="/m-airsoft-rus/search.html"');
 strings.set('="/suppliers"', '="/m-airsoft-rus/suppliers.html"');
 strings.set('="/warranty"', '="/m-airsoft-rus/warranty.html"');
 
+strings.set('="/pay-rules"', '="/m-airsoft-rus/pay-rules.html"');
+strings.set('="/privacy-policy"', '="/m-airsoft-rus/privacy-policy.html"');
+strings.set('="/public-offer"', '="/m-airsoft-rus/public-offer.html"');
+
 strings.set('="/brands?', '="/m-airsoft-rus/brands.html?');
 strings.set('="/cart?', '="/m-airsoft-rus/cart.html?');
 strings.set('="/catalog?', '="/m-airsoft-rus/catalog.html?');
@@ -60,6 +64,10 @@ strings.set('="/reviews-detail?', '="/m-airsoft-rus/reviews-detail.html?');
 strings.set('="/search?', '="/m-airsoft-rus/search.html?');
 strings.set('="/suppliers?', '="/m-airsoft-rus/suppliers.html?');
 strings.set('="/warranty?', '="/m-airsoft-rus/warranty.html?');
+
+strings.set('="/pay-rules?', '="/m-airsoft-rus/pay-rules.html?');
+strings.set('="/privacy-policy?', '="/m-airsoft-rus/privacy-policy.html?');
+strings.set('="/public-offer?', '="/m-airsoft-rus/public-offer.html?');
 
 // Функция для получения HTML-файлов только в указанной директории (без рекурсии)
 function getHtmlFiles(dirPath) {
