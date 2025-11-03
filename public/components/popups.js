@@ -3,12 +3,19 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
+  e.preventDefault();
+
   const name = button.dataset.popupOpen;
 
   const backdrop = document.querySelector('[data-popup-backdrop]');
   const popup = document.querySelector(`[data-popup-name="${name}"]`);
 
-  if (!popup || !backdrop) return true;
+  if (!backdrop) return true;
+
+  if (!popup) {
+    console.log(`Popup "${name}" not found`);
+    return true;
+  }
 
   document.querySelector('.header').hidden = false;
 

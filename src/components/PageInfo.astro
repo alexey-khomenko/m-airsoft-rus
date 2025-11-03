@@ -1,0 +1,19 @@
+---
+import UtilHeader from '../components/UtilHeader.astro';
+import UtilTile from '../components/UtilTile.astro';
+
+interface Props {
+  title: string;
+  content: string;
+}
+
+const {title, content}: Props = Astro.props;
+---
+
+<div class="page-wrapper">
+  <link rel="stylesheet" href="./components/page-info.css"/>
+  <UtilHeader type="page" title={title}/>
+  <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
+    <Fragment set:html={content}/>
+  </UtilTile>
+</div>

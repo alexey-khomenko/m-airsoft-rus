@@ -5,6 +5,7 @@ import PopupLogin from '../components/PopupLogin.astro';
 import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
+import PopupBonus from '../components/PopupBonus.astro';
 
 import type {IPopupFilter, IUser} from '../interfaces';
 
@@ -36,6 +37,9 @@ const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
 
   {popupFilter &&
     <PopupFilters popupFilter={popupFilter}/>}
+
+  {['how-to-buy'].includes(page) &&
+    <PopupBonus/>}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>

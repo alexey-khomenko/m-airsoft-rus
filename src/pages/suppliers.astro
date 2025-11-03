@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageInfo from '../components/PageInfo.astro';
+
+const title: string = 'Поставщикам';
+const content: string = `
+<p>Мы рады сотрудничеству с производителями и поставщиками airsoft-товаров!</p>
+<p>Если у вас есть предложение, напишите на e-mail: <a href="mailto:nl@airsoft-rus.ru">nl@airsoft-rus.ru</a></p>
+`;
 ---
 
 <Layout title="Поставщикам" page="suppliers" isUser={true}>
-  <link rel="stylesheet" href="./pages/suppliers.css"/>
-  <div class="page-wrapper">
-    suppliers
-  </div>
+  <PageInfo content={content} title={title}/>
 </Layout>
