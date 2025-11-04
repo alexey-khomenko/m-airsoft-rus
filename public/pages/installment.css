@@ -1,4 +1,138 @@
 .page-wrapper {
   padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-bottom: .75rem;
+}
+
+.main.installment {
+  background-color: #FFFFFF;
+}
+
+
+.section {
+  margin-block: 2rem;
+  color: #373635;
+
+  &.section-header {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  &.section-rows {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+    .buy-item {
+      max-width: 9.25rem;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      text-align: center;
+
+      img {
+        width: 100%;
+        height: 120px;
+        object-fit: contain;
+      }
+    }
+
+    .row {
+      align-self: stretch;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      .row-item {
+        padding-block: 1rem;
+        width: 40%;
+        flex-grow: 1;
+
+        &.l {
+          padding-right: .5rem;
+          border-right: 1px dashed #999999;
+        }
+
+        &.r {
+          padding-left: .5rem;
+          border-left: 1px dashed transparent;
+        }
+      }
+
+      h4 {
+        margin: 0;
+        min-height: 5.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.125rem;
+        text-align: center;
+      }
+
+      .bank {
+        margin: 0 auto 2rem;
+        width: 100%;
+        height: 5rem;
+        object-fit: contain;
+
+        &.bank-sber {
+          max-width: 200px;
+        }
+
+        &.bank-tinkoff {
+          max-width: 230px;
+        }
+      }
+
+      .buy-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem 1rem;
+      }
+    }
+  }
+
+  &.section-text {
+    p, ol, ul {
+      margin-block: 1.125rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    ol, ul {
+      padding-left: 1.5rem;
+
+      ol, ul {
+        margin-block: 0;
+      }
+
+      li {
+        margin-block: .375rem;
+      }
+    }
+
+    strong, b {
+      font-weight: 700;
+    }
+  }
+
+  &.section-footer {
+    .link {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #009AE3;
+      text-decoration: none;
+    }
+  }
 }

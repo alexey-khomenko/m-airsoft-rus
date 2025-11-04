@@ -11,7 +11,9 @@ const {type, title, link = '/'}: Props = Astro.props;
 {'popup' === type ? (
 <div class:list={['util-header', `type-${type}`]}>
   <link rel="stylesheet" href="./components/util-header.css"/>
-  <h2 class="title">{title}</h2>
+  <h2 class="title">
+    <Fragment set:html={title}/>
+  </h2>
   <button type="button" class="util-link" data-popup-close>
     <span>Отмена</span>
   </button>
@@ -19,7 +21,9 @@ const {type, title, link = '/'}: Props = Astro.props;
   ) : (
 <section class:list={['util-header', `type-${type}`]}>
   <link rel="stylesheet" href="./components/util-header.css"/>
-  <h1 class="title">{title}</h1>
+  <h1 class="title">
+    <Fragment set:html={title}/>
+  </h1>
 
   {('page' === type || 'long' === type) &&
     <a href={link} class="util-link">
