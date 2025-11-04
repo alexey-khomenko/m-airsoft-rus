@@ -31,7 +31,7 @@ const dataArray: string[] = [
       <button type="button" class="remove" title="Удалить позицию из корзины" data-position-remove>
         <img src="./images/position-del.png" alt="" class="del" width="20" height="20"/>
       </button>
-      <img src={img} alt="" class="cover"/>
+      <img src={img} alt="" class="cover" decoding="async" loading="lazy"/>
     </div>
     <div class="right">
       <div class="name">{productName}</div>
