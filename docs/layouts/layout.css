@@ -133,6 +133,7 @@ img {
 }
 
 .util-button {
+  padding: .125rem;
   min-height: 3.125rem;
 
   border-radius: 0.25rem;

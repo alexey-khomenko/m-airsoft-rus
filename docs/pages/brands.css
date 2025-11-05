@@ -2,3 +2,27 @@
   padding-top: .25rem;
   padding-bottom: .25rem;
 }
+
+
+.section {
+  margin-top: .5rem;
+
+  .nav-brands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 70px), 1fr));
+    gap: 1rem;
+
+    .tile {
+      display: block;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .cover {
+      display: block;
+      object-fit: contain;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+  }
+}
