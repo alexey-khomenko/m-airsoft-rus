@@ -78,7 +78,68 @@
         border: 1px solid #8F8F8F;
       }
 
+      .addresses {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1.25rem;
 
+        .address {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 1rem;
+          font-style: normal;
+
+          .icon {
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99999px;
+            background-color: #009AE3;
+            color: #FFFFFF;
+          }
+
+          .text {
+            min-height: 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            font-weight: 400;
+            font-size: .875rem;
+            line-height: 1rem;
+          }
+
+          .link {
+            color: #009AE3;
+            text-decoration: none;
+          }
+
+          .schedule {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: .375rem 1rem;
+
+            font-size: .875rem;
+            line-height: 1rem;
+          }
+
+          .days {
+            font-weight: 700;
+            text-align: right;
+          }
+
+          .clock {
+            font-weight: 400;
+            text-align: left;
+          }
+        }
+      }
     }
   }
 }
