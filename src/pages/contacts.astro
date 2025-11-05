@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 import UtilTile from '../components/UtilTile.astro';
+import ItemNews from '../components/ItemNews.astro';
 
 const title: string = 'Контакты';
 const link: string = '/contacts';
@@ -40,10 +41,11 @@ const link: string = '/contacts';
     </UtilTile>
 
     <UtilTile tag="section" classList={['section', 'section-news']} isHidden={false}>
-      <a href="/news-detail" class="item">
-        <span class="date">29.10.2025</span>
-        <span class="name">График работы магазина в ноябрьские праздники 2025 года</span>
-      </a>
+      <ItemNews item={{
+        date: '29.10.2025',
+        link: '/news-detail',
+        name: 'График работы магазина в ноябрьские праздники 2025 года',
+      }}/>
     </UtilTile>
 
     <UtilTile tag="section" classList={['section', 'section-shop']} isHidden={false}>

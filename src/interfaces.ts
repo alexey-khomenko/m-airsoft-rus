@@ -27,7 +27,7 @@ export interface IProductGroup {
   banner: IBanner;
 }
 
-export interface IIndexNews {
+export interface IItemNews {
   name: string;
   link: string;
   date: string;
@@ -45,7 +45,7 @@ export interface IIndex {
   largeBanners: IBanner[];
   smallBanners: IBanner[];
   productGroups: IProductGroup[];
-  news: IIndexNews[];
+  news: IItemNews[];
   reviews: INewsSlide[];
   brands: IIndexBrand[];
 }

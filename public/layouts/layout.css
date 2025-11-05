@@ -164,18 +164,6 @@ img {
     background-color: #FFFFFF;
     color: #373635;
   }
-
-  &.buy {
-    border-color: #373635;
-    background-color: #373635;
-    color: #FFFFFF;
-  }
-
-  &.index {
-    border-color: #009AE3;
-    background-color: #FFFFFF;
-    color: #009AE3;
-  }
 }
 
 .util-link {

@@ -1,0 +1,17 @@
+---
+import type {IItemNews} from '../interfaces.ts';
+
+interface Props {
+  item: IItemNews;
+}
+
+const {item}: Props = Astro.props;
+
+const {date, link, name}: IItemNews = item;
+---
+
+<a href={link} class="item-news">
+  <link rel="stylesheet" href="./components/item-news.css"/>
+  <span class="date">{date}</span>
+  <span class="name">{name}</span>
+</a>

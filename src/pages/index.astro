@@ -4,8 +4,9 @@ import UtilTile from '../components/UtilTile.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 import SliderNews from '../components/SliderNews.astro';
+import ItemNews from '../components/ItemNews.astro';
 
-import type {IBanner, IProductGroup, IIndexNews, IIndexBrand, IIndex} from '../interfaces';
+import type {IBanner, IProductGroup, IItemNews, IIndexBrand, IIndex} from '../interfaces';
 
 import data from '../pages/index.json';
 
@@ -68,7 +69,7 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
     {productGroups.map(({banner, link, products, title}: IProductGroup) => (
       <section class="section-products">
         <SliderProducts products={products} title={title}/>
-        <a href={link} class="util-button index button">
+        <a href={link} class="util-button button">
           <span>Показать всё</span>
         </a>
         <a href={banner.link} class="banner">
@@ -80,11 +81,8 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
     <UtilTile tag="section" classList={['section-news']} isHidden={false}>
       <SectionHeader title="Актуальные новости" link="/news"/>
       <div class="items">
-        {news.map(({date, link, name}: IIndexNews) => (
-          <a href={link} class="item">
-            <span class="date">{date}</span>
-            <span class="name">{name}</span>
-          </a>
+        {news.map((item: IItemNews) => (
+          <ItemNews item={item}/>
         ))}
       </div>
     </UtilTile>

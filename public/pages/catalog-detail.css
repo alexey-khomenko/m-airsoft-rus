@@ -18,6 +18,9 @@
 
   .button {
     flex-grow: 1;
+    border-color: #373635;
+    background-color: #373635;
+    color: #FFFFFF;
 
     .svg {
       width: 1.375rem;
