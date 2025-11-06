@@ -181,37 +181,117 @@
 
       <div class="orders-title">История заказов</div>
       <div class="orders" data-page-items>
-        <div class="order">
-            <div class="order-header">
-              <span class="title">Заказ № 457</span>
-              <span class="status">Отмена заказа, отказ от оформления</span>
-            </div>
-            <details class="order-main">
-              <summary class="order-summary">
-                <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </summary>
-              <div class="order-content">
-                &hellip;
-              </div>
-            </details>
-          </div><div class="order">
-            <div class="order-header">
-              <span class="title">Заказ № 458</span>
-              <span class="status">Отмена заказа, отказ от оформления</span>
-            </div>
-            <details class="order-main">
-              <summary class="order-summary">
-                <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </summary>
-              <div class="order-content">
-                &hellip;
-              </div>
-            </details>
-          </div>
+        <details class="tile-order">
+  <link rel="stylesheet" href="./components/tile-order.css">
+  <summary class="order-summary">
+    <span class="l">
+      <span class="title">Заказ № 457</span>
+      <span class="status">Отмена заказа, отказ от оформления</span>
+    </span>
+    <span class="r">
+      <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </summary>
+  <div class="order-content">
+    <div class="payment">
+        <span class="text">Оплата при получении</span>
+        <img src="./content/payment-1.png" alt="" class="img" decoding="async" loading="lazy">
+      </div>
+    <button type="button" class="link" data-change-payment="1" data-order-id="457">
+      <span>Изменить способ оплаты</span>
+    </button>
+    <div class="positions">
+      <div class="position">Дробовик Cyma SGR-12 Platinum AEG BK (CM102) - 1 шт.</div>
+    </div>
+    <div class="summary">
+      <div class="row">
+        <div class="left grey">Стоимость товаров:</div>
+        <div class="right black">
+          <span>8 500</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left red">Общая скидка:</div>
+        <div class="right red">
+          <span>0</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left grey">Стоимость доставки:</div>
+        <div class="right black">
+          <span>300</span> ₽
+        </div>
+      </div>
+      <div class="row total">
+        <div class="left black">Общая сумма заказа:</div>
+        <div class="blue">
+          <span>8 800</span> ₽
+        </div>
+      </div>
+    </div>
+    <button type="button" class="util-button primary button" data-button-pay>
+      <span>Оплатить</span>
+    </button>
+  </div>
+  <script src="./components/tile-order.js" async></script>
+</details><details class="tile-order">
+  <link rel="stylesheet" href="./components/tile-order.css">
+  <summary class="order-summary">
+    <span class="l">
+      <span class="title">Заказ № 458</span>
+      <span class="status">Отмена заказа, отказ от оформления</span>
+    </span>
+    <span class="r">
+      <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </summary>
+  <div class="order-content">
+    <div class="payment">
+        <span class="text">Оплата по счёту в банке</span>
+        <img src="./content/payment-5.png" alt="" class="img" decoding="async" loading="lazy">
+      </div>
+    <button type="button" class="link" data-change-payment="5" data-order-id="458">
+      <span>Изменить способ оплаты</span>
+    </button>
+    <div class="positions">
+      <div class="position">Дробовик Cyma SGR-12 Platinum AEG BK (CM102) - 1 шт.</div><div class="position">Дробовик Cyma SGR-12 Platinum AEG BK (CM102) - 1 шт.</div>
+    </div>
+    <div class="summary">
+      <div class="row">
+        <div class="left grey">Стоимость товаров:</div>
+        <div class="right black">
+          <span>21 000</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left red">Общая скидка:</div>
+        <div class="right red">
+          <span>4 000</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left grey">Стоимость доставки:</div>
+        <div class="right black">
+          <span>300</span> ₽
+        </div>
+      </div>
+      <div class="row total">
+        <div class="left black">Общая сумма заказа:</div>
+        <div class="blue">
+          <span>17 300</span> ₽
+        </div>
+      </div>
+    </div>
+    <button type="button" class="util-button primary button" data-button-pay>
+      <span>Оплатить</span>
+    </button>
+  </div>
+  <script src="./components/tile-order.js" async></script>
+</details>
       </div>
     
 <link rel="stylesheet" href="./components/util-tile.css">
@@ -256,6 +336,7 @@
   <script src="./components/section-pagination.js" async></script>
 </section>
   </div>
+
   <script src="./pages/profile.js" async></script>
 
     
@@ -264,7 +345,34 @@
       <div class="container edge">
   <link rel="stylesheet" href="./components/container.css">
   
-        
+        <div class="payments-backdrop" data-payments-backdrop hidden>
+      <div class="payments" data-payments data-order-id="">
+        <div class="payments-header">
+          <span>Изменить способ оплаты</span>
+        </div>
+        <div class="payments-main">
+          <button type="button" class="payment" data-payment-id-new="1">
+              <span class="text">Оплата наличными при получении</span>
+              <img src="./content/payment-1.png" alt="" class="img" decoding="async" loading="lazy">
+            </button><button type="button" class="payment" data-payment-id-new="2">
+              <span class="text">Покупка в рассрочку от Тинькофф</span>
+              <img src="./content/payment-2.png" alt="" class="img" decoding="async" loading="lazy">
+            </button><button type="button" class="payment" data-payment-id-new="3">
+              <span class="text">Покупка в кредит со Сбербанком</span>
+              <img src="./content/payment-3.png" alt="" class="img" decoding="async" loading="lazy">
+            </button><button type="button" class="payment" data-payment-id-new="4">
+              <span class="text">Оплата картой на сайте</span>
+              <img src="./content/payment-4.png" alt="" class="img" decoding="async" loading="lazy">
+            </button><button type="button" class="payment" data-payment-id-new="5">
+              <span class="text">Оплата по счёту в банке</span>
+              <img src="./content/payment-5.png" alt="" class="img" decoding="async" loading="lazy">
+            </button><button type="button" class="payment" data-payment-id-new="6">
+              <span class="text">Я.Рау</span>
+              <img src="./content/payment-6.png" alt="" class="img" decoding="async" loading="lazy">
+            </button>
+        </div>
+      </div>
+    </div>
       
 </div>
     </div>
