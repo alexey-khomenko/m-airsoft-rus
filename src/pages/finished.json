@@ -1,4 +1,5 @@
 {
+  "id": 749466,
   "number": 749466,
   "date": "03.06.25",
   "payment": {
@@ -12,8 +13,10 @@
   },
   "positions": [
     {
-      "title": "Пистолет WE Big Bird Semi GGBB TAN (GP432-T)",
-      "price": 8500
+      "name": "Пистолет WE Big Bird Semi GGBB TAN (GP432-T)",
+      "quantity": 1,
+      "price": 8500,
+      "priceOld": 8500
     }
   ]
 }

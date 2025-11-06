@@ -56,9 +56,9 @@ const {number, date, payment, delivery, positions}: IOrder = data;
     <UtilTile tag="section" classList={['section section-5']} isHidden={false}>
       <h2 class="h2">Состав заказа</h2>
       <div class="positions">
-        {positions.map(({title, price}: IOrderPosition) => (
+        {positions.map(({name, quantity, price}: IOrderPosition) => (
           <div class="position">
-            <span class="left">{title}</span>
+            <span class="left">{`${name} - ${quantity} шт.`}</span>
             <span class="right">{`${price.toLocaleString('ru-RU')} ₽`}</span>
           </div>
         ))}

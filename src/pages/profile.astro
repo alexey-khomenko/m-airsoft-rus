@@ -3,12 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import UtilHeader from '../components/UtilHeader.astro';
 import UtilTile from '../components/UtilTile.astro';
 import SectionPagination from '../components/SectionPagination.astro';
+import TileOrder from '../components/TileOrder.astro';
 
-import type {IUser, IOrderTile} from '../interfaces';
+import type {IUser, IOrderTile, IPayment} from '../interfaces';
 
 import data from '../pages/profile.json';
 
-const {tel, firstName, middleName, lastName, email, amount, balance}: IUser = data.info;
+const {tel, firstName, middleName, lastName, email, amount, balance}: IUser = data.user;
+const payments: IPayment[] = data.payments;
 const orders: IOrderTile[] = data.orders;
 const lastPage: number = data.lastPage;
 const currentPage: number = 1;
@@ -17,7 +19,7 @@ const title: string = 'Личный кабинет';
 const link: string = '/profile';
 ---
 
-<Layout title="Профиль" page="profile" isUser={true} userInfo={data.info}>
+<Layout title="Профиль" page="profile" isUser={true} userInfo={data.user}>
   <link rel="stylesheet" href="./pages/profile.css"/>
   <div class="page-wrapper">
     <UtilHeader type="profile" title={title}/>
@@ -57,24 +59,8 @@ const link: string = '/profile';
     <UtilTile tag="section" classList={['section-orders']} isHidden={false}>
       <div class="orders-title">История заказов</div>
       <div class="orders" data-page-items>
-        {orders.map(({number, status}: IOrderTile) => (
-          <div class="order">
-            <div class="order-header">
-              <span class="title">Заказ № {number}</span>
-              <span class="status">{status}</span>
-            </div>
-            <details class="order-main">
-              <summary class="order-summary">
-                <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </summary>
-              <div class="order-content">
-                &hellip;
-              </div>
-            </details>
-          </div>
+        {orders.map((order: IOrderTile) => (
+          <TileOrder order={order} payments={payments}/>
         ))}
       </div>
     </UtilTile>

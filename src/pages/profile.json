@@ -1,5 +1,5 @@
 {
-  "info": {
+  "user": {
     "tel": "+7 (963) 040-75-12",
     "firstName": "Иван",
     "middleName": "Иванович",
@@ -8,14 +8,80 @@
     "amount": 38880,
     "balance": 880
   },
-  "orders": [
+  "payments": [
     {
-      "number": 457,
-      "status": "Отмена заказа, отказ от оформления"
+      "name": "Оплата наличными при получении",
+      "short": "Оплата при получении",
+      "img": "./content/payment-1.png",
+      "id": 1
     },
     {
+      "name": "Покупка в рассрочку от Тинькофф",
+      "short": "Рассрочка Тинькофф",
+      "img": "./content/payment-2.png",
+      "id": 2
+    },
+    {
+      "name": "Покупка в кредит со Сбербанком",
+      "short": "Кредит Сбербанк",
+      "img": "./content/payment-3.png",
+      "id": 3
+    },
+    {
+      "name": "Оплата картой на сайте",
+      "short": "Оплата картой на сайте",
+      "img": "./content/payment-4.png",
+      "id": 4
+    },
+    {
+      "name": "Оплата по счёту в банке",
+      "short": "Оплата по счёту в банке",
+      "img": "./content/payment-5.png",
+      "id": 5
+    },
+    {
+      "name": "Я.Рау",
+      "short": "Я.Рау",
+      "img": "./content/payment-6.png",
+      "id": 6
+    }
+  ],
+  "orders": [
+    {
+      "id": 457,
+      "number": 457,
+      "status": "Отмена заказа, отказ от оформления",
+      "paymentId": 1,
+      "amountDelivery": 300,
+      "positions": [
+        {
+          "name": "Дробовик Cyma SGR-12 Platinum AEG BK (CM102)",
+          "quantity": 1,
+          "price": 8500,
+          "priceOld": 8500
+        }
+      ]
+    },
+    {
+      "id": 458,
       "number": 458,
-      "status": "Отмена заказа, отказ от оформления"
+      "status": "Отмена заказа, отказ от оформления",
+      "paymentId": 5,
+      "amountDelivery": 300,
+      "positions": [
+        {
+          "name": "Дробовик Cyma SGR-12 Platinum AEG BK (CM102)",
+          "quantity": 1,
+          "price": 8500,
+          "priceOld": 10500
+        },
+        {
+          "name": "Дробовик Cyma SGR-12 Platinum AEG BK (CM102)",
+          "quantity": 1,
+          "price": 8500,
+          "priceOld": 10500
+        }
+      ]
     }
   ],
   "lastPage": 3

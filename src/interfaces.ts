@@ -114,11 +114,14 @@ export interface IOrderDelivery {
 }
 
 export interface IOrderPosition {
-  title: string;
+  name: string;
+  quantity: number;
   price: number;
+  priceOld: number;
 }
 
 export interface IOrder {
+  id: number;
   number: number;
   date: string;
   payment: IOrderPayment;
@@ -163,9 +166,20 @@ export interface INewsTile {
   date: string;
 }
 
+export interface IPayment {
+  name: string;
+  short: string;
+  img: string;
+  id: number;
+}
+
 export interface IOrderTile {
+  id: number;
   number: number;
   status: string;
+  paymentId: number;
+  amountDelivery: number;
+  positions: IOrderPosition[];
 }
 
 export interface IFilterCheckbox {

@@ -1,0 +1,85 @@
+---
+import type {IOrderTile, IOrderPosition, IPayment} from '../interfaces';
+
+interface Props {
+  order: IOrderTile;
+  payments: IPayment[];
+}
+
+const {order, payments}: Props = Astro.props;
+const {id, number, status, paymentId, amountDelivery, positions}: IOrderTile = order;
+
+const payment: IPayment | undefined = payments.find((p: IPayment): boolean => p.id === paymentId);
+
+let amountOld: number = 0;
+let amountSale: number = 0;
+
+for (const {quantity, price, priceOld} of positions) {
+  amountOld += priceOld * quantity;
+  amountSale += (priceOld - price) * quantity;
+}
+
+const amountTotal: number = amountOld - amountSale + amountDelivery;
+---
+
+<details class="tile-order">
+  <link rel="stylesheet" href="./components/tile-order.css"/>
+  <summary class="order-summary">
+    <span class="l">
+      <span class="title">Заказ № {number}</span>
+      <span class="status">{status}</span>
+    </span>
+    <span class="r">
+      <svg class="svg" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.5703 1.35748L7.07031 7.35748L1.57031 1.35748" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </summary>
+  <div class="order-content">
+    {payment && (
+      <div class="payment">
+        <span class="text">{payment.short}</span>
+        <img src={payment.img} alt="" class="img" decoding="async" loading="lazy"/>
+      </div>
+    )}
+    <button type="button" class="link" data-change-payment={paymentId} data-order-id={id}>
+      <span>Изменить способ оплаты</span>
+    </button>
+    <div class="positions">
+      {positions.map(({name, quantity}: IOrderPosition) => (
+        <div class="position">{`${name} - ${quantity} шт.`}</div>
+      ))}
+    </div>
+    <div class="summary">
+      <div class="row">
+        <div class="left grey">Стоимость товаров:</div>
+        <div class="right black">
+          <span>{amountOld.toLocaleString('ru-RU')}</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left red">Общая скидка:</div>
+        <div class="right red">
+          <span>{amountSale.toLocaleString('ru-RU')}</span> ₽
+        </div>
+      </div>
+      <div class="row">
+        <div class="left grey">Стоимость доставки:</div>
+        <div class="right black">
+          <span>{amountDelivery.toLocaleString('ru-RU')}</span> ₽
+        </div>
+      </div>
+      <div class="row total">
+        <div class="left black">Общая сумма заказа:</div>
+        <div class="blue">
+          <span>{amountTotal.toLocaleString('ru-RU')}</span> ₽
+        </div>
+      </div>
+    </div>
+    <button type="button" class="util-button primary button" data-button-pay>
+      <span>Оплатить</span>
+    </button>
+  </div>
+  <script src="./components/tile-order.js" is:inline async></script>
+</details>
