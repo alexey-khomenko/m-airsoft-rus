@@ -14,10 +14,38 @@ window.addEventListener('load', () => {
   });
 
   document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-payment-id-new]');
+
+    if (!button) return true;
+
+    const paymentId = +button.dataset.paymentIdNew;
+    const orderId = +button.closest('[data-order-id]').dataset.orderId;
+
+    console.log('change', orderId, paymentId);
+
+    window.location.reload();
+  });
+
+  document.addEventListener('click', (e) => {
     const button = e.target.closest('[data-change-payment]');
 
     if (!button) return true;
 
-    console.log('change', button.dataset.orderId);
+    const backdrop = document.querySelector('[data-payments-backdrop]');
+    const payments = backdrop.querySelector('[data-payments]');
+
+    payments.setAttribute('data-order-id', button.dataset.orderId);
+    backdrop.hidden = false;
   });
+
+  document.addEventListener('click', (e) => {
+    const backdrop = e.target.closest('[data-payments-backdrop]');
+    const payments = e.target.closest('[data-payments]');
+
+    if (!backdrop || payments) return true;
+
+    document.querySelector('[data-payments-backdrop]').hidden = true;
+  });
+
+  // TODO Скрытие крестиком
 });

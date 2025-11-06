@@ -77,7 +77,8 @@ img {
     scroll-behavior: smooth;
   }
 
-  &:has(.popups:not([hidden])) {
+  &:has(.popups:not([hidden])),
+  &:has(.payments-backdrop:not([hidden])) {
     display: block;
     overflow-y: hidden;
   }

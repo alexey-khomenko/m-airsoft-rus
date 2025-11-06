@@ -68,5 +68,23 @@ const link: string = '/profile';
     {1 < lastPage &&
       <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
   </div>
+
+  {0 < orders.length && (
+    <div slot="page-footer" class="payments-backdrop" data-payments-backdrop hidden>
+      <div class="payments" data-payments data-order-id="">
+        <div class="payments-header">
+          <span>Изменить способ оплаты</span>
+        </div>
+        <div class="payments-main">
+          {payments.map((payment: IPayment) => (
+            <button type="button" class="payment" data-payment-id-new={payment.id}>
+              <span class="text">{payment.name}</span>
+              <img src={payment.img} alt="" class="img" decoding="async" loading="lazy"/>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
   <script src="./pages/profile.js" is:inline async></script>
 </Layout>
