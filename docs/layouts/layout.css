@@ -62,7 +62,7 @@ img {
   scrollbar-gutter: stable;
   font-family: system-ui, sans-serif;
   overflow-x: hidden;
-
+  display: block;
   font-size: var(--layout--fz, 12px);
 
   @media (min-width: 320px) {
@@ -77,10 +77,16 @@ img {
     scroll-behavior: smooth;
   }
 
-  &:has(.popups:not([hidden])),
-  &:has(.payments-backdrop:not([hidden])) {
-    display: block;
+  &:has(.popups:not([hidden])) {
     overflow-y: hidden;
+  }
+
+  &:has(.payments-backdrop:not([hidden])) {
+    overflow-y: hidden;
+
+    .page-footer:after, .footer {
+      display: none;
+    }
   }
 }
 

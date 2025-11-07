@@ -23,12 +23,42 @@
 
   .payments {
     padding: .5rem;
+    overflow: auto;
+    border-radius: 1.375rem 1.375rem 0 0;
     background-color: #FFFFFF;
+    box-shadow: 0 0 3rem 0 rgba(0, 0, 0, .2);
+    width: var(--payments--w, 100%);
+
+    @container app (width > 430px) {
+      --payments--w: 360px;
+    }
 
     .payments-header {
+      margin-block: 1.25rem;
+      padding-inline: 3.5rem;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .text {
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        color: #27282B;
+        text-align: center;
+      }
+
+      .close {
+        position: absolute;
+        right: .325rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.75rem;
+        border: none;
+        background-color: transparent;
+        color: #8F8F8F;
+      }
     }
 
     .payments-main {
@@ -54,9 +84,10 @@
 
       .text {
         font-weight: 400;
-        font-size: 1.125rem;
-        line-height: 1.375rem;
+        font-size: 1rem;
+        line-height: 1.125rem;
         color: #27282B;
+        text-align: left;
       }
 
       .img {
@@ -64,19 +95,14 @@
         right: .5rem;
         top: 50%;
         transform: translateY(-50%);
-        width: 3rem;
-        height: 2rem;
+        max-width: 3rem;
+        max-height: 2rem;
         object-fit: contain;
       }
     }
   }
 }
 
-.layout:has(.payments-backdrop:not([hidden])) {
-  .page-footer:after, .footer {
-    display: none;
-  }
-}
 
 .section {
   margin-top: .5rem;
