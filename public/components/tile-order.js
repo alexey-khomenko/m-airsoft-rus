@@ -41,11 +41,10 @@ window.addEventListener('load', () => {
   document.addEventListener('click', (e) => {
     const backdrop = e.target.closest('[data-payments-backdrop]');
     const payments = e.target.closest('[data-payments]');
+    const close = e.target.closest('[data-payments-close]');
 
-    if (!backdrop || payments) return true;
-
-    document.querySelector('[data-payments-backdrop]').hidden = true;
+    if (close || (backdrop && !payments)) {
+      document.querySelector('[data-payments-backdrop]').hidden = true;
+    }
   });
-
-  // TODO Скрытие крестиком
 });

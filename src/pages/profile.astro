@@ -73,7 +73,15 @@ const link: string = '/profile';
     <div slot="page-footer" class="payments-backdrop" data-payments-backdrop hidden>
       <div class="payments" data-payments data-order-id="">
         <div class="payments-header">
-          <span>Изменить способ оплаты</span>
+          <span class="text">Изменить способ оплаты</span>
+          <button type="button" class="close" data-payments-close>
+            <svg width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.999999 1L7 6.5L1 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+              <path d="M13 12L7 6.5L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
         <div class="payments-main">
           {payments.map((payment: IPayment) => (
