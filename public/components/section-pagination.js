@@ -39,7 +39,7 @@ document.addEventListener('click', (e) => {
 
   const content = document.querySelector('[data-page-items]');
 
-  const testElem = content.querySelector(':scope > div');
+  const testElem = content.querySelector(':scope > div') || content.querySelector(':scope > details');
   const newElem = testElem.cloneNode(true);
   console.log('newElem', testElem);
 

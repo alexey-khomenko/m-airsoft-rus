@@ -23,8 +23,15 @@
 
   .payments {
     padding: .5rem;
+    overflow: auto;
     border-radius: 1.375rem 1.375rem 0 0;
     background-color: #FFFFFF;
+    box-shadow: 0 0 3rem 0 rgba(0, 0, 0, .2);
+    width: var(--payments--w, 100%);
+
+    @container app (width > 430px) {
+      --payments--w: 360px;
+    }
 
     .payments-header {
       margin-block: 1.25rem;
@@ -101,6 +108,7 @@
     display: none;
   }
 }
+
 
 .section {
   margin-top: .5rem;
