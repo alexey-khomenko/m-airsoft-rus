@@ -8,7 +8,6 @@
 }
 
 .page-footer {
-
   .button-buy-wrapper:not([hidden]) {
     height: var(--catalog-detail-button-buy-wrapper--h);
     display: flex;

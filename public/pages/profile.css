@@ -103,12 +103,6 @@
   }
 }
 
-.layout:has(.payments-backdrop:not([hidden])) {
-  .page-footer:after, .footer {
-    display: none;
-  }
-}
-
 
 .section {
   margin-top: .5rem;

@@ -1,6 +1,10 @@
 .page-wrapper {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.main.brands {
+  background-color: #FFFFFF;
 }
 
 
