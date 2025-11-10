@@ -3,7 +3,9 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
+
   console.log('POST request to logout');
+
 
   window.location.assign(button.dataset.buttonLogoutTo);
 });

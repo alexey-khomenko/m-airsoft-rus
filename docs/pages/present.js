@@ -14,7 +14,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderName = inputSenderName.value.trim();
 
   if (0 === valueSenderName.length) {
-    window.fieldErrorAdd(inputSenderName);
+    window.fieldError.add(inputSenderName);
     errors = true;
   }
 
@@ -22,7 +22,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientName = inputRecipientName.value.trim();
 
   if (0 === valueRecipientName.length) {
-    window.fieldErrorAdd(inputRecipientName);
+    window.fieldError.add(inputRecipientName);
     errors = true;
   }
 
@@ -31,7 +31,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderEmail = inputSenderEmail.value.trim();
 
   if (0 === valueSenderEmail.length || !valueSenderEmail.includes('@') || !valueSenderEmail.includes('.')) {
-    window.fieldErrorAdd(inputSenderEmail);
+    window.fieldError.add(inputSenderEmail);
     errors = true;
   }
 
@@ -39,7 +39,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientEmail = inputRecipientEmail.value.trim();
 
   if (0 === valueRecipientEmail.length || !valueRecipientEmail.includes('@') || !valueRecipientEmail.includes('.')) {
-    window.fieldErrorAdd(inputRecipientEmail);
+    window.fieldError.add(inputRecipientEmail);
     errors = true;
   }
 
@@ -48,7 +48,7 @@ document.addEventListener('submit', (e) => {
   const valueSenderPhone = inputSenderPhone.value.trim();
 
   if (0 === valueSenderPhone.length || valueSenderPhone.includes('_')) {
-    window.fieldErrorAdd(inputSenderPhone);
+    window.fieldError.add(inputSenderPhone);
     errors = true;
   }
 
@@ -56,7 +56,7 @@ document.addEventListener('submit', (e) => {
   const valueRecipientPhone = inputRecipientPhone.value.trim();
 
   if (0 === valueRecipientPhone.length || valueRecipientPhone.includes('_')) {
-    window.fieldErrorAdd(inputRecipientPhone);
+    window.fieldError.add(inputRecipientPhone);
     errors = true;
   }
 
@@ -73,14 +73,15 @@ document.addEventListener('submit', (e) => {
   const valuePresentText = inputPresentText.value.trim();
 
   if (0 === valuePresentText.length) {
-    window.fieldErrorAdd(inputPresentText);
+    window.fieldError.add(inputPresentText);
     errors = true;
   }
 
 
   if (errors) return true;
 
-  console.log('submit', action);
+
+  console.log('POST request to', action);
 
   console.log('valueSenderName', valueSenderName);
   console.log('valueRecipientName', valueRecipientName);
@@ -93,6 +94,7 @@ document.addEventListener('submit', (e) => {
 
   console.log('valuePresentSum', valuePresentSum);
   console.log('valuePresentText', valuePresentText);
+
 
   form.querySelector('[type="submit"]').hidden = true;
 });

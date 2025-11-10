@@ -5,7 +5,7 @@ document.addEventListener('click', (e) => {
 
   const productId = button.dataset.cartAdd;
 
-  window.cartAdd(productId, 1);
+  window.cart.add(productId, 1);
 
   button.closest('.button-buy-wrapper').hidden = true;
 });

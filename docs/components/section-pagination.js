@@ -15,14 +15,17 @@ document.addEventListener('click', (e) => {
   const {pageParam, pageCurrent} = pagination.dataset;
 
   const oldNumber = +pageCurrent;
+  const newNumber = oldNumber + 1;
+  const nextNumber = newNumber + 1;
 
-  console.log(oldNumber);
+  console.log('old page number', oldNumber);
+  console.log('new page number', newNumber);
 
-  const newPage = document.querySelector(`[data-page-number="${oldNumber + 1}"]`);
+  const newPage = document.querySelector(`[data-page-number="${newNumber}"]`);
 
   if (newPage) newPage.classList.add('current');
 
-  pagination.setAttribute('data-page-current', oldNumber + 1);
+  pagination.setAttribute('data-page-current', newNumber);
 
   const lastPage = document.querySelector('[data-page-last]');
   const nextPage = document.querySelector('[data-page-next]');
@@ -33,15 +36,18 @@ document.addEventListener('click', (e) => {
   }
   else {
     const url = new URL(nextPage.href);
-    url.searchParams.set(pageParam, oldNumber + 2);
+    url.searchParams.set(pageParam, nextNumber);
     nextPage.href = url.toString();
   }
 
   const content = document.querySelector('[data-page-items]');
 
+
+  console.log('POST request to get page', newNumber);
   const testElem = content.querySelector(':scope > div') || content.querySelector(':scope > details');
   const newElem = testElem.cloneNode(true);
   console.log('newElem', testElem);
+
 
   content.appendChild(newElem);
 });

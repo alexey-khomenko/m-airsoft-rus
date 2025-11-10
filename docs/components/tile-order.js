@@ -21,7 +21,11 @@ window.addEventListener('load', () => {
     const paymentId = +button.dataset.paymentIdNew;
     const orderId = +button.closest('[data-order-id]').dataset.orderId;
 
-    console.log('change', orderId, paymentId);
+
+    console.log('POST request to change payment');
+    console.log('orderId', orderId);
+    console.log('paymentId', paymentId);
+
 
     window.location.reload();
   });
@@ -46,5 +50,11 @@ window.addEventListener('load', () => {
     if (close || (backdrop && !payments)) {
       document.querySelector('[data-payments-backdrop]').hidden = true;
     }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if ('Escape' !== e.key) return true;
+
+    document.querySelector('[data-payments-backdrop]').hidden = true;
   });
 });
