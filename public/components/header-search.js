@@ -8,38 +8,36 @@ const search = {
   input: document.querySelector('[data-form-search] [name="search"]'),
   limit: 3,
   debounceTimer: null,
+  show: function () {
+    window.closePopup();
+
+    window.fieldError.remove(search.fake);
+    window.fieldError.remove(search.popup);
+    window.fieldError.remove(search.wrapper);
+
+    search.backdrop.hidden = false;
+    search.popup.hidden = false;
+    search.form.classList.add('open');
+  },
+  hide: function () {
+    if (!search.form.classList.contains('open')) return;
+
+    window.fieldError.remove(search.fake);
+    window.fieldError.remove(search.popup);
+    window.fieldError.remove(search.wrapper);
+
+    search.backdrop.hidden = true;
+    search.popup.hidden = true;
+    search.form.classList.remove('open');
+  },
 };
-
-function showHeaderSearchPopup() {
-  window.closePopup();
-
-  window.fieldErrorRemove(search.fake);
-  window.fieldErrorRemove(search.popup);
-  window.fieldErrorRemove(search.wrapper);
-
-  search.backdrop.hidden = false;
-  search.popup.hidden = false;
-  search.form.classList.add('open');
-}
-
-function hideHeaderSearchPopup() {
-  if (!search.form.classList.contains('open')) return;
-
-  window.fieldErrorRemove(search.fake);
-  window.fieldErrorRemove(search.popup);
-  window.fieldErrorRemove(search.wrapper);
-
-  search.backdrop.hidden = true;
-  search.popup.hidden = true;
-  search.form.classList.remove('open');
-}
 
 document.addEventListener('focusin', (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
 
   if (!input) return true;
 
-  showHeaderSearchPopup();
+  search.show();
 });
 
 document.addEventListener('submit', (e) => {
@@ -53,9 +51,9 @@ document.addEventListener('submit', (e) => {
   const value = search.input.value.trim();
 
   if (search.limit > value.length) {
-    window.fieldErrorAdd(search.fake);
-    window.fieldErrorAdd(search.popup);
-    window.fieldErrorAdd(search.wrapper);
+    window.fieldError.add(search.fake);
+    window.fieldError.add(search.popup);
+    window.fieldError.add(search.wrapper);
     return true;
   }
 
@@ -76,15 +74,20 @@ document.addEventListener('click', (e) => {
 
   if (form || popup) return true;
 
-  hideHeaderSearchPopup();
+  search.hide();
 });
 
 document.addEventListener('keydown', function (e) {
   if ('Escape' !== e.key) return true;
 
-  hideHeaderSearchPopup();
+  search.hide();
   search.input.blur();
 });
+
+
+const testElems = search.results.innerHTML;
+search.results.innerHTML = '';
+
 
 document.addEventListener('input', (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
@@ -95,17 +98,21 @@ document.addEventListener('input', (e) => {
 
   search.results.hidden = true;
 
-  window.fieldErrorRemove(search.fake);
-  window.fieldErrorRemove(search.popup);
-  window.fieldErrorRemove(search.wrapper);
+  window.fieldError.remove(search.fake);
+  window.fieldError.remove(search.popup);
+  window.fieldError.remove(search.wrapper);
 
   const value = search.input.value.trim();
 
   if (search.limit > value.length) return;
 
+  search.results.innerHTML = '';
+
   search.debounceTimer = setTimeout(() => {
 
-    console.log('request', value);
+    console.log('POST request to search', value);
+    search.results.innerHTML = testElems;
+
 
     search.results.hidden = false;
   }, 1000);

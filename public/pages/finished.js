@@ -3,5 +3,6 @@ document.addEventListener('click', (e) => {
 
   if (!button) return true;
 
+
   console.log('pay');
 });

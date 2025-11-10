@@ -13,7 +13,7 @@ document.addEventListener('submit', (e) => {
   const valueLastName = inputLastName.value.trim();
 
   if (0 === valueLastName.length) {
-    window.fieldErrorAdd(inputLastName);
+    window.fieldError.add(inputLastName);
     errors = true;
   }
 
@@ -21,7 +21,7 @@ document.addEventListener('submit', (e) => {
   const valueFirstName = inputFirstName.value.trim();
 
   if (0 === valueFirstName.length) {
-    window.fieldErrorAdd(inputFirstName);
+    window.fieldError.add(inputFirstName);
     errors = true;
   }
 
@@ -29,7 +29,7 @@ document.addEventListener('submit', (e) => {
   const valueMiddleName = inputMiddleName.value.trim();
 
   if (0 === valueMiddleName.length) {
-    window.fieldErrorAdd(inputMiddleName);
+    window.fieldError.add(inputMiddleName);
     errors = true;
   }
 
@@ -37,13 +37,20 @@ document.addEventListener('submit', (e) => {
   const valueEmail = inputEmail.value.trim();
 
   if (0 === valueEmail.length || !valueEmail.includes('@') || !valueEmail.includes('.')) {
-    window.fieldErrorAdd(inputEmail);
+    window.fieldError.add(inputEmail);
     errors = true;
   }
 
   if (errors) return true;
 
-  console.log('submit', action, valueLastName, valueFirstName, valueMiddleName, valueEmail);
+
+  console.log('POST request to', action);
+
+  console.log('valueLastName', valueLastName);
+  console.log('valueFirstName', valueFirstName);
+  console.log('valueMiddleName', valueMiddleName);
+  console.log('valueEmail', valueEmail);
+
 
   window.location.reload();
 });

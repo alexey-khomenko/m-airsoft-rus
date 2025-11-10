@@ -14,7 +14,7 @@ document.addEventListener('submit', (e) => {
   const valueName = inputName.value.trim();
 
   if (0 === valueName.length) {
-    window.fieldErrorAdd(inputName);
+    window.fieldError.add(inputName);
     errors = true;
   }
 
@@ -22,7 +22,7 @@ document.addEventListener('submit', (e) => {
   const valueText = inputText.value.trim();
 
   if (0 === valueText.length) {
-    window.fieldErrorAdd(inputText);
+    window.fieldError.add(inputText);
     errors = true;
   }
 
@@ -36,11 +36,13 @@ document.addEventListener('submit', (e) => {
 
   if (errors) return true;
 
-  console.log('submit', action);
+
+  console.log('POST request to', action);
 
   console.log('valueName', valueName);
   console.log('valueText', valueText);
   console.log('valueImage', file);
+
 
   form.querySelector('[type="submit"]').hidden = true;
 });

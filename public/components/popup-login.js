@@ -10,11 +10,13 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (0 === value.length || value.includes('_')) {
-    window.fieldErrorAdd(input);
+    window.fieldError.add(input);
     return true;
   }
 
-  console.log('submit', action, value);
+
+  console.log('POST request to', action, value);
+
 
   const step1 = document.querySelector('[data-popup-login-step="1"]');
   const step2 = document.querySelector('[data-popup-login-step="2"]');
@@ -35,11 +37,13 @@ document.addEventListener('submit', (e) => {
   const value = input.value.trim();
 
   if (+input.maxLength !== value.length) {
-    window.fieldErrorAdd(input);
+    window.fieldError.add(input);
     return true;
   }
 
-  console.log('submit', action, value);
+
+  console.log('POST request to', action, value);
+
 
   window.location.reload();
 });

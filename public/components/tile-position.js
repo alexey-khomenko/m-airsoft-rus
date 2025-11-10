@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
     positionIn.hidden = true;
     positionOut.hidden = false;
 
-    window.cartRemove(position.dataset.positionId);
+    window.cart.remove(position.dataset.productId);
     updateCartSummary();
   });
 
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
     positionOut.hidden = true;
     positionIn.hidden = false;
 
-    window.cartAdd(position.dataset.productId, quantity);
+    window.cart.add(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    window.cartUpdate(position.dataset.positionId, quantity);
+    window.cart.update(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    window.cartUpdate(position.dataset.positionId, quantity);
+    window.cart.update(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
@@ -113,7 +113,7 @@ window.addEventListener('load', () => {
     updateDebounceTimer = setTimeout(() => {
       input.value = quantity;
 
-      window.cartUpdate(position.dataset.positionId, quantity);
+      window.cart.update(position.dataset.productId, quantity);
       updateCartSummary();
     }, 1000);
   });
