@@ -2,23 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import UtilTile from '../components/UtilTile.astro';
 
-import type {IOrder} from '../interfaces';
+import type {IFinished} from '../interfaces';
 
 import data from '../pages/finished.json';
-import type {IOrderPosition} from '../interfaces.ts';
+import type {IFinishedPosition} from '../interfaces.ts';
 
-const {number, date, payment, delivery, positions}: IOrder = data;
+const {number, date, payment, delivery, positions}: IFinished = data;
 ---
 
 <Layout title="Ваш заказ принят" page="finished" isUser={true}>
   <link rel="stylesheet" href="./pages/finished.css"/>
   <div class="page-wrapper">
-    <UtilTile tag="section" classList={['section section-1']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-1']}>
       <h1 class="h1">Ваш заказ {number} от {date} принят</h1>
       <p class="p">Менеджер свяжется с вами по телефону, если потребуется уточнение деталей заказа.</p>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section section-2']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-2']}>
       <h2 class="h2">{payment.type}</h2>
       <div class="payment">
         Стоимость: <strong>{`${payment.amount.toLocaleString('ru-RU')} руб.`}</strong>
@@ -28,7 +28,7 @@ const {number, date, payment, delivery, positions}: IOrder = data;
       </button>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section section-3']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-3']}>
       <div class="row">
         <svg width="38" height="38" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" class="svg">
           <path fill="#40B3E0"
@@ -47,16 +47,16 @@ const {number, date, payment, delivery, positions}: IOrder = data;
       </a>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section section-4']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-4']}>
       <h2 class="h2">Доставка</h2>
       <div class="delivery">{delivery.type}:</div>
       <div class="delivery">{delivery.info}</div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section section-5']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-5']}>
       <h2 class="h2">Состав заказа</h2>
       <div class="positions">
-        {positions.map(({name, quantity, price}: IOrderPosition) => (
+        {positions.map(({name, quantity, price}: IFinishedPosition) => (
           <div class="position">
             <span class="left">{`${name} - ${quantity} шт.`}</span>
             <span class="right">{`${price.toLocaleString('ru-RU')} ₽`}</span>
@@ -77,7 +77,7 @@ const {number, date, payment, delivery, positions}: IOrder = data;
       </div>
     </UtilTile>
 
-    <UtilTile tag="section" classList={['section section-6']} isHidden={false}>
+    <UtilTile tag="section" classList={['section section-6']}>
       <p class="p">
         Мы ежедневно стремимся улучшать качество обслуживания в нашем магазине, решать все вопросы оперативно и быть на
         стороне наших покупателей!

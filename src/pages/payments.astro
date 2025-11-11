@@ -39,7 +39,7 @@ const data: { title: string, text: string }[] = [
     <UtilHeader type="page" title={title}/>
 
     {data.map(({title, text}: { title: string, text: string }) => (
-      <UtilTile tag="section" classList={['section']} isHidden={false}>
+      <UtilTile tag="section" classList={['section']}>
         <details class="payment">
           <summary class="payment-summary">
             <span class="title">{title}</span>

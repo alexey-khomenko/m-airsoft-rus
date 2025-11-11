@@ -18,7 +18,7 @@ const {tel}: IUser = userInfo;
 <Popup name="profile-tel" title="Изменение&nbsp;номера" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="popup-login">
-    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
+    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']}>
       <form class="form-login" action="/api-change-tel-tg" novalidate data-form-login-phone>
         <InputTel label="Новый номер" name="phone" classList={['strong', 'high']} value={tel}/>
         <button type="submit" class="util-button primary button">

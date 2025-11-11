@@ -5,13 +5,13 @@ import UtilTile from '../components/UtilTile.astro';
 import SectionPagination from '../components/SectionPagination.astro';
 import TileOrder from '../components/TileOrder.astro';
 
-import type {IUser, IOrderTile, IPayment} from '../interfaces';
+import type {IUser, ITileOrder, IPayment} from '../interfaces';
 
 import data from '../pages/profile.json';
 
 const {tel, firstName, middleName, lastName, email, amount, balance}: IUser = data.user;
 const payments: IPayment[] = data.payments;
-const orders: IOrderTile[] = data.orders;
+const orders: ITileOrder[] = data.orders;
 const lastPage: number = data.lastPage;
 const currentPage: number = 1;
 
@@ -25,7 +25,7 @@ const link: string = '/profile';
     <UtilHeader type="profile" title={title}/>
 
     {1 === currentPage && (
-      <UtilTile tag="section" classList={['section']} isHidden={false}>
+      <UtilTile tag="section" classList={['section']}>
         <div class="info">
           <span class="primary title">{tel}</span>
         </div>
@@ -34,7 +34,7 @@ const link: string = '/profile';
         </button>
       </UtilTile>
 
-      <UtilTile tag="section" classList={['section']} isHidden={false}>
+      <UtilTile tag="section" classList={['section']}>
         <div class="info">
           <span class="primary title">{lastName} {firstName} {middleName}</span>
           <span class="primary text">{email}</span>
@@ -44,7 +44,7 @@ const link: string = '/profile';
         </button>
       </UtilTile>
 
-      <UtilTile tag="section" classList={['section']} isHidden={false}>
+      <UtilTile tag="section" classList={['section']}>
         <div class="info">
           <span class="primary title">{amount.toLocaleString('ru-RU')} руб.</span>
           <span class="third text">Общая сумма заказов</span>
@@ -56,10 +56,10 @@ const link: string = '/profile';
       </UtilTile>
     )}
 
-    <UtilTile tag="section" classList={['section-orders']} isHidden={false}>
+    <UtilTile tag="section" classList={['section-orders']}>
       <div class="orders-title">История заказов</div>
       <div class="orders" data-page-items>
-        {orders.map((order: IOrderTile) => (
+        {orders.map((order: ITileOrder) => (
           <TileOrder order={order} payments={payments}/>
         ))}
       </div>

@@ -14,7 +14,7 @@ interface Props {
 const {classList, title, link, items}: Props = Astro.props;
 ---
 
-<UtilTile tag="section" classList={['slider-news', ...classList]} isHidden={false}>
+<UtilTile tag="section" classList={['slider-news', ...classList]}>
   <link rel="stylesheet" href="./components/slider-news.css"/>
   <SectionHeader title={title} link={link}/>
   <div class="items">

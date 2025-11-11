@@ -14,7 +14,7 @@ const {link, img, name, date}: INewsTile = news;
 const classList: string[] = ['news'];
 ---
 
-<UtilTile tag="div" classList={classList} isHidden={false}>
+<UtilTile tag="div" classList={classList}>
   <link rel="stylesheet" href="./components/tile-news.css"/>
   <a href={link} class="top-link">
     <img src={img} alt="" class="img" decoding="async" loading="lazy"/>

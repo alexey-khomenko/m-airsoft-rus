@@ -16,7 +16,7 @@ const {firstName, middleName, lastName, email}: IUser = userInfo;
 <Popup name="profile-name" title="Личные данные" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-profile-name.css"/>
   <div class="popup-profile-name">
-    <UtilTile tag="div" classList={['step']} isHidden={false}>
+    <UtilTile tag="div" classList={['step']}>
       <form class="form-profile-name" action="/api-profile-name" novalidate data-form-profile-name>
         <div class="util-form-fieldset fieldset">
           <label class="label" for="last-name">Фамилия</label>

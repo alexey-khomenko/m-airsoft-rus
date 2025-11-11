@@ -8,7 +8,7 @@ import InputCode from '../components/InputCode.astro';
 <Popup name="login" title="Вход" bgLight={false}>
   <link rel="stylesheet" href="./components/popup-login.css"/>
   <div class="popup-login">
-    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']} isHidden={false}>
+    <UtilTile tag="div" classList={['step']} dataArray={['data-popup-login-step="1"']}>
       <form class="form-login" action="/api-login-tg" novalidate data-form-login-phone>
         <InputTel label="Номер телефона" name="phone" classList={['strong', 'high']}/>
         <button type="submit" class="util-button primary button">

@@ -45,7 +45,7 @@ const popupFilter: IPopupFilter = {
       <SectionPagination currentPage={currentPage} lastPage={lastPage} baseLink={link}/>}
 
     {1 === currentPage && (
-      <UtilTile tag="section" classList={['section-info', 'mt1']} isHidden={false}>
+      <UtilTile tag="section" classList={['section-info', 'mt1']}>
         <Fragment set:html={info}/>
       </UtilTile>
     )}

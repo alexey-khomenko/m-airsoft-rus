@@ -16,7 +16,7 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
 <Layout title="Главная" page="index" isUser={false}>
   <link rel="stylesheet" href="./pages/index.css"/>
   <div class="page-wrapper">
-    <UtilTile tag="section" classList={['section-info', 'mt1']} isHidden={false}>
+    <UtilTile tag="section" classList={['section-info', 'mt1']}>
       <h1>AirSoft-RUS.ru — интернет магазин для страйкболиста №1 в России</h1>
       <p>
         В продаже широкий выбор страйкбольного оружия (автоматы АК и М-серий, винтовки, пулеметы, пистолеты, дробовики,
@@ -78,7 +78,7 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
       </section>
     ))}
 
-    <UtilTile tag="section" classList={['section-news']} isHidden={false}>
+    <UtilTile tag="section" classList={['section-news']}>
       <SectionHeader title="Актуальные новости" link="/news"/>
       <div class="items">
         {news.map((item: IItemNews) => (
@@ -89,7 +89,7 @@ const {largeBanners, smallBanners, productGroups, news, reviews, brands}: IIndex
 
     <SliderNews classList={['section-reviews']} title="Последние обзоры" link="/reviews" items={reviews}/>
 
-    <UtilTile tag="section" classList={['section-brands']} isHidden={false}>
+    <UtilTile tag="section" classList={['section-brands']}>
       <SectionHeader title="Популярные бренды" link="/brands"/>
       <div class="items">
         {brands.map(({height, img, link, name, width}: IIndexBrand) => (

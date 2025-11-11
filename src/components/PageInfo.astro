@@ -13,7 +13,7 @@ const {title, content}: Props = Astro.props;
 <div class="page-wrapper">
   <link rel="stylesheet" href="./components/page-info.css"/>
   <UtilHeader type="page" title={title}/>
-  <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
+  <UtilTile tag="section" classList={['section-info', 'mt2']}>
     <Fragment set:html={content}/>
   </UtilTile>
 </div>

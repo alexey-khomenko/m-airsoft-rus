@@ -14,6 +14,17 @@ export interface ILink {
   name: string;
 }
 
+
+export interface IUser {
+  tel: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  email: string;
+  amount: number;
+  balance: number;
+}
+
 export interface INewsSlide {
   name: string;
   link: string;
@@ -50,14 +61,12 @@ export interface IIndex {
   brands: IIndexBrand[];
 }
 
-export interface IUser {
-  tel: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  email: string;
-  amount: number;
-  balance: number;
+export interface IOrder {
+  user: IUser | null;
+  city: string;
+  comment: string;
+  certificate: string;
+  bonuses: number;
 }
 
 export interface ICatalog {
@@ -102,31 +111,31 @@ export interface INewsDetail {
   comments: INewsComment[];
 }
 
-export interface IOrderPayment {
+export interface IFinishedPayment {
   type: string;
   amount: number;
 }
 
-export interface IOrderDelivery {
+export interface IFinishedDelivery {
   type: string;
   info: string;
   price: number;
 }
 
-export interface IOrderPosition {
+export interface IFinishedPosition {
   name: string;
   quantity: number;
   price: number;
   priceOld: number;
 }
 
-export interface IOrder {
+export interface IFinished {
   id: number;
   number: number;
   date: string;
-  payment: IOrderPayment;
-  delivery: IOrderDelivery;
-  positions: IOrderPosition[];
+  payment: IFinishedPayment;
+  delivery: IFinishedDelivery;
+  positions: IFinishedPosition[];
 }
 
 export interface ICartPosition {
@@ -173,13 +182,13 @@ export interface IPayment {
   id: number;
 }
 
-export interface IOrderTile {
+export interface ITileOrder {
   id: number;
   number: number;
   status: string;
   paymentId: number;
   amountDelivery: number;
-  positions: IOrderPosition[];
+  positions: IFinishedPosition[];
 }
 
 export interface IFilterCheckbox {

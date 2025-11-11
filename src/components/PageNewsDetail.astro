@@ -22,13 +22,13 @@ const {news, items, comments}: INewsDetail = data;
 
   <UtilHeader type="long" title={news.name} link={root}/>
 
-  <UtilTile tag="section" classList={['section-info', 'mt2']} isHidden={false}>
+  <UtilTile tag="section" classList={['section-info', 'mt2']}>
     <Fragment set:html={news.info}/>
   </UtilTile>
 
   <SliderNews classList={['section-items']} title="Читайте другие обзоры" link={root} items={items}/>
 
-  <UtilTile tag="section" classList={['section-comments']} isHidden={false}>
+  <UtilTile tag="section" classList={['section-comments']}>
     <h2 class="title">Комментарии</h2>
     {0 < comments.length && (
       <div class="comments">
@@ -39,7 +39,7 @@ const {news, items, comments}: INewsDetail = data;
     )}
   </UtilTile>
 
-  <UtilTile tag="section" classList={['section-comment-form']} isHidden={false}>
+  <UtilTile tag="section" classList={['section-comment-form']}>
     <form class="form-comment" action="/api-comment" novalidate data-form-comment>
       <div class="util-form-fieldset fieldset">
         <label class="label" for="name">Ваше имя:</label>

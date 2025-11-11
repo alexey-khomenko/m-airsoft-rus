@@ -1,13 +1,13 @@
 ---
-import type {IOrderTile, IOrderPosition, IPayment} from '../interfaces';
+import type {ITileOrder, IFinishedPosition, IPayment} from '../interfaces';
 
 interface Props {
-  order: IOrderTile;
+  order: ITileOrder;
   payments: IPayment[];
 }
 
 const {order, payments}: Props = Astro.props;
-const {id, number, status, paymentId, amountDelivery, positions}: IOrderTile = order;
+const {id, number, status, paymentId, amountDelivery, positions}: ITileOrder = order;
 
 const payment: IPayment | undefined = payments.find((p: IPayment): boolean => p.id === paymentId);
 
@@ -47,7 +47,7 @@ const amountTotal: number = amountOld - amountSale + amountDelivery;
       <span>Изменить способ оплаты</span>
     </button>
     <div class="positions">
-      {positions.map(({name, quantity}: IOrderPosition) => (
+      {positions.map(({name, quantity}: IFinishedPosition) => (
         <div class="position">{`${name} - ${quantity} шт.`}</div>
       ))}
     </div>

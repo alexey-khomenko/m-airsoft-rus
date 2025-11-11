@@ -1,10 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import UtilHeader from '../components/UtilHeader.astro';
+import OrderSummary from '../components/OrderSummary.astro';
+import OrderBonuses from '../components/OrderBonuses.astro';
+import OrderCertificate from '../components/OrderCertificate.astro';
+import OrderComment from '../components/OrderComment.astro';
+import OrderPayment from '../components/OrderPayment.astro';
+import OrderDelivery from '../components/OrderDelivery.astro';
+import OrderCity from '../components/OrderCity.astro';
+import OrderPersonal from '../components/OrderPersonal.astro';
+
+import type {IOrder} from '../interfaces.ts';
+
+import data from '../pages/order.json';
+
+const {user, city, comment, certificate, bonuses}: IOrder = data;
+
+//
+const deliveries: {}[] = [];
+const delivery: {} = {};
+
+const payments: {}[] = [];
+const payment: {} = {};
+
+// TODO summary
+//
+
+const title: string = 'Оформление заказа';
+const link: string = '/order';
+const root: string = 'cart';
 ---
 
 <Layout title="Оформление заказа" page="order" isUser={true}>
   <link rel="stylesheet" href="./pages/order.css"/>
   <div class="page-wrapper">
-    order
+    <UtilHeader type="page" title={title} link={root}/>
+
+    <section class="tiles">
+      <OrderPersonal user={user}/>
+      <OrderCity city={city}/>
+      <OrderDelivery deliveries={deliveries} delivery={delivery}/>
+      <OrderPayment payments={payments} payment={payment}/>
+      <OrderComment comment={comment}/>
+      <OrderCertificate certificate={certificate}/>
+      <OrderBonuses balance={user ? user.balance : 0} bonuses={bonuses}/>
+      <OrderSummary/>
+    </section>
   </div>
 </Layout>
