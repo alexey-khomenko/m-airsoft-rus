@@ -1,11 +1,45 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+
+interface Props {
+  balance: number;
+  bonuses: number;
+}
+
+const {balance, bonuses}: Props = Astro.props;
 ---
 
+{0 < balance && (
 <UtilTile tag="div" classList={['rows', 'order-bonuses']}>
   <link rel="stylesheet" href="./components/order-bonuses.css"/>
 
-  <h2 class="h2">Оплатить бонусами</h2>
+  <div class="order-header">
+    <h2 class="h2">Оплатить бонусами</h2>
+    <button type="button" class="button" data-order-bonuses-form-open>
+      <span>V</span>
+    </button>
+    <button type="button" class="button" data-order-bonuses-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="balance-wrapper">
+    <span class="balance" data-info-balance={balance}>{balance.toLocaleString('ru-RU')}</span> бонусов на счету
+  </div>
+
+  <div class="info" data-order-bonuses-output hidden={0 === bonuses}>
+    - <span class="bonuses" data-info-bonuses={bonuses}>{bonuses.toLocaleString('ru-RU')}</span>
+  </div>
+
+  <form class="form" action="/api-order-bonuses" novalidate data-form-order-bonuses hidden>
+
+    <span></span>
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить</span>
+    </button>
+  </form>
 
   <script src="./components/order-bonuses.js" is:inline async></script>
 </UtilTile>
+  )}

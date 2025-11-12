@@ -14,15 +14,15 @@ const title: string = 'Корзина';
 const link: string = '/cart';
 
 let amountOld: number = 0;
-let amountSale: number = 0;
+let amountDiscount: number = 0;
 
 for (const {quantity, price, priceOld}: ICartPosition of positions) {
   amountOld += priceOld * quantity;
-  amountSale += (priceOld - price) * quantity;
+  amountDiscount += (priceOld - price) * quantity;
 }
 
 const amountDelivery: number = 300;
-const amountTotal: number = amountOld - amountSale + amountDelivery;
+const amountTotal: number = amountOld - amountDiscount + amountDelivery;
 ---
 
 <Layout title="Корзина" page="cart" isUser={true}>
@@ -46,7 +46,7 @@ const amountTotal: number = amountOld - amountSale + amountDelivery;
         <div class="row">
           <div class="left red">Общая скидка:</div>
           <div class="right red">
-            <span data-amount-sale>{amountSale.toLocaleString('ru-RU')}</span> ₽
+            <span data-amount-discount>{amountDiscount.toLocaleString('ru-RU')}</span> ₽
           </div>
         </div>
         <div class="row">

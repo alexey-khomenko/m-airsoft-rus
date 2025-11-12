@@ -1,5 +1,12 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+
+interface Props {
+  payments: {}[];
+  payment: {};
+}
+
+const {payments, payment}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-payment']}>

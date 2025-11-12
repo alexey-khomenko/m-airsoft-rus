@@ -8,8 +8,14 @@
     "amount": 38880,
     "balance": 940
   },
-  "city": "",
+  "city": "Москва, Россия",
   "comment": "",
   "certificate": "",
-  "bonuses": 0
+  "bonuses": 0,
+  "amount": {
+    "old": 8500,
+    "discount": 3000,
+    "delivery": 300,
+    "total": 15030
+  }
 }

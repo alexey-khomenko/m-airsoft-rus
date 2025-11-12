@@ -124,7 +124,7 @@ window.addEventListener('load', () => {
 
 
     let newAmountOld = 0;
-    let newAmountSale = 0;
+    let newAmountDiscount = 0;
 
     const positions = document.querySelectorAll('[data-position-id]');
 
@@ -137,28 +137,28 @@ window.addEventListener('load', () => {
 
       const sumOld = priceOld * quantity;
       const sum = price * quantity;
-      const sumSale = sumOld - sum;
+      const sumDiscount = sumOld - sum;
 
       const positionSumOld = position.querySelector('[data-position-sum-old]');
       const positionSum = position.querySelector('[data-position-sum]');
-      const positionSumSale = position.querySelector('[data-position-sum-sale]');
+      const positionSumDiscount = position.querySelector('[data-position-sum-discount]');
 
       if (positionSumOld) positionSumOld.textContent = sumOld.toLocaleString('ru-RU');
       if (positionSum) positionSum.textContent = sum.toLocaleString('ru-RU');
-      if (positionSumSale) positionSumSale.textContent = sumSale.toLocaleString('ru-RU');
+      if (positionSumDiscount) positionSumDiscount.textContent = sumDiscount.toLocaleString('ru-RU');
 
       newAmountOld += sumOld;
-      newAmountSale += sumSale;
+      newAmountDiscount += sumDiscount;
     }
 
-    const newAmountTotal = newAmountOld - newAmountSale + delivery;
+    const newAmountTotal = newAmountOld - newAmountDiscount + delivery;
     const newBottomOld = newAmountOld + delivery;
 
     if (0 === newAmountOld) window.location.reload();
 
 
     const amountOld = document.querySelector('[data-amount-old]');
-    const amountSale = document.querySelector('[data-amount-sale]');
+    const amountDiscount = document.querySelector('[data-amount-discount]');
     const amountTotal = document.querySelector('[data-amount-total]');
 
     const bottomOld = document.querySelector('[data-bottom-old]');
@@ -167,7 +167,7 @@ window.addEventListener('load', () => {
     if (!bottomOld) console.log('Верните <div class="bottom-old"></div>');
 
     if (amountOld) amountOld.textContent = newAmountOld.toLocaleString('ru-RU');
-    if (amountSale) amountSale.textContent = newAmountSale.toLocaleString('ru-RU');
+    if (amountDiscount) amountDiscount.textContent = newAmountDiscount.toLocaleString('ru-RU');
     if (amountTotal) amountTotal.textContent = newAmountTotal.toLocaleString('ru-RU');
     if (bottomOld) bottomOld.textContent = newBottomOld.toLocaleString('ru-RU');
     if (bottomTotal) bottomTotal.textContent = newAmountTotal.toLocaleString('ru-RU');

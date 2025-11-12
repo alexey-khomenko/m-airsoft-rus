@@ -1,11 +1,38 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+
+interface Props {
+  comment: string;
+}
+
+const {comment}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-comment']}>
   <link rel="stylesheet" href="./components/order-comment.css"/>
 
-  <h2 class="h2">Комментарий к заказу</h2>
+  <div class="order-header">
+    <h2 class="h2">Комментарий к заказу</h2>
+    <button type="button" class="button" data-order-comment-form-open>
+      <span data-order-comment-form-add hidden={0 < comment.length}>Добавить</span>
+      <span data-order-comment-form-edit hidden={0 === comment.length}>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-comment-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="info" data-order-comment-output hidden={0 === comment.length}>
+    <div class="comment" data-info-comment>{comment}</div>
+  </div>
+
+  <form class="form" action="/api-order-comment" novalidate data-form-order-comment hidden>
+
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить и сохранить</span>
+    </button>
+  </form>
 
   <script src="./components/order-comment.js" is:inline async></script>
 </UtilTile>

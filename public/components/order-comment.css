@@ -1,3 +1,19 @@
 .order-comment {
+  .info {
+    margin-top: .75rem;
+    margin-bottom: .25rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #27282B;
+  }
 
+  .form {
+    margin-top: .75rem;
+
+    .button {
+      margin-top: .625rem;
+      width: 100%;
+    }
+  }
 }

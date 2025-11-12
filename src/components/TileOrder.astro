@@ -12,14 +12,14 @@ const {id, number, status, paymentId, amountDelivery, positions}: ITileOrder = o
 const payment: IPayment | undefined = payments.find((p: IPayment): boolean => p.id === paymentId);
 
 let amountOld: number = 0;
-let amountSale: number = 0;
+let amountDiscount: number = 0;
 
 for (const {quantity, price, priceOld} of positions) {
   amountOld += priceOld * quantity;
-  amountSale += (priceOld - price) * quantity;
+  amountDiscount += (priceOld - price) * quantity;
 }
 
-const amountTotal: number = amountOld - amountSale + amountDelivery;
+const amountTotal: number = amountOld - amountDiscount + amountDelivery;
 ---
 
 <details class="tile-order">
@@ -61,7 +61,7 @@ const amountTotal: number = amountOld - amountSale + amountDelivery;
       <div class="row">
         <div class="left red">Общая скидка:</div>
         <div class="right red">
-          <span>{amountSale.toLocaleString('ru-RU')}</span> ₽
+          <span>{amountDiscount.toLocaleString('ru-RU')}</span> ₽
         </div>
       </div>
       <div class="row">

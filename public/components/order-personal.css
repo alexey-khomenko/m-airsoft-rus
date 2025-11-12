@@ -1,3 +1,30 @@
 .order-personal {
 
+  .info {
+    margin-top: .75rem;
+    margin-bottom: .25rem;
+    color: #27282B;
+
+    .full-name,
+    .tel {
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.375rem;
+    }
+
+    .email {
+      margin-top: .625rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  .form {
+
+    .button {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+  }
 }

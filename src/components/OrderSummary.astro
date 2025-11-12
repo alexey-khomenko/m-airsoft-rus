@@ -1,10 +1,67 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+
+import type {IOrderAmount} from '../interfaces.ts';
+
+interface Props {
+  amount: IOrderAmount;
+}
+
+const {amount}: Props = Astro.props;
+const {old, discount, delivery, total}: IOrderAmount = amount;
 ---
 
 <UtilTile tag="div" classList={['order-summary']}>
   <link rel="stylesheet" href="./components/order-summary.css"/>
 
+  <div class="row">
+    <div class="left black">Стоимость товаров:</div>
+    <div class="right black">
+      <span data-amount-old={old}>{old.toLocaleString('ru-RU')}</span> ₽
+    </div>
+  </div>
+  <div class="row">
+    <div class="left red">Общая скидка:</div>
+    <div class="right red">
+      <span data-amount-discount={discount}>{discount.toLocaleString('ru-RU')}</span> ₽
+    </div>
+  </div>
+  <div class="row">
+    <div class="left black">Стоимость доставки:</div>
+    <div class="right black">
+      <span data-amount-delivery={delivery}>{delivery.toLocaleString('ru-RU')}</span> ₽
+    </div>
+  </div>
+  <div class="row total">
+    <div class="left black">Общая сумма заказа:</div>
+    <div class="blue">
+      <span data-amount-total={total}>{total.toLocaleString('ru-RU')}</span> ₽
+    </div>
+  </div>
+
+  <form class="form" action="/api-order-summary" novalidate data-form-order-summary data-finished="/finished">
+    <button type="submit" class="util-button primary button">
+      <span>Подтвердить</span>
+    </button>
+    <div class="checkboxes">
+      <div class="group l">
+        <input type="checkbox" value="Y" class="checkbox" name="privacy-policy" id="privacy-policy"/>
+        <label for="privacy-policy" class="label">Я ознакомлен с политикой конфиденциальности</label>
+      </div>
+      <div class="group r">
+        <input type="checkbox" value="Y" class="checkbox" name="public-offer" id="public-offer"/>
+        <label for="public-offer" class="label">Я прочитал и принимаю публичную оферту</label>
+      </div>
+    </div>
+  </form>
+
+  <div class="info">
+    Нажимая кнопку "Подтверждаю заказ", Я подтверждаю, что ознакомлен и согласен с условиями
+    <a href="/public-offer" target="_blank">Публичной оферты</a>.
+    Настоящим я подтверждаю, что даю согласие ООО «СТРАЙКБОЛ-РУС» и его уполномоченным представителям
+    на обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
+    <a href="/privacy-policy" target="_blank">Политике конфиденциальности</a>.
+  </div>
 
   <script src="./components/order-summary.js" is:inline async></script>
 </UtilTile>

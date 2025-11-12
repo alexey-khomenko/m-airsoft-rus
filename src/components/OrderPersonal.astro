@@ -1,11 +1,51 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+
+import type {IUser} from '../interfaces.ts';
+
+interface Props {
+  user: IUser | null;
+}
+
+const {user}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-personal']}>
   <link rel="stylesheet" href="./components/order-personal.css"/>
 
-  <h2 class="h2">Личные данные</h2>
+  <div class="order-header">
+    <h2 class="h2">Личные данные</h2>
+    <button type="button" class="button" data-order-personal-form-open>
+      <span data-order-personal-form-add hidden={user}>Добавить</span>
+      <span data-order-personal-form-edit hidden={!user}>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-personal-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="info" data-order-personal-output hidden={!user}>
+    <div class="full-name" data-info-name>{user ? `${user.lastName} ${user.firstName} ${user.middleName}` : ''}</div>
+    <div class="tel" data-info-tel>{user ? user.tel : ''}</div>
+    <div class="email" data-info-email>{user ? user.email : ''}</div>
+  </div>
+
+  <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
+
+    <label>Телефон</label>
+
+    <label>Фамилия</label>
+
+    <label>Имя</label>
+
+    <label>Отчество</label>
+
+    <label>E-mail</label>
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить и сохранить</span>
+    </button>
+  </form>
 
   <script src="./components/order-personal.js" is:inline async></script>
 </UtilTile>
