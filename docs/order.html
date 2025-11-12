@@ -143,7 +143,39 @@
 
   <link rel="stylesheet" href="./components/order-personal.css">
 
-  <h2 class="h2">Личные данные</h2>
+  <div class="order-header">
+    <h2 class="h2">Личные данные</h2>
+    <button type="button" class="button" data-order-personal-form-open>
+      <span data-order-personal-form-add hidden>Добавить</span>
+      <span data-order-personal-form-edit>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-personal-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="info" data-order-personal-output>
+    <div class="full-name" data-info-name>Иванов Иван Иванович</div>
+    <div class="tel" data-info-tel>+7 (963) 040-75-12</div>
+    <div class="email" data-info-email>airsoftrus@gmail.com</div>
+  </div>
+
+  <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
+
+    <label>Телефон</label>
+
+    <label>Фамилия</label>
+
+    <label>Имя</label>
+
+    <label>Отчество</label>
+
+    <label>E-mail</label>
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить и сохранить</span>
+    </button>
+  </form>
 
   <script src="./components/order-personal.js" async></script>
 
@@ -155,7 +187,7 @@
 
   <h2 class="h2">Ваш город</h2>
 
-  <script src="./components/order-city.js" async></script>
+  Москва, Россия<script src="./components/order-city.js" async></script>
 
 <link rel="stylesheet" href="./components/util-tile.css">
 </div>
@@ -183,7 +215,28 @@
 
   <link rel="stylesheet" href="./components/order-comment.css">
 
-  <h2 class="h2">Комментарий к заказу</h2>
+  <div class="order-header">
+    <h2 class="h2">Комментарий к заказу</h2>
+    <button type="button" class="button" data-order-comment-form-open>
+      <span data-order-comment-form-add>Добавить</span>
+      <span data-order-comment-form-edit hidden>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-comment-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="info" data-order-comment-output hidden>
+    <div class="comment" data-info-comment></div>
+  </div>
+
+  <form class="form" action="/api-order-comment" novalidate data-form-order-comment hidden>
+
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить и сохранить</span>
+    </button>
+  </form>
 
   <script src="./components/order-comment.js" async></script>
 
@@ -193,7 +246,29 @@
 
   <link rel="stylesheet" href="./components/order-certificate.css">
 
-  <h2 class="h2">Сертификат/промо-код</h2>
+  <div class="order-header">
+    <h2 class="h2">Сертификат/промо-код</h2>
+    <button type="button" class="button" data-order-certificate-form-open>
+      <span data-order-certificate-form-add>Добавить</span>
+      <span data-order-certificate-form-edit hidden>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-certificate-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="info" data-order-certificate-output hidden>
+    <div class="certificate" data-info-certificate></div>
+  </div>
+
+  <form class="form" action="/api-order-certificate" novalidate data-form-order-certificate hidden>
+
+    <span></span>
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить</span>
+    </button>
+  </form>
 
   <script src="./components/order-certificate.js" async></script>
 
@@ -203,7 +278,32 @@
 
   <link rel="stylesheet" href="./components/order-bonuses.css">
 
-  <h2 class="h2">Оплатить бонусами</h2>
+  <div class="order-header">
+    <h2 class="h2">Оплатить бонусами</h2>
+    <button type="button" class="button" data-order-bonuses-form-open>
+      <span>V</span>
+    </button>
+    <button type="button" class="button" data-order-bonuses-form-close hidden>
+      <span>Закрыть</span>
+    </button>
+  </div>
+
+  <div class="balance-wrapper">
+    <span class="balance" data-info-balance="940">940</span> бонусов на счету
+  </div>
+
+  <div class="info" data-order-bonuses-output hidden>
+    - <span class="bonuses" data-info-bonuses="0">0</span>
+  </div>
+
+  <form class="form" action="/api-order-bonuses" novalidate data-form-order-bonuses hidden>
+
+    <span></span>
+
+    <button type="submit" class="util-button primary button">
+      <span>Применить</span>
+    </button>
+  </form>
 
   <script src="./components/order-bonuses.js" async></script>
 
@@ -213,6 +313,54 @@
 
   <link rel="stylesheet" href="./components/order-summary.css">
 
+  <div class="row">
+    <div class="left black">Стоимость товаров:</div>
+    <div class="right black">
+      <span data-amount-old="8500">8 500</span> ₽
+    </div>
+  </div>
+  <div class="row">
+    <div class="left red">Общая скидка:</div>
+    <div class="right red">
+      <span data-amount-discount="3000">3 000</span> ₽
+    </div>
+  </div>
+  <div class="row">
+    <div class="left black">Стоимость доставки:</div>
+    <div class="right black">
+      <span data-amount-delivery="300">300</span> ₽
+    </div>
+  </div>
+  <div class="row total">
+    <div class="left black">Общая сумма заказа:</div>
+    <div class="blue">
+      <span data-amount-total="15030">15 030</span> ₽
+    </div>
+  </div>
+
+  <form class="form" action="/api-order-summary" novalidate data-form-order-summary data-finished="/m-airsoft-rus/finished.html">
+    <button type="submit" class="util-button primary button">
+      <span>Подтвердить</span>
+    </button>
+    <div class="checkboxes">
+      <div class="group l">
+        <input type="checkbox" value="Y" class="checkbox" name="privacy-policy" id="privacy-policy">
+        <label for="privacy-policy" class="label">Я ознакомлен с политикой конфиденциальности</label>
+      </div>
+      <div class="group r">
+        <input type="checkbox" value="Y" class="checkbox" name="public-offer" id="public-offer">
+        <label for="public-offer" class="label">Я прочитал и принимаю публичную оферту</label>
+      </div>
+    </div>
+  </form>
+
+  <div class="info">
+    Нажимая кнопку "Подтверждаю заказ", Я подтверждаю, что ознакомлен и согласен с условиями
+    <a href="/m-airsoft-rus/public-offer.html" target="_blank">Публичной оферты</a>.
+    Настоящим я подтверждаю, что даю согласие ООО «СТРАЙКБОЛ-РУС» и его уполномоченным представителям
+    на обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
+    <a href="/m-airsoft-rus/privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+  </div>
 
   <script src="./components/order-summary.js" async></script>
 

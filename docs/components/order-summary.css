@@ -1,3 +1,101 @@
 .order-summary {
 
+  .row {
+    margin-bottom: .25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+
+    &.total {
+      margin-top: .75rem;
+    }
+
+    .left {
+      font-weight: 300;
+      font-size: .875rem;
+      line-height: 1.25rem;
+    }
+
+    .right {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+
+    .black {
+      color: #27282B;
+    }
+
+    .red {
+      color: #E81331;
+    }
+
+    .blue {
+      font-weight: 700;
+      font-size: 1.375rem;
+      line-height: 1.625rem;
+      color: #009AE3;
+    }
+  }
+
+  .form {
+    margin-top: 1.125rem;
+
+    .button {
+      width: 100%;
+    }
+
+    .checkboxes {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .checkbox {
+      appearance: none;
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: .125rem;
+      border: 1px solid var(--checkbox-bc, #DADDDF);
+
+      &:checked {
+        --checkbox-bc: transparent;
+        box-shadow: 0 0 9px 4px rgba(0, 0, 0, .1) inset;
+      }
+    }
+
+    .label {
+      cursor: pointer;
+      font-weight: 400;
+      font-size: .75rem;
+      line-height: .875rem;
+      color: #27282B;
+      letter-spacing: -1px;
+      user-select: none;
+    }
+  }
+
+  .info {
+    margin-top: 1.25rem;
+    font-weight: 200;
+    font-size: .75rem;
+    line-height: .875rem;
+    color: #27282B;
+    text-align: center;
+
+    a {
+      color: #27282B;
+      text-decoration: none;
+    }
+  }
 }
