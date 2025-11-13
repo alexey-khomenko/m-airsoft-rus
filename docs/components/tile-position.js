@@ -107,7 +107,8 @@ window.addEventListener('load', () => {
     const quantityMin = 1;
     const quantityMax = +position.dataset.positionQuantityMax;
 
-    if (quantityMin > quantity) quantity = 1;
+    if (isNaN(quantity)) quantity = quantityMin;
+    if (quantityMin > quantity) quantity = quantityMin;
     if (quantityMax < quantity) quantity = quantityMax;
 
     updateDebounceTimer = setTimeout(() => {

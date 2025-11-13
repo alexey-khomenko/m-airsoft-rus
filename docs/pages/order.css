@@ -35,12 +35,14 @@
     gap: .5rem;
 
     .button {
+      min-width: 3.75rem;
       border: none;
       background-color: transparent;
       font-weight: 500;
       font-size: .875rem;
       line-height: 1.25rem;
       color: #BABABA;
+      text-align: center;
       text-transform: lowercase;
     }
   }

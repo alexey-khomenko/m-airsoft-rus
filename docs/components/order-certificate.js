@@ -65,12 +65,19 @@ window.addEventListener('load', () => {
     e.preventDefault();
 
     const action = form.action;
+    const input = form.querySelector('[name="certificate"]');
+    const value = input.value.trim();
 
 
     console.log('POST request to', action);
-    component.certificate.textContent = 'test';
+    console.log('certificate', value);
+    const responseCertificate = value;
 
 
+    input.value = responseCertificate;
+    component.certificate.textContent = responseCertificate;
+
+    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
     component.closeForm();
   });
 });

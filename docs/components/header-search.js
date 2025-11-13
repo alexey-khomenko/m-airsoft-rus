@@ -35,9 +35,7 @@ const search = {
 document.addEventListener('focusin', (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
 
-  if (!input) return true;
-
-  search.show();
+  if (input) search.show();
 });
 
 document.addEventListener('submit', (e) => {
@@ -63,9 +61,7 @@ document.addEventListener('submit', (e) => {
 document.addEventListener('click', (e) => {
   const button = e.target.closest('[data-submit-form-search]');
 
-  if (!button) return true;
-
-  search.form.querySelector('[type="submit"]').click();
+  if (button) search.form.querySelector('[type="submit"]').click();
 });
 
 document.addEventListener('click', (e) => {
@@ -104,7 +100,7 @@ document.addEventListener('input', (e) => {
 
   const value = search.input.value.trim();
 
-  if (search.limit > value.length) return;
+  if (search.limit > value.length) return true;
 
   search.results.innerHTML = '';
 

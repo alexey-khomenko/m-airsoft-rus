@@ -156,22 +156,37 @@
 
   <div class="info" data-order-personal-output>
     <div class="full-name" data-info-name>Иванов Иван Иванович</div>
-    <div class="tel" data-info-tel>+7 (963) 040-75-12</div>
+    <div class="phone" data-info-phone>+7 (963) 040-75-12</div>
     <div class="email" data-info-email>airsoftrus@gmail.com</div>
   </div>
 
   <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
 
-    <label>Телефон</label>
+    <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-tel.css">
+  <label class="label" for="phone">Телефон</label>
+  <div class="phone-wrapper">
+    <input type="tel" name="phone" id="phone" maxlength="24" value="+7 (963) 040-75-12" inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false" class="util-form-field input low">
+  </div>
+  <script src="./components/input-tel.js" async></script>
+</div>
 
-    <label>Фамилия</label>
-
-    <label>Имя</label>
-
-    <label>Отчество</label>
-
-    <label>E-mail</label>
-
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="last-name">Фамилия</label>
+      <input type="text" name="last-name" id="last-name" maxlength="256" value="Иванов" autocorrect="off" spellcheck="false" class="util-form-field low input">
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="first-name">Имя</label>
+      <input type="text" name="first-name" id="first-name" maxlength="256" value="Иван" autocorrect="off" spellcheck="false" class="util-form-field low input">
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="middle-name">Отчество</label>
+      <input type="text" name="middle-name" id="middle-name" maxlength="256" value="Иванович" autocorrect="off" spellcheck="false" class="util-form-field low input">
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="email">E-mail</label>
+      <input type="email" name="email" id="email" maxlength="256" value="airsoftrus@gmail.com" inputmode="email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false" class="util-form-field low input">
+    </div>
     <button type="submit" class="util-button primary button">
       <span>Применить и сохранить</span>
     </button>
@@ -185,9 +200,16 @@
 
   <link rel="stylesheet" href="./components/order-city.css">
 
-  <h2 class="h2">Ваш город</h2>
+  <div class="order-header">
+    <h2 class="h2">Ваш город</h2>
+  </div>
 
-  Москва, Россия<script src="./components/order-city.js" async></script>
+  <form class="form" action="/api-order-city" novalidate data-form-order-city>
+    <input type="text" name="city" id="city" maxlength="256" value="Москва, Россия" autocorrect="off" spellcheck="false" class="util-form-field strong low input" data-input-order-city placeholder="Введите ваш город" aria-label="Ваш город">
+    <button type="submit" hidden>Применить</button>
+  </form>
+
+  <script src="./components/order-city.js" async></script>
 
 <link rel="stylesheet" href="./components/util-tile.css">
 </div>
@@ -227,11 +249,20 @@
   </div>
 
   <div class="info" data-order-comment-output hidden>
-    <div class="comment" data-info-comment></div>
+    <pre class="comment" data-info-comment></pre>
   </div>
 
   <form class="form" action="/api-order-comment" novalidate data-form-order-comment hidden>
 
+    <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  
+  <div class="textarea-wrapper">
+    <textarea name="comment" id="comment" maxlength="512" aria-label="Комментарий к заказу" autocorrect="off" spellcheck="true" placeholder="Просьбы и пожелания ..." class="util-form-field textarea strong"></textarea>
+    <textarea maxlength="512" aria-label="" autocorrect="off" spellcheck="true" class="util-form-field textarea-fake strong"></textarea>
+  </div>
+  <script src="./components/input-textarea.js" async></script>
+</div>
 
     <button type="submit" class="util-button primary button">
       <span>Применить и сохранить</span>
@@ -263,7 +294,7 @@
 
   <form class="form" action="/api-order-certificate" novalidate data-form-order-certificate hidden>
 
-    <span></span>
+    <input type="text" name="certificate" id="certificate" maxlength="256" value autocorrect="off" spellcheck="false" class="util-form-field strong low input" placeholder="Введите если есть" aria-label="Сертификат/промо-код">
 
     <button type="submit" class="util-button primary button">
       <span>Применить</span>
@@ -281,7 +312,9 @@
   <div class="order-header">
     <h2 class="h2">Оплатить бонусами</h2>
     <button type="button" class="button" data-order-bonuses-form-open>
-      <span>V</span>
+      <svg width="13" height="8" viewBox="0 0 13 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1L6.5 7L1 1" stroke="#27282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
     </button>
     <button type="button" class="button" data-order-bonuses-form-close hidden>
       <span>Закрыть</span>
@@ -289,16 +322,17 @@
   </div>
 
   <div class="balance-wrapper">
-    <span class="balance" data-info-balance="940">940</span> бонусов на счету
+    <span class="balance" data-info-balance="940">940 бонусов</span>
+    на счету
   </div>
 
   <div class="info" data-order-bonuses-output hidden>
-    - <span class="bonuses" data-info-bonuses="0">0</span>
+    - <span class="bonuses" data-info-bonuses="0">0</span> бонусов
   </div>
 
   <form class="form" action="/api-order-bonuses" novalidate data-form-order-bonuses hidden>
 
-    <span></span>
+    <input type="text" name="bonuses" id="bonuses" maxlength="256" value="0" inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false" min="0" max="940" class="util-form-field strong low input" placeholder="Введите сумму" aria-label="Бонусы">
 
     <button type="submit" class="util-button primary button">
       <span>Применить</span>
@@ -309,36 +343,36 @@
 
 <link rel="stylesheet" href="./components/util-tile.css">
 </div>
-      <div class="util-tile order-summary"  >
+      <div class="util-tile order-summary" data-order-summary-check-action="/api-order-summary" >
 
   <link rel="stylesheet" href="./components/order-summary.css">
 
   <div class="row">
     <div class="left black">Стоимость товаров:</div>
     <div class="right black">
-      <span data-amount-old="8500">8 500</span> ₽
+      <span data-order-summary-old>8 500</span> ₽
     </div>
   </div>
   <div class="row">
     <div class="left red">Общая скидка:</div>
     <div class="right red">
-      <span data-amount-discount="3000">3 000</span> ₽
+      <span data-order-summary-discount>3 000</span> ₽
     </div>
   </div>
   <div class="row">
     <div class="left black">Стоимость доставки:</div>
     <div class="right black">
-      <span data-amount-delivery="300">300</span> ₽
+      <span data-order-summary-delivery>300</span> ₽
     </div>
   </div>
   <div class="row total">
     <div class="left black">Общая сумма заказа:</div>
     <div class="blue">
-      <span data-amount-total="15030">15 030</span> ₽
+      <span data-order-summary-total>15 030</span> ₽
     </div>
   </div>
 
-  <form class="form" action="/api-order-summary" novalidate data-form-order-summary data-finished="/m-airsoft-rus/finished.html">
+  <form class="form" action="/api-order" novalidate data-form-order-summary data-finished="/m-airsoft-rus/finished.html">
     <button type="submit" class="util-button primary button">
       <span>Подтвердить</span>
     </button>

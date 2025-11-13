@@ -65,11 +65,17 @@ window.addEventListener('load', () => {
     e.preventDefault();
 
     const action = form.action;
+    const input = form.querySelector('[name="comment"]');
+    let value = input.value.trim();
 
 
     console.log('POST request to', action);
-    component.comment.textContent = 'test';
+    console.log('comment', value);
+    const responseComment = value;
 
+
+    input.value = responseComment;
+    component.comment.textContent = responseComment;
 
     component.closeForm();
   });
