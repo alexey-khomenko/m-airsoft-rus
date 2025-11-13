@@ -4,16 +4,19 @@ interface Props {
   name: string;
   classList: string[];
   placeholder?: string;
+  aria?: boolean;
 }
 
-const {label, name, classList, placeholder}: Props = Astro.props;
+const {label, name, classList, placeholder, aria = false}: Props = Astro.props;
 ---
 
 <div class="util-form-fieldset fieldset">
   <link rel="stylesheet" href="./components/input-textarea.css"/>
-  <label class="label" for={name}>{label}</label>
+  {!aria && (
+    <label class="label" for={name}>{label}</label>
+  )}
   <div class="textarea-wrapper">
-    <textarea name={name} id={name} maxlength="512"
+    <textarea name={name} id={name} maxlength="512" aria-label={label}
               autocorrect="off" spellcheck="true" placeholder={placeholder}
               class:list={['util-form-field', 'textarea', ...classList]}></textarea>
     <textarea maxlength="512" aria-label=""

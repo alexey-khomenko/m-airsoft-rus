@@ -1,5 +1,6 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+import InputTextarea from '../components/InputTextarea.astro';
 
 interface Props {
   comment: string;
@@ -23,11 +24,13 @@ const {comment}: Props = Astro.props;
   </div>
 
   <div class="info" data-order-comment-output hidden={0 === comment.length}>
-    <div class="comment" data-info-comment>{comment}</div>
+    <pre class="comment" data-info-comment>{comment}</pre>
   </div>
 
   <form class="form" action="/api-order-comment" novalidate data-form-order-comment hidden>
 
+    <InputTextarea label="Комментарий к заказу" name="comment" classList={['strong']} aria={true}
+                   placeholder="Просьбы и пожелания ..."/>
 
     <button type="submit" class="util-button primary button">
       <span>Применить и сохранить</span>
