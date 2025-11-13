@@ -34,8 +34,8 @@ window.addEventListener('load', () => {
     const action = component.action.dataset.orderSummaryCheckAction;
 
 
-    console.log('GET request to', action);
-    const amount = {
+    console.log('POST request to', action);
+    const responseAmount = {
       old: 8501,
       discount: 3001,
       delivery: 301,
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
     };
 
 
-    component.update(amount);
+    component.update(responseAmount);
   });
 
   document.addEventListener('submit', (e) => {
@@ -63,9 +63,9 @@ window.addEventListener('load', () => {
 
 
     console.log('POST request to', action);
-    const orderId = 749466;
+    const responseOrderId = 749466;
 
 
-    window.location.assign(`${form.dataset.finished}?order_id=${orderId}`);
+    window.location.assign(`${form.dataset.finished}?order_id=${responseOrderId}`);
   });
 });

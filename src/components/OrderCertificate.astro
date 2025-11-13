@@ -28,7 +28,10 @@ const {certificate}: Props = Astro.props;
 
   <form class="form" action="/api-order-certificate" novalidate data-form-order-certificate hidden>
 
-    <span></span>
+    <input type="text" name="certificate" id="certificate" maxlength="256" value={certificate}
+           autocorrect="off" spellcheck="false"
+           class="util-form-field strong low input"
+           placeholder="Введите если есть" aria-label="Сертификат/промо-код"/>
 
     <button type="submit" class="util-button primary button">
       <span>Применить</span>

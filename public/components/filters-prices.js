@@ -27,11 +27,12 @@ window.addEventListener('load', () => {
 
     clearTimeout(prices.debounceTimer);
 
-    let currentValue = currentInput.value.trim();
+    let currentValue = parseInt(currentInput.value);
 
-    if (0 === currentValue.length) return true;
-
-    currentValue = parseInt(currentValue);
+    if (isNaN(currentValue)) {
+      currentInput.value = '';
+      return true;
+    }
 
     const currentMin = parseInt(currentInput.min);
     const currentMax = parseInt(currentInput.max);

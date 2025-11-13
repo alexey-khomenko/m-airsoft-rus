@@ -19,13 +19,16 @@
       gap: .75rem;
     }
 
-    span {
+    .input {
       flex-grow: 1;
+      padding-inline: 1rem;
     }
 
     .button {
+      flex-shrink: 0;
       width: 7.5rem;
-      height: 2.5rem;
+      min-height: 2.5rem;
+      font-size: 1rem;
     }
   }
 }

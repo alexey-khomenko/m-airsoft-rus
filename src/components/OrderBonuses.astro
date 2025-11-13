@@ -36,7 +36,11 @@ const {balance, bonuses}: Props = Astro.props;
 
   <form class="form" action="/api-order-bonuses" novalidate data-form-order-bonuses hidden>
 
-    <span></span>
+    <input type="text" name="bonuses" id="bonuses" maxlength="256" value={bonuses}
+           inputmode="numeric" autocomplete="off" autocorrect="off" spellcheck="false"
+           min="0" max={balance}
+           class="util-form-field strong low input"
+           placeholder="Введите сумму" aria-label="Бонусы"/>
 
     <button type="submit" class="util-button primary button">
       <span>Применить</span>

@@ -59,13 +59,24 @@ window.addEventListener('load', () => {
     e.preventDefault();
 
     const action = form.action;
+    const input = form.querySelector('[name="bonuses"]');
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    let value = parseInt(input.value);
+
+    if (isNaN(value)) value = 0;
+    if (value < min) value = min;
+    if (value > max) value = max;
 
 
     console.log('POST request to', action);
-    const bonuses = 1000;
-    component.bonuses.textContent = bonuses.toLocaleString('ru-RU');
-    component.bonuses.setAttribute('data-info-bonuses', bonuses);
+    console.log('bonuses', value);
+    const responseBonuses = value;
 
+
+    input.value = responseBonuses;
+    component.bonuses.textContent = responseBonuses.toLocaleString('ru-RU');
+    component.bonuses.setAttribute('data-info-bonuses', responseBonuses);
 
     form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
     component.closeForm();
