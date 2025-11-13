@@ -1,12 +1,19 @@
 .order-bonuses {
   .balance-wrapper {
-    .balance {
+    margin-top: .25rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #8F8F8F;
 
+    .balance {
+      font-weight: 700;
+      color: #009AE3;
     }
   }
 
   .info {
-    margin-top: .75rem;
+    margin-top: .25rem;
     margin-bottom: .25rem;
     font-weight: 700;
     font-size: 1rem;

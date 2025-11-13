@@ -11,35 +11,35 @@ const {amount}: Props = Astro.props;
 const {old, discount, delivery, total}: IOrderAmount = amount;
 ---
 
-<UtilTile tag="div" classList={['order-summary']}>
+<UtilTile tag="div" classList={['order-summary']} dataArray={['data-order-summary-check-action="/api-order-summary"']}>
   <link rel="stylesheet" href="./components/order-summary.css"/>
 
   <div class="row">
     <div class="left black">Стоимость товаров:</div>
     <div class="right black">
-      <span data-amount-old={old}>{old.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-old>{old.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
   <div class="row">
     <div class="left red">Общая скидка:</div>
     <div class="right red">
-      <span data-amount-discount={discount}>{discount.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-discount>{discount.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
   <div class="row">
     <div class="left black">Стоимость доставки:</div>
     <div class="right black">
-      <span data-amount-delivery={delivery}>{delivery.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-delivery>{delivery.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
   <div class="row total">
     <div class="left black">Общая сумма заказа:</div>
     <div class="blue">
-      <span data-amount-total={total}>{total.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-total>{total.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
 
-  <form class="form" action="/api-order-summary" novalidate data-form-order-summary data-finished="/finished">
+  <form class="form" action="/api-order" novalidate data-form-order-summary data-finished="/finished">
     <button type="submit" class="util-button primary button">
       <span>Подтвердить</span>
     </button>

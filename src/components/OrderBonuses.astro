@@ -16,7 +16,9 @@ const {balance, bonuses}: Props = Astro.props;
   <div class="order-header">
     <h2 class="h2">Оплатить бонусами</h2>
     <button type="button" class="button" data-order-bonuses-form-open>
-      <span>V</span>
+      <svg width="13" height="8" viewBox="0 0 13 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1L6.5 7L1 1" stroke="#27282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
     <button type="button" class="button" data-order-bonuses-form-close hidden>
       <span>Закрыть</span>
@@ -24,11 +26,12 @@ const {balance, bonuses}: Props = Astro.props;
   </div>
 
   <div class="balance-wrapper">
-    <span class="balance" data-info-balance={balance}>{balance.toLocaleString('ru-RU')}</span> бонусов на счету
+    <span class="balance" data-info-balance={balance}>{balance.toLocaleString('ru-RU')} бонусов</span>
+    на счету
   </div>
 
   <div class="info" data-order-bonuses-output hidden={0 === bonuses}>
-    - <span class="bonuses" data-info-bonuses={bonuses}>{bonuses.toLocaleString('ru-RU')}</span>
+    - <span class="bonuses" data-info-bonuses={bonuses}>{bonuses.toLocaleString('ru-RU')}</span> бонусов
   </div>
 
   <form class="form" action="/api-order-bonuses" novalidate data-form-order-bonuses hidden>

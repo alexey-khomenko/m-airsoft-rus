@@ -71,6 +71,7 @@ window.addEventListener('load', () => {
     component.certificate.textContent = 'test';
 
 
+    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
     component.closeForm();
   });
 });
