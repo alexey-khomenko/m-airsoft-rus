@@ -1,3 +1,9 @@
 .order-city {
+  .form {
+    margin-top: .75rem;
 
+    .input {
+      padding-inline: 1rem;
+    }
+  }
 }

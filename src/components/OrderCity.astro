@@ -11,9 +11,18 @@ const {city}: Props = Astro.props;
 <UtilTile tag="div" classList={['rows', 'order-city']}>
   <link rel="stylesheet" href="./components/order-city.css"/>
 
-  <h2 class="h2">Ваш город</h2>
+  <div class="order-header">
+    <h2 class="h2">Ваш город</h2>
+  </div>
 
-  {city}
+  <form class="form" action="/api-order-city" novalidate data-form-order-city>
+    <input type="text" name="city" id="city" maxlength="256" value={city}
+           autocorrect="off" spellcheck="false"
+           class="util-form-field strong low input"
+           data-input-order-city
+           placeholder="Введите ваш город" aria-label="Ваш город"/>
+    <button type="submit" hidden>Применить</button>
+  </form>
 
   <script src="./components/order-city.js" is:inline async></script>
 </UtilTile>

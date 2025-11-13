@@ -1,5 +1,6 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+import InputTel from '../components/InputTel.astro';
 
 import type {IUser} from '../interfaces.ts';
 
@@ -16,7 +17,7 @@ const {user}: Props = Astro.props;
   <div class="order-header">
     <h2 class="h2">Личные данные</h2>
     <button type="button" class="button" data-order-personal-form-open>
-      <span data-order-personal-form-add hidden={user}>Добавить</span>
+      <span data-order-personal-form-add hidden={!!user}>Добавить</span>
       <span data-order-personal-form-edit hidden={!user}>Изменить</span>
     </button>
     <button type="button" class="button" data-order-personal-form-close hidden>
@@ -26,22 +27,38 @@ const {user}: Props = Astro.props;
 
   <div class="info" data-order-personal-output hidden={!user}>
     <div class="full-name" data-info-name>{user ? `${user.lastName} ${user.firstName} ${user.middleName}` : ''}</div>
-    <div class="tel" data-info-tel>{user ? user.tel : ''}</div>
+    <div class="phone" data-info-phone>{user ? user.tel : ''}</div>
     <div class="email" data-info-email>{user ? user.email : ''}</div>
   </div>
 
   <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
 
-    <label>Телефон</label>
+    <InputTel label="Телефон" name="phone" classList={['low']} value={user ? user.tel : ''}/>
 
-    <label>Фамилия</label>
-
-    <label>Имя</label>
-
-    <label>Отчество</label>
-
-    <label>E-mail</label>
-
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="last-name">Фамилия</label>
+      <input type="text" name="last-name" id="last-name" maxlength="256" value={user ? user.lastName : ''}
+             autocorrect="off" spellcheck="false"
+             class="util-form-field low input"/>
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="first-name">Имя</label>
+      <input type="text" name="first-name" id="first-name" maxlength="256" value={user ? user.firstName : ''}
+             autocorrect="off" spellcheck="false"
+             class="util-form-field low input"/>
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="middle-name">Отчество</label>
+      <input type="text" name="middle-name" id="middle-name" maxlength="256" value={user ? user.middleName : ''}
+             autocorrect="off" spellcheck="false"
+             class="util-form-field low input"/>
+    </div>
+    <div class="util-form-fieldset fieldset">
+      <label class="label" for="email">E-mail</label>
+      <input type="email" name="email" id="email" maxlength="256" value={user ? user.email : ''}
+             inputmode="email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false"
+             class="util-form-field low input"/>
+    </div>
     <button type="submit" class="util-button primary button">
       <span>Применить и сохранить</span>
     </button>

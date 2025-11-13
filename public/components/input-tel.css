@@ -1,4 +1,5 @@
 .iti {
+  --iti-arrow-padding: 0;
   display: block;
 }
 
@@ -12,7 +13,7 @@
 }
 
 .iti__selected-country-primary {
-  width: 3.75rem;
+  width: 3.5rem;
   justify-content: center;
 }
 
@@ -32,7 +33,7 @@
   &::before {
     content: "";
     position: absolute;
-    left: 3.875rem;
+    left: 3.625rem;
     top: .625rem;
     bottom: .625rem;
     z-index: 1;
@@ -40,6 +41,6 @@
   }
 
   .input {
-    padding-left: 4.5rem !important;
+    padding-left: 4.25rem !important;
   }
 }
