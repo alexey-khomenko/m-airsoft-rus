@@ -1,7 +1,7 @@
 let isLoaded = false;
 let lastScrollTop = 0;
 
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', () => {
   if (!isLoaded) {
     isLoaded = true;
     return true;

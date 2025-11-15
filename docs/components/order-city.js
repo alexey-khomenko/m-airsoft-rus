@@ -43,6 +43,7 @@ window.addEventListener('load', () => {
 
 
       input.value = responseCity;
+      input.dispatchEvent(new CustomEvent('changeOrderCity', {bubbles: true}));
     }, 1000);
   });
 });

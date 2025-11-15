@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
     }
   });
 
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener('keydown', (e) => {
     if ('Escape' !== e.key) return true;
 
     document.querySelector('[data-payments-backdrop]').hidden = true;

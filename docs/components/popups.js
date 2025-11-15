@@ -63,7 +63,7 @@ document.addEventListener('click', (e) => {
   window.closePopup();
 });
 
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', (e) => {
   if ('Escape' !== e.key) return true;
 
   window.closePopup();
