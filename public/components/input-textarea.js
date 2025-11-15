@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
     }
   });
 
-  document.addEventListener('input', function (e) {
+  document.addEventListener('input', (e) => {
     const textarea = e.target.closest('.textarea');
 
     if (textarea) textareaFixHeight(textarea);

@@ -1,0 +1,95 @@
+.tile-order-grid {
+
+  .img-wrapper {
+    height: 2.25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .img {
+    max-height: 2.25rem;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .name {
+    margin-top: .25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #27282B;
+
+    .tile-order-grid:has(input[type="radio"]:checked) & {
+      color: #FFFFFF;
+    }
+  }
+
+  .payment-text {
+    margin-top: .625rem;
+    font-weight: 300;
+    font-size: .75rem;
+    line-height: .875rem;
+    color: #27282B;
+
+    .tile-order-grid:has(input[type="radio"]:checked) & {
+      color: #FFFFFF;
+    }
+  }
+
+  .payment-bonus {
+    margin-top: .25rem;
+    margin-bottom: .625rem;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: #8A8A8A;
+
+    .tile-order-grid:has(input[type="radio"]:checked) & {
+      color: #FFFFFF;
+    }
+  }
+
+  .delivery-text {
+    margin-top: .625rem;
+    margin-bottom: 1.25rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .125rem .5rem;
+    font-size: .8rem;
+    line-height: 1.125rem;
+
+    .l {
+      font-weight: 400;
+      color: #27282B;
+
+      .tile-order-grid:has(input[type="radio"]:checked) & {
+        color: #FFFFFF;
+      }
+    }
+
+    .r {
+      font-weight: 700;
+      color: #8A8A8A;
+
+      .tile-order-grid:has(input[type="radio"]:checked) & {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .details {
+    .summary {
+      color: #27282B;
+
+      .tile-order-grid:has(input[type="radio"]:checked) & {
+        color: #FFFFFF;
+      }
+    }
+
+    .info {
+      color: #27282B;
+      background-color: #FCEB62;
+    }
+  }
+}

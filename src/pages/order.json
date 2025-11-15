@@ -9,6 +9,94 @@
     "balance": 940
   },
   "city": "Москва, Россия",
+  "deliveries": [
+    {
+      "id": 1,
+      "name": "Самовывоз",
+      "img": "./content/order-delivery-1.png",
+      "price": 0,
+      "days": "1-4 дня",
+      "info": "Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина."
+    },
+    {
+      "id": 2,
+      "name": "Самовывоз",
+      "img": "./content/order-delivery-2.png",
+      "price": 300,
+      "days": "1-4 дня",
+      "info": "..."
+    },
+    {
+      "id": 3,
+      "name": "Самовывоз",
+      "img": "./content/order-delivery-3.png",
+      "price": 300,
+      "days": "1-4 дня",
+      "info": "..."
+    },
+    {
+      "id": 4,
+      "name": "Самовывоз",
+      "img": "./content/order-delivery-4.png",
+      "price": 300,
+      "days": "1-4 дня",
+      "info": "..."
+    },
+    {
+      "id": 5,
+      "name": "Самовывоз",
+      "img": "./content/order-delivery-5.png",
+      "price": 300,
+      "days": "1-4 дня",
+      "info": "..."
+    }
+  ],
+  "deliveryId": 0,
+  "payments": [
+    {
+      "id": 1,
+      "name": "Оплата система быстрых платежей",
+      "img": "./content/order-payment-1.png",
+      "bonus": 300,
+      "info": "..."
+    },
+    {
+      "id": 2,
+      "name": "Оплата картой на сайте",
+      "img": "./content/order-payment-2.png",
+      "bonus": 300,
+      "info": "..."
+    },
+    {
+      "id": 3,
+      "name": "Оплатить при получении товара",
+      "img": "./content/order-payment-3.png",
+      "bonus": 0,
+      "info": "..."
+    },
+    {
+      "id": 4,
+      "name": "Рассрочка Тинькофф",
+      "img": "./content/order-payment-4.png",
+      "bonus": 0,
+      "info": "..."
+    },
+    {
+      "id": 5,
+      "name": "Яндекс Сплит",
+      "img": "./content/order-payment-5.png",
+      "bonus": 300,
+      "info": "..."
+    },
+    {
+      "id": 6,
+      "name": "Кредит Сбербанк",
+      "img": "./content/order-payment-6.png",
+      "bonus": 0,
+      "info": "..."
+    }
+  ],
+  "paymentId": 0,
   "comment": "",
   "certificate": "",
   "bonuses": 0,

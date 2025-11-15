@@ -73,7 +73,7 @@ document.addEventListener('click', (e) => {
   search.hide();
 });
 
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', (e) => {
   if ('Escape' !== e.key) return true;
 
   search.hide();

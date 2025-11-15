@@ -1,18 +1,40 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+import TileOrderGrid from '../components/TileOrderGrid.astro';
+import TileOrderGridEdit from '../components/TileOrderGridEdit.astro';
+
+import type {IOrderDelivery} from '../interfaces.ts';
 
 interface Props {
-  deliveries: {}[];
-  delivery: {};
+  deliveries: IOrderDelivery[];
+  currentId: number;
 }
 
-const {deliveries, delivery}: Props = Astro.props;
+const {deliveries, currentId}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-delivery']}>
   <link rel="stylesheet" href="./components/order-delivery.css"/>
 
   <h2 class="h2">Выберите способ доставки</h2>
+
+  <form class="form" action="/api-order-delivery" novalidate data-form-order-delivery
+        data-order-delivery-reload-action="/api-order-delivery-reload">
+    {deliveries.map(({id, name, img, info, price, days}: IOrderDelivery) => (
+      <TileOrderGrid type="delivery" id={id} name={name} img={img} info={info} currentId={currentId}>
+        <div class="delivery-text">
+          <div class="l">Стоимость:</div>
+          <div class="r">{price} руб.</div>
+          <div class="l">Кол. дней:</div>
+          <div class="r">{days}</div>
+        </div>
+      </TileOrderGrid>
+    ))}
+    <TileOrderGridEdit type="delivery"/>
+    <button type="submit" hidden>Применить</button>
+  </form>
+
+  <!-- TODO Дополнительные поля доставки -->
 
   <script src="./components/order-delivery.js" is:inline async></script>
 </UtilTile>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  type: string;
+  id: number;
+  name: string;
+  img: string;
+  info: string;
+  currentId: number;
+}
+
+const {type, id, name, img, info, currentId}: Props = Astro.props;
+---
+
+<div class="tile-order-grid" data-tile-order-grid={type}>
+  <link rel="stylesheet" href="./components/tile-order-grid.css"/>
+
+  <input type="radio" name={type} value={id} checked={id === currentId} aria-label={name} hidden/>
+
+  <div class="img-wrapper">
+    <img src={img} class="img" alt="" decoding="async" loading="lazy"/>
+  </div>
+  <div class="name">{name}</div>
+
+  <slot/>
+
+  <details class="details" name="tile-order-grid-details" data-tile-order-grid-details>
+    <summary class="summary">Подробнее</summary>
+    <div class="info">{info}</div>
+  </details>
+
+  <script src="./components/tile-order-grid.js" is:inline async></script>
+</div>

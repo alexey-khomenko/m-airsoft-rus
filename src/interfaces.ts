@@ -61,6 +61,23 @@ export interface IIndex {
   brands: IIndexBrand[];
 }
 
+export interface IOrderDelivery {
+  id: number;
+  name: string;
+  img: string;
+  price: number;
+  days: string;
+  info: string;
+}
+
+export interface IOrderPayment {
+  id: number;
+  name: string;
+  img: string;
+  bonus: number;
+  info: string;
+}
+
 export interface IOrderAmount {
   old: number;
   discount: number;
@@ -71,6 +88,10 @@ export interface IOrderAmount {
 export interface IOrder {
   user: IUser | null;
   city: string;
+  deliveries: IOrderDelivery[];
+  deliveryId: number;
+  payments: IOrderPayment[];
+  paymentId: number;
   comment: string;
   certificate: string;
   bonuses: number;

@@ -1,0 +1,18 @@
+---
+interface Props {
+  type: string;
+}
+
+const {type}: Props = Astro.props;
+---
+
+<div class="tile-order-grid-edit" data-tile-order-grid-edit={type} hidden>
+  <link rel="stylesheet" href="./components/tile-order-grid-edit.css"/>
+
+  <div class="center">
+    <span class="t">Изменить</span>
+    <span class="b">способ доставки</span>
+  </div>
+
+  <script src="./components/tile-order-grid-edit.js" is:inline async></script>
+</div>

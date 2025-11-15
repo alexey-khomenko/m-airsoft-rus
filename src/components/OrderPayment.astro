@@ -1,18 +1,37 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
+import TileOrderGrid from '../components/TileOrderGrid.astro';
+import TileOrderGridEdit from '../components/TileOrderGridEdit.astro';
+
+import type {IOrderPayment} from '../interfaces.ts';
 
 interface Props {
-  payments: {}[];
-  payment: {};
+  payments: IOrderPayment[];
+  currentId: number;
 }
 
-const {payments, payment}: Props = Astro.props;
+const {payments, currentId}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-payment']}>
-  <link rel="stylesheet" href="./components/order-payment.css"/>
-
   <h2 class="h2">Выберите способ оплаты</h2>
+
+  <form class="form" action="/api-order-payment" novalidate data-form-order-payment
+        data-order-payment-reload-action="/api-order-payment-reload">
+    {payments.map(({id, name, img, info, bonus}: IOrderPayment) => (
+      <TileOrderGrid type="payment" id={id} name={name} img={img} info={info} currentId={currentId}>
+        {0 < bonus ? (
+          <div class="payment-text">Будет начислено:</div>
+          <div class="payment-bonus">{bonus} руб.</div>
+        ) : (
+          <div></div>
+          <div></div>
+        )}
+      </TileOrderGrid>
+    ))}
+    <TileOrderGridEdit type="payment"/>
+    <button type="submit" hidden>Применить</button>
+  </form>
 
   <script src="./components/order-payment.js" is:inline async></script>
 </UtilTile>
