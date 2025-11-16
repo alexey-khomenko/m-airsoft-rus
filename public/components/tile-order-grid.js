@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 
   document.addEventListener('click', (e) => {
     const tile = e.target.closest('[data-tile-order-grid]');
-    const details = e.target.closest('[data-tile-order-grid-details]');
+    const details = e.target.closest('[data-tile-order-grid-popover]');
 
     if (!tile || details) return true;
 
@@ -27,5 +27,15 @@ window.addEventListener('load', () => {
     }
 
     form.querySelector('[data-tile-order-grid-edit]').hidden = false;
+  });
+
+  document.addEventListener('click', (e) => {
+    const popover = e.target.closest('[data-tile-order-grid-popover]');
+
+    if (popover) return true;
+
+    const popovers = document.querySelectorAll('[data-tile-order-grid-popover]');
+
+    for (const popover of popovers) popover.open = false;
   });
 });

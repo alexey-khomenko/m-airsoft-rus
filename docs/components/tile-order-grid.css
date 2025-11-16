@@ -1,4 +1,5 @@
 .tile-order-grid {
+  position: relative;
 
   .img-wrapper {
     height: 2.25rem;
@@ -80,7 +81,19 @@
 
   .details {
     .summary {
+      margin-top: -.5rem;
+      margin-bottom: -.375rem;
+      padding-top: .5rem;
+      padding-bottom: .375rem;
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.125rem;
       color: #27282B;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .375rem;
+      text-decoration-style: solid;
+      user-select: none;
 
       .tile-order-grid:has(input[type="radio"]:checked) & {
         color: #FFFFFF;
@@ -88,8 +101,28 @@
     }
 
     .info {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      transform: translateY(.25rem);
+      padding: .625rem .875rem;
+      border-radius: .25rem;
       color: #27282B;
       background-color: #FCEB62;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -1rem;
+        left: 1.5rem;
+        border-width: 0 .5rem 1rem;
+        border-color: transparent;
+        border-style: solid;
+        border-bottom-color: #FCEB62;
+      }
     }
   }
 }
