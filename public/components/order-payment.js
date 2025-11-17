@@ -7,12 +7,13 @@ window.addEventListener('load', () => {
 
   document.addEventListener('changeOrderCity', () => {
     const form = document.querySelector(`[data-order-payment-reload-action]`);
+    const formGrid = form.querySelector('.form-grid');
     const action = form.dataset.orderPaymentReloadAction;
 
     form.reset();
-    form.querySelector('[data-tile-order-grid-edit]').hidden = true;
+    formGrid.querySelector('[data-tile-order-grid-edit]').hidden = true;
 
-    const tiles = form.querySelectorAll(`[data-tile-order-grid]`);
+    const tiles = formGrid.querySelectorAll(`[data-tile-order-grid]`);
 
 
     const responseTiles = [];
@@ -29,15 +30,17 @@ window.addEventListener('load', () => {
 
 
     responseTiles.reverse();
-    for (const tile of responseTiles) form.prepend(tile);
+    for (const tile of responseTiles) formGrid.prepend(tile);
   });
+
+  const form = document.querySelector(`[data-form-order-payment]`);
+  form.reset();
 
   document.addEventListener('input', (e) => {
     const radio = e.target.closest('[name="payment"]');
 
     if (!radio) return true;
 
-    const form = document.querySelector(`[data-form-order-payment]`);
     const action = form.action;
     const value = radio.value;
 

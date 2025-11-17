@@ -56,7 +56,6 @@
       "info": "..."
     }
   ],
-  "deliveryId": 0,
   "payments": [
     {
       "id": 1,
@@ -107,7 +106,6 @@
       "info": "..."
     }
   ],
-  "paymentId": 0,
   "comment": "",
   "certificate": "",
   "bonuses": 0,

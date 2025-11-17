@@ -7,30 +7,30 @@ import type {IOrderPayment} from '../interfaces.ts';
 
 interface Props {
   payments: IOrderPayment[];
-  currentId: number;
 }
 
-const {payments, currentId}: Props = Astro.props;
+const {payments}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-payment']}>
   <h2 class="h2">Выберите способ оплаты</h2>
 
-  <form class="form" action="/api-order-payment" novalidate data-form-order-payment
+  <form action="/api-order-payment" novalidate data-form-order-payment
         data-order-payment-reload-action="/api-order-payment-reload">
-    {payments.map(({id, name, img, imgChecked, info, bonus}: IOrderPayment) => (
-      <TileOrderGrid type="payment" id={id} name={name} img={img} imgChecked={imgChecked}
-                     info={info} currentId={currentId}>
-        {0 < bonus ? (
-          <div class="payment-text">Будет начислено:</div>
-          <div class="payment-bonus">{bonus} руб.</div>
-        ) : (
-          <div></div>
-          <div></div>
-        )}
-      </TileOrderGrid>
-    ))}
-    <TileOrderGridEdit type="payment"/>
+    <div class="form-grid">
+      {payments.map(({id, name, img, imgChecked, info, bonus}: IOrderPayment) => (
+        <TileOrderGrid type="payment" id={id} name={name} img={img} imgChecked={imgChecked} info={info}>
+          {0 < bonus ? (
+            <div class="payment-text">Будет начислено:</div>
+            <div class="payment-bonus">{bonus} руб.</div>
+          ) : (
+            <div></div>
+            <div></div>
+          )}
+        </TileOrderGrid>
+      ))}
+      <TileOrderGridEdit type="payment"/>
+    </div>
     <button type="submit" hidden>Применить</button>
   </form>
 

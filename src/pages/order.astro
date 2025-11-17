@@ -14,7 +14,7 @@ import type {IOrder} from '../interfaces.ts';
 
 import data from '../pages/order.json';
 
-const {user, city, deliveries, deliveryId, payments, paymentId, comment, certificate, bonuses, amount}: IOrder = data;
+const {user, city, deliveries, payments, comment, certificate, bonuses, amount}: IOrder = data;
 
 const title: string = 'Оформление заказа';
 const link: string = '/order';
@@ -29,8 +29,8 @@ const root: string = 'cart';
     <section class="tiles">
       <OrderPersonal user={user}/>
       <OrderCity city={city.trim()}/>
-      <OrderDelivery deliveries={deliveries} currentId={deliveryId}/>
-      <OrderPayment payments={payments} currentId={paymentId}/>
+      <OrderDelivery deliveries={deliveries}/>
+      <OrderPayment payments={payments}/>
       <OrderComment comment={comment.trim()}/>
       <OrderCertificate certificate={certificate.trim()}/>
       <OrderBonuses balance={user ? user.balance : 0} bonuses={bonuses}/>

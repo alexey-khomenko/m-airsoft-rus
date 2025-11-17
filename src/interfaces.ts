@@ -91,9 +91,7 @@ export interface IOrder {
   user: IUser | null;
   city: string;
   deliveries: IOrderDelivery[];
-  deliveryId: number;
   payments: IOrderPayment[];
-  paymentId: number;
   comment: string;
   certificate: string;
   bonuses: number;
