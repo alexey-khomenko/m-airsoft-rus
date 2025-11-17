@@ -65,6 +65,7 @@ export interface IOrderDelivery {
   id: number;
   name: string;
   img: string;
+  imgChecked: string;
   price: number;
   days: string;
   info: string;
@@ -74,6 +75,7 @@ export interface IOrderPayment {
   id: number;
   name: string;
   img: string;
+  imgChecked: string;
   bonus: number;
   info: string;
 }

@@ -8,10 +8,27 @@
     align-items: center;
   }
 
-  .img {
+  .img,
+  .img-checked {
     max-height: 2.25rem;
     max-width: 100%;
     object-fit: contain;
+  }
+
+  .img {
+    display: block;
+
+    .tile-order-grid:has(input[type="radio"]:checked) & {
+      display: none;
+    }
+  }
+
+  .img-checked {
+    display: none;
+
+    .tile-order-grid:has(input[type="radio"]:checked) & {
+      display: block;
+    }
   }
 
   .name {

@@ -18,8 +18,9 @@ const {payments, currentId}: Props = Astro.props;
 
   <form class="form" action="/api-order-payment" novalidate data-form-order-payment
         data-order-payment-reload-action="/api-order-payment-reload">
-    {payments.map(({id, name, img, info, bonus}: IOrderPayment) => (
-      <TileOrderGrid type="payment" id={id} name={name} img={img} info={info} currentId={currentId}>
+    {payments.map(({id, name, img, imgChecked, info, bonus}: IOrderPayment) => (
+      <TileOrderGrid type="payment" id={id} name={name} img={img} imgChecked={imgChecked}
+                     info={info} currentId={currentId}>
         {0 < bonus ? (
           <div class="payment-text">Будет начислено:</div>
           <div class="payment-bonus">{bonus} руб.</div>
