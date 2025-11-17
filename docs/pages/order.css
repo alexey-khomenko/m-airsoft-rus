@@ -48,7 +48,7 @@
   }
 
   .grid {
-    .form {
+    .form-grid {
       margin-top: .875rem;
       display: grid;
       gap: .5rem;
