@@ -98,6 +98,17 @@ export interface IOrder {
   amount: IOrderAmount;
 }
 
+export interface IComparisonProductProperty {
+  id: number;
+  name: string;
+  value: string;
+}
+
+export interface IComparisonProduct {
+  id: number;
+  properties: IComparisonProductProperty[];
+}
+
 export interface ICatalog {
   id: number;
   name: string;

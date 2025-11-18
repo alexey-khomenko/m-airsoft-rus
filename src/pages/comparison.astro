@@ -1,10 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionPageTitle from '../components/SectionPageTitle.astro';
+import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
+
+import type {IComparisonProduct, IComparisonProductProperty, ILink} from '../interfaces.ts';
+
+import data from '../pages/comparison.json';
+
+const products: IComparisonProduct[] = data;
+
+const title: string = 'Сравнение товаров';
+const link: string = '/comparison';
+
+const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
+breadcrumbs.push({link, name: title});
 ---
 
 <Layout title="Товары к сравнению" page="comparison" isUser={true}>
   <link rel="stylesheet" href="./pages/comparison.css"/>
   <div class="page-wrapper">
-    comparison
+    <SectionBreadcrumbs pages={breadcrumbs}/>
+
+    <SectionPageTitle title={title}/>
+
+    {0 < products.length && (
+      <section class="comparison-wrapper">
+
+        <div class="reset-wrapper">
+          <button type="button" class="util-button primary reset">
+            <span>Очистить список сравнения</span>
+          </button>
+        </div>
+
+        <div class="layer">
+          <div class="reset-bottom"></div>
+
+          {products[0].properties.map(({name}: IComparisonProductProperty) => (
+            <div class="name-wrapper">
+              <div class="name">{name}</div>
+              <div class="value"></div>
+            </div>
+          ))}
+        </div>
+
+        <div class="slider">
+          {products.map(({id, properties}: IComparisonProduct) => (
+            <div class="column">
+              <div class="product-wrapper">
+                <div class="product">
+                  {id}
+                </div>
+              </div>
+              {properties.map(({value}: IComparisonProductProperty) => (
+                <div class="value-wrapper">
+                  <div class="name"></div>
+                  <div class="value">{value}</div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
+  <script src="./pages/comparison.js" is:inline async></script>
 </Layout>
