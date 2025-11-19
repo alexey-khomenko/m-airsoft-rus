@@ -149,51 +149,52 @@
   <h1 class="title">Сравнение товаров</h1>
 </section>
 
-    <section class="comparison-wrapper">
-
-        <div class="reset-wrapper">
-          <button type="button" class="util-button primary reset">
+    <section class="comparison-wrapper" data-action-remove="/api-comparison-remove" data-redirect-to="/m-airsoft-rus/catalog.html">
+        <div class="remove-top">
+          <button type="button" class="util-button primary button" data-remove-all>
             <span>Очистить список сравнения</span>
           </button>
         </div>
 
         <div class="layer">
-          <div class="reset-bottom"></div>
-
-          <div class="name-wrapper">
+          <div class="remove-bottom">
+            <div class="product"></div>
+            <div class="remove"></div>
+          </div>
+          <div class="property-name-wrapper">
               <div class="name">Артикул</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Производитель фирма</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Производитель страна</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Модель оружия</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Аккумулятор</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Принцип действия</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Вес</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Материал изготовления корпуса</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Максимальная дульная энергия</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Параметры резьбы</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Тип разъема</div>
               <div class="value"></div>
-            </div><div class="name-wrapper">
+            </div><div class="property-name-wrapper">
               <div class="name">Начальная скорость</div>
               <div class="value"></div>
             </div>
@@ -202,216 +203,390 @@
         <div class="slider">
           <div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  1
-                </div>
+                <div class="util-tile product"  >
+
+  <link rel="stylesheet" href="./components/tile-comparison-product.css">
+  <div>
+    <button type="button" class="product-remove" title="Удалить товар из сравнения" data-remove-product-id="1">
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20">
+    </button>
+    <img src="./content/catalog-product-1.png" alt="" class="img" decoding="async" loading="lazy">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="link">
+      <span class="name">Автомат Суmа AKC-74Y CM035</span>
+    </a>
+  </div>
+  <div>
+    <link rel="stylesheet" href="./components/rating.css">
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly class="rating tile" value="4.5" title="4.5/5" style="--val: 4.5">
+  </div>
+  <div>
+    <div class="old">
+        <span class="price">
+          26 390 руб.
+        </span>
+        <span class="discount">
+          -8 400
+        </span>
+      </div>
+  </div>
+  <div>
+    <div class="bottom">
+      <span class="price">17 990</span>
+      <span class="currency">₽</span>
+      <button type="button" class="cart" data-cart-add="1">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
+    </div>
+  </div>
+  <script src="./components/tile-comparison-product.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+                <div class="remove"></div>
               </div>
-              <div class="value-wrapper">
+              <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">EC-302</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">East Crane</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Гонконг</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">M4 CQBR</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Нет</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">AEG</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">2720</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Алюминиевый сплав</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">1,7 Дж</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба М14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Mini-tamiya</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">115</div>
                 </div>
             </div><div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  2
-                </div>
+                <div class="util-tile product"  >
+
+  <link rel="stylesheet" href="./components/tile-comparison-product.css">
+  <div>
+    <button type="button" class="product-remove" title="Удалить товар из сравнения" data-remove-product-id="2">
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20">
+    </button>
+    <img src="./content/catalog-product-2.png" alt="" class="img" decoding="async" loading="lazy">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="link">
+      <span class="name">Автомат Суmа AKC-74Y CM035</span>
+    </a>
+  </div>
+  <div>
+    <link rel="stylesheet" href="./components/rating.css">
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly class="rating tile" value="3" title="3/5" style="--val: 3">
+  </div>
+  <div>
+    
+  </div>
+  <div>
+    <div class="bottom">
+      <span class="price">16 800</span>
+      <span class="currency">₽</span>
+      <button type="button" class="cart" data-cart-add="2">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
+    </div>
+  </div>
+  <script src="./components/tile-comparison-product.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+                <div class="remove"></div>
               </div>
-              <div class="value-wrapper">
+              <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">CM040</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Cyma</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Китай</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">АК-74</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Нет</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">AEG</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">3800</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Сталь/ал. сплав</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">1,7 Дж</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба M24+/14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба M24+/14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">120-135</div>
                 </div>
             </div><div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  3
-                </div>
+                <div class="util-tile product"  >
+
+  <link rel="stylesheet" href="./components/tile-comparison-product.css">
+  <div>
+    <button type="button" class="product-remove" title="Удалить товар из сравнения" data-remove-product-id="3">
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20">
+    </button>
+    <img src="./content/catalog-product-3.png" alt="" class="img" decoding="async" loading="lazy">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="link">
+      <span class="name">Пистолет Cyma GRACH AEP EBB (CM136S)</span>
+    </a>
+  </div>
+  <div>
+    <link rel="stylesheet" href="./components/rating.css">
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly class="rating tile" value="5" title="5/5" style="--val: 5">
+  </div>
+  <div>
+    
+  </div>
+  <div>
+    <div class="bottom">
+      <span class="price">26 390</span>
+      <span class="currency">₽</span>
+      <button type="button" class="cart" data-cart-add="3">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
+    </div>
+  </div>
+  <script src="./components/tile-comparison-product.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+                <div class="remove"></div>
               </div>
-              <div class="value-wrapper">
+              <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">-</div>
                 </div>
             </div><div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  4
-                </div>
+                <div class="util-tile product"  >
+
+  <link rel="stylesheet" href="./components/tile-comparison-product.css">
+  <div>
+    <button type="button" class="product-remove" title="Удалить товар из сравнения" data-remove-product-id="4">
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20">
+    </button>
+    <img src="./content/catalog-product-1.png" alt="" class="img" decoding="async" loading="lazy">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="link">
+      <span class="name">Автомат Суmа AKC-74Y CM035</span>
+    </a>
+  </div>
+  <div>
+    <link rel="stylesheet" href="./components/rating.css">
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly class="rating tile" value="4.5" title="4.5/5" style="--val: 4.5">
+  </div>
+  <div>
+    
+  </div>
+  <div>
+    <div class="bottom">
+      <span class="price">26 390</span>
+      <span class="currency">₽</span>
+      <button type="button" class="cart" data-cart-add="4">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
+    </div>
+  </div>
+  <script src="./components/tile-comparison-product.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+                <div class="remove"></div>
               </div>
-              <div class="value-wrapper">
+              <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">EC-302</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">East Crane</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Гонконг</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">M4 CQBR</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Нет</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">AEG</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">2720</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Алюминиевый сплав</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">1,7 Дж</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба М14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Mini-tamiya</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">115</div>
                 </div>
             </div><div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  5
-                </div>
+                <div class="util-tile product"  >
+
+  <link rel="stylesheet" href="./components/tile-comparison-product.css">
+  <div>
+    <button type="button" class="product-remove" title="Удалить товар из сравнения" data-remove-product-id="5">
+      <img src="./images/position-del.png" alt="" class="del" width="20" height="20">
+    </button>
+    <img src="./content/catalog-product-2.png" alt="" class="img" decoding="async" loading="lazy">
+    <a href="/m-airsoft-rus/catalog-detail.html" class="link">
+      <span class="name">Автомат Суmа AKC-74Y CM035</span>
+    </a>
+  </div>
+  <div>
+    <link rel="stylesheet" href="./components/rating.css">
+<input type="range" min="0" max="5" step="0.1" aria-label="Рейтинг" readonly class="rating tile" value="3" title="3/5" style="--val: 3">
+  </div>
+  <div>
+    <div class="old">
+        <span class="price">
+          21 800 руб.
+        </span>
+        <span class="discount">
+          -5 000
+        </span>
+      </div>
+  </div>
+  <div>
+    <div class="bottom">
+      <span class="price">16 800</span>
+      <span class="currency">₽</span>
+      <button type="button" class="cart" data-cart-add="5">
+          <svg class="svg" width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+        </button>
+    </div>
+  </div>
+  <script src="./components/tile-comparison-product.js" async></script>
+
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+                <div class="remove"></div>
               </div>
-              <div class="value-wrapper">
+              <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">CM040</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Cyma</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Китай</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">АК-74</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Нет</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">AEG</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">3800</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Сталь/ал. сплав</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">1,7 Дж</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба M24+/14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">Резьба M24+/14-</div>
-                </div><div class="value-wrapper">
+                </div><div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">120-135</div>
                 </div>

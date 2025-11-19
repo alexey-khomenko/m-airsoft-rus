@@ -4,56 +4,20 @@
 }
 
 
-.comparison-wrapper-old {
-  position: relative;
-
-  .comparison-scroller {
-    margin-top: .75rem;
-
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 40%;
-    gap: 2rem 5%;
-
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-
-    .column {
-      scroll-snap-align: start;
-
-      display: grid;
-      grid-auto-flow: row;
-      grid-row: auto / span 10;
-      grid-template-rows: subgrid;
-
-      .product {
-        padding: 1rem;
-        background-color: #FFFFFF;
-        border-radius: 1rem;
-        text-align: center;
-      }
-
-      .property {
-        padding: 1rem;
-      }
-    }
-  }
-}
-
-
 .comparison-wrapper {
-  margin-top: .75rem;
+  margin-top: 1rem;
   position: relative;
   visibility: hidden;
 
-  .reset-wrapper { /* TODO */
+  .remove-top {
     z-index: 2;
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     right: 0;
+    padding-block: 1.25rem;
 
-    .reset {
+    .button {
       width: 100%;
     }
   }
@@ -62,10 +26,6 @@
     z-index: 0;
     position: absolute;
     inset: 0;
-
-    .reset-bottom { /* TODO */
-      height: 100px;
-    }
 
     .name {
       padding: .625rem;
@@ -79,32 +39,28 @@
   }
 
   .slider {
+    --column-width: 9.5rem;
+
+    @container app (width > 380px) {
+      --column-width: 10rem;
+    }
+
+    @container app (width > 400px) {
+      --column-width: 10.5rem;
+    }
+
     z-index: 1;
     position: relative;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 136px; /* TODO */
-    gap: 0 5%; /* TODO */
+    grid-auto-columns: var(--column-width);
+    gap: 0 .5rem;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 
-    .product-wrapper { /* TODO */
-      padding-bottom: 50px;
-
-      .product {
-        padding: 1rem;
-
-        height: 50px;
-
-        background-color: #FFFFFF;
-        border-radius: 1rem;
-        text-align: center;
-      }
-    }
-
     .value {
       padding: .625rem;
-      width: 136px; /* TODO */
+      width: var(--column-width);
       overflow: visible;
       hyphens: auto;
       font-weight: 700;

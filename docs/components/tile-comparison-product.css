@@ -1,0 +1,113 @@
+.util-tile.product {
+  position: relative;
+  padding: .5rem;
+  height: 15.5rem;
+  display: grid;
+  gap: 0;
+  grid-template-rows: 9.875rem 1rem 2rem 1.625rem;
+
+  .product-remove {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    z-index: 1;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  .img {
+    width: 100%;
+    height: 5.75rem;
+    object-fit: contain;
+  }
+
+  .link {
+    display: block;
+    text-decoration: none;
+
+    .name {
+      padding-top: .5rem;
+      padding-bottom: .25rem;
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #373635;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+
+  .old {
+    padding-top: .75rem;
+    padding-bottom: .25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+
+    .price {
+      font-weight: 400;
+      font-size: .75rem;
+      line-height: 1rem;
+      color: #4D4F53;
+      text-decoration-line: line-through;
+      text-decoration-thickness: 1px;
+      text-decoration-style: solid;
+      text-decoration-color: #E81331;
+    }
+
+    .discount {
+      padding-inline: .5rem;
+      border-radius: 99999px;
+      font-weight: 500;
+      font-size: .625rem;
+      line-height: 1rem;
+      color: #FFFFFF;
+      background-color: #E81331;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: .375rem;
+
+    .price {
+      font-weight: 700;
+      font-size: 1.375rem;
+      line-height: 1.625rem;
+      color: #373635;
+    }
+
+    .currency {
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #373635;
+    }
+  }
+
+  .cart {
+    flex-shrink: 0;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    color: #009AE3;
+
+    &:not([hidden]) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .svg {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+  }
+}
