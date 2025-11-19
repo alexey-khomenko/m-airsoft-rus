@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionPageTitle from '../components/SectionPageTitle.astro';
 import SectionBreadcrumbs from '../components/SectionBreadcrumbs.astro';
+import TileComparisonProduct from '../components/TileComparisonProduct.astro';
 
 import type {IComparisonProduct, IComparisonProductProperty, ILink} from '../interfaces.ts';
 
@@ -24,19 +25,20 @@ breadcrumbs.push({link, name: title});
     <SectionPageTitle title={title}/>
 
     {0 < products.length && (
-      <section class="comparison-wrapper">
-
-        <div class="reset-wrapper">
-          <button type="button" class="util-button primary reset">
+      <section class="comparison-wrapper" data-action-remove="/api-comparison-remove" data-redirect-to="/catalog">
+        <div class="remove-top">
+          <button type="button" class="util-button primary button" data-remove-all>
             <span>Очистить список сравнения</span>
           </button>
         </div>
 
         <div class="layer">
-          <div class="reset-bottom"></div>
-
+          <div class="remove-bottom">
+            <div class="product"></div>
+            <div class="remove"></div>
+          </div>
           {products[0].properties.map(({name}: IComparisonProductProperty) => (
-            <div class="name-wrapper">
+            <div class="property-name-wrapper">
               <div class="name">{name}</div>
               <div class="value"></div>
             </div>
@@ -44,15 +46,14 @@ breadcrumbs.push({link, name: title});
         </div>
 
         <div class="slider">
-          {products.map(({id, properties}: IComparisonProduct) => (
+          {products.map(({product, properties}: IComparisonProduct) => (
             <div class="column">
               <div class="product-wrapper">
-                <div class="product">
-                  {id}
-                </div>
+                <TileComparisonProduct product={product}/>
+                <div class="remove"></div>
               </div>
               {properties.map(({value}: IComparisonProductProperty) => (
-                <div class="value-wrapper">
+                <div class="property-value-wrapper">
                   <div class="name"></div>
                   <div class="value">{value}</div>
                 </div>

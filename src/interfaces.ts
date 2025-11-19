@@ -105,7 +105,7 @@ export interface IComparisonProductProperty {
 }
 
 export interface IComparisonProduct {
-  id: number;
+  product: IProductTile;
   properties: IComparisonProductProperty[];
 }
 
