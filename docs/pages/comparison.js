@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
     const namesValues = document.querySelectorAll('.comparison-wrapper .property-name-wrapper .value');
 
     const columns = document.querySelectorAll('.comparison-wrapper .slider .column');
-    const valuesValues = columns[0].querySelectorAll('.property-value-wrapper .value');
+    const valuesValues = columns[0].querySelectorAll('.property-value-wrapper');
 
     for (let i = 0; i < valuesValues.length; i++) {
       namesValues[i].style.height = `${valuesValues[i].clientHeight}px`;
