@@ -9,8 +9,9 @@ import Rating from '../components/Rating.astro';
 import type {ILink, IProduct, IProductTile} from '../interfaces';
 
 import data from '../pages/catalog-detail.json';
+import type {IBanner, IOption} from '../interfaces.ts';
 
-const {id, name, link, rating, sections, inCart}: IProduct = data.product;
+const {id, name, link, rating, sections, inCart, photos}: IProduct = data.product;
 const products: IProductTile[] = data.products;
 
 const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
@@ -48,14 +49,207 @@ breadcrumbs.push({link, name});
 
       <SectionPageTitle title={name}/>
 
+      <section class="section-top">
+        <div class="top-rows">
+          <div class="row">
+            <div class="l">
+              <div class="t">
+                <Rating value={rating} className="detail"/>
+              </div>
+              <div class="b">
+                (2 отзыва)
+              </div>
+            </div>
+            <div class="r">
+              <div class="t">
+                <span>+20% кэшбека</span>
+              </div>
+              <div class="b">
+                на <a href="#" class="link" data-popup-open="bonus">бонусный</a> счет
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="l"></div>
+            <div class="r">
+              <div class="t">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.50006 4.13339V6.8001M7.33081 0.805867L8.1448 1.49954C8.34987 1.6743 8.6045 1.77996 8.87308 1.80139L9.93913 1.88635C10.5659 1.93637 11.0637 2.43389 11.1137 3.06066L11.1985 4.12688C11.2199 4.39547 11.326 4.65046 11.5007 4.85553L12.1941 5.6693C12.6019 6.14785 12.602 6.85179 12.1942 7.33035L11.5008 8.14424C11.326 8.34931 11.2201 8.6044 11.1987 8.87299L11.1134 9.93903C11.0634 10.5658 10.5663 11.0636 9.93957 11.1137L8.87315 11.1987C8.60457 11.2202 8.3497 11.3256 8.14462 11.5003L7.33081 12.194C6.85225 12.6018 6.14788 12.6019 5.66932 12.1941L4.85551 11.5004C4.65043 11.3256 4.39556 11.22 4.12698 11.1986L3.06056 11.1137C2.43379 11.0636 1.93673 10.5659 1.88671 9.93915L1.80142 8.87305C1.77999 8.60447 1.67409 8.3496 1.49933 8.14453L0.805963 7.33039C0.39814 6.85183 0.397949 6.14811 0.805771 5.66955L1.49977 4.85541C1.67453 4.65034 1.7794 4.39547 1.80084 4.12688L1.88612 3.06079C1.93614 2.43402 2.43464 1.9363 3.06141 1.88629L4.12665 1.80133C4.39524 1.77989 4.65023 1.67432 4.8553 1.49956L5.66939 0.805867C6.14795 0.398044 6.85225 0.398044 7.33081 0.805867ZM6.53327 8.80014V8.8668L6.46686 8.86654V8.80014H6.53327Z"/>
+                </svg>
+                <span>Гарантия</span>
+              </div>
+              <div class="b">
+                низкой цены
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <br><br><br>
-      <section class="section-1">
-        <Rating value={rating} className="detail"/>
+        {0 < photos.length && (
+          <div class="photos">
+            <div class="swiper-wrapper">
+              {photos.map((img: string) => (
+                <img src={img} alt="" class="swiper-slide img" decoding="async" loading="lazy"/>
+              ))}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        )}
+
+        <div class="bottom-rows">
+          <div class="row">
+            <div class="l"><a href="#" class="link">Гарантия</a> низкой цены!</div>
+            <div class="r">Рассрочка <a href="#" class="link">0-0-5</a></div>
+          </div>
+          <div class="row">
+            <div class="l"><a href="#" class="link">Бесплатная</a> доставка</div>
+            <div class="r">Рассрочка <a href="#" class="link">0-0-6</a></div>
+          </div>
+        </div>
       </section>
-      <br><br><br>
 
+      <section class="section-buy">
 
+        <br>
+
+        <button type="button" data-favourite-add-product-id={id}>
+          <span>добавить в избранное</span>
+        </button>
+
+        <button type="button" data-favourite-remove-product-id={id} hidden>
+          <span>удалить из избранного</span>
+        </button>
+        <br>
+        <button type="button" data-comparison-add-product-id={id}>
+          <span>добавить в сравнение</span>
+        </button>
+
+        <button type="button" data-comparison-remove-product-id={id} hidden>
+          <span>удалить из сравнения</span>
+        </button>
+
+        <br>
+        <br>
+        <br>
+
+      </section>
+
+      <section class="section-spoilers">
+
+        <details class="spoiler info">
+          <summary class="spoiler-header">
+            <span class="text">Описание</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            <p>
+              <strong>Дробовик SGR-12 Platinum фирмы Cyma, Китай</strong>
+              <br>
+              Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно
+              и надёжно, люфты полностью отсутствуют. В верхней части корпуса имеются RIS-планки, на которые
+              установлены открытые складные прицельные приспособления в виде мушки и диоптра. Цевье изготовлено из
+              алюминия, имеет интерфейс креплений M-LOK
+            </p>
+          </div>
+        </details>
+
+        <details class="spoiler props">
+          <summary class="spoiler-header">
+            <span class="text">Характеристики</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            2
+          </div>
+        </details>
+
+        <details class="spoiler video">
+          <summary class="spoiler-header">
+            <span class="text">Видеообзор</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            3
+          </div>
+        </details>
+
+        <details class="spoiler reviews">
+          <summary class="spoiler-header">
+            <span class="text">Отзывы <mark>(2)</mark></span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            4
+          </div>
+        </details>
+
+        <details class="spoiler questions">
+          <summary class="spoiler-header">
+            <span class="text">Вопросы</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            5
+          </div>
+        </details>
+
+        <details class="spoiler delivery">
+          <summary class="spoiler-header">
+            <span class="text">Доставка и оплата</span>
+            <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="#27282B" stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="spoiler-main">
+            <p>
+              <strong>Для расчета стоимости и срока доставки</strong>
+              укажите Ваш город, а также добавьте товары в корзину.
+            </p>
+            <p><strong>Прочитайте это важно:</strong></p>
+            <ol>
+              <li>
+                Для получения посылки возьмите свой паспорт или другой документ, удостоверяющий личность.
+              </li>
+              <li>
+                Выбор транспортной компании остается за магазином. Если вы хотите выбрать транспортную компанию сами,
+                то укажите это в комментариях. В таком случае оплата стоимости доставки производится клиентом при
+                получении товара.
+              </li>
+              <li>
+                В случае если вашего города нет в списке городов, то указывайте ближайший к Вам крупный город,
+                который есть в списке, а в адресе доставки обязательно напишите конечный пункт назначения.
+                Такая заявка будет обрабатываться вручную, сроки и стоимость сообщит Вам наш менеджер.
+              </li>
+              <li>
+                Сроки доставки проставляются автоматически и предоставляются транспортными компаниями.
+                Ответственность за превышение сроков доставки несет транспортная компания.
+              </li>
+              <li>
+                В расчете срока отгрузки и доставки учитываются только рабочие дни, без выходных и праздничных дней.
+              </li>
+            </ol>
+
+          </div>
+        </details>
+
+      </section>
     </Container>
     <div class="util-decoration" aria-hidden="true"></div>
   </div>

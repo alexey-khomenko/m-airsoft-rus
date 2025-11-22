@@ -21,22 +21,9 @@
       left: auto;
       right: 0;
       bottom: 100%;
-      z-index: 1;
       transform: translateY(-.5rem);
       width: auto;
       height: 1.875rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-
-      .swiper-pagination-bullet {
-        margin: 0;
-        width: .75rem;
-        height: .75rem;
-        background-color: #009AE3;
-        box-shadow: 0 0 .125rem 0 rgba(0, 0, 0, .2) inset;
-      }
     }
   }
 }

@@ -3,14 +3,19 @@
     "id": 100,
     "name": "Дробовик Cyma SGR-12 Platinum AEG BK (CM102)",
     "link": "/catalog-detail",
-    "rating": 0,
+    "rating": 2.5,
     "sections": [
       {
         "link": "/catalog-section",
         "name": "Дробовики"
       }
     ],
-    "inCart": false
+    "inCart": false,
+    "photos": [
+      "./content/catalog-detail-1.png",
+      "./content/catalog-detail-1.png",
+      "./content/catalog-detail-1.png"
+    ]
   },
   "products": [
     {

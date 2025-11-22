@@ -38,7 +38,7 @@ const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
   {popupFilter &&
     <PopupFilters popupFilter={popupFilter}/>}
 
-  {['how-to-buy'].includes(page) &&
+  {['how-to-buy', 'catalog-detail'].includes(page) &&
     <PopupBonus/>}
 
   <script src="./components/popups.js" is:inline async></script>

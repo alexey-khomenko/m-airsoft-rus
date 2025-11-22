@@ -54,20 +54,8 @@ window.addEventListener('load', () => {
 
     if (!button) return true;
 
-    const wrapper = document.querySelector('[data-action-remove]');
+    window.comparison.remove();
 
-    if (!wrapper) {
-      console.log('Error: [data-action-remove] not found');
-      return true;
-    }
-
-    const action = wrapper.dataset.actionRemove;
-
-
-    console.log('POST request to', action);
-    console.log('productId', 'all');
-
-
-    window.location.assign(wrapper.dataset.redirectTo);
+    window.location.assign(button.dataset.redirectTo);
   });
 });

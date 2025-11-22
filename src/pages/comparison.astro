@@ -25,9 +25,9 @@ breadcrumbs.push({link, name: title});
     <SectionPageTitle title={title}/>
 
     {0 < products.length && (
-      <section class="comparison-wrapper" data-action-remove="/api-comparison-remove" data-redirect-to="/catalog">
+      <section class="comparison-wrapper">
         <div class="remove-top">
-          <button type="button" class="util-button primary button" data-remove-all>
+          <button type="button" class="util-button primary button" data-remove-all data-redirect-to="/catalog">
             <span>Очистить список сравнения</span>
           </button>
         </div>

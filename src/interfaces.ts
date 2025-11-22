@@ -124,6 +124,7 @@ export interface IProduct {
   rating: number;
   sections: ILink[];
   inCart: boolean;
+  photos: string[];
 }
 
 export interface INews {

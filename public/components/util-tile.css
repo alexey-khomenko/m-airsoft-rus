@@ -56,9 +56,10 @@
       font-weight: 700;
     }
 
-    em, i {
+    em, i, mark {
       color: #009AE3;
       font-style: normal;
+      background-color: transparent;
     }
 
     u {
