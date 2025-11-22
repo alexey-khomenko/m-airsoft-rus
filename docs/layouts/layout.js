@@ -25,6 +25,33 @@ window.cart = {
   },
 };
 
+window.favourite = {
+  add: function (productId) {
+    console.log('POST request to add product into the favourite');
+    console.log('productId', productId);
+  },
+  remove: function (productId) {
+    console.log('POST request to remove product from the favourite');
+    console.log('productId', productId);
+  },
+};
+
+window.comparison = {
+  add: function (productId) {
+    console.log('POST request to add product into the comparison');
+    console.log('productId', productId);
+  },
+  remove: function (productId) {
+    if ('undefined' === typeof productId) {
+      console.log('POST request to remove all products from the comparison');
+    }
+    else {
+      console.log('POST request to remove product from the comparison');
+      console.log('productId', productId);
+    }
+  },
+};
+
 window.fieldError = {
   remove: function (input) {
     input.classList.remove('util-form-field-error');

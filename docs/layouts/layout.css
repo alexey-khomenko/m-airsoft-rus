@@ -50,6 +50,22 @@ img {
   display: none;
 }
 
+.swiper-pagination {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  .swiper-pagination-bullet {
+    --swiper-pagination-bullet-horizontal-gap: 0;
+    width: .75rem;
+    height: .75rem;
+    background-color: #009AE3;
+    box-shadow: 0 0 .125rem 0 rgba(0, 0, 0, .2) inset;
+  }
+}
+
 
 :root {
   --header--h: 3.75rem;

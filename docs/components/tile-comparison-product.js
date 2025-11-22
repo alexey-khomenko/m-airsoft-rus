@@ -24,25 +24,15 @@ window.addEventListener('load', () => {
 
     if (!button) return true;
 
-    const wrapper = document.querySelector('[data-action-remove]');
-
-    if (!wrapper) {
-      console.log('Error: [data-action-remove] not found');
-      return true;
-    }
-
-    const action = wrapper.dataset.actionRemove;
     const productId = button.dataset.removeProductId;
 
-
-    console.log('POST request to', action);
-    console.log('productId', productId);
-
+    window.comparison.remove(productId);
 
     button.closest('.column').remove();
 
-    const columns = wrapper.querySelectorAll('.column');
+    const removeAll = document.querySelector('[data-remove-all]');
+    const columns = document.querySelectorAll('.comparison-wrapper .column');
 
-    if (0 === columns.length) window.location.assign(wrapper.dataset.redirectTo);
+    if (0 === columns.length) window.location.assign(removeAll.dataset.redirectTo);
   });
 });
