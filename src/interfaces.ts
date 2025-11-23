@@ -14,6 +14,10 @@ export interface ILink {
   name: string;
 }
 
+export interface IStore {
+  address: string;
+  remnant: string;
+}
 
 export interface IUser {
   tel: string;
@@ -125,6 +129,18 @@ export interface IProduct {
   sections: ILink[];
   inCart: boolean;
   photos: string[];
+  oldPrice: number;
+  price: number;
+  bonus: number;
+  availability: string;
+  stores: IStore[];
+  sizes: IOption[];
+}
+
+export interface ICatalogDetail {
+  product: IProduct;
+  user: IUser | null;
+  products: IProductTile[];
 }
 
 export interface INews {

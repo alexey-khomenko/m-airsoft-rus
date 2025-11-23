@@ -6,6 +6,7 @@ import PopupProfileTel from '../components/PopupProfileTel.astro';
 import PopupProfileName from '../components/PopupProfileName.astro';
 import PopupFilters from '../components/PopupFilters.astro';
 import PopupBonus from '../components/PopupBonus.astro';
+import PopupOneClick from '../components/PopupOneClick.astro';
 
 import type {IPopupFilter, IUser} from '../interfaces';
 
@@ -14,6 +15,7 @@ interface Props {
   isUser: boolean;
   userInfo?: IUser;
   popupFilter?: IPopupFilter;
+  productId?: number;
 }
 
 const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
@@ -40,6 +42,9 @@ const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
 
   {['how-to-buy', 'catalog-detail'].includes(page) &&
     <PopupBonus/>}
+
+  {'catalog-detail' === page &&
+    <PopupOneClick productId={100} userInfo={userInfo}/>}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>

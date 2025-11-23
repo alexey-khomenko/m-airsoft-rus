@@ -15,8 +15,41 @@
       "./content/catalog-detail-1.png",
       "./content/catalog-detail-1.png",
       "./content/catalog-detail-1.png"
+    ],
+    "oldPrice": 33940,
+    "price": 28940,
+    "bonus": 1447,
+    "availability": "Есть в наличии",
+    "stores": [
+      {
+        "address": "Ленинградский проспект, 2",
+        "remnant": "отсутствует"
+      },
+      {
+        "address": "Фрунзенская набережная, 16к1",
+        "remnant": "остаток: мало"
+      },
+      {
+        "address": "3я Парковая, 33",
+        "remnant": "остаток: достаточно"
+      }
+    ],
+    "sizes": [
+      {
+        "alias": "1",
+        "title": "S/M"
+      },
+      {
+        "alias": "2",
+        "title": "L/XL"
+      },
+      {
+        "alias": "3",
+        "title": "XXL"
+      }
     ]
   },
+  "user": null,
   "products": [
     {
       "id": 12,

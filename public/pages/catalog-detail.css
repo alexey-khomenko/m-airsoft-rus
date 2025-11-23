@@ -155,8 +155,27 @@
 }
 
 .section-buy {
-  margin-top: .875rem;
+  overflow: hidden;
 
+  .misc {
+    padding-block: .875rem;
+  }
+
+  .one-click {
+    margin-bottom: .875rem;
+    width: 100%;
+    border-color: #009AE3;
+    background-color: #FFFFFF;
+    color: #009AE3;
+  }
+
+  .availability {
+
+  }
+
+  .sizes {
+    padding-block: .625rem;
+  }
 }
 
 .section-spoilers {

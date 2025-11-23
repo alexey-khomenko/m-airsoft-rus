@@ -1,0 +1,58 @@
+---
+import Popup from '../components/Popup.astro';
+import UtilTile from '../components/UtilTile.astro';
+import InputTel from './InputTel.astro';
+
+import type {IUser} from '../interfaces';
+
+interface Props {
+  productId: number;
+  userInfo?: IUser;
+}
+
+const {productId, userInfo = undefined}: Props = Astro.props;
+
+const name: string = userInfo ? `${userInfo.firstName} ${userInfo.firstName} ${userInfo.middleName}` : '';
+const tel: string = userInfo ? userInfo.tel : '';
+---
+
+<Popup name="one-click" title="Купить" bgLight={false}>
+  <link rel="stylesheet" href="./components/popup-one-click.css"/>
+  <UtilTile tag="div" classList={['popup-one-click']}>
+    <form class="form-one-click" action="/api-one-click" novalidate data-form-one-click data-finished="/finished">
+      <input type="hidden" name="product-id" id="product-id" value={productId}/>
+
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="name">Имя</label>
+        <input type="text" name="name" id="name" maxlength="256" value={name}
+               autocorrect="off" spellcheck="false" class="util-form-field low input"/>
+      </div>
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="city">Город</label>
+        <input type="text" name="city" id="city" maxlength="256"
+               autocorrect="off" spellcheck="false" class="util-form-field low input"/>
+      </div>
+      <InputTel label="Телефон" name="phone" classList={['low']} value={tel}/>
+
+      {userInfo ? (
+        <button type="submit" class="util-button primary button">
+          <span>Отправить заказ</span>
+        </button>
+      ) : (
+        <button type="submit" class="util-button primary button">
+          <span>Подтвердить через Telegram</span>
+        </button>
+      )}
+    </form>
+    {!userInfo && (
+      <div class="info">
+        Нажимая кнопку "Отправить заказ", Я подтверждаю, что ознакомлен и согласен с условиями
+        <a href="/public-offer" target="_blank">Публичной оферты</a>.
+        Настоящим я подтверждаю, что даю согласие ООО "Страйкбол-РУС" и его уполномоченным представителям на
+        обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
+        <a href="/privacy-policy" target="_blank">Политике конфиденциальности</a>.
+      </div>
+    )}
+  </UtilTile>
+  <script src="./components/popup-one-click.js" is:inline async></script>
+</Popup>

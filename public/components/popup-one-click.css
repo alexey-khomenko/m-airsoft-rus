@@ -1,0 +1,45 @@
+.popup-one-click {
+  overflow: hidden;
+
+  .form-one-click {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+
+    .button {
+      margin-top: .5rem;
+    }
+  }
+
+  .fieldset {
+    align-items: flex-start;
+    gap: .25rem;
+
+    .label {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: #8F8F8F;
+    }
+
+    .input {
+      padding-inline: .75rem;
+    }
+  }
+
+  .info {
+    margin: 1rem 0 .25rem;
+    hyphens: auto;
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #373635;
+
+    a {
+      color: #009AE3;
+      text-decoration: none;
+    }
+  }
+}
