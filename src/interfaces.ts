@@ -135,12 +135,14 @@ export interface IProduct {
   availability: string;
   stores: IStore[];
   sizes: IOption[];
+  properties: IComparisonProductProperty[];
 }
 
 export interface ICatalogDetail {
   product: IProduct;
   user: IUser | null;
-  products: IProductTile[];
+  recommendations: IProductTile[];
+  popular: IProductTile[];
 }
 
 export interface INews {

@@ -160,4 +160,29 @@ window.addEventListener('load', () => {
 
     await getAvailability();
   });
+
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-inner-spoiler-show]');
+
+    if (!button) return true;
+
+    button.hidden = true;
+
+    const parent = button.closest('.spoiler-main');
+    parent.querySelector('.inner-spoiler-wrapper').classList.remove('closed');
+    parent.querySelector('[data-inner-spoiler-hide]').hidden = false;
+  });
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-inner-spoiler-hide]');
+
+    if (!button) return true;
+
+    button.hidden = true;
+
+    const parent = button.closest('.spoiler-main');
+    parent.querySelector('.inner-spoiler-wrapper').classList.add('closed');
+    parent.querySelector('[data-inner-spoiler-show]').hidden = false;
+  });
 });

@@ -6,15 +6,14 @@ import SectionPageTitle from '../components/SectionPageTitle.astro';
 import SliderProducts from '../components/SliderProducts.astro';
 import Rating from '../components/Rating.astro';
 
-import type {ICatalogDetail, ILink, IProduct, IUser} from '../interfaces';
+import type {ICatalogDetail, ILink, IProduct, IUser, IComparisonProductProperty, IOption, IStore} from '../interfaces';
 
 import data from '../pages/catalog-detail.json';
-import type {IOption, IStore} from '../interfaces.ts';
 
-const {product, user, products}: ICatalogDetail = data;
+const {product, user, recommendations, popular}: ICatalogDetail = data;
 
 const {
-  id, name, link, rating, sections, inCart, photos, oldPrice, price, bonus, availability, stores, sizes,
+  id, name, link, rating, sections, inCart, photos, oldPrice, price, bonus, availability, stores, sizes, properties,
 }: IProduct = product;
 
 const userInfo: IUser | undefined = user ? user : undefined;
@@ -242,14 +241,32 @@ breadcrumbs.push({link, name});
             </svg>
           </summary>
           <div class="spoiler-main">
-            <p>
-              <strong>Дробовик SGR-12 Platinum фирмы Cyma, Китай</strong>
-              <br>
-              Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно
-              и надёжно, люфты полностью отсутствуют. В верхней части корпуса имеются RIS-планки, на которые
-              установлены открытые складные прицельные приспособления в виде мушки и диоптра. Цевье изготовлено из
-              алюминия, имеет интерфейс креплений M-LOK
-            </p>
+            <div class="inner-spoiler-wrapper closed">
+
+              <p>
+                <strong>Дробовик SGR-12 Platinum фирмы Cyma, Китай</strong>
+                <br>
+                Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно
+                и надёжно, люфты полностью отсутствуют. В верхней части корпуса имеются RIS-планки, на которые
+                установлены открытые складные прицельные приспособления в виде мушки и диоптра. Цевье изготовлено из
+                алюминия, имеет интерфейс креплений M-LOK
+              </p>
+
+            </div>
+            <button type="button" class="inner-spoiler-button show" data-inner-spoiler-show>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Показать полностью</span>
+            </button>
+            <button type="button" class="inner-spoiler-button hide" data-inner-spoiler-hide hidden>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Скрыть</span>
+            </button>
           </div>
         </details>
 
@@ -262,7 +279,30 @@ breadcrumbs.push({link, name});
             </svg>
           </summary>
           <div class="spoiler-main">
-            2
+            <div class="inner-spoiler-wrapper closed">
+
+              <div class="props-grid">
+                {properties.map(({name, value}: IComparisonProductProperty) => (
+                  <div class="cell name">{name}</div>
+                  <div class="cell value">{value}</div>
+                ))}
+              </div>
+
+            </div>
+            <button type="button" class="inner-spoiler-button show" data-inner-spoiler-show>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Показать все характеристики</span>
+            </button>
+            <button type="button" class="inner-spoiler-button hide" data-inner-spoiler-hide hidden>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Скрыть</span>
+            </button>
           </div>
         </details>
 
@@ -275,11 +315,16 @@ breadcrumbs.push({link, name});
             </svg>
           </summary>
           <div class="spoiler-main">
-            3
+            <div style="position: relative; padding-top: 56.25%; width: 100%">
+              <iframe src="https://kinescope.io/embed/ayZE9RLFr47gRh9ZGHWAhJ"
+                      allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;"
+                      frameborder="0" allowfullscreen
+                      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></iframe>
+            </div>
           </div>
         </details>
 
-        <details class="spoiler reviews">
+        <details class="spoiler reviews" open>
           <summary class="spoiler-header">
             <span class="text">Отзывы <mark>(2)</mark></span>
             <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
@@ -288,7 +333,35 @@ breadcrumbs.push({link, name});
             </svg>
           </summary>
           <div class="spoiler-main">
-            4
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="name">Алексей</div>
+                <div class="date">15.02.2024</div>
+              </div>
+              <div class="comment-main">
+                <p>
+                  Корпус выполнен из ударопрочного пластика и алюминиевого сплава.
+                  Все соединения выполнены плотно и надёжно
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-header">
+                <div class="name">Алексей</div>
+                <div class="date">15.02.2024</div>
+              </div>
+              <div class="comment-main" data-comment-text>
+                <p>
+                  Корпус выполнен из ударопрочного пластика и алюминиевого сплава.
+                  Все соединения выполнены плотно и надёжно
+                </p>
+              </div>
+            </div>
+
+            <form>
+
+            </form>
           </div>
         </details>
 
@@ -301,7 +374,10 @@ breadcrumbs.push({link, name});
             </svg>
           </summary>
           <div class="spoiler-main">
-            5
+
+            <form>
+
+            </form>
           </div>
         </details>
 
@@ -344,15 +420,14 @@ breadcrumbs.push({link, name});
 
           </div>
         </details>
-
       </section>
     </Container>
     <div class="util-decoration" aria-hidden="true"></div>
   </div>
 
   <section class="section-recommendations">
-    <SliderProducts products={products} title="Рекомендуем купить"/>
-    <SliderProducts products={products} title="Популярные товары"/>
+    <SliderProducts products={recommendations} title="Рекомендуем купить"/>
+    <SliderProducts products={popular} title="Популярные товары"/>
   </section>
 
   {!inCart && (

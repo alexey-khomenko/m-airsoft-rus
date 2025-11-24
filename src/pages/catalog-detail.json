@@ -47,10 +47,174 @@
         "alias": "3",
         "title": "XXL"
       }
+    ],
+    "properties": [
+      {
+        "id": 1,
+        "name": "Артикул",
+        "value": "EC-302"
+      },
+      {
+        "id": 2,
+        "name": "Производитель фирма",
+        "value": "East Crane"
+      },
+      {
+        "id": 3,
+        "name": "Производитель страна",
+        "value": "Гонконг"
+      },
+      {
+        "id": 4,
+        "name": "Модель оружия",
+        "value": "M4 CQBR"
+      },
+      {
+        "id": 5,
+        "name": "Аккумулятор",
+        "value": "Нет"
+      },
+      {
+        "id": 6,
+        "name": "Принцип действия",
+        "value": "AEG"
+      },
+      {
+        "id": 7,
+        "name": "Вес",
+        "value": "2720"
+      },
+      {
+        "id": 8,
+        "name": "Материал изготовления корпуса",
+        "value": "Алюминиевый сплав"
+      },
+      {
+        "id": 9,
+        "name": "Максимальная дульная энергия",
+        "value": "1,7 Дж"
+      },
+      {
+        "id": 10,
+        "name": "Параметры резьбы",
+        "value": "Резьба М14-"
+      },
+      {
+        "id": 11,
+        "name": "Тип разъема",
+        "value": "Mini-tamiya"
+      },
+      {
+        "id": 12,
+        "name": "Начальная скорость",
+        "value": "115"
+      }
     ]
   },
   "user": null,
-  "products": [
+  "recommendations": [
+    {
+      "id": 12,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-3.png",
+      "name": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+      "rating": 0,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 5,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-2.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 3,
+      "oldPrice": 21800,
+      "price": 16800,
+      "inCart": false
+    },
+    {
+      "id": 7,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-1.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 4.5,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 11,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-2.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 3,
+      "oldPrice": 21800,
+      "price": 16800,
+      "inCart": false
+    },
+    {
+      "id": 13,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-3.png",
+      "name": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+      "rating": 5,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 14,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-1.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 4.5,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 15,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-2.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 3,
+      "oldPrice": 21800,
+      "price": 16800,
+      "inCart": false
+    },
+    {
+      "id": 16,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-3.png",
+      "name": "Пистолет Cyma GRACH AEP EBB (CM136S)",
+      "rating": 5,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 1,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-1.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 4.5,
+      "oldPrice": 26390,
+      "price": 26390,
+      "inCart": false
+    },
+    {
+      "id": 2,
+      "link": "/catalog-detail",
+      "img": "./content/catalog-product-2.png",
+      "name": "Автомат Суmа AKC-74Y CM035",
+      "rating": 3,
+      "oldPrice": 16800,
+      "price": 16800,
+      "inCart": false
+    }
+  ],
+  "popular": [
     {
       "id": 12,
       "link": "/catalog-detail",
