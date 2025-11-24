@@ -99,4 +99,6 @@ window.addEventListener('load', () => {
 
     document.querySelector('[data-comparison-add-product-id]').hidden = false;
   });
+
+
 });
