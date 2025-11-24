@@ -18,7 +18,7 @@ interface Props {
   productId?: number;
 }
 
-const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
+const {page, isUser, userInfo, popupFilter, productId}: Props = Astro.props;
 ---
 
 <aside class="popups" data-popup-backdrop hidden>
@@ -43,8 +43,8 @@ const {page, isUser, userInfo, popupFilter}: Props = Astro.props;
   {['how-to-buy', 'catalog-detail'].includes(page) &&
     <PopupBonus/>}
 
-  {'catalog-detail' === page &&
-    <PopupOneClick productId={100} userInfo={userInfo}/>}
+  {productId && 'catalog-detail' === page &&
+    <PopupOneClick productId={productId} userInfo={userInfo}/>}
 
   <script src="./components/popups.js" is:inline async></script>
 </aside>

@@ -9,6 +9,9 @@ document.addEventListener('submit', (e) => {
 
   let errors = false;
 
+  const inputProductId = form.querySelector('[name="product-id"]');
+  const valueProductId = inputProductId.value.trim();
+
   const inputName = form.querySelector('[name="name"]');
   const valueName = inputName.value.trim();
 
@@ -37,6 +40,7 @@ document.addEventListener('submit', (e) => {
 
 
   console.log('POST request to', action);
+  console.log('valueProductId', valueProductId);
   console.log('valueName', valueName);
   console.log('valueCity', valueCity);
   console.log('valueTel', valueTel);
