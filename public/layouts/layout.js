@@ -1,5 +1,5 @@
 window.cart = {
-  add: function (productId, quantity) {
+  add: function (productId, quantity, offerId) {
     const cart = document.querySelector('[data-cart-number]');
     const cartNumber = parseInt(cart.dataset.cartNumber);
     cart.setAttribute('data-cart-number', cartNumber + 1);
@@ -8,6 +8,7 @@ window.cart = {
     console.log('POST request to add product into the cart');
     console.log('productId', productId);
     console.log('quantity', quantity);
+    console.log('offerId', offerId);
   },
   remove: function (productId) {
     const cart = document.querySelector('[data-cart-number]');

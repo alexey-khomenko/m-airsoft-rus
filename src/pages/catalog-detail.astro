@@ -9,6 +9,7 @@ import Rating from '../components/Rating.astro';
 import type {ICatalogDetail, ILink, IProduct, IUser} from '../interfaces';
 
 import data from '../pages/catalog-detail.json';
+import type {IOption, IStore} from '../interfaces.ts';
 
 const {product, user, products}: ICatalogDetail = data;
 
@@ -186,21 +187,48 @@ breadcrumbs.push({link, name});
 
         <div class="availability bordered-rows">
           <div class="row">
-            <div class="l">{availability}</div>
+            <div class="l"><span data-availability>{availability}</span></div>
+            <div class="r"></div>
           </div>
-          <div class="r"></div>
         </div>
 
-        <div class="stores">
+        {0 < stores.length && (
+          <details class="stores">
+            <summary class="stores-header">
+              <span class="text">в магазинах</span>
+              <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <div class="stores-main">
+              {stores.map(({address, remnant}: IStore) => (
+                <div class="row">
+                  <img src="./images/catalog-detail-store.png" alt="" class="img" decoding="async" loading="lazy"/>
+                  <div>
+                    <div class="address">{address}</div>
+                    <div class="remnant">{remnant}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
 
-        </div>
-
-        <div class="sizes">
-          <div class="title">Выбрать размер</div>
-          <form>
-
-          </form>
-        </div>
+        {0 < sizes.length && (
+          <div class="sizes">
+            <div class="title">Выбрать размер</div>
+            <form class="form-sizes" action="/api-get-availability" novalidate data-form-sizes>
+              {sizes.map(({alias, title}: IOption) => (
+                <label class="label">
+                  <input type="radio" name="size" value={alias} checked={alias === '1'} hidden/>
+                  <span>{title}</span>
+                </label>
+              ))}
+              <button type="submit" hidden>Изменить размер</button>
+            </form>
+          </div>
+        )}
       </section>
 
       <section class="section-spoilers">

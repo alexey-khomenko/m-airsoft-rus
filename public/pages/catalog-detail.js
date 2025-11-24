@@ -32,13 +32,16 @@ window.addEventListener('load', () => {
   }
 
   document.addEventListener('click', (e) => {
-    const button = e.target.closest('.buy.button[data-cart-add]');
+    const button = e.target.closest('.button-buy-wrapper .button[data-cart-add]');
 
     if (!button) return true;
 
     const productId = button.dataset.cartAdd;
 
-    window.cart.add(productId, 1);
+    const size = document.querySelector('[data-form-sizes] [name="size"]:checked');
+    const offerId = parseInt(size.value);
+
+    window.cart.add(productId, 1, offerId);
 
     button.closest('.button-buy-wrapper').hidden = true;
   });
@@ -101,4 +104,60 @@ window.addEventListener('load', () => {
   });
 
 
+  async function getAvailability() {
+    const form = document.querySelector('[data-form-sizes]');
+    const action = form.action;
+    const input = form.querySelector('[name="size"]:checked');
+    const value = parseInt(input.value);
+
+
+    console.log('POST request to', action);
+    console.log('size', value);
+
+    const result = {
+      availability: 'Есть в наличии',
+      stores: [
+        {
+          address: 'Ленинградский проспект, 2',
+          remnant: 'остаток: много',
+        },
+        {
+          address: 'Фрунзенская набережная, 16к1',
+          remnant: 'остаток: достаточно',
+        },
+        {
+          address: '3я Парковая, 33',
+          remnant: 'остаток: мало',
+        },
+      ],
+    };
+
+
+    document.querySelector('[data-availability]').textContent = result.availability;
+    document.querySelector('.stores-main').innerHTML = result.stores.map(({address, remnant}) => {
+      return `<div class="row">
+        <img src="./images/catalog-detail-store.png" alt="" class="img" decoding="async" loading="lazy"/>
+        <div>
+          <div class="address">${address}</div>
+          <div class="remnant">${remnant}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  document.addEventListener('input', async (e) => {
+    const input = e.target.closest('[data-form-sizes] [name="size"]');
+
+    if (input) await getAvailability();
+  });
+
+  document.addEventListener('submit', async (e) => {
+    const form = e.target.closest('[data-form-sizes]');
+
+    if (!form) return true;
+
+    e.preventDefault();
+
+    await getAvailability();
+  });
 });
