@@ -275,21 +275,57 @@
 
         <div class="availability bordered-rows">
           <div class="row">
-            <div class="l">Есть в наличии</div>
+            <div class="l"><span data-availability>Есть в наличии</span></div>
+            <div class="r"></div>
           </div>
-          <div class="r"></div>
         </div>
 
-        <div class="stores">
-
-        </div>
+        <details class="stores">
+            <summary class="stores-header">
+              <span class="text">в магазинах</span>
+              <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.5 0.919922L6 6.91992L0.5 0.919922" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </summary>
+            <div class="stores-main">
+              <div class="row">
+                  <img src="./images/catalog-detail-store.png" alt="" class="img" decoding="async" loading="lazy">
+                  <div>
+                    <div class="address">Ленинградский проспект, 2</div>
+                    <div class="remnant">отсутствует</div>
+                  </div>
+                </div><div class="row">
+                  <img src="./images/catalog-detail-store.png" alt="" class="img" decoding="async" loading="lazy">
+                  <div>
+                    <div class="address">Фрунзенская набережная, 16к1</div>
+                    <div class="remnant">остаток: мало</div>
+                  </div>
+                </div><div class="row">
+                  <img src="./images/catalog-detail-store.png" alt="" class="img" decoding="async" loading="lazy">
+                  <div>
+                    <div class="address">3я Парковая, 33</div>
+                    <div class="remnant">остаток: достаточно</div>
+                  </div>
+                </div>
+            </div>
+          </details>
 
         <div class="sizes">
-          <div class="title">Выбрать размер</div>
-          <form>
-
-          </form>
-        </div>
+            <div class="title">Выбрать размер</div>
+            <form class="form-sizes" action="/api-get-availability" novalidate data-form-sizes>
+              <label class="label">
+                  <input type="radio" name="size" value="1" checked hidden>
+                  <span>S/M</span>
+                </label><label class="label">
+                  <input type="radio" name="size" value="2" hidden>
+                  <span>L/XL</span>
+                </label><label class="label">
+                  <input type="radio" name="size" value="3" hidden>
+                  <span>XXL</span>
+                </label>
+              <button type="submit" hidden>Изменить размер</button>
+            </form>
+          </div>
       </section>
 
       <section class="section-spoilers">
@@ -302,14 +338,30 @@
             </svg>
           </summary>
           <div class="spoiler-main">
-            <p>
-              <strong>Дробовик SGR-12 Platinum фирмы Cyma, Китай</strong>
-              <br>
-              Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно
-              и надёжно, люфты полностью отсутствуют. В верхней части корпуса имеются RIS-планки, на которые
-              установлены открытые складные прицельные приспособления в виде мушки и диоптра. Цевье изготовлено из
-              алюминия, имеет интерфейс креплений M-LOK
-            </p>
+            <div class="inner-spoiler-wrapper closed">
+
+              <p>
+                <strong>Дробовик SGR-12 Platinum фирмы Cyma, Китай</strong>
+                <br>
+                Корпус выполнен из ударопрочного пластика и алюминиевого сплава. Все соединения выполнены плотно
+                и надёжно, люфты полностью отсутствуют. В верхней части корпуса имеются RIS-планки, на которые
+                установлены открытые складные прицельные приспособления в виде мушки и диоптра. Цевье изготовлено из
+                алюминия, имеет интерфейс креплений M-LOK
+              </p>
+
+            </div>
+            <button type="button" class="inner-spoiler-button show" data-inner-spoiler-show>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Показать полностью</span>
+            </button>
+            <button type="button" class="inner-spoiler-button hide" data-inner-spoiler-hide hidden>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Скрыть</span>
+            </button>
           </div>
         </details>
 
@@ -321,7 +373,37 @@
             </svg>
           </summary>
           <div class="spoiler-main">
-            2
+            <div class="inner-spoiler-wrapper closed">
+
+              <div class="props-grid">
+                <div class="cell name">Артикул</div>
+                  <div class="cell value">EC-302</div><div class="cell name">Производитель фирма</div>
+                  <div class="cell value">East Crane</div><div class="cell name">Производитель страна</div>
+                  <div class="cell value">Гонконг</div><div class="cell name">Модель оружия</div>
+                  <div class="cell value">M4 CQBR</div><div class="cell name">Аккумулятор</div>
+                  <div class="cell value">Нет</div><div class="cell name">Принцип действия</div>
+                  <div class="cell value">AEG</div><div class="cell name">Вес</div>
+                  <div class="cell value">2720</div><div class="cell name">Материал изготовления корпуса</div>
+                  <div class="cell value">Алюминиевый сплав</div><div class="cell name">Максимальная дульная энергия</div>
+                  <div class="cell value">1,7 Дж</div><div class="cell name">Параметры резьбы</div>
+                  <div class="cell value">Резьба М14-</div><div class="cell name">Тип разъема</div>
+                  <div class="cell value">Mini-tamiya</div><div class="cell name">Начальная скорость</div>
+                  <div class="cell value">115</div>
+              </div>
+
+            </div>
+            <button type="button" class="inner-spoiler-button show" data-inner-spoiler-show>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Показать все характеристики</span>
+            </button>
+            <button type="button" class="inner-spoiler-button hide" data-inner-spoiler-hide hidden>
+              <svg class="svg" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.7002 0.700012L5.2002 5.70001L0.700195 0.700012" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Скрыть</span>
+            </button>
           </div>
         </details>
 
@@ -333,11 +415,13 @@
             </svg>
           </summary>
           <div class="spoiler-main">
-            3
+            <div style="position: relative; padding-top: 56.25%; width: 100%">
+              <iframe src="https://kinescope.io/embed/ayZE9RLFr47gRh9ZGHWAhJ" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;" allowfullscreen style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></iframe>
+            </div>
           </div>
         </details>
 
-        <details class="spoiler reviews">
+        <details class="spoiler reviews" open>
           <summary class="spoiler-header">
             <span class="text">Отзывы <mark>(2)</mark></span>
             <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
@@ -345,7 +429,35 @@
             </svg>
           </summary>
           <div class="spoiler-main">
-            4
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="name">Алексей</div>
+                <div class="date">15.02.2024</div>
+              </div>
+              <div class="comment-main">
+                <p>
+                  Корпус выполнен из ударопрочного пластика и алюминиевого сплава.
+                  Все соединения выполнены плотно и надёжно
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-header">
+                <div class="name">Алексей</div>
+                <div class="date">15.02.2024</div>
+              </div>
+              <div class="comment-main" data-comment-text>
+                <p>
+                  Корпус выполнен из ударопрочного пластика и алюминиевого сплава.
+                  Все соединения выполнены плотно и надёжно
+                </p>
+              </div>
+            </div>
+
+            <form>
+
+            </form>
           </div>
         </details>
 
@@ -357,7 +469,10 @@
             </svg>
           </summary>
           <div class="spoiler-main">
-            5
+
+            <form>
+
+            </form>
           </div>
         </details>
 
@@ -399,7 +514,6 @@
 
           </div>
         </details>
-
       </section>
     
 </div>

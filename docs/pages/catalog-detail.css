@@ -310,7 +310,71 @@
   }
 
   .stores {
+    position: relative;
 
+    &[open] .stores-header .svg {
+      transform: rotate(180deg);
+    }
+
+    .stores-header {
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      transform: translateY(calc(-.375rem - 1px));
+      padding: .375rem 1.25rem .5rem;
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      color: #009AE3;
+
+      &:before {
+        content: "";
+        width: 12px;
+      }
+
+      .text {
+        font-weight: 400;
+        font-size: .875rem;
+        line-height: 1.125rem;
+        text-align: center;
+        user-select: none;
+      }
+    }
+
+    .stores-main {
+      padding-block: 1rem;
+      border-bottom: 1px solid #D9D9D9;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: .625rem;
+
+      .row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .625rem;
+
+        font-weight: 400;
+        font-size: .875rem;
+        line-height: 1.125rem;
+      }
+
+      .img {
+        flex-shrink: 0;
+      }
+
+      .address {
+        color: #27282B;
+      }
+
+      .remnant {
+        color: #009AE3;
+      }
+    }
   }
 
   .sizes {
@@ -322,6 +386,40 @@
       font-size: 1rem;
       line-height: 1.25rem;
       color: #373635;
+    }
+
+    .form-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: .5rem;
+
+      .label {
+        flex-grow: 1;
+        flex-basis: 30%;
+        padding: .25rem .5rem;
+        min-height: 2.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .25rem;
+        border: 1px solid var(--l-bc, transparent);
+        background-color: var(--l-bgc, #F1F4F6);
+        cursor: pointer;
+        user-select: none;
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 1.25rem;
+        color: var(--l-c, #27282B);
+        text-align: center;
+
+        &:has(input:checked) {
+          --l-bc: #009AE3;
+          --l-bgc: #FFFFFF;
+          --l-c: #009AE3;
+        }
+      }
     }
   }
 }
@@ -346,6 +444,7 @@
       font-weight: 700;
       font-size: 1.25rem;
       line-height: 1.625rem;
+      color: #373635;
       text-transform: uppercase;
       user-select: none;
 
@@ -362,6 +461,75 @@
 
   .spoiler-main {
     margin-top: .75rem;
+  }
+
+  .inner-spoiler-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    &.closed {
+      --isw-mah: 6rem;
+      max-height: var(--isw-mah);
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        height: var(--isw-mah);
+        pointer-events: none;
+        background: linear-gradient(0, rgba(255, 255, 255, .8) 0%, rgba(255, 255, 255, 0) 100%);
+      }
+    }
+  }
+
+  .inner-spoiler-button {
+    margin-top: .75rem;
+    padding-inline: 0;
+
+    &:not([hidden]) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1rem;
+    color: #009AE3;
+
+    &.hide .svg {
+      transform: rotate(180deg);
+    }
+
+    &.show .svg {
+      transform: rotate(0);
+    }
+  }
+
+  .props {
+    .props-grid {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 1rem .5rem;
+
+      .cell {
+        font-weight: var(--c-fw, 400);
+        font-size: 1rem;
+        line-height: 1.25;
+        color: var(--c-c, #373635);
+
+        &:nth-child(4n - 2) {
+          --c-fw: 500;
+          --c-c: #009AE3;
+        }
+      }
+    }
   }
 
   .info,
@@ -409,6 +577,54 @@
   .delivery .spoiler-main strong,
   .delivery .spoiler-main b {
     color: #009AE3;
+  }
+
+  .comment {
+    margin-bottom: 1.25rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #D9D9D9;
+
+    .comment-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      gap: 1rem;
+
+      .name {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #373635;
+        line-height: 1.25rem;
+      }
+
+      .date {
+        font-weight: 300;
+        font-size: .875rem;
+        color: #9EA8B0;
+        line-height: 1.125rem;
+      }
+    }
+
+    .comment-main {
+      overflow: hidden;
+
+      p, img {
+        margin-block: 0.75rem;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: #373635;
+      }
+
+      img {
+        margin-inline: auto;
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
 }
 
