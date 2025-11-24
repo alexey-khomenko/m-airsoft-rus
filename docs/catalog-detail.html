@@ -201,7 +201,7 @@
             <div class="swiper-pagination"></div>
           </div>
 
-        <div class="bottom-rows">
+        <div class="bottom-rows bordered-rows">
           <div class="row">
             <div class="l"><a href="#" class="link">Гарантия</a> низкой цены!</div>
             <div class="r">Рассрочка <a href="#" class="link">0-0-5</a></div>
@@ -214,29 +214,82 @@
       </section>
 
       <section class="section-buy">
+        <div class="misc">
+          <div class="l">
+            <div class="discount">
+              <span>выгода 5 000</span>
+              <span class="currency">₽</span>
+            </div>
 
-        <br>
+            <div class="prices">
+              <div class="price">
+                <span>28 940</span>
+                <span class="currency">₽</span>
+              </div>
+              <div class="old-price">
+                <span>33 940</span>
+                <span class="currency">₽</span>
+              </div>
+            </div>
 
-        <button type="button" data-favourite-add-product-id="100">
-          <span>добавить в избранное</span>
+            <div class="bonus">
+              <span class="sum">+1 447 ₽</span>
+              <span class="txt">на бонусный счет</span>
+            </div>
+          </div>
+          <div class="r">
+            <button type="button" class="button" data-favourite-add-product-id="100">
+              <svg class="svg" width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#009AE3" fill-opacity="0.1" stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" d="M10.7998 4.30468C8.57758 -0.911364 0.799805 -0.355808 0.799805 6.31089C0.799805 12.9776 10.7998 18.5333 10.7998 18.5333C10.7998 18.5333 20.7998 12.9776 20.7998 6.31089C20.7998 -0.355808 13.022 -0.911364 10.7998 4.30468Z" stroke-linejoin="round"></path>
+              </svg>
+              <span>добавить<br>в избранное</span>
+            </button>
+            <button type="button" class="button" data-favourite-remove-product-id="100" hidden>
+              <svg class="svg" width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#009AE3" fill-opacity="0.1" stroke="#009AE3" stroke-width="1.6" stroke-linecap="round" d="M10.7998 4.30468C8.57758 -0.911364 0.799805 -0.355808 0.799805 6.31089C0.799805 12.9776 10.7998 18.5333 10.7998 18.5333C10.7998 18.5333 20.7998 12.9776 20.7998 6.31089C20.7998 -0.355808 13.022 -0.911364 10.7998 4.30468Z" stroke-linejoin="round"></path>
+              </svg>
+              <span>удалить из<br>избранного</span>
+            </button>
+
+            <button type="button" class="button" data-comparison-add-product-id="100">
+              <svg class="svg" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="#939C9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 8V17M7 8H2.59961C2.03956 8 1.75981 8 1.5459 8.10899C1.35774 8.20487 1.20487 8.35774 1.10899 8.5459C1 8.75981 1 9.04004 1 9.6001V17H7M7 8V2.6001C7 2.04004 7 1.75981 7.10899 1.5459C7.20487 1.35774 7.35774 1.20487 7.5459 1.10899C7.75981 1 8.03956 1 8.59961 1H11.3996C11.9597 1 12.2403 1 12.4542 1.10899C12.6423 1.20487 12.7948 1.35774 12.8906 1.5459C12.9996 1.75981 13 2.04005 13 2.6001V5M7 17H13M13 17L19 17.0001V6.6001C19 6.04005 18.9996 5.75981 18.8906 5.5459C18.7948 5.35774 18.6429 5.20487 18.4548 5.10899C18.2409 5 17.9601 5 17.4 5H13M13 17V5"></path>
+              </svg>
+              <span>добавить<br>в сравнение</span>
+            </button>
+            <button type="button" class="button" data-comparison-remove-product-id="100" hidden>
+              <svg class="svg" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="#939C9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 8V17M7 8H2.59961C2.03956 8 1.75981 8 1.5459 8.10899C1.35774 8.20487 1.20487 8.35774 1.10899 8.5459C1 8.75981 1 9.04004 1 9.6001V17H7M7 8V2.6001C7 2.04004 7 1.75981 7.10899 1.5459C7.20487 1.35774 7.35774 1.20487 7.5459 1.10899C7.75981 1 8.03956 1 8.59961 1H11.3996C11.9597 1 12.2403 1 12.4542 1.10899C12.6423 1.20487 12.7948 1.35774 12.8906 1.5459C12.9996 1.75981 13 2.04005 13 2.6001V5M7 17H13M13 17L19 17.0001V6.6001C19 6.04005 18.9996 5.75981 18.8906 5.5459C18.7948 5.35774 18.6429 5.20487 18.4548 5.10899C18.2409 5 17.9601 5 17.4 5H13M13 17V5"></path>
+              </svg>
+              <span>удалить из<br>сравнения</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="util-button one-click" data-popup-open="one-click">
+          <svg width="22" height="22" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18.3289 18.9701C16.9529 18.9701 15.8373 20.0856 15.8373 21.4617C15.8373 22.8377 16.9529 23.9533 18.3289 23.9533C19.705 23.9533 20.8205 22.8377 20.8205 21.4617C20.8205 20.0856 19.705 18.9701 18.3289 18.9701ZM18.3289 18.9701H8.72871C8.15432 18.9701 7.8666 18.9701 7.63012 18.8679C7.42151 18.7777 7.24052 18.6326 7.10866 18.4475C6.96087 18.24 6.90142 17.9626 6.78376 17.4135L3.71752 3.10431C3.59712 2.54244 3.53611 2.26181 3.3866 2.05195C3.25474 1.86686 3.07379 1.72118 2.86518 1.63102C2.62865 1.52881 2.34253 1.52881 1.7679 1.52881H0.887695M4.62511 5.26622H20.6626C21.5618 5.26622 22.0109 5.26622 22.3127 5.45354C22.5771 5.61761 22.7706 5.87494 22.855 6.17441C22.9513 6.5163 22.8276 6.94801 22.5784 7.81196L20.8534 13.7918C20.7044 14.3084 20.6299 14.5662 20.4787 14.7579C20.3452 14.927 20.1693 15.0595 19.9697 15.1408C19.7443 15.2326 19.4765 15.2326 18.942 15.2326H6.78093M7.11671 23.9533C5.74064 23.9533 4.62511 22.8377 4.62511 21.4617C4.62511 20.0856 5.74064 18.9701 7.11671 18.9701C8.49279 18.9701 9.60832 20.0856 9.60832 21.4617C9.60832 22.8377 8.49279 23.9533 7.11671 23.9533Z"></path>
+          </svg>
+          <span>Купить в один клик</span>
         </button>
 
-        <button type="button" data-favourite-remove-product-id="100" hidden>
-          <span>удалить из избранного</span>
-        </button>
-        <br>
-        <button type="button" data-comparison-add-product-id="100">
-          <span>добавить в сравнение</span>
-        </button>
+        <div class="availability bordered-rows">
+          <div class="row">
+            <div class="l">Есть в наличии</div>
+          </div>
+          <div class="r"></div>
+        </div>
 
-        <button type="button" data-comparison-remove-product-id="100" hidden>
-          <span>удалить из сравнения</span>
-        </button>
+        <div class="stores">
 
-        <br>
-        <br>
-        <br>
+        </div>
 
+        <div class="sizes">
+          <div class="title">Выбрать размер</div>
+          <form>
+
+          </form>
+        </div>
       </section>
 
       <section class="section-spoilers">
@@ -1303,6 +1356,66 @@
   
 <link rel="stylesheet" href="./components/util-tile.css">
 </div>
+
+    </div>
+  </div>
+  <div class="popup-footer">
+    
+  </div>
+</div>
+
+  <div class="popup bg-dark" data-popup-name="one-click" hidden>
+  <div class="popup-header">
+    <div class="util-header type-popup">
+  <link rel="stylesheet" href="./components/util-header.css">
+  <h2 class="title">
+    Купить
+  </h2>
+  <button type="button" class="util-link" data-popup-close>
+    <span>Отмена</span>
+  </button>
+</div>
+  </div>
+  <div class="popup-main">
+    <div class="wrapper">
+      
+  <link rel="stylesheet" href="./components/popup-one-click.css">
+  <div class="util-tile popup-one-click"  >
+
+    <form class="form-one-click" action="/api-one-click" novalidate data-form-one-click data-finished="/m-airsoft-rus/finished.html">
+      <input type="hidden" name="product-id" id="product-id" value="100">
+
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="name">Имя</label>
+        <input type="text" name="name" id="name" maxlength="256" value autocorrect="off" spellcheck="false" class="util-form-field low input">
+      </div>
+      <div class="util-form-fieldset fieldset">
+        <label class="label" for="city">Город</label>
+        <input type="text" name="city" id="city" maxlength="256" autocorrect="off" spellcheck="false" class="util-form-field low input">
+      </div>
+      <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-tel.css">
+  <label class="label" for="phone">Телефон</label>
+  <div class="phone-wrapper">
+    <input type="tel" name="phone" id="phone" maxlength="24" value inputmode="tel" autocomplete="tel" autocorrect="off" spellcheck="false" class="util-form-field input low">
+  </div>
+  <script src="./components/input-tel.js" async></script>
+</div>
+
+      <button type="submit" class="util-button primary button">
+          <span>Подтвердить через Telegram</span>
+        </button>
+    </form>
+    <div class="info">
+        Нажимая кнопку "Отправить заказ", Я подтверждаю, что ознакомлен и согласен с условиями
+        <a href="/m-airsoft-rus/public-offer.html" target="_blank">Публичной оферты</a>.
+        Настоящим я подтверждаю, что даю согласие ООО "Страйкбол-РУС" и его уполномоченным представителям на
+        обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
+        <a href="/m-airsoft-rus/privacy-policy.html" target="_blank">Политике конфиденциальности</a>.
+      </div>
+<link rel="stylesheet" href="./components/util-tile.css">
+</div>
+  <script src="./components/popup-one-click.js" async></script>
 
     </div>
   </div>
