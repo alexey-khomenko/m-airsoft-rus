@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
   window.orderPaymentJsIsLoaded = true;
 
-  document.addEventListener('changeOrderCity', () => {
+  document.addEventListener('changeOrderCity', async () => {
     const form = document.querySelector(`[data-order-payment-reload-action]`);
     const formGrid = form.querySelector('.form-grid');
     const action = form.dataset.orderPaymentReloadAction;
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
   const form = document.querySelector(`[data-form-order-payment]`);
   form.reset();
 
-  document.addEventListener('input', (e) => {
+  document.addEventListener('input', async (e) => {
     const radio = e.target.closest('[name="payment"]');
 
     if (!radio) return true;

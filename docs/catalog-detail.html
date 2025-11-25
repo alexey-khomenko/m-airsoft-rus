@@ -421,7 +421,7 @@
           </div>
         </details>
 
-        <details class="spoiler reviews" open>
+        <details class="spoiler reviews">
           <summary class="spoiler-header">
             <span class="text">Отзывы <mark>(2)</mark></span>
             <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
@@ -455,8 +455,28 @@
               </div>
             </div>
 
-            <form>
+            <form class="form-comment" action="/api-product-review" novalidate data-form-comment>
+              <div class="title">Добавить отзыв</div>
+              <input type="hidden" name="product-id" id="product-id" value="100">
 
+              <div class="util-form-fieldset fieldset">
+                <label class="label" for="review-name">Ваше имя:</label>
+                <input type="text" name="name" id="review-name" maxlength="256" autocorrect="off" spellcheck="false" class="util-form-field low input">
+              </div>
+
+              <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  <label class="label" for="review-text">Ваш отзыв:</label>
+  <div class="textarea-wrapper">
+    <textarea name="review-text" id="review-text" maxlength="512" aria-label="Ваш отзыв:" autocorrect="off" spellcheck="true" class="util-form-field textarea low"></textarea>
+    <textarea maxlength="512" aria-label="" autocorrect="off" spellcheck="true" class="util-form-field textarea-fake low"></textarea>
+  </div>
+  <script src="./components/input-textarea.js" async></script>
+</div>
+
+              <button type="submit" class="util-button primary button">
+                <span>Применить и сохранить</span>
+              </button>
             </form>
           </div>
         </details>
@@ -470,8 +490,28 @@
           </summary>
           <div class="spoiler-main">
 
-            <form>
+            <form class="form-comment" action="/api-product-question" novalidate data-form-comment>
+              <div class="title">Добавить вопрос</div>
+              <input type="hidden" name="product-id" id="product-id" value="100">
 
+              <div class="util-form-fieldset fieldset">
+                <label class="label" for="question-name">Ваше имя:</label>
+                <input type="text" name="name" id="question-name" maxlength="256" autocorrect="off" spellcheck="false" class="util-form-field low input">
+              </div>
+
+              <div class="util-form-fieldset fieldset">
+  <link rel="stylesheet" href="./components/input-textarea.css">
+  <label class="label" for="question-text">Ваш отзыв:</label>
+  <div class="textarea-wrapper">
+    <textarea name="question-text" id="question-text" maxlength="512" aria-label="Ваш отзыв:" autocorrect="off" spellcheck="true" class="util-form-field textarea low"></textarea>
+    <textarea maxlength="512" aria-label="" autocorrect="off" spellcheck="true" class="util-form-field textarea-fake low"></textarea>
+  </div>
+  <script src="./components/input-textarea.js" async></script>
+</div>
+
+              <button type="submit" class="util-button primary button">
+                <span>Применить и сохранить</span>
+              </button>
             </form>
           </div>
         </details>

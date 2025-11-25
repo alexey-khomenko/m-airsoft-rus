@@ -1,4 +1,4 @@
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
   const button = e.target.closest('[data-button-logout-to]');
 
   if (!button) return true;

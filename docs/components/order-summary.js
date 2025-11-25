@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
   if (!component.total) console.log('[data-order-summary-total] not found');
 
 
-  document.addEventListener('checkOrderSummary', () => {
+  document.addEventListener('checkOrderSummary', async () => {
     if (!component.action) return true;
 
     const action = component.action.dataset.orderSummaryCheckAction;
@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
     component.update(responseAmount);
   });
 
-  document.addEventListener('submit', (e) => {
+  document.addEventListener('submit', async (e) => {
     const form = e.target.closest('[data-form-order-summary]');
 
     if (!form) return true;

@@ -63,7 +63,7 @@ window.addEventListener('load', () => {
   });
 
 
-  document.addEventListener('submit', (e) => {
+  document.addEventListener('submit', async (e) => {
     const form = e.target.closest('[data-form-order-personal]');
 
     if (!form) return true;

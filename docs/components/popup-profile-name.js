@@ -1,4 +1,4 @@
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
   const form = e.target.closest('[data-form-profile-name]');
 
   if (!form) return true;
@@ -45,7 +45,6 @@ document.addEventListener('submit', (e) => {
 
 
   console.log('POST request to', action);
-
   console.log('valueLastName', valueLastName);
   console.log('valueFirstName', valueFirstName);
   console.log('valueMiddleName', valueMiddleName);

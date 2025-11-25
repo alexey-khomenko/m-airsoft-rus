@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     console.log('pay');
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-payment-id-new]');
 
     if (!button) return true;

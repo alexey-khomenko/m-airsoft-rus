@@ -9,7 +9,7 @@ window.deliveries.delivery1 = {
     console.log('delivery1 unmount');
     document.removeEventListener('input', this.handler);
   },
-  handler: function (e) {
+  handler: async function (e) {
     const select = e.target.closest('.order-delivery-1 [name="office"]');
 
     if (!select) return true;

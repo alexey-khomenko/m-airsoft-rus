@@ -5,19 +5,17 @@ window.addEventListener('load', () => {
 
   window.productTileJsIsLoaded = true;
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('.cart[data-cart-add]');
 
     if (!button) return true;
 
     const productId = button.dataset.cartAdd;
 
-    window.cart.add(productId, 1);
+    await window.cart.add(productId, 1);
 
     const buttons = document.querySelectorAll(`.cart[data-cart-add="${productId}"]`);
 
-    for (const current of buttons) {
-      current.hidden = true;
-    }
+    for (const current of buttons) current.hidden = true;
   });
 });

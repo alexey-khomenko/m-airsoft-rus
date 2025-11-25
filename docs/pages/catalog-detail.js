@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
     });
   }
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('.button-buy-wrapper .button[data-cart-add]');
 
     if (!button) return true;
@@ -41,62 +41,62 @@ window.addEventListener('load', () => {
     const size = document.querySelector('[data-form-sizes] [name="size"]:checked');
     const offerId = parseInt(size.value);
 
-    window.cart.add(productId, 1, offerId);
+    await window.cart.add(productId, 1, offerId);
 
     button.closest('.button-buy-wrapper').hidden = true;
   });
 
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-favourite-add-product-id]');
 
     if (!button) return true;
 
     const productId = button.dataset.favouriteAddProductId;
 
-    window.favourite.add(productId);
+    await window.favourite.add(productId);
 
     button.hidden = true;
 
     document.querySelector('[data-favourite-remove-product-id]').hidden = false;
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-favourite-remove-product-id]');
 
     if (!button) return true;
 
     const productId = button.dataset.favouriteRemoveProductId;
 
-    window.favourite.remove(productId);
+    await window.favourite.remove(productId);
 
     button.hidden = true;
 
     document.querySelector('[data-favourite-add-product-id]').hidden = false;
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-comparison-add-product-id]');
 
     if (!button) return true;
 
     const productId = button.dataset.comparisonAddProductId;
 
-    window.comparison.add(productId);
+    await window.comparison.add(productId);
 
     button.hidden = true;
 
     document.querySelector('[data-comparison-remove-product-id]').hidden = false;
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-comparison-remove-product-id]');
 
     if (!button) return true;
 
     const productId = button.dataset.comparisonRemoveProductId;
 
-    window.comparison.remove(productId);
+    await window.comparison.remove(productId);
 
     button.hidden = true;
 
@@ -184,5 +184,65 @@ window.addEventListener('load', () => {
     const parent = button.closest('.spoiler-main');
     parent.querySelector('.inner-spoiler-wrapper').classList.add('closed');
     parent.querySelector('[data-inner-spoiler-show]').hidden = false;
+  });
+
+
+  document.addEventListener('submit', async (e) => {
+    const form = e.target.closest('[data-form-comment]');
+
+    if (!form) return true;
+
+    e.preventDefault();
+
+    const action = form.action;
+
+    let errors = false;
+
+    const inputProductId = form.querySelector('[name="product-id"]');
+    const valueProductId = inputProductId.value.trim();
+
+    const inputName = form.querySelector('[name="name"]');
+    const valueName = inputName.value.trim();
+
+    if (0 === valueName.length) {
+      window.fieldError.add(inputName);
+      errors = true;
+    }
+
+    let valueText = '';
+
+    const inputTextReview = form.querySelector('[name="review-text"]');
+    if (inputTextReview) {
+      valueText = inputTextReview.value.trim();
+
+      if (0 === valueText.length) {
+        window.fieldError.add(inputTextReview);
+        errors = true;
+      }
+    }
+
+    const inputTextQuestion = form.querySelector('[name="question-text"]');
+    if (inputTextQuestion) {
+      valueText = inputTextQuestion.value.trim();
+
+      if (0 === valueText.length) {
+        window.fieldError.add(inputTextQuestion);
+        errors = true;
+      }
+    }
+
+    if (errors) return true;
+
+
+    console.log('POST request to', action);
+    console.log('valueProductId', valueProductId);
+    console.log('valueName', valueName);
+    console.log('valueText', valueText);
+
+
+    if (inputTextReview) inputTextReview.value = '';
+    if (inputTextQuestion) inputTextQuestion.value = '';
+
+    window.location.reload();
   });
 });
