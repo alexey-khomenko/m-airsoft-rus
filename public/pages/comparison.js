@@ -49,12 +49,12 @@ window.addEventListener('load', () => {
     column.style.gridRow = `auto / span ${column.children.length}`;
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-remove-all]');
 
     if (!button) return true;
 
-    window.comparison.remove();
+    await window.comparison.remove();
 
     window.location.assign(button.dataset.redirectTo);
   });

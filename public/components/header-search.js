@@ -85,7 +85,7 @@ const testElems = search.results.innerHTML;
 search.results.innerHTML = '';
 
 
-document.addEventListener('input', (e) => {
+document.addEventListener('input', async (e) => {
   const input = e.target.closest('[data-form-search] [name="search"]');
 
   if (!input) return true;
@@ -104,7 +104,7 @@ document.addEventListener('input', (e) => {
 
   search.results.innerHTML = '';
 
-  search.debounceTimer = setTimeout(() => {
+  search.debounceTimer = setTimeout(async () => {
 
     console.log('POST request to search', value);
     search.results.innerHTML = testElems;

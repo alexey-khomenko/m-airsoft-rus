@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
     position.hidden = true;
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-position-remove]');
 
     if (!button) return true;
@@ -28,11 +28,11 @@ window.addEventListener('load', () => {
     positionIn.hidden = true;
     positionOut.hidden = false;
 
-    window.cart.remove(position.dataset.productId);
+    await window.cart.remove(position.dataset.productId);
     updateCartSummary();
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-position-restore]');
 
     if (!button) return true;
@@ -48,12 +48,12 @@ window.addEventListener('load', () => {
     positionOut.hidden = true;
     positionIn.hidden = false;
 
-    window.cart.add(position.dataset.productId, quantity);
+    await window.cart.add(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-position-minus]');
 
     if (!button) return true;
@@ -68,11 +68,11 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    window.cart.update(position.dataset.productId, quantity);
+    await window.cart.update(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', async (e) => {
     const button = e.target.closest('[data-position-plus]');
 
     if (!button) return true;
@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    window.cart.update(position.dataset.productId, quantity);
+    await window.cart.update(position.dataset.productId, quantity);
     updateCartSummary();
   });
 
@@ -111,10 +111,10 @@ window.addEventListener('load', () => {
     if (quantityMin > quantity) quantity = quantityMin;
     if (quantityMax < quantity) quantity = quantityMax;
 
-    updateDebounceTimer = setTimeout(() => {
+    updateDebounceTimer = setTimeout(async () => {
       input.value = quantity;
 
-      window.cart.update(position.dataset.productId, quantity);
+      await window.cart.update(position.dataset.productId, quantity);
       updateCartSummary();
     }, 1000);
   });

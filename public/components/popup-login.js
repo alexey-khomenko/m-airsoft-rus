@@ -1,4 +1,4 @@
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
   const form = e.target.closest('[data-form-login-phone]');
 
   if (!form) return true;
@@ -25,7 +25,7 @@ document.addEventListener('submit', (e) => {
   step2.hidden = false;
 });
 
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
   const form = e.target.closest('[data-form-login-code]');
 
   if (!form) return true;

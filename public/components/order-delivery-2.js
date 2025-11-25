@@ -9,7 +9,7 @@ window.deliveries.delivery2 = {
     console.log('delivery2 unmount');
     document.removeEventListener('click', this.handler);
   },
-  handler: function (e) {
+  handler: async function (e) {
     const test = e.target.closest('.test-block');
 
     if (!test) return true;

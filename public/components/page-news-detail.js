@@ -1,4 +1,4 @@
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
   const form = e.target.closest('[data-form-comment]');
 
   if (!form) return true;
@@ -8,7 +8,6 @@ document.addEventListener('submit', (e) => {
   const action = form.action;
 
   let errors = false;
-
 
   const inputName = form.querySelector('[name="name"]');
   const valueName = inputName.value.trim();
@@ -33,12 +32,10 @@ document.addEventListener('submit', (e) => {
     file = undefined;
   }
 
-
   if (errors) return true;
 
 
   console.log('POST request to', action);
-
   console.log('valueName', valueName);
   console.log('valueText', valueText);
   console.log('valueImage', file);

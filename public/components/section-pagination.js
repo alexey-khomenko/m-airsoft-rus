@@ -5,7 +5,7 @@ document.addEventListener('click', (e) => {
   if (linkA || linkB) e.preventDefault();
 });
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
   const showMore = e.target.closest('.show-more');
 
   if (!showMore) return true;

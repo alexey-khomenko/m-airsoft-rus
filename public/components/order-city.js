@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
 
     if (component.limit > value.length) return true;
 
-    component.debounceTimer = setTimeout(() => {
+    component.debounceTimer = setTimeout(async () => {
 
 
       console.log('POST request to', action);

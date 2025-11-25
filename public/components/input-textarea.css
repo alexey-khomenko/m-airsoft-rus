@@ -9,6 +9,11 @@
     padding: 1.125rem 1.25rem;
   }
 
+  .textarea.low,
+  .textarea-fake.low {
+    padding-block: .875rem;
+  }
+
   .textarea {
     position: relative;
     z-index: 1;

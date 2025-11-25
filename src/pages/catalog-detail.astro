@@ -9,6 +9,7 @@ import Rating from '../components/Rating.astro';
 import type {ICatalogDetail, ILink, IProduct, IUser, IComparisonProductProperty, IOption, IStore} from '../interfaces';
 
 import data from '../pages/catalog-detail.json';
+import InputTextarea from '../components/InputTextarea.astro';
 
 const {product, user, recommendations, popular}: ICatalogDetail = data;
 
@@ -27,8 +28,7 @@ for (const section of sections) {
 breadcrumbs.push({link, name});
 
 // TODO https://schema.org/AggregateRating Example 2
-/* TODO
-{
+/* {
   "@context": "http://schema.org/",
   "@type": "Organization",
   "name": "Air-soft",
@@ -41,8 +41,7 @@ breadcrumbs.push({link, name});
     "refundType": "FullRefund",
     "inStoreReturnsOffered": "True"
   }
-}
-*/
+} */
 ---
 
 <Layout title="Детальная страница товара" page="catalog-detail" isUser={true} userInfo={userInfo} productId={id}>
@@ -323,7 +322,7 @@ breadcrumbs.push({link, name});
           </div>
         </details>
 
-        <details class="spoiler reviews" open>
+        <details class="spoiler reviews">
           <summary class="spoiler-header">
             <span class="text">Отзывы <mark>(2)</mark></span>
             <svg class="svg" width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
@@ -358,8 +357,21 @@ breadcrumbs.push({link, name});
               </div>
             </div>
 
-            <form>
+            <form class="form-comment" action="/api-product-review" novalidate data-form-comment>
+              <div class="title">Добавить отзыв</div>
+              <input type="hidden" name="product-id" id="product-id" value={id}/>
 
+              <div class="util-form-fieldset fieldset">
+                <label class="label" for="review-name">Ваше имя:</label>
+                <input type="text" name="name" id="review-name" maxlength="256"
+                       autocorrect="off" spellcheck="false" class="util-form-field low input"/>
+              </div>
+
+              <InputTextarea label="Ваш отзыв:" name="review-text" classList={['low']}/>
+
+              <button type="submit" class="util-button primary button">
+                <span>Применить и сохранить</span>
+              </button>
             </form>
           </div>
         </details>
@@ -374,8 +386,21 @@ breadcrumbs.push({link, name});
           </summary>
           <div class="spoiler-main">
 
-            <form>
+            <form class="form-comment" action="/api-product-question" novalidate data-form-comment>
+              <div class="title">Добавить вопрос</div>
+              <input type="hidden" name="product-id" id="product-id" value={id}/>
 
+              <div class="util-form-fieldset fieldset">
+                <label class="label" for="question-name">Ваше имя:</label>
+                <input type="text" name="name" id="question-name" maxlength="256"
+                       autocorrect="off" spellcheck="false" class="util-form-field low input"/>
+              </div>
+
+              <InputTextarea label="Ваш отзыв:" name="question-text" classList={['low']}/>
+
+              <button type="submit" class="util-button primary button">
+                <span>Применить и сохранить</span>
+              </button>
             </form>
           </div>
         </details>

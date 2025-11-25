@@ -626,6 +626,41 @@
       }
     }
   }
+
+  .form-comment {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: .75rem;
+
+    .title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      color: #27282B;
+    }
+
+    .fieldset {
+      align-items: flex-start;
+      gap: .375rem;
+    }
+
+    .label {
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      color: #8F8F8F;
+    }
+
+    .input {
+      padding-inline: 1.25rem;
+    }
+
+    .button {
+      margin-top: .25rem;
+    }
+  }
 }
 
 .section-recommendations {

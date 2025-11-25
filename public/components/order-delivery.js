@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
     window.deliveries[`delivery${id}`].unmount();
   }
 
-  document.addEventListener('changeOrderCity', () => {
+  document.addEventListener('changeOrderCity', async () => {
     const form = document.querySelector(`[data-order-delivery-reload-action]`);
     const formGrid = form.querySelector('.form-grid');
     const action = form.dataset.orderDeliveryReloadAction;

@@ -1,4 +1,4 @@
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
   const form = e.target.closest('[data-form-one-click]');
 
   if (!form) return true;

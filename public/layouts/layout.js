@@ -1,5 +1,5 @@
 window.cart = {
-  add: function (productId, quantity, offerId) {
+  add: async function (productId, quantity, offerId) {
     const cart = document.querySelector('[data-cart-number]');
     const cartNumber = parseInt(cart.dataset.cartNumber);
     cart.setAttribute('data-cart-number', cartNumber + 1);
@@ -10,7 +10,7 @@ window.cart = {
     console.log('quantity', quantity);
     console.log('offerId', offerId);
   },
-  remove: function (productId) {
+  remove: async function (productId) {
     const cart = document.querySelector('[data-cart-number]');
     const cartNumber = parseInt(cart.dataset.cartNumber);
     cart.setAttribute('data-cart-number', cartNumber - 1);
@@ -19,7 +19,7 @@ window.cart = {
     console.log('POST request to remove product from the cart');
     console.log('productId', productId);
   },
-  update: function (productId, quantity) {
+  update: async function (productId, quantity) {
     console.log('POST request to update product in the cart');
     console.log('productId', productId);
     console.log('quantity', quantity);
@@ -27,22 +27,22 @@ window.cart = {
 };
 
 window.favourite = {
-  add: function (productId) {
+  add: async function (productId) {
     console.log('POST request to add product into the favourite');
     console.log('productId', productId);
   },
-  remove: function (productId) {
+  remove: async function (productId) {
     console.log('POST request to remove product from the favourite');
     console.log('productId', productId);
   },
 };
 
 window.comparison = {
-  add: function (productId) {
+  add: async function (productId) {
     console.log('POST request to add product into the comparison');
     console.log('productId', productId);
   },
-  remove: function (productId) {
+  remove: async function (productId) {
     if ('undefined' === typeof productId) {
       console.log('POST request to remove all products from the comparison');
     }
@@ -65,7 +65,5 @@ window.fieldError = {
 document.addEventListener('focusin', (e) => {
   const input = e.target.closest('.util-form-field-error');
 
-  if (!input) return true;
-
-  window.fieldError.remove(input);
+  if (input) window.fieldError.remove(input);
 });
