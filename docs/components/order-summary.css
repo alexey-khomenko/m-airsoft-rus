@@ -61,16 +61,24 @@
     }
 
     .checkbox {
+      position: relative;
       appearance: none;
       flex-shrink: 0;
       width: 1.25rem;
       height: 1.25rem;
       border-radius: .125rem;
-      border: 1px solid var(--checkbox-bc, #DADDDF);
+      box-shadow: 0 0 9px 4px rgba(0, 0, 0, .1) inset;
+      cursor: pointer;
 
-      &:checked {
-        --checkbox-bc: transparent;
-        box-shadow: 0 0 9px 4px rgba(0, 0, 0, .1) inset;
+      &:checked::after {
+        content: "";
+        position: absolute;
+        top: .25rem;
+        left: .25rem;
+        width: .75rem;
+        height: .75rem;
+        border-radius: .125rem;
+        background-color: #009AE3;
       }
     }
 
