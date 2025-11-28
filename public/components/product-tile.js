@@ -14,8 +14,10 @@ window.addEventListener('load', () => {
 
     await window.cart.add(productId, 1);
 
-    const buttons = document.querySelectorAll(`.cart[data-cart-add="${productId}"]`);
+    const buttonsTo = document.querySelectorAll(`.cart[data-cart-add="${productId}"]`);
+    const buttonsIn = document.querySelectorAll(`.cart[data-cart-in="${productId}"]`);
 
-    for (const current of buttons) current.hidden = true;
+    for (const current of buttonsTo) current.hidden = true;
+    for (const current of buttonsIn) current.hidden = false;
   });
 });
