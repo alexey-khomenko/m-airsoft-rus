@@ -7,7 +7,7 @@
 
   .checkboxes {
     margin-bottom: .5rem;
-    gap: .5rem .75rem;
+    gap: .5rem;
 
     &:not([hidden]) {
       display: flex;

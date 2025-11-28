@@ -10,26 +10,25 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    gap: .875rem;
+    gap: .75rem;
 
     .input {
       flex-grow: 1;
-      height: 3.25rem;
+      height: 2.25rem;
       border: none;
       border-radius: 99999px;
       background-color: #F1F4F6;
       font-weight: 400;
-      --input--fz: 1.625rem;
+      --input--fz: 1.125rem;
       color: #373635;
       text-align: center;
     }
 
     .separator {
-      width: .75rem;
-      height: 3px;
+      width: .625rem;
+      height: 2px;
       border: 1px solid #626262;
       background-color: #626262;
     }
   }
-
 }
