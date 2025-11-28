@@ -13,10 +13,52 @@
 
   .nav-brands {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 70px), 1fr));
+    grid-template-columns: repeat(var(--nb-gtc, 5), 1fr);
+    gap: 1rem 0;
+
+    @container app (width > 430px) {
+      --nb-gtc: 6;
+    }
+
+    @container app (width > 520px) {
+      --nb-gtc: 7;
+    }
+
+    @container app (width > 630px) {
+      --nb-gtc: 8;
+    }
+
+    @container app (width > 680px) {
+      --nb-gtc: 9;
+    }
+
+    .tile {
+      display: block;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .cover {
+      margin: 0 auto;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: block;
+      object-fit: contain;
+      aspect-ratio: 1;
+    }
+  }
+
+  /*  .nav-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
     gap: 1rem;
 
     .tile {
+      width: 3.5rem;
+      height: 3.5rem;
+
       display: block;
       text-decoration: none;
       overflow: hidden;
@@ -28,5 +70,5 @@
       width: 100%;
       aspect-ratio: 1;
     }
-  }
+  }*/
 }
