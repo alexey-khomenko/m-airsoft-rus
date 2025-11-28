@@ -25,20 +25,12 @@ document.addEventListener('submit', async (e) => {
     errors = true;
   }
 
-  const inputImage = form.querySelector('[name="image"]');
-  let file = inputImage.files[0];
-
-  if (file && !file.type.startsWith('image/')) {
-    file = undefined;
-  }
-
   if (errors) return true;
 
 
   console.log('POST request to', action);
   console.log('valueName', valueName);
   console.log('valueText', valueText);
-  console.log('valueImage', file);
 
 
   form.querySelector('[type="submit"]').hidden = true;
