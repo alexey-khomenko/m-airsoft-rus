@@ -1,24 +1,9 @@
 window.addEventListener('load', () => {
+  function fixHeight() {
+    const namesNames = document.querySelectorAll('.comparison-properties .property-name-wrapper .name');
+    const namesValues = document.querySelectorAll('.comparison-properties .property-name-wrapper .value');
 
-  function fixProductsHeight() {
-    const productHeight = document.querySelector('.comparison-wrapper .product-wrapper .product').clientHeight;
-    const removeHeight = document.querySelector('.comparison-wrapper .remove-top').clientHeight;
-
-    document.querySelector('.comparison-wrapper .remove-top').style.top = `${productHeight}px`;
-
-    document.querySelector('.comparison-wrapper .remove-bottom .product').style.height = `${productHeight}px`;
-    document.querySelector('.comparison-wrapper .remove-bottom .remove').style.height = `${removeHeight}px`;
-
-    document.querySelectorAll('.comparison-wrapper .slider .column .remove').forEach((remove) => {
-      remove.style.height = `${removeHeight}px`;
-    });
-  }
-
-  function fixPropertiesHeight() {
-    const namesNames = document.querySelectorAll('.comparison-wrapper .property-name-wrapper .name');
-    const namesValues = document.querySelectorAll('.comparison-wrapper .property-name-wrapper .value');
-
-    const columns = document.querySelectorAll('.comparison-wrapper .slider .column');
+    const columns = document.querySelectorAll('.comparison-properties .column');
     const valuesValues = columns[0].querySelectorAll('.property-value-wrapper');
 
     for (let i = 0; i < valuesValues.length; i++) {
@@ -32,20 +17,15 @@ window.addEventListener('load', () => {
         valuesNames[i].style.height = `${namesNames[i].clientHeight}px`;
       }
     });
-  }
 
-  function fixHeight() {
-    fixProductsHeight();
-    fixPropertiesHeight();
-
-    const wrapper = document.querySelector('.comparison-wrapper');
+    const wrapper = document.querySelector('.comparison-properties');
 
     if (wrapper) wrapper.style.visibility = 'visible';
   }
 
   setTimeout(fixHeight, 10);
 
-  document.querySelectorAll('.comparison-wrapper .slider .column').forEach((column) => {
+  document.querySelectorAll('.comparison-properties .column').forEach((column) => {
     column.style.gridRow = `auto / span ${column.children.length}`;
   });
 
@@ -58,4 +38,28 @@ window.addEventListener('load', () => {
 
     window.location.assign(button.dataset.redirectTo);
   });
+
+
+  const slider1 = document.querySelector('.comparison-products');
+  const slider2 = document.querySelector('.comparison-properties .properties');
+
+  let isUpdating = false;
+
+  function syncScroll(source, target) {
+    if (isUpdating) return;
+
+    isUpdating = true;
+
+    setTimeout(() => {
+      target.scrollTo({
+        left: source.scrollLeft,
+        behavior: 'smooth'
+      });
+
+      isUpdating = false;
+    }, 10);
+  }
+
+  slider1.addEventListener('scroll', () => syncScroll(slider1, slider2));
+  slider2.addEventListener('scroll', () => syncScroll(slider2, slider1));
 });

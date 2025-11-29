@@ -4,23 +4,47 @@
 }
 
 
-.comparison-wrapper {
-  margin-top: 1rem;
+.slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--column-width, 9.5rem);
+  gap: 0 .5rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  @container app (width > 380px) {
+    --column-width: 10rem;
+  }
+
+  @container app (width > 400px) {
+    --column-width: 10.5rem;
+  }
+
+  .column {
+    scroll-snap-align: start;
+  }
+}
+
+.comparison-products {
+  margin-top: .5rem;
+  padding-block: .5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #F1F4F6;
+}
+
+.comparison-button {
+  padding: .75rem 0 1.25rem;
+
+  .button {
+    width: 100%;
+  }
+}
+
+.comparison-properties {
   position: relative;
   visibility: hidden;
-
-  .remove-top {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-block: 1.25rem;
-
-    .button {
-      width: 100%;
-    }
-  }
 
   .layer {
     z-index: 0;
@@ -38,25 +62,9 @@
     }
   }
 
-  .slider {
-    --column-width: 9.5rem;
-
-    @container app (width > 380px) {
-      --column-width: 10rem;
-    }
-
-    @container app (width > 400px) {
-      --column-width: 10.5rem;
-    }
-
+  .properties {
     z-index: 1;
     position: relative;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: var(--column-width);
-    gap: 0 .5rem;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
 
     .value {
       padding: .625rem;
@@ -74,7 +82,6 @@
       grid-auto-flow: row;
       grid-row: auto / span 10;
       grid-template-rows: subgrid;
-      scroll-snap-align: start;
     }
   }
 }

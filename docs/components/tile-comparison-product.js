@@ -30,11 +30,15 @@ window.addEventListener('load', async () => {
 
     await window.comparison.remove(productId);
 
-    button.closest('.column').remove();
+    const columns = document.querySelectorAll(`.column[data-product-id="${productId}"]`);
+
+    for (const column of columns) {
+      column.remove();
+    }
 
     const removeAll = document.querySelector('[data-remove-all]');
-    const columns = document.querySelectorAll('.comparison-wrapper .column');
+    const productColumns = document.querySelectorAll('.comparison-products .column');
 
-    if (0 === columns.length) window.location.assign(removeAll.dataset.redirectTo);
+    if (0 === productColumns.length) window.location.assign(removeAll.dataset.redirectTo);
   });
 });

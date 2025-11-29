@@ -17,7 +17,7 @@ const breadcrumbs: ILink[] = [{link: '/catalog', name: 'Каталог'}];
 breadcrumbs.push({link, name: title});
 ---
 
-<Layout title="Товары к сравнению" page="comparison" isUser={true}>
+<Layout title="Товары к сравнению" page="comparison" isUser={true} withoutHeader={true}>
   <link rel="stylesheet" href="./pages/comparison.css"/>
   <div class="page-wrapper">
     <SectionBreadcrumbs pages={breadcrumbs}/>
@@ -25,18 +25,22 @@ breadcrumbs.push({link, name: title});
     <SectionPageTitle title={title}/>
 
     {0 < products.length && (
-      <section class="comparison-wrapper">
-        <div class="remove-top">
-          <button type="button" class="util-button primary button" data-remove-all data-redirect-to="/catalog">
-            <span>Очистить список сравнения</span>
-          </button>
-        </div>
-
-        <div class="layer">
-          <div class="remove-bottom">
-            <div class="product"></div>
-            <div class="remove"></div>
+      <section class="slider comparison-products">
+        {products.map(({product}: IComparisonProduct) => (
+          <div class="column" data-product-id={product.id}>
+            <TileComparisonProduct product={product}/>
           </div>
+        ))}
+      </section>
+
+      <section class="comparison-button">
+        <button type="button" class="util-button primary button" data-remove-all data-redirect-to="/catalog">
+          <span>Очистить список сравнения</span>
+        </button>
+      </section>
+
+      <section class="comparison-properties">
+        <div class="layer">
           {products[0].properties.map(({name}: IComparisonProductProperty) => (
             <div class="property-name-wrapper">
               <div class="name">{name}</div>
@@ -44,14 +48,9 @@ breadcrumbs.push({link, name: title});
             </div>
           ))}
         </div>
-
-        <div class="slider">
+        <div class="slider properties">
           {products.map(({product, properties}: IComparisonProduct) => (
-            <div class="column">
-              <div class="product-wrapper">
-                <TileComparisonProduct product={product}/>
-                <div class="remove"></div>
-              </div>
+            <div class="column" data-product-id={product.id}>
               {properties.map(({value}: IComparisonProductProperty) => (
                 <div class="property-value-wrapper">
                   <div class="name"></div>
