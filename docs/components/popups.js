@@ -25,6 +25,12 @@ document.addEventListener('click', (e) => {
     current.hidden = true;
   }
 
+  if ('filters' === name) {
+    const layout = document.querySelector('.layout');
+    layout.classList.add('without-header');
+    layout.classList.add('without-footer');
+  }
+
   backdrop.hidden = false;
 
   setTimeout(() => {
@@ -41,6 +47,14 @@ window.closePopup = function () {
 
   for (const current of popups) {
     current.hidden = true;
+
+    const name = current.dataset.popupName;
+
+    if ('filters' === name) {
+      const layout = document.querySelector('.layout');
+      layout.classList.remove('without-header');
+      layout.classList.remove('without-footer');
+    }
   }
 
   backdrop.hidden = true;
@@ -50,17 +64,13 @@ document.addEventListener('click', (e) => {
   const backdrop = e.target.closest('[data-popup-backdrop]');
   const popup = e.target.closest('[data-popup-name]');
 
-  if (!backdrop || popup) return true;
-
-  window.closePopup();
+  if (backdrop && !popup) window.closePopup();
 });
 
 document.addEventListener('click', (e) => {
   const button = e.target.closest('[data-popup-close]');
 
-  if (!button) return true;
-
-  window.closePopup();
+  if (button) window.closePopup();
 });
 
 document.addEventListener('keydown', (e) => {

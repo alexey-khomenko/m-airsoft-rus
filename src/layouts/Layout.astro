@@ -14,13 +14,22 @@ interface Props {
   userInfo?: IUser;
   popupFilter?: IPopupFilter;
   productId?: number;
+  withoutHeader?: boolean;
+  withoutFooter?: boolean;
 }
 
-const {title, page, isUser, userInfo, popupFilter, productId}: Props = Astro.props;
+const {
+  title, page, isUser, userInfo, popupFilter, productId, withoutHeader = false, withoutFooter = false,
+}: Props = Astro.props;
+
+const classList: string[] = ['layout'];
+
+if (withoutHeader) classList.push('without-header');
+if (withoutFooter) classList.push('without-footer');
 ---
 
 <!DOCTYPE html>
-<html lang="ru" class="layout">
+<html lang="ru" class:list={classList}>
 <head>
   <meta charset="UTF-8"/>
   <meta name="description" content=""/>

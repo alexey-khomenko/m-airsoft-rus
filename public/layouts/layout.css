@@ -104,6 +104,22 @@ img {
       display: none;
     }
   }
+
+  &.without-header {
+    --header--h: 0;
+
+    .header {
+      display: none;
+    }
+  }
+
+  &.without-footer {
+    --footer--h: 0;
+
+    .footer {
+      display: none;
+    }
+  }
 }
 
 #app {
