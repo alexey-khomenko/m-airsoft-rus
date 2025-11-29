@@ -25,7 +25,7 @@ const amountDelivery: number = 300;
 const amountTotal: number = amountOld - amountDiscount + amountDelivery;
 ---
 
-<Layout title="Корзина" page="cart" isUser={true}>
+<Layout title="Корзина" page="cart" isUser={true} withoutHeader={true}>
   <link rel="stylesheet" href="./pages/cart.css"/>
   <div class="page-wrapper">
     <UtilHeader type="page" title={title}/>
