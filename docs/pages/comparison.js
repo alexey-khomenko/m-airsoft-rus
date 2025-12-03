@@ -53,7 +53,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
       target.scrollTo({
         left: source.scrollLeft,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
 
       isUpdating = false;
