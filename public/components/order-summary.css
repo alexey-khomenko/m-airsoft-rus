@@ -57,7 +57,20 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      gap: .5rem;
+      position: relative;
+
+      .svg {
+        position: absolute;
+        left: .25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        display: none;
+      }
+
+      &:has(.checkbox:checked) .svg {
+        display: block;
+      }
     }
 
     .checkbox {
@@ -69,20 +82,10 @@
       border-radius: .125rem;
       box-shadow: 0 0 9px 4px rgba(0, 0, 0, .1) inset;
       cursor: pointer;
-
-      &:checked::after {
-        content: "";
-        position: absolute;
-        top: .25rem;
-        left: .25rem;
-        width: .75rem;
-        height: .75rem;
-        border-radius: .125rem;
-        background-color: #009AE3;
-      }
     }
 
     .label {
+      padding-left: .5rem;
       cursor: pointer;
       font-weight: 400;
       font-size: .75rem;
