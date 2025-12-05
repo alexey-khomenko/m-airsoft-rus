@@ -49,15 +49,11 @@ window.addEventListener('load', () => {
     if (isUpdating) return;
 
     isUpdating = true;
+    target.scrollLeft = source.scrollLeft;
 
-    setTimeout(() => {
-      target.scrollTo({
-        left: source.scrollLeft,
-        behavior: 'smooth',
-      });
-
+    requestAnimationFrame(() => {
       isUpdating = false;
-    }, 10);
+    });
   }
 
   slider1.addEventListener('scroll', () => syncScroll(slider1, slider2));
