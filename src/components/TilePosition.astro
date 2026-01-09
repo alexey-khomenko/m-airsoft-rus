@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {position}: Props = Astro.props;
-const {cartId, productId, productName, quantity, quantityMax, price, priceOld, img}: ICartPosition = position;
+const {cartId, productId, offerId, productName, quantity, quantityMax, price, priceOld, img}: ICartPosition = position;
 
 const economy: number = (priceOld - price) * quantity;
 const sum: number = price * quantity;
@@ -16,6 +16,7 @@ const sumOld: number = priceOld * quantity;
 
 const dataArray: string[] = [
   `data-product-id="${productId}"`,
+  `data-offer-id="${offerId}"`,
   `data-position-id="${cartId}"`,
   `data-position-price="${price}"`,
   `data-position-price-old="${priceOld}"`,

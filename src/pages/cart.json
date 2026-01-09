@@ -2,6 +2,7 @@
   {
     "cartId": 1,
     "productId": 11,
+    "offerId": 110,
     "productName": "Автомат Cyma АК Magpul custom Sport Series BK CM680C",
     "quantity": 1,
     "quantityMax": 100,
@@ -12,6 +13,7 @@
   {
     "cartId": 2,
     "productId": 12,
+    "offerId": 120,
     "productName": "Автомат Cyma АК Magpul custom Sport Series BK CM680C",
     "quantity": 1,
     "quantityMax": 100,
@@ -22,6 +24,7 @@
   {
     "cartId": 3,
     "productId": 13,
+    "offerId": null,
     "productName": "Пистолет WE Big Bird Semi GGBB",
     "quantity": 3,
     "quantityMax": 5,

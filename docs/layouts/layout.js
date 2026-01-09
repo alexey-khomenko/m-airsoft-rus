@@ -10,7 +10,7 @@ window.cart = {
     console.log('quantity', quantity);
     console.log('offerId', offerId);
   },
-  remove: async function (productId) {
+  remove: async function (productId, offerId) {
     const cart = document.querySelector('[data-cart-number]');
     const cartNumber = parseInt(cart.dataset.cartNumber);
     cart.setAttribute('data-cart-number', cartNumber - 1);
@@ -18,11 +18,13 @@ window.cart = {
 
     console.log('POST request to remove product from the cart');
     console.log('productId', productId);
+    console.log('offerId', offerId);
   },
-  update: async function (productId, quantity) {
+  update: async function (productId, quantity, offerId) {
     console.log('POST request to update product in the cart');
     console.log('productId', productId);
     console.log('quantity', quantity);
+    console.log('offerId', offerId);
   },
 };
 

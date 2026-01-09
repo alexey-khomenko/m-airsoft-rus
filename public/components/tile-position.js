@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
     positionIn.hidden = true;
     positionOut.hidden = false;
 
-    await window.cart.remove(position.dataset.productId);
+    await window.cart.remove(position.dataset.productId, position.dataset.offerId);
     updateCartSummary();
   });
 
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
     positionOut.hidden = true;
     positionIn.hidden = false;
 
-    await window.cart.add(position.dataset.productId, quantity);
+    await window.cart.add(position.dataset.productId, quantity, position.dataset.offerId);
     updateCartSummary();
   });
 
@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    await window.cart.update(position.dataset.productId, quantity);
+    await window.cart.update(position.dataset.productId, quantity, position.dataset.offerId);
     updateCartSummary();
   });
 
@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
 
     input.value = quantity;
 
-    await window.cart.update(position.dataset.productId, quantity);
+    await window.cart.update(position.dataset.productId, quantity, position.dataset.offerId);
     updateCartSummary();
   });
 
@@ -114,7 +114,7 @@ window.addEventListener('load', () => {
     updateDebounceTimer = setTimeout(async () => {
       input.value = quantity;
 
-      await window.cart.update(position.dataset.productId, quantity);
+      await window.cart.update(position.dataset.productId, quantity, position.dataset.offerId);
       updateCartSummary();
     }, 1000);
   });

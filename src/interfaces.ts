@@ -200,6 +200,7 @@ export interface IFinished {
 export interface ICartPosition {
   cartId: number;
   productId: number;
+  offerId: number | null;
   productName: string;
   quantity: number;
   quantityMax: number;
