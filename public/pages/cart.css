@@ -51,10 +51,13 @@
 
   .row {
     margin-bottom: .25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: .5rem;
+
+    &:not([hidden]) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     &.total {
       margin-top: .75rem;
