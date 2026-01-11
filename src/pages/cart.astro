@@ -49,7 +49,7 @@ const amountTotal: number = amountOld - amountDiscount + amountDelivery;
             <span data-amount-discount>{amountDiscount.toLocaleString('ru-RU')}</span> ₽
           </div>
         </div>
-        <div class="row">
+        <div class="row" hidden={0 === amountDelivery}>
           <div class="left black">Стоимость доставки:</div>
           <div class="right black">
             <span data-amount-delivery={amountDelivery}>{amountDelivery.toLocaleString('ru-RU')}</span> ₽
