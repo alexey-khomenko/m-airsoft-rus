@@ -2,10 +2,10 @@
 import UtilTile from '../components/UtilTile.astro';
 
 interface Props {
-  certificate: string;
+  code: string;
 }
 
-const {certificate}: Props = Astro.props;
+const {code}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-certificate']}>
@@ -14,21 +14,21 @@ const {certificate}: Props = Astro.props;
   <div class="order-header">
     <h2 class="h2">Сертификат/промо-код</h2>
     <button type="button" class="button" data-order-certificate-form-open>
-      <span data-order-certificate-form-add hidden={0 < certificate.length}>Добавить</span>
-      <span data-order-certificate-form-edit hidden={0 === certificate.length}>Изменить</span>
+      <span data-order-certificate-form-add hidden={0 < code.length}>Добавить</span>
+      <span data-order-certificate-form-edit hidden={0 === code.length}>Изменить</span>
     </button>
     <button type="button" class="button" data-order-certificate-form-close hidden>
       <span>Закрыть</span>
     </button>
   </div>
 
-  <div class="info" data-order-certificate-output hidden={0 === certificate.length}>
-    <div class="certificate" data-info-certificate>{certificate}</div>
+  <div class="info" data-order-certificate-output hidden={0 === code.length}>
+    <div class="certificate" data-info-certificate>{code}</div>
   </div>
 
   <form class="form" action="/api-order-certificate" novalidate data-form-order-certificate hidden>
 
-    <input type="text" name="certificate" id="certificate" maxlength="256" value={certificate}
+    <input type="text" name="certificate" id="certificate" maxlength="256" value={code}
            autocorrect="off" spellcheck="false"
            class="util-form-field strong low input"
            placeholder="Введите если есть" aria-label="Сертификат/промо-код"/>

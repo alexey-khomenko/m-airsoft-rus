@@ -5,12 +5,16 @@ import type {IOrderAmount} from '../interfaces.ts';
 
 interface Props {
   amount: IOrderAmount;
+  bonuses: number;
+  certificate: number;
+  delivery: number;
 }
 
-const {amount}: Props = Astro.props;
-const {old, discount, delivery, total}: IOrderAmount = amount;
+const {amount, bonuses, certificate, delivery}: Props = Astro.props;
+const {old, discount}: IOrderAmount = amount;
 
-const isUser: boolean = false;
+const discountTotal = discount + bonuses + certificate;
+const total: number = old - discountTotal + delivery;
 ---
 
 <UtilTile tag="div" classList={['order-summary']} dataArray={['data-order-summary-check-action="/api-order-summary"']}>
@@ -25,7 +29,7 @@ const isUser: boolean = false;
   <div class="row">
     <div class="left red">Общая скидка:</div>
     <div class="right red">
-      <span data-order-summary-discount>{discount.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-discount>{discountTotal.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
   <div class="row">
@@ -45,34 +49,33 @@ const isUser: boolean = false;
     <button type="submit" class="util-button primary button">
       <span>Подтвердить</span>
     </button>
-    {!isUser &&
-      <div class="checkboxes">
-        <div class="group l">
-          <svg class="svg" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1L6.5 7L1 1" stroke="#009AE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <input type="checkbox" value="Y" class="checkbox" name="privacy-policy" id="privacy-policy"/>
-          <label for="privacy-policy" class="label">Я ознакомлен с политикой конфиденциальности</label>
-        </div>
-        <div class="group r">
-          <svg class="svg" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1L6.5 7L1 1" stroke="#009AE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <input type="checkbox" value="Y" class="checkbox" name="public-offer" id="public-offer"/>
-          <label for="public-offer" class="label">Я прочитал и принимаю публичную оферту</label>
-        </div>
+
+    <div class="checkboxes">
+      <div class="group l">
+        <svg class="svg" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L6.5 7L1 1" stroke="#009AE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input type="checkbox" value="Y" class="checkbox" name="privacy-policy" id="privacy-policy"/>
+        <label for="privacy-policy" class="label">Я ознакомлен с политикой конфиденциальности</label>
       </div>
-    }
+      <div class="group r">
+        <svg class="svg" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L6.5 7L1 1" stroke="#009AE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input type="checkbox" value="Y" class="checkbox" name="public-offer" id="public-offer"/>
+        <label for="public-offer" class="label">Я прочитал и принимаю публичную оферту</label>
+      </div>
+    </div>
+
   </form>
 
-  {!isUser &&
-    <div class="info">
-      Нажимая кнопку "Подтверждаю заказ", Я подтверждаю, что ознакомлен и согласен с условиями
-      <a href="/public-offer" target="_blank">Публичной оферты</a>.
-      Настоящим я подтверждаю, что даю согласие ООО «СТРАЙКБОЛ-РУС» и его уполномоченным представителям
-      на обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
-      <a href="/privacy-policy" target="_blank">Политике конфиденциальности</a>.
-    </div>
-  }
+  <div class="info">
+    Нажимая кнопку "Подтверждаю заказ", Я подтверждаю, что ознакомлен и согласен с условиями
+    <a href="/public-offer" target="_blank">Публичной оферты</a>.
+    Настоящим я подтверждаю, что даю согласие ООО «СТРАЙКБОЛ-РУС» и его уполномоченным представителям
+    на обработку предоставленных мной данных, содержащихся в Форме заказа на условиях, изложенных в
+    <a href="/privacy-policy" target="_blank">Политике конфиденциальности</a>.
+  </div>
+
   <script src="./components/order-summary.js" is:inline async></script>
 </UtilTile>

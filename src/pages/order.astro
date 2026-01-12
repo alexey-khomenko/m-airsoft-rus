@@ -14,7 +14,7 @@ import type {IOrder} from '../interfaces.ts';
 
 import data from '../pages/order.json';
 
-const {user, city, deliveries, payments, comment, certificate, bonuses, amount}: IOrder = data;
+const {user, city, deliveries, payments, comment, certificate, bonuses, amount, delivery}: IOrder = data;
 
 const title: string = 'Оформление заказа';
 const link: string = '/order';
@@ -32,9 +32,9 @@ const root: string = 'cart';
       <OrderDelivery deliveries={deliveries}/>
       <OrderPayment payments={payments}/>
       <OrderComment comment={comment.trim()}/>
-      <OrderCertificate certificate={certificate.trim()}/>
+      <OrderCertificate code={certificate.code.trim()}/>
       <OrderBonuses balance={user ? user.balance : 0} bonuses={bonuses}/>
-      <OrderSummary amount={amount}/>
+      <OrderSummary amount={amount} bonuses={bonuses} certificate={certificate.sum} delivery={delivery}/>
     </section>
   </div>
 </Layout>

@@ -87,8 +87,11 @@ export interface IOrderPayment {
 export interface IOrderAmount {
   old: number;
   discount: number;
-  delivery: number;
-  total: number;
+}
+
+export interface IOrderCertificate {
+  code: string;
+  sum: number;
 }
 
 export interface IOrder {
@@ -97,9 +100,10 @@ export interface IOrder {
   deliveries: IOrderDelivery[];
   payments: IOrderPayment[];
   comment: string;
-  certificate: string;
+  certificate: IOrderCertificate;
   bonuses: number;
   amount: IOrderAmount;
+  delivery: number;
 }
 
 export interface IComparisonProductProperty {

@@ -107,12 +107,14 @@
     }
   ],
   "comment": "",
-  "certificate": "",
+  "certificate": {
+    "code": "",
+    "sum": 0
+  },
   "bonuses": 0,
   "amount": {
     "old": 8500,
-    "discount": 3000,
-    "delivery": 300,
-    "total": 15030
-  }
+    "discount": 3000
+  },
+  "delivery": 300
 }
