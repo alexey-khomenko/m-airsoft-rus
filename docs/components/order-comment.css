@@ -10,6 +10,8 @@
     .comment {
       margin: 0;
       font-family: inherit;
+      word-wrap: break-word;
+      white-space: pre-wrap;
     }
   }
 
