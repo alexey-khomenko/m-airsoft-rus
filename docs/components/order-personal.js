@@ -125,23 +125,37 @@ window.addEventListener('load', () => {
     console.log('valueMiddleName', valueMiddleName);
     console.log('valueEmail', valueEmail);
 
-    const responsePhone = valuePhone;
-    const responseLastName = valueLastName;
-    const responseFirstName = valueFirstName;
-    const responseMiddleName = valueMiddleName;
-    const responseEmail = valueEmail;
+    const response = {
+      'personal': {
+        tel: valuePhone,
+        firstName: valueFirstName,
+        middleName: valueMiddleName,
+        lastName: valueLastName,
+        email: valueEmail,
+      },
+      'info': {
+        balance: 1940,
+        bonuses: 1930,
+        old: 8501,
+        discount: 3001,
+        delivery: 301,
+        total: 15031,
+      },
+    };
 
 
-    inputPhone.value = responsePhone;
-    inputLastName.value = responseLastName;
-    inputFirstName.value = responseFirstName;
-    inputMiddleName.value = responseMiddleName;
-    inputEmail.value = responseEmail;
+    inputPhone.value = response.personal.phone;
+    inputLastName.value = response.personal.lastName;
+    inputFirstName.value = response.personal.firstName;
+    inputMiddleName.value = response.personal.middleName;
+    inputEmail.value = response.personal.email;
 
-    component.name.textContent = `${responseLastName} ${responseFirstName} ${responseMiddleName}`;
-    component.phone.textContent = responsePhone;
-    component.email.textContent = responseEmail;
+    component.name.textContent = `${response.personal.lastName} ${response.personal.firstName} ${response.personal.middleName}`;
+    component.phone.textContent = response.personal.phone;
+    component.email.textContent = response.personal.email;
 
     component.closeForm();
+
+    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
   });
 });

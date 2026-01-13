@@ -6,7 +6,6 @@ window.addEventListener('load', () => {
   window.orderSummaryJsIsLoaded = true;
 
   const component = {
-    action: document.querySelector('[data-order-summary-check-action]'),
     old: document.querySelector('[data-order-summary-old]'),
     discount: document.querySelector('[data-order-summary-discount]'),
     delivery: document.querySelector('[data-order-summary-delivery]'),
@@ -21,7 +20,6 @@ window.addEventListener('load', () => {
     },
   };
 
-  if (!component.action) console.log('[data-order-summary-check-action] not found');
   if (!component.old) console.log('[data-order-summary-old] not found');
   if (!component.discount) console.log('[data-order-summary-discount] not found');
   if (!component.delivery) console.log('[data-order-summary-delivery] not found');
@@ -29,21 +27,12 @@ window.addEventListener('load', () => {
 
 
   document.addEventListener('checkOrderSummary', async () => {
-    if (!component.action) return true;
+    // TODO: -
+    console.log('TODO: -');
+  });
 
-    const action = component.action.dataset.orderSummaryCheckAction;
-
-
-    console.log('POST request to', action);
-    const responseAmount = {
-      old: 8501,
-      discount: 3001,
-      delivery: 301,
-      total: 15031,
-    };
-
-
-    component.update(responseAmount);
+  document.addEventListener('updateOrderInfo', async (e) => {
+    component.update(e.detail);
   });
 
   document.addEventListener('submit', async (e) => {
