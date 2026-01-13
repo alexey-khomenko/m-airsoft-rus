@@ -68,7 +68,10 @@ window.addEventListener('load', () => {
     const input = form.querySelector('[name="certificate"]');
     const value = input.value.trim();
 
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+
+    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('certificate', value);
 
@@ -76,7 +79,7 @@ window.addEventListener('load', () => {
       'certificate': value,
       'info': {
         balance: 940,
-        bonuses: 10,
+        bonuses: 0,
         old: 8501,
         discount: 3001,
         delivery: 301,
@@ -91,5 +94,6 @@ window.addEventListener('load', () => {
     component.closeForm();
 
     form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

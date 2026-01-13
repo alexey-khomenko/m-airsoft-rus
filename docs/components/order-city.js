@@ -35,8 +35,11 @@ window.addEventListener('load', () => {
     if (component.limit > value.length) return true;
 
     component.debounceTimer = setTimeout(async () => {
+      input.blur();
+      input.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
 
+      await new Promise(r => setTimeout(r, 3000));
       console.log('POST request to', action);
       console.log('city', value);
 
@@ -58,6 +61,7 @@ window.addEventListener('load', () => {
       input.dispatchEvent(new CustomEvent('changeOrderCity', {bubbles: true}));
 
       input.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+      input.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
     }, 1000);
   });
 });

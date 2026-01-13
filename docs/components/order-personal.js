@@ -116,9 +116,11 @@ window.addEventListener('load', () => {
 
     if (errors) return true;
 
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+
+    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
-
     console.log('valuePhone', valuePhone);
     console.log('valueLastName', valueLastName);
     console.log('valueFirstName', valueFirstName);
@@ -127,7 +129,7 @@ window.addEventListener('load', () => {
 
     const response = {
       'personal': {
-        tel: valuePhone,
+        phone: valuePhone,
         firstName: valueFirstName,
         middleName: valueMiddleName,
         lastName: valueLastName,
@@ -144,18 +146,21 @@ window.addEventListener('load', () => {
     };
 
 
-    inputPhone.value = response.personal.phone;
-    inputLastName.value = response.personal.lastName;
-    inputFirstName.value = response.personal.firstName;
-    inputMiddleName.value = response.personal.middleName;
-    inputEmail.value = response.personal.email;
+    const {phone, firstName, middleName, lastName, email} = response.personal;
 
-    component.name.textContent = `${response.personal.lastName} ${response.personal.firstName} ${response.personal.middleName}`;
-    component.phone.textContent = response.personal.phone;
-    component.email.textContent = response.personal.email;
+    inputPhone.value = phone;
+    inputLastName.value = lastName;
+    inputFirstName.value = firstName;
+    inputMiddleName.value = middleName;
+    inputEmail.value = email;
+
+    component.name.textContent = `${lastName} ${firstName} ${middleName}`;
+    component.phone.textContent = phone;
+    component.email.textContent = email;
 
     component.closeForm();
 
     form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

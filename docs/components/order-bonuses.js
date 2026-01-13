@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
       const {balance, bonuses} = amount;
 
       if (this.bonuses) {
-        this.form.querySelector('[name="bonuses"]').value = bonuses;
         this.bonuses.textContent = bonuses.toLocaleString('ru-RU');
         this.bonuses.setAttribute('data-info-bonuses', bonuses);
       }
@@ -25,6 +24,10 @@ window.addEventListener('load', () => {
         this.balance.textContent = balance.toLocaleString('ru-RU');
         this.balance.setAttribute('data-info-balance', balance);
       }
+
+      this.form.querySelector('[name="bonuses"]').value = bonuses;
+
+      if (this.output) this.output.hidden = 0 === bonuses;
     },
     openForm: function () {
       if (this.open) this.open.hidden = true;
@@ -35,12 +38,10 @@ window.addEventListener('load', () => {
     closeForm: function () {
       const bonuses = +this.bonuses.dataset.infoBonuses;
 
-      const formIsEmpty = 0 === bonuses;
-
       if (this.open) this.open.hidden = false;
       if (this.close) this.close.hidden = true;
       if (this.form) this.form.hidden = true;
-      if (this.output) this.output.hidden = formIsEmpty;
+      if (this.output) this.output.hidden = 0 === bonuses;
     },
   };
 
@@ -86,7 +87,10 @@ window.addEventListener('load', () => {
     if (value < min) value = min;
     if (value > max) value = max;
 
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+
+    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('bonuses', value);
 
@@ -110,5 +114,6 @@ window.addEventListener('load', () => {
     component.closeForm();
 
     form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

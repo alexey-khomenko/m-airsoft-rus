@@ -68,7 +68,10 @@ window.addEventListener('load', () => {
     const input = form.querySelector('[name="comment"]');
     let value = input.value.trim();
 
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+
+    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('comment', value);
 
@@ -91,5 +94,6 @@ window.addEventListener('load', () => {
     component.closeForm();
 
     form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });
