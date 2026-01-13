@@ -10,15 +10,28 @@ import OrderDelivery from '../components/OrderDelivery.astro';
 import OrderCity from '../components/OrderCity.astro';
 import OrderPersonal from '../components/OrderPersonal.astro';
 
-import type {IOrder} from '../interfaces.ts';
+import type {IOrder, IOrderDelivery, IUser} from '../interfaces.ts';
 
 import data from '../pages/order.json';
 
-const {user, city, deliveries, payments, comment, certificate, bonuses, amount, delivery}: IOrder = data;
+const {personal, city, deliveries, deliveryId, payments, paymentId, comment, certificate, bonuses}: IOrder = data.order;
+
+const user: IUser = data.user;
+const amount: {
+  old: number;
+  discount: number;
+} = data.amount;
 
 const title: string = 'Оформление заказа';
 const link: string = '/order';
 const root: string = 'cart';
+
+let deliveryPrice: number = 0;
+
+if (deliveryId) {
+  const delivery: IOrderDelivery | undefined = deliveries.find((delivery: IOrderDelivery): boolean => delivery.id === deliveryId);
+  deliveryPrice = delivery ? delivery.price : 0;
+}
 ---
 
 <Layout title="Оформление заказа" page="order" isUser={true} withoutHeader={true}>
@@ -27,14 +40,14 @@ const root: string = 'cart';
     <UtilHeader type="page" title={title} link={root}/>
 
     <section class="tiles">
-      <OrderPersonal user={user}/>
+      <OrderPersonal personal={personal}/>
       <OrderCity city={city.trim()}/>
-      <OrderDelivery deliveries={deliveries}/>
-      <OrderPayment payments={payments}/>
+      <OrderDelivery deliveries={deliveries} deliveryId={deliveryId}/>
+      <OrderPayment payments={payments} paymentId={paymentId}/>
       <OrderComment comment={comment.trim()}/>
       <OrderCertificate code={certificate.code.trim()}/>
       <OrderBonuses balance={user ? user.balance : 0} bonuses={bonuses}/>
-      <OrderSummary amount={amount} bonuses={bonuses} certificate={certificate.sum} delivery={delivery}/>
+      <OrderSummary amount={amount} bonuses={bonuses} certificate={certificate.sum} delivery={deliveryPrice}/>
     </section>
   </div>
 </Layout>

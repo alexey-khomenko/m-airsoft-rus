@@ -2,13 +2,13 @@
 import UtilTile from '../components/UtilTile.astro';
 import InputTel from '../components/InputTel.astro';
 
-import type {IUser} from '../interfaces.ts';
+import type {IOrderPersonal} from '../interfaces.ts';
 
 interface Props {
-  user: IUser | null;
+  personal: IOrderPersonal;
 }
 
-const {user}: Props = Astro.props;
+const {personal}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-personal']}>
@@ -17,45 +17,45 @@ const {user}: Props = Astro.props;
   <div class="order-header">
     <h2 class="h2">Личные данные</h2>
     <button type="button" class="button" data-order-personal-form-open>
-      <span data-order-personal-form-add hidden={!!user}>Добавить</span>
-      <span data-order-personal-form-edit hidden={!user}>Изменить</span>
+      <span data-order-personal-form-add hidden={!!personal}>Добавить</span>
+      <span data-order-personal-form-edit hidden={!personal}>Изменить</span>
     </button>
     <button type="button" class="button" data-order-personal-form-close hidden>
       <span>Закрыть</span>
     </button>
   </div>
 
-  <div class="info" data-order-personal-output hidden={!user}>
-    <div class="full-name" data-info-name>{user ? `${user.lastName} ${user.firstName} ${user.middleName}` : ''}</div>
-    <div class="phone" data-info-phone>{user ? user.tel : ''}</div>
-    <div class="email" data-info-email>{user ? user.email : ''}</div>
+  <div class="info" data-order-personal-output hidden={!personal}>
+    <div class="full-name" data-info-name>{`${personal.lastName} ${personal.firstName} ${personal.middleName}`}</div>
+    <div class="phone" data-info-phone>{personal.tel}</div>
+    <div class="email" data-info-email>{personal.email}</div>
   </div>
 
   <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
 
-    <InputTel label="Телефон" name="phone" classList={['low']} value={user ? user.tel : ''}/>
+    <InputTel label="Телефон" name="phone" classList={['low']} value={personal.tel}/>
 
     <div class="util-form-fieldset fieldset">
       <label class="label" for="last-name">Фамилия</label>
-      <input type="text" name="last-name" id="last-name" maxlength="256" value={user ? user.lastName : ''}
+      <input type="text" name="last-name" id="last-name" maxlength="256" value={personal.lastName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="first-name">Имя</label>
-      <input type="text" name="first-name" id="first-name" maxlength="256" value={user ? user.firstName : ''}
+      <input type="text" name="first-name" id="first-name" maxlength="256" value={personal.firstName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="middle-name">Отчество</label>
-      <input type="text" name="middle-name" id="middle-name" maxlength="256" value={user ? user.middleName : ''}
+      <input type="text" name="middle-name" id="middle-name" maxlength="256" value={personal.middleName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="email">E-mail</label>
-      <input type="email" name="email" id="email" maxlength="256" value={user ? user.email : ''}
+      <input type="email" name="email" id="email" maxlength="256" value={personal.email}
              inputmode="email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>

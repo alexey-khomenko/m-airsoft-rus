@@ -1,4 +1,119 @@
 {
+  "order": {
+    "personal": {
+      "tel": "+7 (963) 040-75-12",
+      "firstName": "Иван",
+      "middleName": "Иванович",
+      "lastName": "Иванов",
+      "email": "airsoftrus@gmail.com"
+    },
+    "city": "Москва, Россия",
+    "deliveries": [
+      {
+        "id": 1,
+        "name": "Самовывоз",
+        "img": "./content/order-delivery-1.png",
+        "imgChecked": "./content/order-delivery-1-b.png",
+        "price": 0,
+        "days": "1-4 дня",
+        "info": "Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина."
+      },
+      {
+        "id": 2,
+        "name": "Самовывоз",
+        "img": "./content/order-delivery-2.png",
+        "imgChecked": "./content/order-delivery-2.png",
+        "price": 300,
+        "days": "1-4 дня",
+        "info": "..."
+      },
+      {
+        "id": 3,
+        "name": "Самовывоз",
+        "img": "./content/order-delivery-3.png",
+        "imgChecked": "./content/order-delivery-3.png",
+        "price": 300,
+        "days": "1-4 дня",
+        "info": "..."
+      },
+      {
+        "id": 4,
+        "name": "Самовывоз",
+        "img": "./content/order-delivery-4.png",
+        "imgChecked": "./content/order-delivery-4.png",
+        "price": 300,
+        "days": "1-4 дня",
+        "info": "..."
+      },
+      {
+        "id": 5,
+        "name": "Самовывоз",
+        "img": "./content/order-delivery-5.png",
+        "imgChecked": "./content/order-delivery-5.png",
+        "price": 300,
+        "days": "1-4 дня",
+        "info": "..."
+      }
+    ],
+    "deliveryId": null,
+    "payments": [
+      {
+        "id": 1,
+        "name": "Оплата система быстрых платежей",
+        "img": "./content/order-payment-1.png",
+        "imgChecked": "./content/order-payment-1.png",
+        "bonus": 300,
+        "info": "..."
+      },
+      {
+        "id": 2,
+        "name": "Оплата картой на сайте",
+        "img": "./content/order-payment-2.png",
+        "imgChecked": "./content/order-payment-2.png",
+        "bonus": 300,
+        "info": "..."
+      },
+      {
+        "id": 3,
+        "name": "Оплатить при получении товара",
+        "img": "./content/order-payment-3.png",
+        "imgChecked": "./content/order-payment-3.png",
+        "bonus": 0,
+        "info": "..."
+      },
+      {
+        "id": 4,
+        "name": "Рассрочка Тинькофф",
+        "img": "./content/order-payment-4.png",
+        "imgChecked": "./content/order-payment-4.png",
+        "bonus": 0,
+        "info": "..."
+      },
+      {
+        "id": 5,
+        "name": "Яндекс Сплит",
+        "img": "./content/order-payment-5.png",
+        "imgChecked": "./content/order-payment-5.png",
+        "bonus": 300,
+        "info": "..."
+      },
+      {
+        "id": 6,
+        "name": "Кредит Сбербанк",
+        "img": "./content/order-payment-6.png",
+        "imgChecked": "./content/order-payment-6.png",
+        "bonus": 0,
+        "info": "..."
+      }
+    ],
+    "paymentId": null,
+    "comment": "",
+    "certificate": {
+      "code": "",
+      "sum": 0
+    },
+    "bonuses": 0
+  },
   "user": {
     "tel": "+7 (963) 040-75-12",
     "firstName": "Иван",
@@ -8,113 +123,8 @@
     "amount": 38880,
     "balance": 940
   },
-  "city": "Москва, Россия",
-  "deliveries": [
-    {
-      "id": 1,
-      "name": "Самовывоз",
-      "img": "./content/order-delivery-1.png",
-      "imgChecked": "./content/order-delivery-1-b.png",
-      "price": 0,
-      "days": "1-4 дня",
-      "info": "Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина."
-    },
-    {
-      "id": 2,
-      "name": "Самовывоз",
-      "img": "./content/order-delivery-2.png",
-      "imgChecked": "./content/order-delivery-2.png",
-      "price": 300,
-      "days": "1-4 дня",
-      "info": "..."
-    },
-    {
-      "id": 3,
-      "name": "Самовывоз",
-      "img": "./content/order-delivery-3.png",
-      "imgChecked": "./content/order-delivery-3.png",
-      "price": 300,
-      "days": "1-4 дня",
-      "info": "..."
-    },
-    {
-      "id": 4,
-      "name": "Самовывоз",
-      "img": "./content/order-delivery-4.png",
-      "imgChecked": "./content/order-delivery-4.png",
-      "price": 300,
-      "days": "1-4 дня",
-      "info": "..."
-    },
-    {
-      "id": 5,
-      "name": "Самовывоз",
-      "img": "./content/order-delivery-5.png",
-      "imgChecked": "./content/order-delivery-5.png",
-      "price": 300,
-      "days": "1-4 дня",
-      "info": "..."
-    }
-  ],
-  "payments": [
-    {
-      "id": 1,
-      "name": "Оплата система быстрых платежей",
-      "img": "./content/order-payment-1.png",
-      "imgChecked": "./content/order-payment-1.png",
-      "bonus": 300,
-      "info": "..."
-    },
-    {
-      "id": 2,
-      "name": "Оплата картой на сайте",
-      "img": "./content/order-payment-2.png",
-      "imgChecked": "./content/order-payment-2.png",
-      "bonus": 300,
-      "info": "..."
-    },
-    {
-      "id": 3,
-      "name": "Оплатить при получении товара",
-      "img": "./content/order-payment-3.png",
-      "imgChecked": "./content/order-payment-3.png",
-      "bonus": 0,
-      "info": "..."
-    },
-    {
-      "id": 4,
-      "name": "Рассрочка Тинькофф",
-      "img": "./content/order-payment-4.png",
-      "imgChecked": "./content/order-payment-4.png",
-      "bonus": 0,
-      "info": "..."
-    },
-    {
-      "id": 5,
-      "name": "Яндекс Сплит",
-      "img": "./content/order-payment-5.png",
-      "imgChecked": "./content/order-payment-5.png",
-      "bonus": 300,
-      "info": "..."
-    },
-    {
-      "id": 6,
-      "name": "Кредит Сбербанк",
-      "img": "./content/order-payment-6.png",
-      "imgChecked": "./content/order-payment-6.png",
-      "bonus": 0,
-      "info": "..."
-    }
-  ],
-  "comment": "",
-  "certificate": {
-    "code": "",
-    "sum": 0
-  },
-  "bonuses": 0,
   "amount": {
     "old": 8500,
     "discount": 3000
-  },
-  "delivery": 300
+  }
 }

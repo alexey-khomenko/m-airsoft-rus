@@ -9,9 +9,10 @@ import type {IOrderDelivery} from '../interfaces.ts';
 
 interface Props {
   deliveries: IOrderDelivery[];
+  deliveryId: number | null;
 }
 
-const {deliveries}: Props = Astro.props;
+const {deliveries, deliveryId}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-delivery']}>

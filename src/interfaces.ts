@@ -84,9 +84,12 @@ export interface IOrderPayment {
   info: string;
 }
 
-export interface IOrderAmount {
-  old: number;
-  discount: number;
+export interface IOrderPersonal {
+  tel: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  email: string;
 }
 
 export interface IOrderCertificate {
@@ -95,15 +98,15 @@ export interface IOrderCertificate {
 }
 
 export interface IOrder {
-  user: IUser | null;
+  personal: IOrderPersonal;
   city: string;
   deliveries: IOrderDelivery[];
+  deliveryId: number | null;
   payments: IOrderPayment[];
+  paymentId: number | null;
   comment: string;
   certificate: IOrderCertificate;
   bonuses: number;
-  amount: IOrderAmount;
-  delivery: number;
 }
 
 export interface IComparisonProductProperty {

@@ -7,9 +7,10 @@ import type {IOrderPayment} from '../interfaces.ts';
 
 interface Props {
   payments: IOrderPayment[];
+  paymentId: number | null;
 }
 
-const {payments}: Props = Astro.props;
+const {payments, paymentId}: Props = Astro.props;
 ---
 
 <UtilTile tag="div" classList={['grid', 'order-payment']}>
