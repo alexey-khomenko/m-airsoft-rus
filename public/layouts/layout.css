@@ -120,6 +120,11 @@ img {
       display: none;
     }
   }
+
+  &.without-events {
+    overflow-y: hidden;
+    pointer-events: none;
+  }
 }
 
 #app {

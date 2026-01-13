@@ -9,6 +9,8 @@ interface Props {
 }
 
 const {personal}: Props = Astro.props;
+
+const {phone, firstName, middleName, lastName, email}: IOrderPersonal = personal;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-personal']}>
@@ -26,36 +28,36 @@ const {personal}: Props = Astro.props;
   </div>
 
   <div class="info" data-order-personal-output hidden={!personal}>
-    <div class="full-name" data-info-name>{`${personal.lastName} ${personal.firstName} ${personal.middleName}`}</div>
-    <div class="phone" data-info-phone>{personal.tel}</div>
-    <div class="email" data-info-email>{personal.email}</div>
+    <div class="full-name" data-info-name>{`${lastName} ${firstName} ${middleName}`}</div>
+    <div class="phone" data-info-phone>{phone}</div>
+    <div class="email" data-info-email>{email}</div>
   </div>
 
   <form class="form" action="/api-order-personal" novalidate data-form-order-personal hidden>
 
-    <InputTel label="Телефон" name="phone" classList={['low']} value={personal.tel}/>
+    <InputTel label="Телефон" name="phone" classList={['low']} value={phone}/>
 
     <div class="util-form-fieldset fieldset">
       <label class="label" for="last-name">Фамилия</label>
-      <input type="text" name="last-name" id="last-name" maxlength="256" value={personal.lastName}
+      <input type="text" name="last-name" id="last-name" maxlength="256" value={lastName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="first-name">Имя</label>
-      <input type="text" name="first-name" id="first-name" maxlength="256" value={personal.firstName}
+      <input type="text" name="first-name" id="first-name" maxlength="256" value={firstName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="middle-name">Отчество</label>
-      <input type="text" name="middle-name" id="middle-name" maxlength="256" value={personal.middleName}
+      <input type="text" name="middle-name" id="middle-name" maxlength="256" value={middleName}
              autocorrect="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>
     <div class="util-form-fieldset fieldset">
       <label class="label" for="email">E-mail</label>
-      <input type="email" name="email" id="email" maxlength="256" value={personal.email}
+      <input type="email" name="email" id="email" maxlength="256" value={email}
              inputmode="email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false"
              class="util-form-field low input"/>
     </div>

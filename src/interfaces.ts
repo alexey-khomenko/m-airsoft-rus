@@ -85,7 +85,7 @@ export interface IOrderPayment {
 }
 
 export interface IOrderPersonal {
-  tel: string;
+  phone: string;
   firstName: string;
   middleName: string;
   lastName: string;

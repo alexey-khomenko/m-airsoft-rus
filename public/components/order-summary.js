@@ -26,12 +26,12 @@ window.addEventListener('load', () => {
   if (!component.total) console.log('[data-order-summary-total] not found');
 
 
-  document.addEventListener('checkOrderSummary', async () => {
+  document.addEventListener('checkOrderSummary', () => {
     // TODO: -
     console.log('TODO: -');
   });
 
-  document.addEventListener('updateOrderInfo', async (e) => {
+  document.addEventListener('updateOrderInfo', (e) => {
     component.update(e.detail);
   });
 
@@ -50,11 +50,31 @@ window.addEventListener('load', () => {
 
     const action = form.action;
 
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+
+    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     const responseOrderId = 749466;
 
 
+    // TODO: Если были ошибки
+    // form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
+
+    // TODO: Если ошибок не было
     window.location.assign(`${form.dataset.finished}?order_id=${responseOrderId}`);
+  });
+
+
+  document.addEventListener('orderRequestSent', async () => {
+    document.querySelector('.layout').classList.add('without-footer', 'without-events');
+    document.querySelector('.loader').hidden = false;
+  });
+
+  document.addEventListener('orderRequestReceived', async () => {
+    document.querySelector('.loader').hidden = true;
+    document.querySelector('.layout').classList.remove('without-footer', 'without-events');
   });
 });
