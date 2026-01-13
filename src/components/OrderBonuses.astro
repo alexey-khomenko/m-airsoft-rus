@@ -26,7 +26,7 @@ const {balance, bonuses}: Props = Astro.props;
   </div>
 
   <div class="balance-wrapper">
-    <span class="balance" data-info-balance={balance}>{balance.toLocaleString('ru-RU')} бонусов</span>
+    <span class="balance"><span data-info-balance={balance}>{balance.toLocaleString('ru-RU')}</span> бонусов</span>
     на счету
   </div>
 

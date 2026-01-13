@@ -26,12 +26,17 @@ const title: string = 'Оформление заказа';
 const link: string = '/order';
 const root: string = 'cart';
 
-let deliveryPrice: number = 0;
+let delivery: number = 0;
 
 if (deliveryId) {
-  const delivery: IOrderDelivery | undefined = deliveries.find((delivery: IOrderDelivery): boolean => delivery.id === deliveryId);
-  deliveryPrice = delivery ? delivery.price : 0;
+  const deliveryChecked: IOrderDelivery | undefined = deliveries.find(
+    (delivery: IOrderDelivery): boolean => delivery.id === deliveryId);
+
+  delivery = deliveryChecked ? deliveryChecked.price : 0;
 }
+
+const discount: number = amount.discount + bonuses + certificate.sum;
+const total: number = amount.old - discount + delivery;
 ---
 
 <Layout title="Оформление заказа" page="order" isUser={true} withoutHeader={true}>
@@ -47,7 +52,7 @@ if (deliveryId) {
       <OrderComment comment={comment.trim()}/>
       <OrderCertificate code={certificate.code.trim()}/>
       <OrderBonuses balance={user ? user.balance : 0} bonuses={bonuses}/>
-      <OrderSummary amount={amount} bonuses={bonuses} certificate={certificate.sum} delivery={deliveryPrice}/>
+      <OrderSummary old={amount.old} discount={discount} delivery={delivery} total={total}/>
     </section>
   </div>
 </Layout>

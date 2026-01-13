@@ -1,23 +1,17 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
 
-import type {IOrderAmount} from '../interfaces.ts';
-
 interface Props {
-  amount: IOrderAmount;
-  bonuses: number;
-  certificate: number;
+  old: number;
+  discount: number;
   delivery: number;
+  total: number;
 }
 
-const {amount, bonuses, certificate, delivery}: Props = Astro.props;
-const {old, discount}: IOrderAmount = amount;
-
-const discountTotal = discount + bonuses + certificate;
-const total: number = old - discountTotal + delivery;
+const {old, discount, delivery, total}: Props = Astro.props;
 ---
 
-<UtilTile tag="div" classList={['order-summary']} dataArray={['data-order-summary-check-action="/api-order-summary"']}>
+<UtilTile tag="div" classList={['order-summary']}>
   <link rel="stylesheet" href="./components/order-summary.css"/>
 
   <div class="row">
@@ -29,7 +23,7 @@ const total: number = old - discountTotal + delivery;
   <div class="row">
     <div class="left red">Общая скидка:</div>
     <div class="right red">
-      <span data-order-summary-discount>{discountTotal.toLocaleString('ru-RU')}</span> ₽
+      <span data-order-summary-discount>{discount.toLocaleString('ru-RU')}</span> ₽
     </div>
   </div>
   <div class="row">

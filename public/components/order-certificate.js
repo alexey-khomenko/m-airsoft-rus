@@ -71,13 +71,25 @@ window.addEventListener('load', () => {
 
     console.log('POST request to', action);
     console.log('certificate', value);
-    const responseCertificate = value;
+
+    const response = {
+      'certificate': value,
+      'info': {
+        balance: 940,
+        bonuses: 10,
+        old: 8501,
+        discount: 3001,
+        delivery: 301,
+        total: 15031,
+      },
+    };
 
 
-    input.value = responseCertificate;
-    component.certificate.textContent = responseCertificate;
+    input.value = response.certificate;
+    component.certificate.textContent = response.certificate;
 
-    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
     component.closeForm();
+
+    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
   });
 });

@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
 
 
   document.addEventListener('input', (e) => {
+    // TODO: переделать в форму
     const input = e.target.closest('[data-input-order-city]');
 
     if (!input) return true;
@@ -38,12 +39,25 @@ window.addEventListener('load', () => {
 
       console.log('POST request to', action);
       console.log('city', value);
-      const responseCity = value;
-      console.log('responseCity', responseCity);
+
+      const response = {
+        'city': value,
+        'info': {
+          balance: 940,
+          bonuses: 10,
+          old: 8501,
+          discount: 3001,
+          delivery: 301,
+          total: 15031,
+        },
+      };
 
 
-      input.value = responseCity;
+      input.value = response.city;
+
       input.dispatchEvent(new CustomEvent('changeOrderCity', {bubbles: true}));
+
+      input.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     }, 1000);
   });
 });

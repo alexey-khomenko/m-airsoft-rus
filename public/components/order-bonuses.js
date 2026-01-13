@@ -12,6 +12,20 @@ window.addEventListener('load', () => {
     output: document.querySelector('[data-order-bonuses-output]'),
     bonuses: document.querySelector('[data-info-bonuses]'),
     balance: document.querySelector('[data-info-balance]'),
+    update: function (amount) {
+      const {balance, bonuses} = amount;
+
+      if (this.bonuses) {
+        this.form.querySelector('[name="bonuses"]').value = bonuses;
+        this.bonuses.textContent = bonuses.toLocaleString('ru-RU');
+        this.bonuses.setAttribute('data-info-bonuses', bonuses);
+      }
+
+      if (this.balance) {
+        this.balance.textContent = balance.toLocaleString('ru-RU');
+        this.balance.setAttribute('data-info-balance', balance);
+      }
+    },
     openForm: function () {
       if (this.open) this.open.hidden = true;
       if (this.close) this.close.hidden = false;
@@ -37,6 +51,10 @@ window.addEventListener('load', () => {
   if (!component.bonuses) console.log('[data-info-bonuses] not found');
   if (!component.balance) console.log('[data-info-balance] not found');
 
+
+  document.addEventListener('updateOrderInfo', async (e) => {
+    component.update(e.detail);
+  });
 
   document.addEventListener('click', (e) => {
     const open = e.target.closest('[data-order-bonuses-form-open]');
@@ -71,14 +89,26 @@ window.addEventListener('load', () => {
 
     console.log('POST request to', action);
     console.log('bonuses', value);
-    const responseBonuses = value;
+
+    const response = {
+      'bonuses': value,
+      'info': {
+        balance: 940,
+        bonuses: 10,
+        old: 8501,
+        discount: 3001,
+        delivery: 301,
+        total: 15031,
+      },
+    };
 
 
-    input.value = responseBonuses;
-    component.bonuses.textContent = responseBonuses.toLocaleString('ru-RU');
-    component.bonuses.setAttribute('data-info-bonuses', responseBonuses);
+    input.value = response.bonuses;
+    component.bonuses.textContent = response.bonuses.toLocaleString('ru-RU');
+    component.bonuses.setAttribute('data-info-bonuses', response.bonuses);
 
-    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
     component.closeForm();
+
+    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
   });
 });
