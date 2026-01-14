@@ -68,13 +68,14 @@ window.addEventListener('load', () => {
     const input = form.querySelector('[name="comment"]');
     let value = input.value.trim();
 
+    value = 250 < value.length ? value.slice(0, 250) : value;
+
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
-
-    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('comment', value);
 
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'comment': value,
       'info': {
@@ -88,13 +89,15 @@ window.addEventListener('load', () => {
       },
     };
 
+    // TODO: валидация ответа - 2 поля
 
     input.value = response.comment;
     component.comment.textContent = response.comment;
 
+    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+
     component.closeForm();
 
-    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

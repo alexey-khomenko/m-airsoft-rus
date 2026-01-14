@@ -13,8 +13,9 @@ window.addEventListener('load', () => {
     form: document.querySelector('[data-form-order-certificate]'),
     output: document.querySelector('[data-order-certificate-output]'),
     certificate: document.querySelector('[data-info-certificate]'),
-    update: function (amount) {
-      const {certificate} = amount;
+    update: function (info) {
+      // TODO: валидация info - 1 поле
+      const {certificate} = info;
 
       if (this.certificate) {
         this.certificate.textContent = certificate.toLocaleString('ru-RU');

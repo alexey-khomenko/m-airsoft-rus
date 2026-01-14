@@ -10,8 +10,9 @@ window.addEventListener('load', () => {
     discount: document.querySelector('[data-order-summary-discount]'),
     delivery: document.querySelector('[data-order-summary-delivery]'),
     total: document.querySelector('[data-order-summary-total]'),
-    update: function (amount) {
-      const {old, discount, delivery, total} = amount;
+    update: function (info) {
+      // TODO: валидация info - 4 поля
+      const {old, discount, delivery, total} = info;
 
       if (this.old) this.old.textContent = old.toLocaleString('ru-RU');
       if (this.discount) this.discount.textContent = discount.toLocaleString('ru-RU');
@@ -52,9 +53,10 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+    console.log('POST request to', action);
 
     await new Promise(r => setTimeout(r, 3000));
-    console.log('POST request to', action);
+
     const responseOrderId = 749466;
 
 

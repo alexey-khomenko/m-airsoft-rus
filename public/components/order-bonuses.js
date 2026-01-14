@@ -12,8 +12,9 @@ window.addEventListener('load', () => {
     output: document.querySelector('[data-order-bonuses-output]'),
     bonuses: document.querySelector('[data-info-bonuses]'),
     balance: document.querySelector('[data-info-balance]'),
-    update: function (amount) {
-      const {balance, bonuses} = amount;
+    update: function (info) {
+      // TODO: валидация info - 2 поля
+      const {balance, bonuses} = info;
 
       if (this.balance) {
         this.balance.textContent = balance.toLocaleString('ru-RU');
