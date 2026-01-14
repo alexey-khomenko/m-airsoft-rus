@@ -46,6 +46,7 @@ window.addEventListener('load', () => {
       const response = {
         'city': value,
         'info': {
+          certificate: 'XXXX-XXXX-XXXX',
           balance: 940,
           bonuses: 10,
           old: 8501,

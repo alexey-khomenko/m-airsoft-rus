@@ -15,25 +15,29 @@ window.addEventListener('load', () => {
     update: function (amount) {
       const {balance, bonuses} = amount;
 
-      if (this.bonuses) {
-        this.bonuses.textContent = bonuses.toLocaleString('ru-RU');
-        this.bonuses.setAttribute('data-info-bonuses', bonuses);
-      }
-
       if (this.balance) {
         this.balance.textContent = balance.toLocaleString('ru-RU');
         this.balance.setAttribute('data-info-balance', balance);
       }
 
-      this.form.querySelector('[name="bonuses"]').value = bonuses;
+      if (this.bonuses) {
+        this.bonuses.textContent = bonuses.toLocaleString('ru-RU');
+        this.bonuses.setAttribute('data-info-bonuses', bonuses);
+      }
 
-      if (this.output) this.output.hidden = 0 === bonuses;
+      if (this.output) this.output.hidden = this.isOpen || 0 === bonuses;
+
+      const input = this.form.querySelector('[name="bonuses"]');
+
+      if (input) input.value = bonuses;
     },
     openForm: function () {
       if (this.open) this.open.hidden = true;
       if (this.close) this.close.hidden = false;
       if (this.form) this.form.hidden = false;
       if (this.output) this.output.hidden = true;
+
+      this.isOpen = true;
     },
     closeForm: function () {
       const bonuses = +this.bonuses.dataset.infoBonuses;
@@ -42,7 +46,10 @@ window.addEventListener('load', () => {
       if (this.close) this.close.hidden = true;
       if (this.form) this.form.hidden = true;
       if (this.output) this.output.hidden = 0 === bonuses;
+
+      this.isOpen = false;
     },
+    isOpen: false,
   };
 
   if (!component.open) console.log('[data-order-bonuses-form-open] not found');
@@ -97,8 +104,9 @@ window.addEventListener('load', () => {
     const response = {
       'bonuses': value,
       'info': {
+        certificate: 'XXXX-XXXX-XXXX',
         balance: 940,
-        bonuses: 10,
+        bonuses: (940 < value ? 940 : value),
         old: 8501,
         discount: 3001,
         delivery: 301,

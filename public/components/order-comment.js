@@ -78,8 +78,9 @@ window.addEventListener('load', () => {
     const response = {
       'comment': value,
       'info': {
+        certificate: '',
         balance: 940,
-        bonuses: 10,
+        bonuses: 0,
         old: 8501,
         discount: 3001,
         delivery: 301,

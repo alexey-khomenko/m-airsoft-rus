@@ -136,6 +136,7 @@ window.addEventListener('load', () => {
         email: valueEmail,
       },
       'info': {
+        certificate: 'XXXX-XXXX-XXXX',
         balance: 1940,
         bonuses: 1930,
         old: 8501,
