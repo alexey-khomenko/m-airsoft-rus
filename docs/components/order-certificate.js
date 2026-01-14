@@ -13,6 +13,20 @@ window.addEventListener('load', () => {
     form: document.querySelector('[data-form-order-certificate]'),
     output: document.querySelector('[data-order-certificate-output]'),
     certificate: document.querySelector('[data-info-certificate]'),
+    update: function (amount) {
+      const {certificate} = amount;
+
+      if (this.certificate) {
+        this.certificate.textContent = certificate.toLocaleString('ru-RU');
+        this.certificate.setAttribute('data-info-certificate', certificate);
+      }
+
+      if (this.output) this.output.hidden = this.isOpen || 0 === certificate.length;
+
+      const input = this.form.querySelector('[name="certificate"]');
+
+      if (input) input.value = certificate;
+    },
     openForm: function () {
       if (this.open) this.open.hidden = true;
       if (this.edit) this.edit.hidden = true;
@@ -20,6 +34,8 @@ window.addEventListener('load', () => {
       if (this.close) this.close.hidden = false;
       if (this.form) this.form.hidden = false;
       if (this.output) this.output.hidden = true;
+
+      this.isOpen = true;
     },
     closeForm: function () {
       const certificate = this.certificate.textContent.trim();
@@ -32,7 +48,10 @@ window.addEventListener('load', () => {
       if (this.close) this.close.hidden = true;
       if (this.form) this.form.hidden = true;
       if (this.output) this.output.hidden = formIsEmpty;
+
+      this.isOpen = false;
     },
+    isOpen: false,
   };
 
   if (!component.open) console.log('[data-order-certificate-form-open] not found');
@@ -43,6 +62,10 @@ window.addEventListener('load', () => {
   if (!component.output) console.log('[data-order-certificate-output] not found');
   if (!component.certificate) console.log('[data-info-certificate] not found');
 
+
+  document.addEventListener('updateOrderInfo', async (e) => {
+    component.update(e.detail);
+  });
 
   document.addEventListener('click', (e) => {
     const open = e.target.closest('[data-order-certificate-form-open]');
@@ -78,8 +101,9 @@ window.addEventListener('load', () => {
     const response = {
       'certificate': value,
       'info': {
+        certificate: value,
         balance: 940,
-        bonuses: 0,
+        bonuses: 10,
         old: 8501,
         discount: 3001,
         delivery: 301,

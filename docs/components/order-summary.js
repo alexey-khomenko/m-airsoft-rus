@@ -69,12 +69,12 @@ window.addEventListener('load', () => {
 
 
   document.addEventListener('orderRequestSent', async () => {
-    document.querySelector('.layout').classList.add('without-footer', 'without-events');
+    document.querySelector('.layout').classList.add('without-events');
     document.querySelector('.loader').hidden = false;
   });
 
   document.addEventListener('orderRequestReceived', async () => {
     document.querySelector('.loader').hidden = true;
-    document.querySelector('.layout').classList.remove('without-footer', 'without-events');
+    document.querySelector('.layout').classList.remove('without-events');
   });
 });
