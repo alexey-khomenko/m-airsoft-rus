@@ -97,7 +97,7 @@ window.addEventListener('load', () => {
 
     for (const delivery of responseDeliveries) form.append(delivery);
 
-    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
+    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true})); // TODO: -
   });
 
   const form = document.querySelector(`[data-form-order-delivery]`);
@@ -114,6 +114,6 @@ window.addEventListener('load', () => {
     mount(value);
 
     window.previousDeliveryId = value;
-    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true}));
+    form.dispatchEvent(new CustomEvent('checkOrderSummary', {bubbles: true})); // TODO: -
   });
 });

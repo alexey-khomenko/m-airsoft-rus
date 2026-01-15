@@ -13,19 +13,24 @@ window.addEventListener('load', () => {
     form: document.querySelector('[data-form-order-certificate]'),
     output: document.querySelector('[data-order-certificate-output]'),
     certificate: document.querySelector('[data-info-certificate]'),
-    update: function (amount) {
-      const {certificate} = amount;
+    update: function (info) {
+      if ('certificate' in info) {
+        const {certificate} = info;
 
-      if (this.certificate) {
-        this.certificate.textContent = certificate.toLocaleString('ru-RU');
-        this.certificate.setAttribute('data-info-certificate', certificate);
+        if (this.certificate) {
+          this.certificate.textContent = certificate.toLocaleString('ru-RU');
+          this.certificate.setAttribute('data-info-certificate', certificate);
+        }
+
+        if (this.output) this.output.hidden = this.isOpen || 0 === certificate.length;
+
+        const input = this.form.querySelector('[name="certificate"]');
+
+        if (input) input.value = certificate;
       }
-
-      if (this.output) this.output.hidden = this.isOpen || 0 === certificate.length;
-
-      const input = this.form.querySelector('[name="certificate"]');
-
-      if (input) input.value = certificate;
+      else {
+        console.info('info.certificate not found');
+      }
     },
     openForm: function () {
       if (this.open) this.open.hidden = true;
@@ -93,11 +98,11 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
-
-    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('certificate', value);
 
+
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'certificate': value,
       'info': {
@@ -112,12 +117,23 @@ window.addEventListener('load', () => {
     };
 
 
-    input.value = response.certificate;
-    component.certificate.textContent = response.certificate;
+    if ('certificate' in response) {
+      input.value = response.certificate;
+      component.certificate.textContent = response.certificate;
+    }
+    else {
+      console.info('response.comment not found');
+    }
+
+    if ('info' in response) {
+      form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    }
+    else {
+      console.info('response.info not found');
+    }
 
     component.closeForm();
 
-    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

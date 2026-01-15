@@ -68,13 +68,15 @@ window.addEventListener('load', () => {
     const input = form.querySelector('[name="comment"]');
     let value = input.value.trim();
 
+    value = 500 < value.length ? value.slice(0, 500) : value; // TODO: const CommentMaxLength = 500;
+
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
-
-    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('comment', value);
 
+
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'comment': value,
       'info': {
@@ -89,12 +91,23 @@ window.addEventListener('load', () => {
     };
 
 
-    input.value = response.comment;
-    component.comment.textContent = response.comment;
+    if ('comment' in response) {
+      input.value = response.comment;
+      component.comment.textContent = response.comment;
+    }
+    else {
+      console.info('response.comment not found');
+    }
+
+    if ('info' in response) {
+      form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    }
+    else {
+      console.info('response.info not found');
+    }
 
     component.closeForm();
 
-    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

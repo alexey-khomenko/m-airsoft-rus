@@ -118,8 +118,6 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
-
-    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('valuePhone', valuePhone);
     console.log('valueLastName', valueLastName);
@@ -127,6 +125,8 @@ window.addEventListener('load', () => {
     console.log('valueMiddleName', valueMiddleName);
     console.log('valueEmail', valueEmail);
 
+
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'personal': {
         phone: valuePhone,
@@ -147,21 +147,32 @@ window.addEventListener('load', () => {
     };
 
 
-    const {phone, firstName, middleName, lastName, email} = response.personal;
+    if ('personal' in response) {
+      const {phone, firstName, middleName, lastName, email} = response.personal;
 
-    inputPhone.value = phone;
-    inputLastName.value = lastName;
-    inputFirstName.value = firstName;
-    inputMiddleName.value = middleName;
-    inputEmail.value = email;
+      inputPhone.value = phone ?? '';
+      inputLastName.value = lastName ?? '';
+      inputFirstName.value = firstName ?? '';
+      inputMiddleName.value = middleName ?? '';
+      inputEmail.value = email ?? '';
 
-    component.name.textContent = `${lastName} ${firstName} ${middleName}`;
-    component.phone.textContent = phone;
-    component.email.textContent = email;
+      component.name.textContent = `${lastName ?? ''} ${firstName ?? ''} ${middleName ?? ''}`;
+      component.phone.textContent = phone ?? '';
+      component.email.textContent = email ?? '';
+    }
+    else {
+      console.info('response.personal not found');
+    }
+
+    if ('info' in response) {
+      form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    }
+    else {
+      console.info('response.info not found');
+    }
 
     component.closeForm();
 
-    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });

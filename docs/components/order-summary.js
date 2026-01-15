@@ -10,13 +10,34 @@ window.addEventListener('load', () => {
     discount: document.querySelector('[data-order-summary-discount]'),
     delivery: document.querySelector('[data-order-summary-delivery]'),
     total: document.querySelector('[data-order-summary-total]'),
-    update: function (amount) {
-      const {old, discount, delivery, total} = amount;
+    update: function (info) {
+      if ('old' in info) {
+        if (this.old) this.old.textContent = info.old.toLocaleString('ru-RU');
+      }
+      else {
+        console.info('info.old not found');
+      }
 
-      if (this.old) this.old.textContent = old.toLocaleString('ru-RU');
-      if (this.discount) this.discount.textContent = discount.toLocaleString('ru-RU');
-      if (this.delivery) this.delivery.textContent = delivery.toLocaleString('ru-RU');
-      if (this.total) this.total.textContent = total.toLocaleString('ru-RU');
+      if ('discount' in info) {
+        if (this.discount) this.discount.textContent = info.discount.toLocaleString('ru-RU');
+      }
+      else {
+        console.info('info.discount not found');
+      }
+
+      if ('delivery' in info) {
+        if (this.delivery) this.delivery.textContent = info.delivery.toLocaleString('ru-RU');
+      }
+      else {
+        console.info('info.delivery not found');
+      }
+
+      if ('total' in info) {
+        if (this.total) this.total.textContent = info.total.toLocaleString('ru-RU');
+      }
+      else {
+        console.info('info.total not found');
+      }
     },
   };
 
@@ -25,11 +46,6 @@ window.addEventListener('load', () => {
   if (!component.delivery) console.log('[data-order-summary-delivery] not found');
   if (!component.total) console.log('[data-order-summary-total] not found');
 
-
-  document.addEventListener('checkOrderSummary', () => {
-    // TODO: -
-    console.log('TODO: -');
-  });
 
   document.addEventListener('updateOrderInfo', (e) => {
     component.update(e.detail);
@@ -52,19 +68,48 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+    console.log('POST request to', action);
+
 
     await new Promise(r => setTimeout(r, 3000));
-    console.log('POST request to', action);
-    const responseOrderId = 749466;
+    const response = {
+      'orderId': 749466,
+      'info': {
+        certificate: '',
+        balance: 940,
+        bonuses: 0,
+        old: 8501,
+        discount: 3001,
+        delivery: 301,
+        total: 15031,
+      },
+      'errors': [
+        'Demo error',
+      ],
+    };
 
 
-    // TODO: Если были ошибки
-    // form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    if ('orderId' in response) {
+      window.location.assign(`${form.dataset.finished}?order_id=${response.orderId}`); // TODO: finish link
+    }
+    else {
+      if ('info' in response) {
+        form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+      }
+      else {
+        console.info('response.info not found');
+      }
+
+      if ('errors' in response) {
+        console.log('Errors:');
+        for (const error of response.errors) console.log(error);
+      }
+      else {
+        console.info('response.errors not found');
+      }
+    }
 
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
-
-    // TODO: Если ошибок не было
-    window.location.assign(`${form.dataset.finished}?order_id=${responseOrderId}`);
   });
 
 
