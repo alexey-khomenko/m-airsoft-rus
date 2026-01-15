@@ -13,24 +13,30 @@ window.addEventListener('load', () => {
     bonuses: document.querySelector('[data-info-bonuses]'),
     balance: document.querySelector('[data-info-balance]'),
     update: function (info) {
-      // TODO: валидация info - 2 поля
-      const {balance, bonuses} = info;
-
-      if (this.balance) {
-        this.balance.textContent = balance.toLocaleString('ru-RU');
-        this.balance.setAttribute('data-info-balance', balance);
+      if ('balance' in info) {
+        if (this.balance) {
+          this.balance.textContent = info.balance.toLocaleString('ru-RU');
+          this.balance.setAttribute('data-info-balance', info.balance);
+        }
+      }
+      else {
+        console.info('info.balance not found');
       }
 
-      if (this.bonuses) {
-        this.bonuses.textContent = bonuses.toLocaleString('ru-RU');
-        this.bonuses.setAttribute('data-info-bonuses', bonuses);
+      if ('bonuses' in info) {
+        if (this.bonuses) {
+          this.bonuses.textContent = info.bonuses.toLocaleString('ru-RU');
+          this.bonuses.setAttribute('data-info-bonuses', info.bonuses);
+        }
+
+        if (this.output) this.output.hidden = this.isOpen || 0 === info.bonuses;
+
+        const input = this.form.querySelector('[name="bonuses"]');
+        if (input) input.value = info.bonuses;
       }
-
-      if (this.output) this.output.hidden = this.isOpen || 0 === bonuses;
-
-      const input = this.form.querySelector('[name="bonuses"]');
-
-      if (input) input.value = bonuses;
+      else {
+        console.info('info.bonuses not found');
+      }
     },
     openForm: function () {
       if (this.open) this.open.hidden = true;
@@ -97,11 +103,11 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
-
-    await new Promise(r => setTimeout(r, 3000));
     console.log('POST request to', action);
     console.log('bonuses', value);
 
+
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'bonuses': value,
       'info': {
@@ -116,13 +122,24 @@ window.addEventListener('load', () => {
     };
 
 
-    input.value = response.bonuses;
-    component.bonuses.textContent = response.bonuses.toLocaleString('ru-RU');
-    component.bonuses.setAttribute('data-info-bonuses', response.bonuses);
+    if ('bonuses' in response) {
+      input.value = response.bonuses;
+      component.bonuses.textContent = response.bonuses.toLocaleString('ru-RU');
+      component.bonuses.setAttribute('data-info-bonuses', response.bonuses);
+    }
+    else {
+      console.info('response.comment not found');
+    }
+
+    if ('info' in response) {
+      form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    }
+    else {
+      console.info('response.info not found');
+    }
 
     component.closeForm();
 
-    form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });
