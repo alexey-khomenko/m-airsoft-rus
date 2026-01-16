@@ -122,7 +122,7 @@ window.addEventListener('load', () => {
       component.certificate.textContent = response.certificate;
     }
     else {
-      console.info('response.comment not found');
+      console.info('response.certificate not found');
     }
 
     if ('info' in response) {
