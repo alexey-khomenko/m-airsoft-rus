@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
     const input = form.querySelector('[name="comment"]');
     let value = input.value.trim();
 
-    value = 500 < value.length ? value.slice(0, 500) : value; // TODO: const CommentMaxLength = 500;
+    value = 500 < value.length ? value.slice(0, 500) : value;
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
