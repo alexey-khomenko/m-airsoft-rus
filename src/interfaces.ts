@@ -92,6 +92,13 @@ export interface IOrderPersonal {
   email: string;
 }
 
+export interface IOrderCity {
+  code: string;
+  name: string;
+  path: string;
+  country: string;
+}
+
 export interface IOrderCertificate {
   code: string;
   sum: number;
@@ -99,7 +106,7 @@ export interface IOrderCertificate {
 
 export interface IOrder {
   personal: IOrderPersonal;
-  city: string;
+  city: IOrderCity;
   deliveries: IOrderDelivery[];
   deliveryId: number | null;
   payments: IOrderPayment[];

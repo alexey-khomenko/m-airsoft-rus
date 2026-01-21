@@ -41,10 +41,15 @@ window.addEventListener('load', () => {
 
       await new Promise(r => setTimeout(r, 3000));
       console.log('POST request to', action);
-      console.log('city', value);
+      console.log('code', value);
 
       const response = {
-        'city': value,
+        'city': {
+          'code': '0000103664',
+          'name': 'Санкт-Петербург',
+          'path': 'Санкт-Петербург, Россия',
+          'country': 'Россия',
+        },
         'info': {
           certificate: 'XXXX-XXXX-XXXX',
           balance: 940,
@@ -57,7 +62,7 @@ window.addEventListener('load', () => {
       };
 
 
-      input.value = response.city;
+      input.value = response.city.path;
 
       input.dispatchEvent(new CustomEvent('changeOrderCity', {bubbles: true}));
 

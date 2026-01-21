@@ -7,7 +7,12 @@
       "lastName": "Иванов",
       "email": "airsoftrus@gmail.com"
     },
-    "city": "Москва, Россия",
+    "city": {
+      "code": "0000103664",
+      "name": "Санкт-Петербург",
+      "path": "Санкт-Петербург, Россия",
+      "country": "Россия"
+    },
     "deliveries": [
       {
         "id": 1,

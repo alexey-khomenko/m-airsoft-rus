@@ -1,11 +1,18 @@
 ---
 import UtilTile from '../components/UtilTile.astro';
 
+import type {IOrderCity} from '../interfaces.ts';
+
 interface Props {
-  city: string;
+  city: IOrderCity;
 }
 
 const {city}: Props = Astro.props;
+
+const {code, name, path, country}: IOrderCity = city;
+
+const action: string = '/api-order-city';
+const actionSearch: string = '/api-order-cities-search';
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-city']}>
@@ -15,8 +22,13 @@ const {city}: Props = Astro.props;
     <h2 class="h2">Ваш город</h2>
   </div>
 
-  <form class="form" action="/api-order-city" novalidate data-form-order-city>
-    <input type="text" name="city" id="city" maxlength="256" value={city}
+  <pre>
+    {code} {name} {country}
+    {actionSearch}
+  </pre>
+
+  <form class="form" action={action} novalidate data-form-order-city>
+    <input type="text" name="city" id="city" maxlength="256" value={path}
            autocorrect="off" spellcheck="false"
            class="util-form-field strong low input"
            data-input-order-city
