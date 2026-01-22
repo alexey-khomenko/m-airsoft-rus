@@ -1,9 +1,26 @@
 .order-city {
+  .info {
+    margin-top: .5rem;
+    margin-bottom: .25rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #27282B;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
   .form {
     margin-top: .75rem;
 
     .input {
       padding-inline: 1rem;
+    }
+
+    .cities {
+
     }
   }
 }

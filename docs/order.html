@@ -202,11 +202,27 @@
 
   <div class="order-header">
     <h2 class="h2">Ваш город</h2>
+    <button type="button" class="button" data-order-city-form-open>
+      <span data-order-city-form-add hidden>Добавить</span>
+      <span data-order-city-form-edit>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-city-form-close hidden>
+      <span>Закрыть</span>
+    </button>
   </div>
 
-  <form class="form" action="/api-order-city" novalidate data-form-order-city>
-    <input type="text" name="city" id="city" maxlength="256" value="Москва, Россия" autocorrect="off" spellcheck="false" class="util-form-field strong low input" data-input-order-city placeholder="Введите ваш город" aria-label="Ваш город">
+  <div class="info" data-order-city-output>
+    <div class="city" data-order-city-info-code="0000103664" data-order-city-info-country="Россия">
+      <strong data-order-city-info-name>Санкт-Петербург</strong><span data-order-city-info-path>, Россия</span>
+    </div>
+  </div>
+
+  <form class="form" action="/api-order-cities-search" novalidate data-form-order-city-search hidden>
+    <input type="text" name="city" id="city" maxlength="256" value="Санкт-Петербург" autocorrect="off" spellcheck="false" class="util-form-field strong low input" data-input-order-city-search placeholder="Введите ваш город" aria-label="Ваш город">
     <button type="submit" hidden>Применить</button>
+    <div class="cities" data-form-order-city data-action="/api-order-city">
+
+    </div>
   </form>
 
   <script src="./components/order-city.js" async></script>
