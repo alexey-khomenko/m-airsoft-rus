@@ -20,20 +20,31 @@ const actionSearch: string = '/api-order-cities-search';
 
   <div class="order-header">
     <h2 class="h2">Ваш город</h2>
+    <button type="button" class="button" data-order-city-form-open>
+      <span data-order-city-form-add hidden={0 < name.length}>Добавить</span>
+      <span data-order-city-form-edit hidden={0 === name.length}>Изменить</span>
+    </button>
+    <button type="button" class="button" data-order-city-form-close hidden>
+      <span>Закрыть</span>
+    </button>
   </div>
 
-  <pre>
-    {code} {name} {country}
-    {actionSearch}
-  </pre>
+  <div class="info" data-order-city-output hidden={0 === name.length}>
+    <div class="city" data-order-city-info-code={code} data-order-city-info-country={country}>
+      <strong data-order-city-info-name>{name}</strong><span data-order-city-info-path>{path}</span>
+    </div>
+  </div>
 
-  <form class="form" action={action} novalidate data-form-order-city>
-    <input type="text" name="city" id="city" maxlength="256" value={path}
+  <form class="form" action={actionSearch} novalidate data-form-order-city-search hidden>
+    <input type="text" name="city" id="city" maxlength="256" value={name}
            autocorrect="off" spellcheck="false"
            class="util-form-field strong low input"
-           data-input-order-city
+           data-input-order-city-search
            placeholder="Введите ваш город" aria-label="Ваш город"/>
     <button type="submit" hidden>Применить</button>
+    <div class="cities" data-form-order-city data-action={action}>
+
+    </div>
   </form>
 
   <script src="./components/order-city.js" is:inline async></script>

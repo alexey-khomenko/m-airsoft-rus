@@ -11,6 +11,8 @@ interface Props {
 const {personal}: Props = Astro.props;
 
 const {phone, firstName, middleName, lastName, email}: IOrderPersonal = personal;
+
+const condition: boolean = 0 < phone.length || 0 < firstName.length || 0 < middleName.length || 0 < lastName.length || 0 < email.length;
 ---
 
 <UtilTile tag="div" classList={['rows', 'order-personal']}>
@@ -19,15 +21,15 @@ const {phone, firstName, middleName, lastName, email}: IOrderPersonal = personal
   <div class="order-header">
     <h2 class="h2">Личные данные</h2>
     <button type="button" class="button" data-order-personal-form-open>
-      <span data-order-personal-form-add hidden={!!personal}>Добавить</span>
-      <span data-order-personal-form-edit hidden={!personal}>Изменить</span>
+      <span data-order-personal-form-add hidden={condition}>Добавить</span>
+      <span data-order-personal-form-edit hidden={!condition}>Изменить</span>
     </button>
     <button type="button" class="button" data-order-personal-form-close hidden>
       <span>Закрыть</span>
     </button>
   </div>
 
-  <div class="info" data-order-personal-output hidden={!personal}>
+  <div class="info" data-order-personal-output hidden={!condition}>
     <div class="full-name" data-info-name>{`${lastName} ${firstName} ${middleName}`}</div>
     <div class="phone" data-info-phone>{phone}</div>
     <div class="email" data-info-email>{email}</div>
