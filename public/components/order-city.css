@@ -20,7 +20,36 @@
     }
 
     .cities {
+      margin: .5rem .625rem 0 0;
+      padding-block: .125rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 18rem;
 
+      .city {
+        display: block;
+        width: 100%;
+        padding: .625rem 1rem;
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        text-align: left;
+        color: #27282B;
+      }
+
+      .alert {
+        width: fit-content;
+        padding: .625rem 1rem;
+        border-radius: 1rem;
+        border: 1px solid #E81331;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        text-align: left;
+        color: #E81331;
+      }
     }
   }
 }
