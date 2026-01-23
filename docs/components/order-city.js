@@ -40,6 +40,7 @@ window.addEventListener('load', () => {
     },
     limit: 2,
     debounceTimer: null,
+    debounceMs: 1500,
   };
 
   if (!component.open) console.log('[data-order-city-form-open] not found');
@@ -88,6 +89,7 @@ window.addEventListener('load', () => {
 
     component.debounceTimer = setTimeout(async () => {
       input.blur();
+      component.form.hidden = true;
       component.form.innerHTML = '';
       input.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
@@ -129,24 +131,21 @@ window.addEventListener('load', () => {
         },
       ];
 
-      // const search = 'Минск'; // search = value;
-
       let str = '';
 
       for (const {code, name, path} of response) {
-        // TODO: update .cities
-        str += `
-        <button type="button" data-order-city-new data-code="${code}" 
-                style="display: block; margin-top: 1rem; width: 100%">
+        str += `<button type="button" class="city" data-order-city-new data-code="${code}">
           <span><strong>${name}</strong>${path}</span>
-        </button>
-        `;
+        </button>`;
       }
 
+      if (0 === str.length) str = `<div class="alert"><span>Ничего не найдено</span></div>`;
+
+      component.form.hidden = false;
       component.form.innerHTML = str;
 
       input.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
-    }, 1000);
+    }, component.debounceMs);
   });
 
   document.addEventListener('click', async (e) => {
@@ -185,22 +184,33 @@ window.addEventListener('load', () => {
     };
 
 
-    const {code, name, path, country} = response.city;
+    if ('city' in response) {
+      const {code, name, path, country} = response.city;
 
-    component.inputSearch.value = name ?? '';
+      component.inputSearch.value = name ?? '';
 
-    component.code.setAttribute('data-order-city-info-code', code ?? '');
-    component.name.textContent = name ?? '';
-    component.path.textContent = path ?? '';
-    component.country.setAttribute('data-order-city-info-country', country ?? '');
+      component.code.setAttribute('data-order-city-info-code', code ?? '');
+      component.name.textContent = name ?? '';
+      component.path.textContent = path ?? '';
+      component.country.setAttribute('data-order-city-info-country', country ?? '');
 
-    component.form.innerHTML = '';
+      component.form.hidden = true;
+      component.form.innerHTML = '';
+
+    }
+    else {
+      console.info('response.city not found');
+    }
+
+    if ('info' in response) {
+      component.form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
+    }
+    else {
+      console.info('response.info not found');
+    }
 
     component.closeForm();
 
-    // component.form.dispatchEvent(new CustomEvent('changeOrderCity', {bubbles: true})); // TODO: ???
-
-    component.form.dispatchEvent(new CustomEvent('updateOrderInfo', {bubbles: true, detail: response.info}));
     component.form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   });
 });
