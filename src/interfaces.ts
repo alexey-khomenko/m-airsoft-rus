@@ -67,7 +67,7 @@ export interface IIndex {
 
 export interface IOrderDelivery {
   id: number;
-  name: string;
+  title: string;
   img: string;
   imgChecked: string;
   price: number;
@@ -77,7 +77,7 @@ export interface IOrderDelivery {
 
 export interface IOrderPayment {
   id: number;
-  name: string;
+  title: string;
   img: string;
   imgChecked: string;
   bonus: number;
@@ -108,9 +108,9 @@ export interface IOrder {
   personal: IOrderPersonal;
   city: IOrderCity;
   deliveries: IOrderDelivery[];
-  deliveryId: number | null;
+  deliveryId: number;
   payments: IOrderPayment[];
-  paymentId: number | null;
+  paymentId: number;
   comment: string;
   certificate: IOrderCertificate;
   bonuses: number;

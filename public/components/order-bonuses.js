@@ -128,7 +128,7 @@ window.addEventListener('load', () => {
       component.bonuses.setAttribute('data-info-bonuses', response.bonuses);
     }
     else {
-      console.info('response.comment not found');
+      console.info('response.bonuses not found');
     }
 
     if ('info' in response) {

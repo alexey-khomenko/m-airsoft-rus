@@ -16,21 +16,22 @@ const {payments, paymentId}: Props = Astro.props;
 <UtilTile tag="div" classList={['grid', 'order-payment']}>
   <h2 class="h2">Выберите способ оплаты</h2>
 
-  <form action="/api-order-payment" novalidate data-form-order-payment
-        data-order-payment-reload-action="/api-order-payment-reload">
+  <form action="/api-order-payment" novalidate data-form-order-payment>
     <div class="form-grid">
-      {payments.map(({id, name, img, imgChecked, info, bonus}: IOrderPayment) => (
-        <TileOrderGrid type="payment" id={id} name={name} img={img} imgChecked={imgChecked} info={info}>
-          {0 < bonus ? (
-            <div class="payment-text">Будет начислено:</div>
-            <div class="payment-bonus">{bonus} руб.</div>
-          ) : (
-            <div></div>
-            <div></div>
-          )}
+      {payments.map(({id, title, img, imgChecked, info, bonus}: IOrderPayment) => (
+        <TileOrderGrid type="payment" id={id} title={title} img={img} imgChecked={imgChecked} info={info}
+                       isChecked={id === paymentId}>
+          <div class="payment-text">{0 < bonus ? `Будет начислено:` : ''}</div>
+          <div class="payment-bonus">{0 < bonus ? `${bonus} руб.` : ''}</div>
         </TileOrderGrid>
       ))}
       <TileOrderGridEdit type="payment"/>
+    </div>
+    <div data-tile-sample hidden>
+      <TileOrderGrid type="payment" id={0} title="" img="" imgChecked="" info="" isChecked={false}>
+        <div class="payment-text">Будет начислено:</div>
+        <div class="payment-bonus"></div>
+      </TileOrderGrid>
     </div>
     <button type="submit" hidden>Применить</button>
   </form>

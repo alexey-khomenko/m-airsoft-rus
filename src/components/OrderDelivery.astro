@@ -21,8 +21,9 @@ const {deliveries, deliveryId}: Props = Astro.props;
   <form action="/api-order-delivery" novalidate data-form-order-delivery
         data-order-delivery-reload-action="/api-order-delivery-reload">
     <div class="form-grid">
-      {deliveries.map(({id, name, img, imgChecked, info, price, days}: IOrderDelivery) => (
-        <TileOrderGrid type="delivery" id={id} name={name} img={img} imgChecked={imgChecked} info={info}>
+      {deliveries.map(({id, title, img, imgChecked, info, price, days}: IOrderDelivery) => (
+        <TileOrderGrid type="delivery" id={id} title={title} img={img} imgChecked={imgChecked} info={info}
+                       isChecked={id === deliveryId}>
           <div class="delivery-text">
             <div class="l">Стоимость:</div>
             <div class="r">{price} руб.</div>

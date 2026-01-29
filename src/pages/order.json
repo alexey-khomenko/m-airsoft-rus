@@ -16,7 +16,7 @@
     "deliveries": [
       {
         "id": 1,
-        "name": "Самовывоз",
+        "title": "Самовывоз",
         "img": "./content/order-delivery-1.png",
         "imgChecked": "./content/order-delivery-1-b.png",
         "price": 0,
@@ -25,7 +25,7 @@
       },
       {
         "id": 2,
-        "name": "Самовывоз",
+        "title": "Самовывоз",
         "img": "./content/order-delivery-2.png",
         "imgChecked": "./content/order-delivery-2.png",
         "price": 300,
@@ -34,7 +34,7 @@
       },
       {
         "id": 3,
-        "name": "Самовывоз",
+        "title": "Самовывоз",
         "img": "./content/order-delivery-3.png",
         "imgChecked": "./content/order-delivery-3.png",
         "price": 300,
@@ -43,7 +43,7 @@
       },
       {
         "id": 4,
-        "name": "Самовывоз",
+        "title": "Самовывоз",
         "img": "./content/order-delivery-4.png",
         "imgChecked": "./content/order-delivery-4.png",
         "price": 300,
@@ -52,7 +52,7 @@
       },
       {
         "id": 5,
-        "name": "Самовывоз",
+        "title": "Самовывоз",
         "img": "./content/order-delivery-5.png",
         "imgChecked": "./content/order-delivery-5.png",
         "price": 300,
@@ -60,11 +60,11 @@
         "info": "..."
       }
     ],
-    "deliveryId": null,
+    "deliveryId": 0,
     "payments": [
       {
         "id": 1,
-        "name": "Оплата система быстрых платежей",
+        "title": "Оплата система быстрых платежей",
         "img": "./content/order-payment-1.png",
         "imgChecked": "./content/order-payment-1.png",
         "bonus": 300,
@@ -72,7 +72,7 @@
       },
       {
         "id": 2,
-        "name": "Оплата картой на сайте",
+        "title": "Оплата картой на сайте",
         "img": "./content/order-payment-2.png",
         "imgChecked": "./content/order-payment-2.png",
         "bonus": 300,
@@ -80,7 +80,7 @@
       },
       {
         "id": 3,
-        "name": "Оплатить при получении товара",
+        "title": "Оплатить при получении товара",
         "img": "./content/order-payment-3.png",
         "imgChecked": "./content/order-payment-3.png",
         "bonus": 0,
@@ -88,7 +88,7 @@
       },
       {
         "id": 4,
-        "name": "Рассрочка Тинькофф",
+        "title": "Рассрочка Тинькофф",
         "img": "./content/order-payment-4.png",
         "imgChecked": "./content/order-payment-4.png",
         "bonus": 0,
@@ -96,7 +96,7 @@
       },
       {
         "id": 5,
-        "name": "Яндекс Сплит",
+        "title": "Яндекс Сплит",
         "img": "./content/order-payment-5.png",
         "imgChecked": "./content/order-payment-5.png",
         "bonus": 300,
@@ -104,14 +104,14 @@
       },
       {
         "id": 6,
-        "name": "Кредит Сбербанк",
+        "title": "Кредит Сбербанк",
         "img": "./content/order-payment-6.png",
         "imgChecked": "./content/order-payment-6.png",
         "bonus": 0,
         "info": "..."
       }
     ],
-    "paymentId": null,
+    "paymentId": 0,
     "comment": "",
     "certificate": {
       "code": "",

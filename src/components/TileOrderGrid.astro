@@ -2,25 +2,26 @@
 interface Props {
   type: string;
   id: number;
-  name: string;
+  title: string;
   img: string;
   imgChecked: string;
   info: string;
+  isChecked: boolean;
 }
 
-const {type, id, name, img, imgChecked, info}: Props = Astro.props;
+const {type, id, title, img, imgChecked, info, isChecked}: Props = Astro.props;
 ---
 
 <div class="tile-order-grid" data-tile-order-grid={type}>
   <link rel="stylesheet" href="./components/tile-order-grid.css"/>
 
-  <input type="radio" name={type} value={id} aria-label={name} hidden/>
+  <input type="radio" name={type} value={id} aria-label={title} hidden checked={isChecked}/>
 
   <div class="img-wrapper">
     <img src={img} class="img" alt="" decoding="async" loading="lazy"/>
     <img src={imgChecked} class="img-checked" alt="" decoding="async" loading="lazy"/>
   </div>
-  <div class="name">{name}</div>
+  <div class="name">{title}</div>
 
   <slot/>
 
