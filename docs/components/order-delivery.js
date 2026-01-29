@@ -101,7 +101,14 @@ window.addEventListener('load', () => {
   });
 
   const form = document.querySelector(`[data-form-order-delivery]`);
-  form.reset();
+
+  (() => {
+    form.reset();
+
+    const tile = form.querySelector('.tile-order-grid:has([type="radio"][checked])');
+
+    if (tile) tile.click();
+  })();
 
   document.addEventListener('input', (e) => {
     const radio = e.target.closest('[name="delivery"]');

@@ -417,7 +417,7 @@
 
   <h2 class="h2">Выберите способ оплаты</h2>
 
-  <form action="/api-order-payment" novalidate data-form-order-payment data-order-payment-reload-action="/api-order-payment-reload">
+  <form action="/api-order-payment" novalidate data-form-order-payment>
     <div class="form-grid">
       <div class="tile-order-grid" data-tile-order-grid="payment">
   <link rel="stylesheet" href="./components/tile-order-grid.css">
@@ -430,8 +430,10 @@
   </div>
   <div class="name">Оплата система быстрых платежей</div>
 
-  <div class="payment-text">Будет начислено:</div>
-            <div class="payment-bonus">300 руб.</div>
+  
+          <div class="payment-text">Будет начислено:</div>
+          <div class="payment-bonus">300 руб.</div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -450,8 +452,10 @@
   </div>
   <div class="name">Оплата картой на сайте</div>
 
-  <div class="payment-text">Будет начислено:</div>
-            <div class="payment-bonus">300 руб.</div>
+  
+          <div class="payment-text">Будет начислено:</div>
+          <div class="payment-bonus">300 руб.</div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -470,8 +474,10 @@
   </div>
   <div class="name">Оплатить при получении товара</div>
 
-  <div></div>
-            <div></div>
+  
+          <div class="payment-text"></div>
+          <div class="payment-bonus"></div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -490,8 +496,10 @@
   </div>
   <div class="name">Рассрочка Тинькофф</div>
 
-  <div></div>
-            <div></div>
+  
+          <div class="payment-text"></div>
+          <div class="payment-bonus"></div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -510,8 +518,10 @@
   </div>
   <div class="name">Яндекс Сплит</div>
 
-  <div class="payment-text">Будет начислено:</div>
-            <div class="payment-bonus">300 руб.</div>
+  
+          <div class="payment-text">Будет начислено:</div>
+          <div class="payment-bonus">300 руб.</div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -530,8 +540,10 @@
   </div>
   <div class="name">Кредит Сбербанк</div>
 
-  <div></div>
-            <div></div>
+  
+          <div class="payment-text"></div>
+          <div class="payment-bonus"></div>
+        
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -549,6 +561,31 @@
   </div>
 
   <script src="./components/tile-order-grid-edit.js" async></script>
+</div>
+    </div>
+    <div data-tile-sample hidden>
+      <div class="tile-order-grid" data-tile-order-grid="payment">
+  <link rel="stylesheet" href="./components/tile-order-grid.css">
+
+  <input type="radio" name="payment" value="0" aria-label hidden>
+
+  <div class="img-wrapper">
+    <img src class="img" alt="" decoding="async" loading="lazy">
+    <img src class="img-checked" alt="" decoding="async" loading="lazy">
+  </div>
+  <div class="name"></div>
+
+  
+        <div class="payment-text">Будет начислено:</div>
+        <div class="payment-bonus"></div>
+      
+
+  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
+    <summary class="summary">Подробнее</summary>
+    <div class="info"></div>
+  </details>
+
+  <script src="./components/tile-order-grid.js" async></script>
 </div>
     </div>
     <button type="submit" hidden>Применить</button>
