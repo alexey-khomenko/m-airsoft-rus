@@ -105,9 +105,13 @@ window.addEventListener('load', () => {
   (() => {
     form.reset();
 
-    const tile = form.querySelector('.tile-order-grid:has([type="radio"][checked])');
+    setTimeout(() => {
+      const tile = form.querySelector('.tile-order-grid:has([type="radio"]:checked)');
 
-    if (tile) tile.click();
+      if (tile) tile.click();
+
+      form.hidden = false;
+    }, 10);
   })();
 
   document.addEventListener('input', (e) => {

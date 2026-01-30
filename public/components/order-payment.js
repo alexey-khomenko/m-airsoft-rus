@@ -5,75 +5,70 @@ window.addEventListener('load', () => {
 
   window.orderPaymentJsIsLoaded = true;
 
-  document.addEventListener('updateOrderInfo', async (e) => {
+  function buildTiles(payments, paymentId) {
     form.hidden = true;
     form.reset();
     form.querySelector('[data-tile-order-grid-edit]').hidden = true;
+    payments.reverse();
 
-    if ('payments' in e.detail) {
-      const payments = e.detail.payments;
+    const sample = document.querySelector(`[data-tile-sample="payment"] [data-tile-order-grid]`);
 
-      const tiles = form.querySelectorAll(`.form-grid [data-tile-order-grid]`);
-      for (const tile of tiles) tile.remove();
+    const tiles = form.querySelectorAll(`.form-grid [data-tile-order-grid]`);
+    for (const tile of tiles) tile.remove();
 
-      const sample = form.querySelector(`[data-tile-sample] [data-tile-order-grid]`);
 
-      payments.reverse();
-      for (const payment of payments) {
-        const tile = sample.cloneNode(true);
+    for (const payment of payments) {
+      const tile = sample.cloneNode(true);
 
-        tile.hidden = false;
+      tile.hidden = false;
 
-        tile.querySelector('[type="radio"]').setAttribute('value', payment.id);
-        tile.querySelector('[type="radio"]').setAttribute('aria-label', payment.title);
-        tile.querySelector('.img').setAttribute('src', payment.img);
-        tile.querySelector('.img-checked').setAttribute('src', payment.imgChecked);
-        tile.querySelector('.name').textContent = payment.title;
-        tile.querySelector('.info').innerHTML = payment.info;
+      tile.querySelector('[type="radio"]').setAttribute('value', payment.id);
+      tile.querySelector('[type="radio"]').setAttribute('aria-label', payment.title);
+      tile.querySelector('.img').setAttribute('src', payment.img);
+      tile.querySelector('.img-checked').setAttribute('src', payment.imgChecked);
+      tile.querySelector('.name').textContent = payment.title;
+      tile.querySelector('.info').innerHTML = payment.info;
 
-        if (0 < payment.bonus) {
-          tile.querySelector('.payment-bonus').textContent = `${payment.bonus} руб.`;
-        }
-        else {
-          tile.querySelector('.payment-text').textContent = '';
-        }
-
-        form.querySelector('.form-grid').prepend(tile);
+      if (0 < payment.bonus) {
+        tile.querySelector('.payment-bonus').textContent = `${payment.bonus} руб.`;
       }
-    }
-    else {
-      console.info('info.payments found');
-    }
-
-    if ('paymentId' in e.detail) {
-      const paymentId = e.detail.paymentId;
-
-      if (0 < paymentId) {
-        const radio = form.querySelector(`[name="payment"][value="${paymentId}"]`);
-
-        if (radio) radio.setAttribute('checked', '');
-
-        const tile = form.querySelector('.tile-order-grid:has([type="radio"][checked])');
-
-        if (tile) tile.click();
+      else {
+        tile.querySelector('.payment-text').textContent = '';
       }
+
+      form.querySelector('.form-grid').prepend(tile);
     }
-    else {
-      console.info('info.payment not found');
+
+
+    if (0 < paymentId) {
+      const radio = form.querySelector(`[name="payment"][value="${paymentId}"]`);
+
+      if (radio) radio.checked = true;
     }
+
+
+    const tile = form.querySelector('.tile-order-grid:has([type="radio"]:checked)');
+
+    if (tile) tile.click();
 
     form.hidden = false;
-  });
+  }
 
   const form = document.querySelector(`[data-form-order-payment]`);
 
-  (() => {
-    form.reset();
+  setTimeout(() => {
+    buildTiles(JSON.parse(form.dataset.payments), form.dataset.paymentId);
+  }, 10);
 
-    const tile = form.querySelector('.tile-order-grid:has([type="radio"][checked])');
-
-    if (tile) tile.click();
-  })();
+  document.addEventListener('updateOrderInfo', async (e) => {
+    if ('payments' in e.detail && 'paymentId' in e.detail) {
+      buildTiles(e.detail.payments, e.detail.paymentId);
+    }
+    else {
+      console.info('info.payments not found');
+      console.info('info.paymentId not found');
+    }
+  });
 
   document.addEventListener('input', async (e) => {
     const radio = e.target.closest('[name="payment"]');

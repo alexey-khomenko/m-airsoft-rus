@@ -18,7 +18,7 @@ const {deliveries, deliveryId}: Props = Astro.props;
 <UtilTile tag="div" classList={['grid', 'order-delivery']}>
   <h2 class="h2">Выберите способ доставки</h2>
 
-  <form action="/api-order-delivery" novalidate data-form-order-delivery
+  <form action="/api-order-delivery" novalidate data-form-order-delivery hidden
         data-order-delivery-reload-action="/api-order-delivery-reload">
     <div class="form-grid">
       {deliveries.map(({id, title, img, imgChecked, info, price, days}: IOrderDelivery) => (
