@@ -233,139 +233,8 @@
 
   <h2 class="h2">Выберите способ доставки</h2>
 
-  <form action="/api-order-delivery" novalidate data-form-order-delivery data-order-delivery-reload-action="/api-order-delivery-reload">
+  <form action="/api-order-delivery" novalidate data-form-order-delivery hidden data-deliveries="[{&#34;id&#34;:1,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-1.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-1-b.png&#34;,&#34;price&#34;:0,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина.&#34;},{&#34;id&#34;:2,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:3,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:4,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:5,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;}]" data-delivery-id="0">
     <div class="form-grid">
-      <div class="tile-order-grid" data-tile-order-grid="delivery">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="delivery" value="1" aria-label="Самовывоз" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-delivery-1.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-delivery-1-b.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Самовывоз</div>
-
-  
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">0 руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">1-4 дня</div>
-          </div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина.</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="delivery">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="delivery" value="2" aria-label="Самовывоз" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-delivery-2.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-delivery-2.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Самовывоз</div>
-
-  
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">300 руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">1-4 дня</div>
-          </div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="delivery">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="delivery" value="3" aria-label="Самовывоз" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-delivery-3.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-delivery-3.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Самовывоз</div>
-
-  
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">300 руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">1-4 дня</div>
-          </div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="delivery">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="delivery" value="4" aria-label="Самовывоз" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-delivery-4.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-delivery-4.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Самовывоз</div>
-
-  
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">300 руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">1-4 дня</div>
-          </div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="delivery">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="delivery" value="5" aria-label="Самовывоз" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-delivery-5.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-delivery-5.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Самовывоз</div>
-
-  
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">300 руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">1-4 дня</div>
-          </div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div>
       <div class="tile-order-grid-edit" data-tile-order-grid-edit="delivery" hidden>
   <link rel="stylesheet" href="./components/tile-order-grid-edit.css">
 
@@ -377,7 +246,6 @@
   <script src="./components/tile-order-grid-edit.js" async></script>
 </div>
     </div>
-
     <button type="submit" hidden>Применить</button>
 
     <div class="order-delivery-1" hidden>
@@ -409,6 +277,36 @@
 </div>
   </form>
 
+  <div data-tile-sample="delivery" hidden>
+    <div class="tile-order-grid" data-tile-order-grid="delivery">
+  <link rel="stylesheet" href="./components/tile-order-grid.css">
+
+  <input type="radio" name="delivery" value="0" aria-label hidden>
+
+  <div class="img-wrapper">
+    <img src class="img" alt="" decoding="async" loading="lazy">
+    <img src class="img-checked" alt="" decoding="async" loading="lazy">
+  </div>
+  <div class="name"></div>
+
+  
+      <div class="delivery-text">
+        <div class="l">Стоимость:</div>
+        <div class="r" data-price></div>
+        <div class="l">Кол. дней:</div>
+        <div class="r" data-days></div>
+      </div>
+    
+
+  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
+    <summary class="summary">Подробнее</summary>
+    <div class="info"></div>
+  </details>
+
+  <script src="./components/tile-order-grid.js" async></script>
+</div>
+  </div>
+
   <script src="./components/order-delivery.js" async></script>
 
 <link rel="stylesheet" href="./components/util-tile.css">
@@ -417,141 +315,8 @@
 
   <h2 class="h2">Выберите способ оплаты</h2>
 
-  <form action="/api-order-payment" novalidate data-form-order-payment>
+  <form action="/api-order-payment" novalidate data-form-order-payment hidden data-payments="[{&#34;id&#34;:1,&#34;title&#34;:&#34;Оплата система быстрых платежей&#34;,&#34;img&#34;:&#34;./content/order-payment-1.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-1.png&#34;,&#34;bonus&#34;:300,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:2,&#34;title&#34;:&#34;Оплата картой на сайте&#34;,&#34;img&#34;:&#34;./content/order-payment-2.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-2.png&#34;,&#34;bonus&#34;:300,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:3,&#34;title&#34;:&#34;Оплатить при получении товара&#34;,&#34;img&#34;:&#34;./content/order-payment-3.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-3.png&#34;,&#34;bonus&#34;:0,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:4,&#34;title&#34;:&#34;Рассрочка Тинькофф&#34;,&#34;img&#34;:&#34;./content/order-payment-4.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-4.png&#34;,&#34;bonus&#34;:0,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:5,&#34;title&#34;:&#34;Яндекс Сплит&#34;,&#34;img&#34;:&#34;./content/order-payment-5.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-5.png&#34;,&#34;bonus&#34;:300,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:6,&#34;title&#34;:&#34;Кредит Сбербанк&#34;,&#34;img&#34;:&#34;./content/order-payment-6.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-payment-6.png&#34;,&#34;bonus&#34;:0,&#34;info&#34;:&#34;...&#34;}]" data-payment-id="0">
     <div class="form-grid">
-      <div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="1" aria-label="Оплата система быстрых платежей" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-1.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-1.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Оплата система быстрых платежей</div>
-
-  
-          <div class="payment-text">Будет начислено:</div>
-          <div class="payment-bonus">300 руб.</div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="2" aria-label="Оплата картой на сайте" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-2.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-2.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Оплата картой на сайте</div>
-
-  
-          <div class="payment-text">Будет начислено:</div>
-          <div class="payment-bonus">300 руб.</div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="3" aria-label="Оплатить при получении товара" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-3.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-3.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Оплатить при получении товара</div>
-
-  
-          <div class="payment-text"></div>
-          <div class="payment-bonus"></div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="4" aria-label="Рассрочка Тинькофф" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-4.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-4.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Рассрочка Тинькофф</div>
-
-  
-          <div class="payment-text"></div>
-          <div class="payment-bonus"></div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="5" aria-label="Яндекс Сплит" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-5.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-5.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Яндекс Сплит</div>
-
-  
-          <div class="payment-text">Будет начислено:</div>
-          <div class="payment-bonus">300 руб.</div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div><div class="tile-order-grid" data-tile-order-grid="payment">
-  <link rel="stylesheet" href="./components/tile-order-grid.css">
-
-  <input type="radio" name="payment" value="6" aria-label="Кредит Сбербанк" hidden>
-
-  <div class="img-wrapper">
-    <img src="./content/order-payment-6.png" class="img" alt="" decoding="async" loading="lazy">
-    <img src="./content/order-payment-6.png" class="img-checked" alt="" decoding="async" loading="lazy">
-  </div>
-  <div class="name">Кредит Сбербанк</div>
-
-  
-          <div class="payment-text"></div>
-          <div class="payment-bonus"></div>
-        
-
-  <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
-    <summary class="summary">Подробнее</summary>
-    <div class="info">...</div>
-  </details>
-
-  <script src="./components/tile-order-grid.js" async></script>
-</div>
       <div class="tile-order-grid-edit" data-tile-order-grid-edit="payment" hidden>
   <link rel="stylesheet" href="./components/tile-order-grid-edit.css">
 
@@ -563,8 +328,11 @@
   <script src="./components/tile-order-grid-edit.js" async></script>
 </div>
     </div>
-    <div data-tile-sample hidden>
-      <div class="tile-order-grid" data-tile-order-grid="payment">
+    <button type="submit" hidden>Применить</button>
+  </form>
+
+  <div data-tile-sample="payment" hidden>
+    <div class="tile-order-grid" data-tile-order-grid="payment">
   <link rel="stylesheet" href="./components/tile-order-grid.css">
 
   <input type="radio" name="payment" value="0" aria-label hidden>
@@ -576,9 +344,9 @@
   <div class="name"></div>
 
   
-        <div class="payment-text">Будет начислено:</div>
-        <div class="payment-bonus"></div>
-      
+      <div class="payment-text">Будет начислено:</div>
+      <div class="payment-bonus"></div>
+    
 
   <details class="details" name="tile-order-grid-details" data-tile-order-grid-popover>
     <summary class="summary">Подробнее</summary>
@@ -587,9 +355,7 @@
 
   <script src="./components/tile-order-grid.js" async></script>
 </div>
-    </div>
-    <button type="submit" hidden>Применить</button>
-  </form>
+  </div>
 
   <script src="./components/order-payment.js" async></script>
 
