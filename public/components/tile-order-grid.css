@@ -141,6 +141,14 @@
         border-style: solid;
         border-bottom-color: #FCEB62;
       }
+
+      p {
+        margin: 0;
+      }
+
+      p + p {
+        margin-top: .75rem;
+      }
     }
   }
 }

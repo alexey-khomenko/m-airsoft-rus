@@ -19,27 +19,26 @@ const {deliveries, deliveryId}: Props = Astro.props;
   <h2 class="h2">Выберите способ доставки</h2>
 
   <form action="/api-order-delivery" novalidate data-form-order-delivery hidden
-        data-order-delivery-reload-action="/api-order-delivery-reload">
+        data-deliveries={JSON.stringify(deliveries)} data-delivery-id={deliveryId}>
     <div class="form-grid">
-      {deliveries.map(({id, title, img, imgChecked, info, price, days}: IOrderDelivery) => (
-        <TileOrderGrid type="delivery" id={id} title={title} img={img} imgChecked={imgChecked} info={info}
-                       isChecked={id === deliveryId}>
-          <div class="delivery-text">
-            <div class="l">Стоимость:</div>
-            <div class="r">{price} руб.</div>
-            <div class="l">Кол. дней:</div>
-            <div class="r">{days}</div>
-          </div>
-        </TileOrderGrid>
-      ))}
       <TileOrderGridEdit type="delivery"/>
     </div>
-
     <button type="submit" hidden>Применить</button>
 
     <OrderDelivery1/>
     <OrderDelivery2/>
   </form>
+
+  <div data-tile-sample="delivery" hidden>
+    <TileOrderGrid type="delivery" id={0} title="" img="" imgChecked="" info="" isChecked={false}>
+      <div class="delivery-text">
+        <div class="l">Стоимость:</div>
+        <div class="r" data-price></div>
+        <div class="l">Кол. дней:</div>
+        <div class="r" data-days></div>
+      </div>
+    </TileOrderGrid>
+  </div>
 
   <script src="./components/order-delivery.js" is:inline async></script>
 </UtilTile>
