@@ -1,82 +1,94 @@
-document.addEventListener('submit', async (e) => {
-  const form = e.target.closest('[data-form-login-phone]');
+window.popupLoginJsIsLoaded = false;
 
-  if (!form) return true;
+window.addEventListener('load', () => {
+  if (window.popupLoginJsIsLoaded) return true;
 
-  e.preventDefault();
+  window.popupLoginJsIsLoaded = true;
 
-  const action = form.action;
-  const input = form.querySelector('[name="phone"]');
-  const value = input.value.trim();
+  document.addEventListener('submit', async (e) => {
+    const form = e.target.closest('[data-form-login-phone]');
 
-  if (0 === value.length || value.includes('_')) {
-    window.fieldError.add(input);
-    return true;
-  }
+    if (!form) return true;
 
+    e.preventDefault();
 
-  console.log('POST request to', action, value);
+    const action = form.action;
+    const input = form.querySelector('[name="phone"]');
+    const value = input.value.trim();
 
-
-  const step1 = document.querySelector('[data-popup-login-step="1"]');
-  const step2 = document.querySelector('[data-popup-login-step="2"]');
-
-  step1.hidden = true;
-  step2.hidden = false;
-});
-
-document.addEventListener('submit', async (e) => {
-  const form = e.target.closest('[data-form-login-code]');
-
-  if (!form) return true;
-
-  e.preventDefault();
-
-  const action = form.action;
-  const input = form.querySelector('[name="code"]');
-  const value = input.value.trim();
-
-  if (+input.maxLength !== value.length) {
-    window.fieldError.add(input);
-    return true;
-  }
+    if (0 === value.length || value.includes('_')) {
+      window.fieldError.add(input);
+      return true;
+    }
 
 
-  console.log('POST request to', action, value);
+    console.log('POST request to', action, value);
 
 
-  window.location.reload();
-});
+    const wrapper = form.closest('.popup-login');
+    const step1 = wrapper.querySelector('[data-popup-login-step="1"]');
+    const step2 = wrapper.querySelector('[data-popup-login-step="2"]');
 
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-login-back]');
+    step1.hidden = true;
+    step2.hidden = false;
+  });
 
-  if (!button) return true;
+  document.addEventListener('submit', async (e) => {
+    const form = e.target.closest('[data-form-login-code]');
 
-  const step1 = document.querySelector('[data-popup-login-step="1"]');
-  const step2 = document.querySelector('[data-popup-login-step="2"]');
+    if (!form) return true;
 
-  step2.hidden = true;
-  step1.hidden = false;
+    e.preventDefault();
 
-  const input = document.querySelector('[data-form-login-code] [name="code"]');
+    const action = form.action;
+    const input = form.querySelector('[name="code"]');
+    const value = input.value.trim();
 
-  input.value = '';
-});
+    if (+input.maxLength !== value.length) {
+      window.fieldError.add(input);
+      return true;
+    }
 
 
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-login-another-way]');
+    console.log('POST request to', action, value);
 
-  if (!button) return true;
 
-  console.log('Another login');
-});
+    window.location.reload();
+  });
 
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-login-yandex]');
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-popup-login-back]');
 
-  if (!button) return true;
+    if (!button) return true;
 
-  console.log('Yandex ID');
+    const wrapper = button.closest('.popup-login');
+
+    const step1 = wrapper.querySelector('[data-popup-login-step="1"]');
+    const step2 = wrapper.querySelector('[data-popup-login-step="2"]');
+
+    step2.hidden = true;
+    step1.hidden = false;
+
+
+    const input = wrapper.querySelector('[data-form-login-code] [name="code"]');
+
+    input.value = '';
+  });
+
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-popup-login-another-way]');
+
+    if (!button) return true;
+
+    console.log('Another login');
+  });
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-popup-login-yandex]');
+
+    if (!button) return true;
+
+    console.log('Yandex ID');
+  });
 });
