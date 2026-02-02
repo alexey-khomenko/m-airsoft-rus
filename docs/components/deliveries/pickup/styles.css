@@ -1,0 +1,61 @@
+.order-delivery-pickup {
+  margin-top: 1rem;
+
+  .label {
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: #27282B;
+  }
+
+  .select {
+    position: relative;
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: #27282B;
+
+    &:has(.options:not([hidden])) .input .svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .input {
+    margin-top: .5rem;
+    padding: 1rem .75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: .25rem;
+    cursor: pointer;
+    background-color: #F1F4F6;
+    border: 1px solid transparent;
+
+    .svg-wrapper {
+      width: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding-block: .75rem;
+    transform: translateY(-1px);
+
+    border-radius: .25rem;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, .1);
+  }
+
+  .option {
+    padding: .75rem;
+  }
+}

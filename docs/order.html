@@ -233,7 +233,7 @@
 
   <h2 class="h2">Выберите способ доставки</h2>
 
-  <form action="/api-order-delivery" novalidate data-form-order-delivery hidden data-deliveries="[{&#34;id&#34;:1,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-1.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-1-b.png&#34;,&#34;price&#34;:0,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина.&#34;},{&#34;id&#34;:2,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:3,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:4,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:5,&#34;title&#34;:&#34;Самовывоз&#34;,&#34;img&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;}]" data-delivery-id="0">
+  <form action="/api-order-delivery" novalidate data-form-order-delivery hidden data-deliveries="[{&#34;id&#34;:1,&#34;title&#34;:&#34;Самовывоз 1&#34;,&#34;img&#34;:&#34;./content/order-delivery-1.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-1-b.png&#34;,&#34;price&#34;:0,&#34;days&#34;:&#34;-&#34;,&#34;info&#34;:&#34;Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина.&#34;},{&#34;id&#34;:2,&#34;title&#34;:&#34;Самовывоз 2&#34;,&#34;img&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-2.png&#34;,&#34;price&#34;:0,&#34;days&#34;:&#34;-&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:3,&#34;title&#34;:&#34;Курьер 1&#34;,&#34;img&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-3.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:4,&#34;title&#34;:&#34;Курьер 2&#34;,&#34;img&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-4.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;},{&#34;id&#34;:5,&#34;title&#34;:&#34;Курьер 3&#34;,&#34;img&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;imgChecked&#34;:&#34;./content/order-delivery-5.png&#34;,&#34;price&#34;:300,&#34;days&#34;:&#34;1-4 дня&#34;,&#34;info&#34;:&#34;...&#34;}]" data-delivery-id="0">
     <div class="form-grid">
       <div class="tile-order-grid-edit" data-tile-order-grid-edit="delivery" hidden>
   <link rel="stylesheet" href="./components/tile-order-grid-edit.css">
@@ -247,34 +247,6 @@
 </div>
     </div>
     <button type="submit" hidden>Применить</button>
-
-    <div class="order-delivery-1" hidden>
-  <link rel="stylesheet" href="./components/order-delivery-1.css">
-
-  <h3 class="h3">Выберите отделение</h3>
-
-  <div class="select-wrapper">
-    <select name="office" class="util-form-field strong low select" aria-label="Отделение">
-      <option value="" selected disabled>- Выберите отделение -</option>
-      <option value="1">Самовывоз г.Москва ул. 3-я Парковой 33</option>
-      <option value="2">Самовывоз г. Москва ул.Фрунзенской наб. 16к1</option>
-      <option value="3">Самовывоз г. Москва Ленинградского пр-та 2</option>
-    </select>
-
-    <svg class="svg" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.23372 0.899902L4.56706 4.8999L0.90039 0.899902" stroke="#D9D9D9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </div>
-
-  <script src="./components/order-delivery-1.js" async></script>
-</div>
-    <div class="order-delivery-2" hidden>
-  <link rel="stylesheet" href="./components/order-delivery-2.css">
-
-  <div class="test-block"></div>
-
-  <script src="./components/order-delivery-2.js" async></script>
-</div>
   </form>
 
   <div data-tile-sample="delivery" hidden>
@@ -306,6 +278,53 @@
   <script src="./components/tile-order-grid.js" async></script>
 </div>
   </div>
+
+  <div class="order-delivery-pickup" hidden>
+  <link rel="stylesheet" href="./components/deliveries/pickup/styles.css">
+
+  <div class="label">Выберите магазин</div>
+  <div class="select">
+    <div class="input">
+      <span data-pickup-selected="0"></span>
+      <div class="svg-wrapper">
+        <svg class="svg" width="13" height="8" viewBox="0 0 13 8" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L6.5 7L1 1" stroke="#27282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="options" data-pickup-options hidden></div>
+    <div class="option" data-pickup-value="" data-pickup-sample hidden></div>
+  </div>
+
+  <script src="./components/deliveries/pickup/script.js" async></script>
+</div>
+  <div class="order-delivery-3" hidden>
+  <link rel="stylesheet" href="./components/deliveries/3/styles.css">
+
+  <h3 class="h3">Выберите отделение</h3>
+
+  <div class="select-wrapper">
+    <select name="office" class="util-form-field strong low select" aria-label="Отделение">
+      <option value="" selected disabled>- Выберите отделение -</option>
+      <option value="1">Самовывоз г.Москва ул. 3-я Парковой 33</option>
+      <option value="2">Самовывоз г. Москва ул.Фрунзенской наб. 16к1</option>
+      <option value="3">Самовывоз г. Москва Ленинградского пр-та 2</option>
+    </select>
+
+    <svg class="svg" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.23372 0.899902L4.56706 4.8999L0.90039 0.899902" stroke="#D9D9D9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </div>
+
+  <script src="./components/deliveries/3/script.js" async></script>
+</div>
+  <div class="order-delivery-4" hidden>
+  <link rel="stylesheet" href="./components/deliveries/4/styles.css">
+
+  <div class="test-block"></div>
+
+  <script src="./components/deliveries/4/script.js" async></script>
+</div>
 
   <script src="./components/order-delivery.js" async></script>
 

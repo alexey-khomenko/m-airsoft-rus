@@ -5,146 +5,75 @@ window.addEventListener('load', () => {
 
   window.orderDeliveryJsIsLoaded = true;
 
-  // TODO:
-  window.previousDeliveryId = null;
+  function selectTile(deliveryId) {
+    if (1 > +deliveryId) return;
 
-  if ('undefined' === typeof window.deliveries) window.deliveries = {};
+    const radio = form.querySelector(`[name="delivery"][value="${deliveryId}"]`);
 
-  function mount(id) {
-    if (!id) return;
+    if (radio) radio.checked = true;
 
-    if ('undefined' === typeof window.deliveries[`delivery${id}`]) {
-      console.log(`Script for 'delivery${id}' not found`);
-      return;
-    }
+    const tile = form.querySelector('.tile-order-grid:has([type="radio"]:checked)');
 
-    if ('undefined' === typeof window.deliveries[`delivery${id}`].mount) {
-      console.log(`Function 'delivery${id}.mount()' not found`);
-      return;
-    }
-
-    const delivery = document.querySelector(`.order-delivery-${id}`);
-    if (delivery) delivery.hidden = false;
-
-    window.deliveries[`delivery${id}`].mount();
+    if (tile) tile.click();
   }
 
-  function unmount(id) {
-    if (!id) return;
+  function buildTile(delivery, deliveryId, deliveryTile) {
+    const sample = document.querySelector(`[data-tile-sample="delivery"] [data-tile-order-grid]`);
 
-    if ('undefined' === typeof window.deliveries[`delivery${id}`]) {
-      console.log(`Script for 'delivery${id}' not found`);
-      return;
-    }
+    const tile = sample.cloneNode(true);
 
-    if ('undefined' === typeof window.deliveries[`delivery${id}`].unmount) {
-      console.log(`Function 'delivery${id}.unmount()' not found`);
-      return;
-    }
+    tile.hidden = false;
 
-    const delivery = document.querySelector(`.order-delivery-${id}`);
-    if (delivery) delivery.hidden = true;
+    tile.querySelector('[type="radio"]').setAttribute('value', deliveryId);
+    tile.querySelector('[type="radio"]').setAttribute('aria-label', deliveryTile);
+    tile.querySelector('.img').setAttribute('src', delivery.img);
+    tile.querySelector('.img-checked').setAttribute('src', delivery.imgChecked);
+    tile.querySelector('.name').textContent = deliveryTile;
+    tile.querySelector('.info').innerHTML = delivery.info;
+    tile.querySelector('[data-price]').textContent = `${delivery.price} руб.`;
+    tile.querySelector('[data-days]').textContent = delivery.days;
 
-    window.deliveries[`delivery${id}`].unmount();
+    form.querySelector('.form-grid').prepend(tile);
   }
-
-  document.addEventListener('changeOrderCity', async () => {
-    const form = document.querySelector(`[data-order-delivery-reload-action]`);
-    const formGrid = form.querySelector('.form-grid');
-    const action = form.dataset.orderDeliveryReloadAction;
-
-    form.reset();
-    formGrid.querySelector('[data-tile-order-grid-edit]').hidden = true;
-
-    const tiles = formGrid.querySelectorAll(`[data-tile-order-grid]`);
-
-
-    const responseDeliveries = [];
-    for (const tile of tiles) {
-      const deliveryId = tile.querySelector('[type="radio"]').value;
-      const delivery = form.querySelector(`.order-delivery-${deliveryId}`);
-
-      if (!delivery) continue;
-
-      responseDeliveries.push(delivery.cloneNode(true));
-      break;
-    }
-
-    const responseTiles = [];
-    for (const tile of tiles) {
-      tile.hidden = false;
-      responseTiles.push(tile.cloneNode(true));
-    }
-
-
-    for (const tile of tiles) {
-      const deliveryId = tile.querySelector('[type="radio"]').value;
-      const delivery = form.querySelector(`.order-delivery-${deliveryId}`);
-
-      if (delivery) {
-        unmount(deliveryId);
-        form.querySelector(`.order-delivery-${deliveryId}`).remove();
-      }
-
-      tile.remove();
-    }
-
-
-    console.log('POST request to', action);
-
-
-    responseTiles.reverse();
-    for (const tile of responseTiles) formGrid.prepend(tile);
-
-    for (const delivery of responseDeliveries) form.append(delivery);
-  });
-
 
   function buildTiles(deliveries, deliveryId) {
     form.hidden = true;
     form.reset();
     form.querySelector('[data-tile-order-grid-edit]').hidden = true;
+
     deliveries.reverse();
 
-    const sample = document.querySelector(`[data-tile-sample="delivery"] [data-tile-order-grid]`);
-
-    const tiles = form.querySelectorAll(`.form-grid [data-tile-order-grid]`);
+    const tiles = form.querySelectorAll('[data-tile-order-grid]');
     for (const tile of tiles) tile.remove();
 
+    window.deliveryPickups = [];
 
     for (const delivery of deliveries) {
-      const tile = sample.cloneNode(true);
-
-      tile.hidden = false;
-
-      tile.querySelector('[type="radio"]').setAttribute('value', delivery.id);
-      tile.querySelector('[type="radio"]').setAttribute('aria-label', delivery.title);
-      tile.querySelector('.img').setAttribute('src', delivery.img);
-      tile.querySelector('.img-checked').setAttribute('src', delivery.imgChecked);
-      tile.querySelector('.name').textContent = delivery.title;
-      tile.querySelector('.info').innerHTML = delivery.info;
-      tile.querySelector('[data-price]').textContent = `${delivery.price} руб.`;
-      tile.querySelector('[data-days]').textContent = delivery.days;
-
-      form.querySelector('.form-grid').prepend(tile);
+      if (delivery.title.includes('Самовывоз')) {
+        window.deliveryPickups.push(delivery);
+      }
+      else {
+        buildTile(delivery, delivery.id, delivery.title);
+      }
     }
 
+    if (0 < window.deliveryPickups.length) {
+      let id = window.deliveryPickups[0].id;
 
-    if (0 < deliveryId) {
-      const radio = form.querySelector(`[name="delivery"][value="${deliveryId}"]`);
+      for (const pickup of window.deliveryPickups) {
+        if (pickup.id === +deliveryId) id = pickup.id;
+      }
 
-      if (radio) radio.checked = true;
+      buildTile(window.deliveryPickups[0], id, 'Самовывоз');
     }
 
-
-    const tile = form.querySelector('.tile-order-grid:has([type="radio"]:checked)');
-
-    if (tile) tile.click();
+    if (0 < deliveryId) selectTile(deliveryId);
 
     form.hidden = false;
   }
 
-  const form = document.querySelector(`[data-form-order-delivery]`);
+  window.deliveryPickups = [];
+  const form = document.querySelector('[data-form-order-delivery]');
 
   setTimeout(() => {
     buildTiles(JSON.parse(form.dataset.deliveries), form.dataset.deliveryId);
@@ -165,10 +94,16 @@ window.addEventListener('load', () => {
 
     if (!radio) return true;
 
-    const action = form.action;
-    const value = radio.value;
+    await window.setDelivery(radio.value);
+  });
 
-    radio.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
+
+  window.setDelivery = async function (value) {
+    const action = form.action;
+
+    form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
+
+    deliveryUnmount();
 
     console.log('POST request to', action);
     console.log('delivery', value);
@@ -180,25 +115,25 @@ window.addEventListener('load', () => {
         deliveries: [
           {
             'id': 1,
-            'title': '_Самовывоз',
+            'title': 'Самовывоз 3',
             'img': './content/order-delivery-1.png',
             'imgChecked': './content/order-delivery-1-b.png',
             'price': 0,
-            'days': '1-4 дня',
+            'days': '-',
             'info': 'Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина.',
           },
           {
             'id': 2,
-            'title': '_Самовывоз',
+            'title': 'Самовывоз 4',
             'img': './content/order-delivery-2.png',
             'imgChecked': './content/order-delivery-2.png',
-            'price': 300,
-            'days': '1-4 дня',
+            'price': 0,
+            'days': '-',
             'info': '...',
           },
           {
             'id': 3,
-            'title': '_Самовывоз',
+            'title': '_Курьер',
             'img': './content/order-delivery-3.png',
             'imgChecked': './content/order-delivery-3.png',
             'price': 300,
@@ -207,7 +142,7 @@ window.addEventListener('load', () => {
           },
           {
             'id': 4,
-            'title': '_Самовывоз',
+            'title': '_Курьер',
             'img': './content/order-delivery-4.png',
             'imgChecked': './content/order-delivery-4.png',
             'price': 300,
@@ -216,7 +151,7 @@ window.addEventListener('load', () => {
           },
           {
             'id': 5,
-            'title': '_Самовывоз',
+            'title': '_Курьер',
             'img': './content/order-delivery-5.png',
             'imgChecked': './content/order-delivery-5.png',
             'price': 300,
@@ -225,6 +160,57 @@ window.addEventListener('load', () => {
           },
         ],
         deliveryId: value,
+        payments: [
+          {
+            'id': 1,
+            'title': '1Оплата система быстрых платежей',
+            'img': './content/order-payment-1.png',
+            'imgChecked': './content/order-payment-1.png',
+            'bonus': 300,
+            'info': '...',
+          },
+          {
+            'id': 2,
+            'title': '2Оплата картой на сайте',
+            'img': './content/order-payment-2.png',
+            'imgChecked': './content/order-payment-2.png',
+            'bonus': 300,
+            'info': '...',
+          },
+          {
+            'id': 3,
+            'title': '3Оплатить при получении товара',
+            'img': './content/order-payment-3.png',
+            'imgChecked': './content/order-payment-3.png',
+            'bonus': 0,
+            'info': '...',
+          },
+          {
+            'id': 4,
+            'title': '4Рассрочка Тинькофф',
+            'img': './content/order-payment-4.png',
+            'imgChecked': './content/order-payment-4.png',
+            'bonus': 0,
+            'info': '...',
+          },
+          {
+            'id': 5,
+            'title': '5Яндекс Сплит',
+            'img': './content/order-payment-5.png',
+            'imgChecked': './content/order-payment-5.png',
+            'bonus': 300,
+            'info': '...',
+          },
+          {
+            'id': 6,
+            'title': '6Кредит Сбербанк',
+            'img': './content/order-payment-6.png',
+            'imgChecked': './content/order-payment-6.png',
+            'bonus': 0,
+            'info': '...',
+          },
+        ],
+        paymentId: 0,
         certificate: 'XXXX-XXXX-XXXX',
         balance: 940,
         bonuses: 10,
@@ -243,11 +229,66 @@ window.addEventListener('load', () => {
       console.info('response.info not found');
     }
 
-    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
+    await deliveryMount(value);
 
-    // TODO:
-    //   unmount(window.previousDeliveryId);
-    //   mount(value);
-    //   window.previousDeliveryId = value;
-  });
+    form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
+  };
+
+
+  window.previousDeliveryId = null;
+
+  if ('undefined' === typeof window.deliveries) window.deliveries = {};
+
+  async function deliveryMount(id) {
+    window.previousDeliveryId = +id;
+
+    if (!id) return;
+
+    if (window.deliveryPickups.some(item => item.id === +id)) id = 'pickup';
+
+
+    console.log(`request to delivery-${id}`);
+
+
+    if ('undefined' === typeof window.deliveries[`delivery-${id}`]) {
+      console.log(`Script for 'delivery-${id}' not found`);
+      return;
+    }
+
+    if ('undefined' === typeof window.deliveries[`delivery-${id}`].mount) {
+      console.log(`Function 'delivery-${id}.mount()' not found`);
+      return;
+    }
+
+    const delivery = document.querySelector(`.order-delivery-${id}`);
+    if (delivery) delivery.hidden = false;
+
+    window.deliveries[`delivery-${id}`].mount();
+  }
+
+  function deliveryUnmount() {
+    let id = +window.previousDeliveryId;
+
+    if (!id) return;
+
+    if (window.deliveryPickups.some(item => item.id === id)) id = 'pickup';
+
+    if ('undefined' === typeof window.deliveries[`delivery-${id}`]) {
+      console.log(`Script for 'delivery-${id}' not found`);
+      return;
+    }
+
+    if ('undefined' === typeof window.deliveries[`delivery-${id}`].unmount) {
+      console.log(`Function 'delivery-${id}.unmount()' not found`);
+      return;
+    }
+
+    const delivery = document.querySelector(`.order-delivery-${id}`);
+    if (delivery) delivery.hidden = true;
+
+    window.deliveries[`delivery-${id}`].unmount();
+
+
+    console.log(`remove .order-delivery-${id}`);
+  }
 });

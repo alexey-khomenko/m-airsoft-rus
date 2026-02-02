@@ -1,20 +1,20 @@
 if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
-window.deliveries.delivery1 = {
+window.deliveries['delivery-3'] = {
   mount: function () {
-    console.log('delivery1 mount');
+    console.log('delivery-3 mount');
     document.addEventListener('input', this.handler);
   },
   unmount: function () {
-    console.log('delivery1 unmount');
+    console.log('delivery-3 unmount');
     document.removeEventListener('input', this.handler);
   },
   handler: async function (e) {
-    const select = e.target.closest('.order-delivery-1 [name="office"]');
+    const select = e.target.closest('.order-delivery-3 [name="office"]');
 
     if (!select) return true;
 
-    const delivery = 1;
+    const delivery = 3;
     const form = document.querySelector(`[data-form-order-delivery]`);
     const action = form.action;
     const value = select.value;
