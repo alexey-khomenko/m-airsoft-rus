@@ -1,12 +1,12 @@
 if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
-window.deliveries.delivery2 = {
+window.deliveries['delivery-4'] = {
   mount: function () {
-    console.log('delivery2 mount');
+    console.log('delivery-4 mount');
     document.addEventListener('click', this.handler);
   },
   unmount: function () {
-    console.log('delivery2 unmount');
+    console.log('delivery-4 unmount');
     document.removeEventListener('click', this.handler);
   },
   handler: async function (e) {
@@ -14,7 +14,7 @@ window.deliveries.delivery2 = {
 
     if (!test) return true;
 
-    const delivery = 2;
+    const delivery = 4;
     const form = document.querySelector(`[data-form-order-delivery]`);
     const action = form.action;
 

@@ -2,8 +2,9 @@
 import UtilTile from '../components/UtilTile.astro';
 import TileOrderGrid from '../components/TileOrderGrid.astro';
 import TileOrderGridEdit from '../components/TileOrderGridEdit.astro';
-import OrderDelivery1 from '../components/OrderDelivery1.astro';
-import OrderDelivery2 from '../components/OrderDelivery2.astro';
+import OrderDeliveryPickup from '../components/deliveries/pickup/OrderDeliveryPickup.astro';
+import OrderDelivery3 from '../components/deliveries/3/OrderDelivery3.astro';
+import OrderDelivery4 from '../components/deliveries/4/OrderDelivery4.astro';
 
 import type {IOrderDelivery} from '../interfaces.ts';
 
@@ -24,9 +25,6 @@ const {deliveries, deliveryId}: Props = Astro.props;
       <TileOrderGridEdit type="delivery"/>
     </div>
     <button type="submit" hidden>Применить</button>
-
-    <OrderDelivery1/>
-    <OrderDelivery2/>
   </form>
 
   <div data-tile-sample="delivery" hidden>
@@ -39,6 +37,10 @@ const {deliveries, deliveryId}: Props = Astro.props;
       </div>
     </TileOrderGrid>
   </div>
+
+  <OrderDeliveryPickup/>
+  <OrderDelivery3/>
+  <OrderDelivery4/>
 
   <script src="./components/order-delivery.js" is:inline async></script>
 </UtilTile>

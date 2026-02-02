@@ -16,25 +16,25 @@
     "deliveries": [
       {
         "id": 1,
-        "title": "Самовывоз",
+        "title": "Самовывоз 1",
         "img": "./content/order-delivery-1.png",
         "imgChecked": "./content/order-delivery-1-b.png",
         "price": 0,
-        "days": "1-4 дня",
+        "days": "-",
         "info": "Самовывоз означает, что вы можете забрать свой заказ из нашего магазина в течение 3х рабочих дней после подтверждения заказа менеджером интернет-магазина."
       },
       {
         "id": 2,
-        "title": "Самовывоз",
+        "title": "Самовывоз 2",
         "img": "./content/order-delivery-2.png",
         "imgChecked": "./content/order-delivery-2.png",
-        "price": 300,
-        "days": "1-4 дня",
+        "price": 0,
+        "days": "-",
         "info": "..."
       },
       {
         "id": 3,
-        "title": "Самовывоз",
+        "title": "Курьер 1",
         "img": "./content/order-delivery-3.png",
         "imgChecked": "./content/order-delivery-3.png",
         "price": 300,
@@ -43,7 +43,7 @@
       },
       {
         "id": 4,
-        "title": "Самовывоз",
+        "title": "Курьер 2",
         "img": "./content/order-delivery-4.png",
         "imgChecked": "./content/order-delivery-4.png",
         "price": 300,
@@ -52,7 +52,7 @@
       },
       {
         "id": 5,
-        "title": "Самовывоз",
+        "title": "Курьер 3",
         "img": "./content/order-delivery-5.png",
         "imgChecked": "./content/order-delivery-5.png",
         "price": 300,
