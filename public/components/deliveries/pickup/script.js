@@ -2,36 +2,7 @@ if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
 window.deliveries['delivery-pickup'] = {
   mount: function () {
-    {
-      const root = document.querySelector('.order-delivery-pickup');
-
-      const deliveryId = +window.previousDeliveryId;
-
-      const selected = root.querySelector('[data-pickup-selected]');
-      const options = root.querySelector('[data-pickup-options]');
-      const sample = root.querySelector('[data-pickup-sample]');
-
-      selected.textContent = window.deliveryPickups[0].title;
-      selected.setAttribute('data-pickup-selected', window.deliveryPickups[0].id);
-
-      options.innerHTML = '';
-
-      for (const pickup of window.deliveryPickups) {
-        const option = sample.cloneNode(true);
-
-        option.hidden = false;
-        option.textContent = pickup.title;
-        option.setAttribute('data-pickup-value', pickup.id);
-
-        options.append(option);
-
-        if (pickup.id !== deliveryId) continue;
-
-        selected.textContent = pickup.title;
-        selected.setAttribute('data-pickup-selected', pickup.id);
-      }
-    }
-
+    this.init();
     console.log('delivery-pickup mount');
     document.addEventListener('click', this.handler);
   },
@@ -72,6 +43,35 @@ window.deliveries['delivery-pickup'] = {
       options.hidden = true;
 
       return true;
+    }
+  },
+  init: function () {
+    const root = document.querySelector('.order-delivery-pickup');
+
+    const deliveryId = +window.previousDeliveryId;
+
+    const selected = root.querySelector('[data-pickup-selected]');
+    const options = root.querySelector('[data-pickup-options]');
+    const sample = root.querySelector('[data-pickup-sample]');
+
+    selected.textContent = window.deliveryPickups[0].title;
+    selected.setAttribute('data-pickup-selected', window.deliveryPickups[0].id);
+
+    options.innerHTML = '';
+
+    for (const pickup of window.deliveryPickups) {
+      const option = sample.cloneNode(true);
+
+      option.hidden = false;
+      option.textContent = pickup.title;
+      option.setAttribute('data-pickup-value', pickup.id);
+
+      options.append(option);
+
+      if (pickup.id !== deliveryId) continue;
+
+      selected.textContent = pickup.title;
+      selected.setAttribute('data-pickup-selected', pickup.id);
     }
   },
 };
