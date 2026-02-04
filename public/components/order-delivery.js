@@ -82,6 +82,7 @@ window.addEventListener('load', () => {
 
   document.addEventListener('updateOrderInfo', async (e) => {
     if ('deliveries' in e.detail && 'deliveryId' in e.detail) {
+      deliveryUnmount();
       await buildTiles(e.detail.deliveries, e.detail.deliveryId);
     }
     else {
@@ -243,7 +244,7 @@ window.addEventListener('load', () => {
   async function deliveryMount(id) {
     window.previousDeliveryId = +id;
 
-    if (!id) return;
+    if (1 > id) return;
 
     if (window.deliveryPickups.some(item => item.id === +id)) id = 'pickup';
 
@@ -270,7 +271,7 @@ window.addEventListener('load', () => {
   function deliveryUnmount() {
     let id = +window.previousDeliveryId;
 
-    if (!id) return;
+    if (1 > id) return;
 
     if (window.deliveryPickups.some(item => item.id === id)) id = 'pickup';
 
