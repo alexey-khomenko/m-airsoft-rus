@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
   window.orderDeliveryJsIsLoaded = true;
 
-  function selectTile(deliveryId) {
+  async function selectTile(deliveryId) {
     if (1 > +deliveryId) return;
 
     const radio = form.querySelector(`[name="delivery"][value="${deliveryId}"]`);
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     form.querySelector('.form-grid').prepend(tile);
   }
 
-  function buildTiles(deliveries, deliveryId) {
+  async function buildTiles(deliveries, deliveryId) {
     form.hidden = true;
     form.reset();
     form.querySelector('[data-tile-order-grid-edit]').hidden = true;
@@ -67,7 +67,7 @@ window.addEventListener('load', () => {
       buildTile(window.deliveryPickups[0], id, 'Самовывоз');
     }
 
-    if (0 < deliveryId) selectTile(deliveryId);
+    if (0 < deliveryId) await selectTile(deliveryId);
 
     form.hidden = false;
   }
@@ -75,13 +75,15 @@ window.addEventListener('load', () => {
   window.deliveryPickups = [];
   const form = document.querySelector('[data-form-order-delivery]');
 
-  setTimeout(() => {
-    buildTiles(JSON.parse(form.dataset.deliveries), form.dataset.deliveryId);
+  setTimeout(async () => {
+    await buildTiles(JSON.parse(form.dataset.deliveries), form.dataset.deliveryId);
+    await deliveryMount(form.dataset.deliveryId);
   }, 10);
 
   document.addEventListener('updateOrderInfo', async (e) => {
     if ('deliveries' in e.detail && 'deliveryId' in e.detail) {
-      buildTiles(e.detail.deliveries, e.detail.deliveryId);
+      deliveryUnmount();
+      await buildTiles(e.detail.deliveries, e.detail.deliveryId);
     }
     else {
       console.info('info.deliveries not found');
@@ -242,7 +244,7 @@ window.addEventListener('load', () => {
   async function deliveryMount(id) {
     window.previousDeliveryId = +id;
 
-    if (!id) return;
+    if (1 > id) return;
 
     if (window.deliveryPickups.some(item => item.id === +id)) id = 'pickup';
 
@@ -260,16 +262,16 @@ window.addEventListener('load', () => {
       return;
     }
 
+    window.deliveries[`delivery-${id}`].mount();
+
     const delivery = document.querySelector(`.order-delivery-${id}`);
     if (delivery) delivery.hidden = false;
-
-    window.deliveries[`delivery-${id}`].mount();
   }
 
   function deliveryUnmount() {
     let id = +window.previousDeliveryId;
 
-    if (!id) return;
+    if (1 > id) return;
 
     if (window.deliveryPickups.some(item => item.id === id)) id = 'pickup';
 
@@ -283,12 +285,9 @@ window.addEventListener('load', () => {
       return;
     }
 
-    const delivery = document.querySelector(`.order-delivery-${id}`);
-    if (delivery) delivery.hidden = true;
-
     window.deliveries[`delivery-${id}`].unmount();
 
-
-    console.log(`remove .order-delivery-${id}`);
+    const delivery = document.querySelector(`.order-delivery-${id}`);
+    if (delivery) delivery.hidden = true;
   }
 });
