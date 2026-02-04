@@ -5,6 +5,7 @@ import TileOrderGridEdit from '../components/TileOrderGridEdit.astro';
 import OrderDeliveryPickup from '../components/deliveries/pickup/OrderDeliveryPickup.astro';
 import OrderDelivery3 from '../components/deliveries/3/OrderDelivery3.astro';
 import OrderDelivery4 from '../components/deliveries/4/OrderDelivery4.astro';
+import OrderDelivery5 from '../components/deliveries/5/OrderDelivery5.astro';
 
 import type {IOrderDelivery} from '../interfaces.ts';
 
@@ -41,6 +42,7 @@ const {deliveries, deliveryId}: Props = Astro.props;
   <OrderDeliveryPickup/>
   <OrderDelivery3/>
   <OrderDelivery4/>
+  <OrderDelivery5/>
 
   <script src="./components/order-delivery.js" is:inline async></script>
 </UtilTile>
