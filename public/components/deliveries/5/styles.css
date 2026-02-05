@@ -2,11 +2,19 @@
   margin-top: 1rem;
 
   .label {
+    display: block;
+    margin-bottom: .5rem;
+    width: fit-content;
     font-weight: 700;
     font-size: .875rem;
     line-height: 1.125rem;
     color: #27282B;
   }
 
-
+  .map {
+    height: 280px;
+    padding: 0;
+    margin: 0 -1rem 1rem;
+    background-color: #F1F4F6;
+  }
 }
