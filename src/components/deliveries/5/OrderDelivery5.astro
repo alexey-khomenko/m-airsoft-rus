@@ -1,50 +1,33 @@
 ---
+// const calendar: {} = {
+//   '06.02.2026': {'12:00 - 19:00': false},
+//   '09.02.2026': {'12:00 - 19:00': false},
+//   '10.02.2026': {'12:00 - 19:00': false},
+//   '11.02.2026': {'12:00 - 19:00': false},
+//   '12.02.2026': {'12:00 - 19:00': false},
+//   '13.02.2026': {'12:00 - 19:00': false},
+//   '16.02.2026': {'12:00 - 19:00': false},
+//   '17.02.2026': {'12:00 - 19:00': false},
+//   '18.02.2026': {'12:00 - 19:00': false},
+//   '19.02.2026': {'12:00 - 19:00': false},
+//   '20.02.2026': {'12:00 - 19:00': false},
+//   '24.02.2026': {'12:00 - 19:00': false},
+//   '25.02.2026': {'12:00 - 19:00': false},
+//   '26.02.2026': {'12:00 - 19:00': false},
+//   '27.02.2026': {'12:00 - 19:00': false},
+// };
+// const times: {} = {
+//   '12:00 - 19:00': '',
+// };
+
 const calendar: {} = {
-  msk: {
-    '06.02.2026': {'17:00 - 24:00': false, '11:00 - 19:00': false},
-    '07.02.2026': {'11:00 - 19:00': false},
-    '09.02.2026': {'17:00 - 24:00': false},
-  },
-  spb: {
-    '06.02.2026': {'12:00 - 19:00': false},
-    '09.02.2026': {'12:00 - 19:00': false},
-    '10.02.2026': {'12:00 - 19:00': false},
-    '11.02.2026': {'12:00 - 19:00': false},
-    '12.02.2026': {'12:00 - 19:00': false},
-    '13.02.2026': {'12:00 - 19:00': false},
-    '16.02.2026': {'12:00 - 19:00': false},
-    '17.02.2026': {'12:00 - 19:00': false},
-    '18.02.2026': {'12:00 - 19:00': false},
-    '19.02.2026': {'12:00 - 19:00': false},
-    '20.02.2026': {'12:00 - 19:00': false},
-    '24.02.2026': {'12:00 - 19:00': false},
-    '25.02.2026': {'12:00 - 19:00': false},
-    '26.02.2026': {'12:00 - 19:00': false},
-    '27.02.2026': {'12:00 - 19:00': false},
-  },
+  '06.02.2026': {'17:00 - 24:00': false, '11:00 - 19:00': false},
+  '07.02.2026': {'11:00 - 19:00': false},
+  '09.02.2026': {'17:00 - 24:00': false},
 };
-const cityTimes: {} = {
-  msk: ['11:00 - 19:00', '17:00 - 24:00'],
-  spb: ['12:00 - 19:00'],
-};
-const cityCodes: {} = {
-  msk: [
-    '0000073738', // Москва
-    '0000031209', // Реутов
-    '0000032243', // Дзержинский
-    '0000033097', // Химки
-    '0000034520', // Котельники
-    '0000044453', // Красногорск
-    '0000045110', // Видное
-    '0000046203', // Люберцы
-    '140000028022', // Новокосино
-    '150000028022', // Некрасовка
-    '160000028022', // Бутово
-    '990000000000', // Митино
-  ],
-  spb: [
-    '0000103664',
-  ],
+const times: {} = {
+  '11:00 - 19:00': 'msk.geojson',
+  '17:00 - 24:00': 'msk-evening.geojson',
 };
 
 const session: {} = {
@@ -55,10 +38,6 @@ const session: {} = {
   date: '06.02.2026',
   time: '11:00 - 19:00',
 };
-
-
-const courier_time_1: string = '11:00 - 19:00'; // todo
-const courier_time_2: string = '17:00 - 24:00'; // todo
 ---
 
 <section class="order-delivery-5" hidden>
@@ -66,8 +45,7 @@ const courier_time_2: string = '17:00 - 24:00'; // todo
 
   <form action="/api-order-delivery-courier" novalidate data-form-order-delivery-courier
         data-calendar={JSON.stringify(calendar)}
-        data-city-times={JSON.stringify(cityTimes)}
-        data-city-codes={JSON.stringify(cityCodes)}
+        data-times={JSON.stringify(times)}
         data-session={JSON.stringify(session)}>
     <label for="address" class="label">Адрес доставки (укажите точку на карте)</label>
 
@@ -82,8 +60,12 @@ const courier_time_2: string = '17:00 - 24:00'; // todo
       </button>
     </div>
 
-    <div class="alert" hidden>
+    <div class="alert" data-alert-address hidden>
       Недопустимый адрес, выберите другой способ доставки.
+    </div>
+
+    <div class="alert" data-alert-dates hidden>
+      Нет свободного курьера.
     </div>
 
     <div class="extra">
@@ -112,19 +94,6 @@ const courier_time_2: string = '17:00 - 24:00'; // todo
         <div class="label">Дата доставки</div>
         <div class="dates">
 
-          disabled
-
-          <div class="date">
-            <input type="radio" name="date" value="05.02.2026" aria-label="Дата доставки" hidden checked={true}/>
-            <span>05</span>
-            <span>ЧТ</span>
-          </div>
-          <div class="date">
-            <input type="radio" name="date" value="06.02.2026" aria-label="Дата доставки" hidden checked={false}/>
-            <span>06</span>
-            <span>ПТ</span>
-          </div>
-
         </div>
         <div data-tile-sample="courier-date" hidden>
           <div class="date">
@@ -137,17 +106,6 @@ const courier_time_2: string = '17:00 - 24:00'; // todo
       <div class="cell">
         <div class="label">Время доставки</div>
         <div class="times">
-
-          disabled
-
-          <div class="time">
-            <input type="radio" name="time" value="11:00 - 19:00" aria-label="Время доставки" hidden checked={true}/>
-            <span>11:00 - 19:00</span>
-          </div>
-          <div class="time">
-            <input type="radio" name="time" value="17:00 - 24:00" aria-label="Время доставки" hidden checked={false}/>
-            <span>17:00 - 24:00</span>
-          </div>
 
         </div>
         <div data-tile-sample="courier-time" hidden>

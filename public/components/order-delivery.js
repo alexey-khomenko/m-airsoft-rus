@@ -84,7 +84,6 @@ window.addEventListener('load', () => {
     if ('deliveries' in e.detail && 'deliveryId' in e.detail) {
       deliveryUnmount();
       await buildTiles(e.detail.deliveries, e.detail.deliveryId);
-      await deliveryMount(e.detail.deliveryId);
     }
     else {
       console.info('info.deliveries not found');

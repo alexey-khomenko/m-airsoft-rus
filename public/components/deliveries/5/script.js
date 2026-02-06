@@ -15,42 +15,19 @@ window.deliveries[key] = {
   handler: async function (e) {
     const map = e.target.closest('.map');
 
+    const _this = window.deliveries[key];
+
     if (map) {
-      {
-        const cityObj = document.querySelector('[data-order-city-info-code]');
-        const oldCode = cityObj.dataset.orderCityInfoCode;
-        let newCode;
-
-        switch (oldCode) {
-          case '0000103664':
-            newCode = '0000073738';
-            break;
-          case '0000073738':
-            newCode = '';
-            break;
-          default:
-            newCode = '0000103664';
-            break;
-        }
-
-        cityObj.setAttribute('data-order-city-info-code', newCode);
-      }
-
-      const _this = window.deliveries[key];
-
-      {
-        _this.hideDateTime();
-
-        _this.setCityKey();
-        _this.buildDatesTiles();
-        _this.buildTimesTiles();
-        // select
-        _this.showDateTime();
-      }
+      _this.showDateTime();
 
       const action = _this.form.action;
 
       console.log('POST request to', action);
+
+      return true;
+    }
+    else {
+      _this.hideDateTime();
 
       return true;
     }
@@ -59,30 +36,28 @@ window.deliveries[key] = {
     this.form = document.querySelector('[data-form-order-delivery-courier]');
 
     this.calendar = JSON.parse(this.form.dataset.calendar);
-    this.cityTimes = JSON.parse(this.form.dataset.cityTimes);
-    this.cityCodes = JSON.parse(this.form.dataset.cityCodes);
+    this.times = JSON.parse(this.form.dataset.times);
     this.session = JSON.parse(this.form.dataset.session);
 
+    // TODO:
+    //  .address
+    //  .housing
+    //  .entrance
+    //  .apartment
+
     this.datetime = {
-      msk: {
-        dates: this.buildDatesData(Object.keys(this.calendar.msk)),
-        times: this.buildTimesData(this.calendar.msk, this.cityTimes.msk),
-      },
-      spb: {
-        dates: this.buildDatesData(Object.keys(this.calendar.spb)),
-        times: this.buildTimesData(this.calendar.spb, this.cityTimes.spb),
-      },
+      dates: this.buildDatesData(),
+      times: this.buildTimesData(),
     };
 
-    this.setCityKey();
     this.buildDatesTiles();
     this.buildTimesTiles();
-    // select
 
 
-    // Если нет выбранной даты.
+    // selectDateTile()
     // Кликнуть дату из сессии или первое доступное.
 
+    // selectTimeTile()
     // Зная выбранную дату заполнить disabled у плиток времени
     // Если время из сессии доступно, то кликнуть его.
     // Если нет, то первое доступное.
@@ -102,13 +77,15 @@ window.deliveries[key] = {
     // TODO: -
     console.log('----');
     console.log(this.calendar);
-    console.log(this.cityTimes);
-    console.log(this.cityCodes);
+    console.log(this.times);
     console.log(this.session);
+    console.log('----');
     console.log(this.datetime);
     console.log('----');
   },
-  buildDatesData: function (allDays) {
+  buildDatesData: function () {
+    const allDays = Object.keys(this.calendar);
+
     if (1 > allDays.length) return [];
 
     const data = [];
@@ -119,13 +96,13 @@ window.deliveries[key] = {
     let tmp = new Date(firstDay);
 
     if (firstDay === lastDay) {
-      data.push(this.buildDateData(tmp, allDays));
+      data.push(this._buildDateData(tmp, allDays));
     }
     else {
       let currentDay = firstDay;
 
       while (currentDay < lastDay) {
-        data.push(this.buildDateData(tmp, allDays));
+        data.push(this._buildDateData(tmp, allDays));
 
         currentDay = tmp.toISOString().slice(0, 10);
 
@@ -135,7 +112,7 @@ window.deliveries[key] = {
 
     return data;
   },
-  buildDateData: function (tmp, allDays) {
+  _buildDateData: function (tmp, allDays) {
     const weekdays = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
     const value = (tmp.toISOString().slice(0, 10)).split('-').reverse().join('.');
@@ -147,18 +124,18 @@ window.deliveries[key] = {
       disabled: allDays.indexOf(value) === -1,
     };
   },
-  buildTimesData: function (calendar, cityTimes) {
+  buildTimesData: function () {
     const data = [];
 
-    for (const date in calendar) {
+    for (const date in this.calendar) {
       const tmp = {};
 
       tmp[date] = [];
 
-      for (const time of cityTimes) {
+      for (const time in this.times) {
         tmp[date].push({
           value: time,
-          disabled: !Object.keys(calendar[date]).includes(time),
+          disabled: !Object.keys(this.calendar[date]).includes(time),
         });
       }
 
@@ -168,57 +145,58 @@ window.deliveries[key] = {
     return data;
   },
   buildDatesTiles: function () {
-    if (1 > this.cityKey.length) return;
-
-    console.log(this.datetime[this.cityKey].dates);
-
-    // Взять данные для дат.
-    // Сгенерировать плитки дат.
-    // Заполнить '.dates'.
+    if (1 > this.datetime.dates.length) return;
 
     const wrapper = this.form.querySelector('.dates');
+    const sample = document.querySelector('[data-tile-sample="courier-date"] div');
 
     wrapper.innerHTML = '';
+    for (const date of this.datetime.dates) {
+
+      const tile = sample.cloneNode(true);
+
+      tile.hidden = false;
+
+      tile.querySelector('[type="radio"]').setAttribute('value', date.inputValue);
+      tile.querySelector('[type="radio"]').disabled = date.disabled;
+      tile.querySelector('[data-date-value]').textContent = date.dateValue;
+      tile.querySelector('[data-week-value]').textContent = date.weekValue;
+
+      if (date.disabled) tile.classList.add('disabled');
+
+      wrapper.append(tile);
+    }
   },
   buildTimesTiles: function () {
-    if (1 > this.cityKey.length) return;
-
-    console.log(this.datetime[this.cityKey].times);
-
-    // Взять каноничные данные для времени.
-    // Сгенерировать плитки времени.
-    // Заполнить '.times'.
+    if (1 > this.datetime.dates.length) return;
 
     const wrapper = this.form.querySelector('.times');
+    const sample = document.querySelector('[data-tile-sample="courier-time"] div');
 
     wrapper.innerHTML = '';
+    for (const time in this.times) {
+
+      const tile = sample.cloneNode(true);
+
+      tile.hidden = false;
+
+      tile.querySelector('[type="radio"]').setAttribute('value', time);
+      tile.querySelector('[data-time-value]').textContent = time;
+
+      wrapper.append(tile);
+    }
   },
   showDateTime: function () {
-    if (1 > this.cityKey.length) return;
+    if (1 > this.datetime.dates.length) return;
 
     this.form.querySelector('.datetime').hidden = false;
   },
   hideDateTime: function () {
     this.form.querySelector('.datetime').hidden = true;
   },
-  setCityKey: function () {
-    const cityCode = document.querySelector('[data-order-city-info-code]').dataset.orderCityInfoCode;
-
-    this.cityKey = '';
-
-    if (this.cityCodes.msk.includes(cityCode)) this.cityKey = 'msk';
-    else if (this.cityCodes.spb.includes(cityCode)) this.cityKey = 'spb';
-
-    console.log(this.cityKey, cityCode); // TODO: -
-  },
-
   form: null,
-
   calendar: {},
-  cityTimes: {},
-  cityCodes: {},
+  times: {},
   session: {},
   datetime: {},
-
-  cityKey: null,
 };
