@@ -6,19 +6,27 @@ window.deliveries[key] = {
   mount: function () {
     this.init();
     console.log(`${key} mount`);
-    document.addEventListener('click', this.handler);
+    document.addEventListener('click', this.handlerClick);
+    document.addEventListener('input', this.handlerInput);
+    document.addEventListener('focusin', this.handlerFocusin);
+    document.addEventListener('focusout', this.handlerFocusout);
   },
   unmount: function () {
     console.log(`${key} unmount`);
-    document.removeEventListener('click', this.handler);
+    document.removeEventListener('click', this.handlerClick);
+    document.removeEventListener('input', this.handlerInput);
+    document.removeEventListener('focusin', this.handlerFocusin);
+    document.removeEventListener('focusout', this.handlerFocusout);
   },
-  handler: async function (e) {
-    const map = e.target.closest('.map');
-
+  handlerClick: async function (e) {
     const _this = window.deliveries[key];
 
+    const map = e.target.closest('.map');
+    const clear = e.target.closest('[data-courier-address-clear]');
+    const tile = e.target.closest('.datetime-tile');
+
     if (map) {
-      _this.showDateTime();
+      // TODO: alert
 
       const action = _this.form.action;
 
@@ -26,11 +34,102 @@ window.deliveries[key] = {
 
       return true;
     }
-    else {
-      _this.hideDateTime();
+
+    if (clear) {
+      const address = _this.form.querySelector('[data-input-courier-address]');
+
+      if (!address) return true;
+
+      address.value = '';
+      address.focus();
+
+      console.log('address', address.value);
+      return true;
+    }
+
+    if (tile) {
+      const input = tile.querySelector('[type="radio"]');
+
+      if (!input) return true;
+
+      if (input.checked || input.disabled) return true;
+
+      input.checked = true;
+
+      console.log('radio', input.name, input.value);
+      return true;
+    }
+
+    // TODO: _this.showDateTime();
+    // TODO: _this.hideDateTime();
+
+    return true;
+  },
+  handlerInput: async function (e) {
+    const _this = window.deliveries[key];
+
+    const address = e.target.closest('[data-input-courier-address]');
+    const housing = e.target.closest('[data-input-courier-housing]');
+    const entrance = e.target.closest('[data-input-courier-entrance]');
+    const apartment = e.target.closest('[data-input-courier-apartment]');
+
+    if (address) {
+      const svg = _this.form.querySelector('[data-courier-address-clear]');
+
+      if (svg) svg.hidden = 1 > address.value.length;
+
+      console.log('address', address.value);
+      return true;
+    }
+
+    if (housing) {
+      console.log('housing', housing.value);
+      return true;
+    }
+
+    if (entrance) {
+      console.log('entrance', entrance.value);
+      return true;
+    }
+
+    if (apartment) {
+      console.log('apartment', apartment.value);
+      return true;
+    }
+
+    return true;
+  },
+  handlerFocusin: async function (e) {
+    const _this = window.deliveries[key];
+
+    const address = e.target.closest('[data-input-courier-address]');
+
+    if (address) {
+      const svg = _this.form.querySelector('[data-courier-address-clear]');
+
+      if (svg) svg.hidden = 1 > address.value.length;
 
       return true;
     }
+
+    return true;
+  },
+  handlerFocusout: async function (e) {
+    const _this = window.deliveries[key];
+
+    const address = e.target.closest('[data-input-courier-address]');
+
+    if (address) {
+      const svg = _this.form.querySelector('[data-courier-address-clear]');
+
+      setTimeout(() => {
+        if (svg) svg.hidden = true;
+      }, 300);
+
+      return true;
+    }
+
+    return true;
   },
   init: function () {
     this.form = document.querySelector('[data-form-order-delivery-courier]');
@@ -38,12 +137,6 @@ window.deliveries[key] = {
     this.calendar = JSON.parse(this.form.dataset.calendar);
     this.times = JSON.parse(this.form.dataset.times);
     this.session = JSON.parse(this.form.dataset.session);
-
-    // TODO:
-    //  .address
-    //  .housing
-    //  .entrance
-    //  .apartment
 
     this.datetime = {
       dates: this.buildDatesData(),
@@ -161,8 +254,6 @@ window.deliveries[key] = {
       tile.querySelector('[type="radio"]').disabled = date.disabled;
       tile.querySelector('[data-date-value]').textContent = date.dateValue;
       tile.querySelector('[data-week-value]').textContent = date.weekValue;
-
-      if (date.disabled) tile.classList.add('disabled');
 
       wrapper.append(tile);
     }
