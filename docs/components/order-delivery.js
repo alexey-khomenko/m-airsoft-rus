@@ -84,6 +84,7 @@ window.addEventListener('load', () => {
     if ('deliveries' in e.detail && 'deliveryId' in e.detail) {
       deliveryUnmount();
       await buildTiles(e.detail.deliveries, e.detail.deliveryId);
+      await deliveryMount(e.detail.deliveryId);
     }
     else {
       console.info('info.deliveries not found');
@@ -111,7 +112,7 @@ window.addEventListener('load', () => {
     console.log('delivery', value);
 
 
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 30));
     const response = {
       'info': {
         deliveries: [
@@ -230,8 +231,6 @@ window.addEventListener('load', () => {
     else {
       console.info('response.info not found');
     }
-
-    await deliveryMount(value);
 
     form.dispatchEvent(new CustomEvent('orderRequestReceived', {bubbles: true}));
   };

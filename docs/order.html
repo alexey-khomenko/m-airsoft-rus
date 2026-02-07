@@ -325,13 +325,77 @@
 
   <script src="./components/deliveries/4/script.js" async></script>
 </div>
-  <div class="order-delivery-5" hidden>
+  <section class="order-delivery-5" hidden>
   <link rel="stylesheet" href="./components/deliveries/5/styles.css">
 
-  <div class="label">Адрес доставки (укажите точку на карте)</div>
+  <form action="/api-order-delivery-courier" novalidate data-form-order-delivery-courier data-calendar="{&#34;06.02.2026&#34;:{&#34;17:00 - 24:00&#34;:false,&#34;11:00 - 19:00&#34;:false},&#34;07.02.2026&#34;:{&#34;11:00 - 19:00&#34;:false},&#34;09.02.2026&#34;:{&#34;17:00 - 24:00&#34;:false}}" data-times="{&#34;11:00 - 19:00&#34;:&#34;msk.geojson&#34;,&#34;17:00 - 24:00&#34;:&#34;msk-evening.geojson&#34;}" data-session="{&#34;address&#34;:&#34;address&#34;,&#34;housing&#34;:&#34;&#34;,&#34;entrance&#34;:&#34;&#34;,&#34;apartment&#34;:&#34;&#34;,&#34;date&#34;:&#34;06.02.2026&#34;,&#34;time&#34;:&#34;11:00 - 19:00&#34;}">
+
+    <label for="address" class="label">Адрес доставки (укажите точку на карте)</label>
+
+      <div class="map"></div>
+
+      <div class="address-wrapper">
+        <input type="text" name="address" id="address" maxlength="256" value="address" autocorrect="off" spellcheck="false" class="util-form-field low input" data-input-courier-address placeholder="Ленина, д. 23">
+        <button type="button" class="button" data-courier-address-clear hidden>
+          <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="extra">
+        <div class="cell">
+          <label for="housing" class="label">Корпус</label>
+          <input type="text" name="housing" id="housing" maxlength="256" value autocorrect="off" spellcheck="false" class="util-form-field low input" data-input-courier-housing placeholder="4">
+        </div>
+        <div class="cell">
+          <label for="entrance" class="label">Подъезд</label>
+          <input type="text" name="entrance" id="entrance" maxlength="256" value autocorrect="off" spellcheck="false" class="util-form-field low input" data-input-courier-entrance placeholder="5">
+        </div>
+        <div class="cell">
+          <label for="apartment" class="label">Квартира</label>
+          <input type="text" name="apartment" id="apartment" maxlength="256" value autocorrect="off" spellcheck="false" class="util-form-field low input" data-input-courier-apartment placeholder="6">
+        </div>
+      </div>
+
+      <div class="alert" data-alert-address hidden>
+        Недопустимый адрес, выберите другой способ доставки.
+      </div>
+
+      <div class="datetime" hidden>
+        <div class="cell">
+          <div class="label">Дата доставки</div>
+          <div class="dates">
+
+          </div>
+          <div data-tile-sample="courier-date" hidden>
+            <div class="datetime-tile date">
+              <input type="radio" name="date" value="" aria-label="Дата доставки" hidden>
+              <span data-date-value></span>
+              <span data-week-value></span>
+            </div>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="label">Время доставки</div>
+          <div class="times">
+
+          </div>
+          <div data-tile-sample="courier-time" hidden>
+            <div class="datetime-tile time">
+              <input type="radio" name="time" value="" aria-label="Время доставки" hidden>
+              <span data-time-value></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <button type="submit" hidden>Применить</button>
+  </form>
 
   <script src="./components/deliveries/5/script.js" async></script>
-</div>
+</section>
 
   <script src="./components/order-delivery.js" async></script>
 
