@@ -4,19 +4,19 @@ const key = 'delivery-5';
 
 window.deliveries[key] = {
   mount: function () {
-    this.init();
-    console.log(`${key} mount`);
     document.addEventListener('click', this.handlerClick);
     document.addEventListener('input', this.handlerInput);
     document.addEventListener('focusin', this.handlerFocusin);
     document.addEventListener('focusout', this.handlerFocusout);
+    console.log(`${key} mount`);
+    this.init();
   },
   unmount: function () {
-    console.log(`${key} unmount`);
     document.removeEventListener('click', this.handlerClick);
     document.removeEventListener('input', this.handlerInput);
     document.removeEventListener('focusin', this.handlerFocusin);
     document.removeEventListener('focusout', this.handlerFocusout);
+    console.log(`${key} unmount`);
   },
   handlerClick: async function (e) {
     const _this = window.deliveries[key];
@@ -26,11 +26,10 @@ window.deliveries[key] = {
     const tile = e.target.closest('.datetime-tile');
 
     if (map) {
-      // TODO: alert
-
-      const action = _this.form.action;
-
-      console.log('POST request to', action);
+      // TODO: [data-alert-address]
+      // TODO: _this.showDateTime();
+      // TODO: _this.hideDateTime();
+      console.log('The map was clicked!');
 
       return true;
     }
@@ -43,7 +42,7 @@ window.deliveries[key] = {
       address.value = '';
       address.focus();
 
-      console.log('address', address.value);
+      await _this.save(_this);
       return true;
     }
 
@@ -52,16 +51,13 @@ window.deliveries[key] = {
 
       if (!input) return true;
 
-      if (input.checked || input.disabled) return true;
+      if (input.disabled || input.checked) return true;
 
       input.checked = true;
+      input.dispatchEvent(new Event('input', {bubbles: true}));
 
-      console.log('radio', input.name, input.value);
       return true;
     }
-
-    // TODO: _this.showDateTime();
-    // TODO: _this.hideDateTime();
 
     return true;
   },
@@ -72,28 +68,22 @@ window.deliveries[key] = {
     const housing = e.target.closest('[data-input-courier-housing]');
     const entrance = e.target.closest('[data-input-courier-entrance]');
     const apartment = e.target.closest('[data-input-courier-apartment]');
+    const date = e.target.closest('.datetime-tile [name="date"]');
+    const time = e.target.closest('.datetime-tile [name="time"]');
 
     if (address) {
-      const svg = _this.form.querySelector('[data-courier-address-clear]');
+      const clear = _this.form.querySelector('[data-courier-address-clear]');
 
-      if (svg) svg.hidden = 1 > address.value.length;
+      if (clear) clear.hidden = 1 > address.value.length;
 
-      console.log('address', address.value);
+      await _this.save(_this);
       return true;
     }
 
-    if (housing) {
-      console.log('housing', housing.value);
-      return true;
-    }
+    if (date) _this.checkTimeTile();
 
-    if (entrance) {
-      console.log('entrance', entrance.value);
-      return true;
-    }
-
-    if (apartment) {
-      console.log('apartment', apartment.value);
+    if (housing || entrance || apartment || time || date) {
+      await _this.save(_this);
       return true;
     }
 
@@ -131,12 +121,78 @@ window.deliveries[key] = {
 
     return true;
   },
+  save: async function () {
+    clearTimeout(this.debounceTimer);
+
+    const action = this.form.action;
+
+    const address = this.form.querySelector('[data-input-courier-address]');
+    const housing = this.form.querySelector('[data-input-courier-housing]');
+    const entrance = this.form.querySelector('[data-input-courier-entrance]');
+    const apartment = this.form.querySelector('[data-input-courier-apartment]');
+    const date = this.form.querySelector('[name="date"]:checked');
+    const time = this.form.querySelector('[name="time"]:checked');
+
+    this.debounceTimer = setTimeout(async () => {
+      console.log('POST request to', action);
+
+      const data = new FormData();
+
+      if (address) {
+        const value = address.value.trim();
+        console.log('address', value);
+        data.set('address', value);
+      }
+
+      if (housing) {
+        const value = housing.value.trim();
+        console.log('housing', value);
+        data.set('housing', value);
+      }
+
+      if (entrance) {
+        const value = entrance.value.trim();
+        console.log('entrance', value);
+        data.set('entrance', value);
+      }
+
+      if (apartment) {
+        const value = apartment.value.trim();
+        console.log('apartment', value);
+        data.set('apartment', value);
+      }
+
+      if (date) {
+        const value = date.value.trim();
+        console.log('date', value);
+        data.set('date', value);
+      }
+
+      if (time) {
+        const value = time.value.trim();
+        console.log('time', value);
+        data.set('time', value);
+      }
+
+
+      await new Promise(r => setTimeout(r, 3000));
+
+
+    }, this.debounceMs);
+  },
   init: function () {
     this.form = document.querySelector('[data-form-order-delivery-courier]');
 
     this.calendar = JSON.parse(this.form.dataset.calendar);
     this.times = JSON.parse(this.form.dataset.times);
     this.session = JSON.parse(this.form.dataset.session);
+
+    if (0 === Object.keys(this.calendar).length) return;
+    if (0 === Object.keys(this.times).length) return;
+
+    for (const time in this.times) {
+      if (0 === this.times[time].length) return;
+    }
 
     this.datetime = {
       dates: this.buildDatesData(),
@@ -146,35 +202,13 @@ window.deliveries[key] = {
     this.buildDatesTiles();
     this.buildTimesTiles();
 
-
-    // selectDateTile()
-    // Кликнуть дату из сессии или первое доступное.
-
-    // selectTimeTile()
-    // Зная выбранную дату заполнить disabled у плиток времени
-    // Если время из сессии доступно, то кликнуть его.
-    // Если нет, то первое доступное.
-
-    // ^ Уедет в событие changeDate.
-    // Событие changeTime отдельно.
+    this.checkDateTile();
+    this.checkTimeTile();
 
     // TODO: время
     // selectChange(date, selectChangeMode); ???
 
-    //const date = 0 < this.session.date.length && allDays.includes(this.session.date) ? this.session.date : allDays[0];
-    //console.log(date);
-
-
     this.showDateTime();
-
-    // TODO: -
-    console.log('----');
-    console.log(this.calendar);
-    console.log(this.times);
-    console.log(this.session);
-    console.log('----');
-    console.log(this.datetime);
-    console.log('----');
   },
   buildDatesData: function () {
     const allDays = Object.keys(this.calendar);
@@ -277,6 +311,46 @@ window.deliveries[key] = {
       wrapper.append(tile);
     }
   },
+  checkDateTile: function () {
+    if (0 < this.session.date.length) {
+      if (this.session.date in this.calendar) {
+        this.form.querySelector(`[name="date"][value="${this.session.date}"]`).checked = true;
+        return;
+      }
+    }
+
+    this.form.querySelector('[name="date"]:not([disabled])').checked = true;
+  },
+  checkTimeTile: function () {
+    const date = this.form.querySelector('[name="date"]:checked');
+
+    if (date) {
+      for (const obj of this.datetime.times) {
+        if (date.value in obj) {
+          for (const time of obj[date.value]) {
+            const {value, disabled} = time;
+            this.form.querySelector(`[name="time"][value="${value}"]`).disabled = disabled;
+          }
+
+          break;
+        }
+      }
+    }
+
+    if (0 < this.session.time.length) {
+      const input = this.form.querySelector(`[name="time"][value="${this.session.time}"]:not([disabled])`);
+
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event('input', {bubbles: true}));
+        return;
+      }
+    }
+
+    const input = this.form.querySelector('[name="time"]:not([disabled])');
+    input.checked = true;
+    input.dispatchEvent(new Event('input', {bubbles: true}));
+  },
   showDateTime: function () {
     if (1 > this.datetime.dates.length) return;
 
@@ -290,4 +364,6 @@ window.deliveries[key] = {
   times: {},
   session: {},
   datetime: {},
+  debounceTimer: null,
+  debounceMs: 1500,
 };

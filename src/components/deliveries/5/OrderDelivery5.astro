@@ -30,6 +30,9 @@ const times: {} = {
   '17:00 - 24:00': 'msk-evening.geojson',
 };
 
+// const calendar: {} = {};
+// const times: {} = {};
+
 const session: {
   address: string,
   housing: string,
@@ -55,9 +58,11 @@ const session: {
         data-times={JSON.stringify(times)}
         data-session={JSON.stringify(session)}>
 
-    {'{}' === JSON.stringify(calendar) && '{}' !== JSON.stringify(times) ? (
+    {'{}' === JSON.stringify(calendar) && '{}' !== JSON.stringify(times) && (
       <div class="alert" data-alert-dates>Нет свободного курьера.</div>
-    ) : (
+    )}
+
+    {('{}' === JSON.stringify(times) || '{}' !== JSON.stringify(calendar) && '{}' !== JSON.stringify(times)) && (
       <label for="address" class="label">Адрес доставки (укажите точку на карте)</label>
 
       <div class="map"></div>
@@ -103,7 +108,9 @@ const session: {
                  placeholder="6"/>
         </div>
       </div>
+    )}
 
+    {'{}' !== JSON.stringify(calendar) && '{}' !== JSON.stringify(times) && (
       <div class="alert" data-alert-address hidden>
         Недопустимый адрес, выберите другой способ доставки.
       </div>
