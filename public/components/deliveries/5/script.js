@@ -74,7 +74,7 @@ window.deliveries[key] = {
     if (address) {
       const clear = _this.form.querySelector('[data-courier-address-clear]');
 
-      if (clear) clear.hidden = 1 > address.value.length;
+      if (clear) clear.hidden = 0 === address.value.length;
 
       await _this.save(_this);
       return true;
@@ -97,7 +97,7 @@ window.deliveries[key] = {
     if (address) {
       const svg = _this.form.querySelector('[data-courier-address-clear]');
 
-      if (svg) svg.hidden = 1 > address.value.length;
+      if (svg) svg.hidden = 0 === address.value.length;
 
       return true;
     }
@@ -112,7 +112,7 @@ window.deliveries[key] = {
     if (address) {
       const svg = _this.form.querySelector('[data-courier-address-clear]');
 
-      setTimeout(() => {
+      setTimeout(function () {
         if (svg) svg.hidden = true;
       }, 300);
 
@@ -133,7 +133,7 @@ window.deliveries[key] = {
     const date = this.form.querySelector('[name="date"]:checked');
     const time = this.form.querySelector('[name="time"]:checked');
 
-    this.debounceTimer = setTimeout(async () => {
+    this.debounceTimer = setTimeout(async function () {
       console.log('POST request to', action);
 
       const data = new FormData();
@@ -213,7 +213,7 @@ window.deliveries[key] = {
   buildDatesData: function () {
     const allDays = Object.keys(this.calendar);
 
-    if (1 > allDays.length) return [];
+    if (0 === allDays.length) return [];
 
     const data = [];
 
@@ -228,7 +228,7 @@ window.deliveries[key] = {
     else {
       let currentDay = firstDay;
 
-      while (currentDay < lastDay) {
+      while (currentDay !== lastDay) {
         data.push(this._buildDateData(tmp, allDays));
 
         currentDay = tmp.toISOString().slice(0, 10);
@@ -272,7 +272,7 @@ window.deliveries[key] = {
     return data;
   },
   buildDatesTiles: function () {
-    if (1 > this.datetime.dates.length) return;
+    if (0 === this.datetime.dates.length) return;
 
     const wrapper = this.form.querySelector('.dates');
     const sample = document.querySelector('[data-tile-sample="courier-date"] div');
@@ -293,7 +293,7 @@ window.deliveries[key] = {
     }
   },
   buildTimesTiles: function () {
-    if (1 > this.datetime.dates.length) return;
+    if (0 === this.datetime.dates.length) return;
 
     const wrapper = this.form.querySelector('.times');
     const sample = document.querySelector('[data-tile-sample="courier-time"] div');
@@ -312,7 +312,7 @@ window.deliveries[key] = {
     }
   },
   checkDateTile: function () {
-    if (0 < this.session.date.length) {
+    if (0 !== this.session.date.length) {
       if (this.session.date in this.calendar) {
         this.form.querySelector(`[name="date"][value="${this.session.date}"]`).checked = true;
         return;
@@ -337,7 +337,7 @@ window.deliveries[key] = {
       }
     }
 
-    if (0 < this.session.time.length) {
+    if (0 !== this.session.time.length) {
       const input = this.form.querySelector(`[name="time"][value="${this.session.time}"]:not([disabled])`);
 
       if (input) {
@@ -352,7 +352,7 @@ window.deliveries[key] = {
     input.dispatchEvent(new Event('input', {bubbles: true}));
   },
   showDateTime: function () {
-    if (1 > this.datetime.dates.length) return;
+    if (0 === this.datetime.dates.length) return;
 
     this.form.querySelector('.datetime').hidden = false;
   },
