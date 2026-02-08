@@ -2,13 +2,13 @@ if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
 window.deliveries['delivery-pickup'] = {
   mount: function () {
-    this.init();
-    console.log('delivery-pickup mount');
     document.addEventListener('click', this.handler);
+    console.log('delivery-pickup mount');
+    this.init();
   },
   unmount: function () {
-    console.log('delivery-pickup unmount');
     document.removeEventListener('click', this.handler);
+    console.log('delivery-pickup unmount');
   },
   handler: async function (e) {
     const select = e.target.closest('.order-delivery-pickup .select');

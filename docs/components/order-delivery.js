@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
     console.log('delivery', value);
 
 
-    await new Promise(r => setTimeout(r, 30));
+    await new Promise(r => setTimeout(r, 3000));
     const response = {
       'info': {
         deliveries: [

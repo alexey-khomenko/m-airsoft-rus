@@ -2,12 +2,12 @@ if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
 window.deliveries['delivery-4'] = {
   mount: function () {
-    console.log('delivery-4 mount');
     document.addEventListener('click', this.handler);
+    console.log('delivery-4 mount');
   },
   unmount: function () {
-    console.log('delivery-4 unmount');
     document.removeEventListener('click', this.handler);
+    console.log('delivery-4 unmount');
   },
   handler: async function (e) {
     const test = e.target.closest('.test-block');

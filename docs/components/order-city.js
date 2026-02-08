@@ -139,7 +139,12 @@ window.addEventListener('load', () => {
         </button>`;
       }
 
-      if (0 === str.length) str = `<div class="alert"><span>Ничего не найдено</span></div>`;
+      if (0 === str.length) {
+        str = component.limit === value.length
+          ? '<div class="alert"><span>Уточните поиск</span></div>'
+          : '<div class="alert"><span>Ничего не найдено</span></div>'
+        ;
+      }
 
       component.form.hidden = false;
       component.form.innerHTML = str;

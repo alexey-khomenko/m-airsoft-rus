@@ -279,7 +279,7 @@
 </div>
   </div>
 
-  <div class="order-delivery-pickup" hidden>
+  <section class="order-delivery-pickup" hidden>
   <link rel="stylesheet" href="./components/deliveries/pickup/styles.css">
 
   <div class="label">Выберите магазин</div>
@@ -297,8 +297,8 @@
   </div>
 
   <script src="./components/deliveries/pickup/script.js" async></script>
-</div>
-  <div class="order-delivery-3" hidden>
+</section>
+  <section class="order-delivery-3" hidden>
   <link rel="stylesheet" href="./components/deliveries/3/styles.css">
 
   <h3 class="h3">Выберите отделение</h3>
@@ -317,18 +317,20 @@
   </div>
 
   <script src="./components/deliveries/3/script.js" async></script>
-</div>
-  <div class="order-delivery-4" hidden>
+</section>
+  <section class="order-delivery-4" hidden>
   <link rel="stylesheet" href="./components/deliveries/4/styles.css">
 
   <div class="test-block"></div>
 
   <script src="./components/deliveries/4/script.js" async></script>
-</div>
+</section>
   <section class="order-delivery-5" hidden>
   <link rel="stylesheet" href="./components/deliveries/5/styles.css">
 
   <form action="/api-order-delivery-courier" novalidate data-form-order-delivery-courier data-calendar="{&#34;06.02.2026&#34;:{&#34;17:00 - 24:00&#34;:false,&#34;11:00 - 19:00&#34;:false},&#34;07.02.2026&#34;:{&#34;11:00 - 19:00&#34;:false},&#34;09.02.2026&#34;:{&#34;17:00 - 24:00&#34;:false}}" data-times="{&#34;11:00 - 19:00&#34;:&#34;msk.geojson&#34;,&#34;17:00 - 24:00&#34;:&#34;msk-evening.geojson&#34;}" data-session="{&#34;address&#34;:&#34;address&#34;,&#34;housing&#34;:&#34;&#34;,&#34;entrance&#34;:&#34;&#34;,&#34;apartment&#34;:&#34;&#34;,&#34;date&#34;:&#34;06.02.2026&#34;,&#34;time&#34;:&#34;11:00 - 19:00&#34;}">
+
+    
 
     <label for="address" class="label">Адрес доставки (укажите точку на карте)</label>
 
@@ -359,7 +361,7 @@
         </div>
       </div>
 
-      <div class="alert" data-alert-address hidden>
+    <div class="alert" data-alert-address hidden>
         Недопустимый адрес, выберите другой способ доставки.
       </div>
 
