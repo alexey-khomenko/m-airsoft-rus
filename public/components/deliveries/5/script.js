@@ -1,14 +1,12 @@
 if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
-const key = 'delivery-5';
-
-window.deliveries[key] = {
+window.deliveries['delivery-5'] = {
   mount: function () {
     document.addEventListener('click', this.handlerClick);
     document.addEventListener('input', this.handlerInput);
     document.addEventListener('focusin', this.handlerFocusin);
     document.addEventListener('focusout', this.handlerFocusout);
-    console.log(`${key} mount`);
+    console.log('delivery-5 mount');
     this.init();
   },
   unmount: function () {
@@ -16,10 +14,10 @@ window.deliveries[key] = {
     document.removeEventListener('input', this.handlerInput);
     document.removeEventListener('focusin', this.handlerFocusin);
     document.removeEventListener('focusout', this.handlerFocusout);
-    console.log(`${key} unmount`);
+    console.log('delivery-5 unmount');
   },
   handlerClick: async function (e) {
-    const _this = window.deliveries[key];
+    const _this = window.deliveries['delivery-5'];
 
     const map = e.target.closest('.map');
     const clear = e.target.closest('[data-courier-address-clear]');
@@ -62,7 +60,7 @@ window.deliveries[key] = {
     return true;
   },
   handlerInput: async function (e) {
-    const _this = window.deliveries[key];
+    const _this = window.deliveries['delivery-5'];
 
     const address = e.target.closest('[data-input-courier-address]');
     const housing = e.target.closest('[data-input-courier-housing]');
@@ -90,7 +88,7 @@ window.deliveries[key] = {
     return true;
   },
   handlerFocusin: async function (e) {
-    const _this = window.deliveries[key];
+    const _this = window.deliveries['delivery-5'];
 
     const address = e.target.closest('[data-input-courier-address]');
 
@@ -105,7 +103,7 @@ window.deliveries[key] = {
     return true;
   },
   handlerFocusout: async function (e) {
-    const _this = window.deliveries[key];
+    const _this = window.deliveries['delivery-5'];
 
     const address = e.target.closest('[data-input-courier-address]');
 
@@ -204,9 +202,6 @@ window.deliveries[key] = {
 
     this.checkDateTile();
     this.checkTimeTile();
-
-    // TODO: время
-    // selectChange(date, selectChangeMode); ???
 
     this.showDateTime();
   },

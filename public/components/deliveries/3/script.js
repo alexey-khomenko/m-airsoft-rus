@@ -2,12 +2,12 @@ if ('undefined' === typeof window.deliveries) window.deliveries = {};
 
 window.deliveries['delivery-3'] = {
   mount: function () {
-    console.log('delivery-3 mount');
     document.addEventListener('input', this.handler);
+    console.log('delivery-3 mount');
   },
   unmount: function () {
-    console.log('delivery-3 unmount');
     document.removeEventListener('input', this.handler);
+    console.log('delivery-3 unmount');
   },
   handler: async function (e) {
     const select = e.target.closest('.order-delivery-3 [name="office"]');
