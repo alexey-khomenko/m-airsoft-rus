@@ -65,7 +65,9 @@ const session: {
     {('{}' === JSON.stringify(times) || '{}' !== JSON.stringify(calendar) && '{}' !== JSON.stringify(times)) && (
       <label for="address" class="label">Адрес доставки (укажите точку на карте)</label>
 
-      <div class="map"></div>
+      <div class="map-wrapper">
+        <div id="map"></div>
+      </div>
 
       <div class="address-wrapper">
         <input type="text" name="address" id="address" maxlength="256" value={session.address}

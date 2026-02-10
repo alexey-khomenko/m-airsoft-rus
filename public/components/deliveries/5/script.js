@@ -6,6 +6,7 @@ window.deliveries['delivery-5'] = {
     document.addEventListener('input', this.handlerInput);
     document.addEventListener('focusin', this.handlerFocusin);
     document.addEventListener('focusout', this.handlerFocusout);
+    document.addEventListener('submit', this.handlerSubmit);
     console.log('delivery-5 mount');
     this.init();
   },
@@ -14,6 +15,7 @@ window.deliveries['delivery-5'] = {
     document.removeEventListener('input', this.handlerInput);
     document.removeEventListener('focusin', this.handlerFocusin);
     document.removeEventListener('focusout', this.handlerFocusout);
+    document.removeEventListener('submit', this.handlerSubmit);
     console.log('delivery-5 unmount');
   },
   handlerClick: async function (e) {
@@ -24,7 +26,6 @@ window.deliveries['delivery-5'] = {
     const tile = e.target.closest('.datetime-tile');
 
     if (map) {
-      // TODO: [data-alert-address]
       // TODO: _this.showDateTime();
       // TODO: _this.hideDateTime();
       console.log('The map was clicked!');
@@ -118,6 +119,11 @@ window.deliveries['delivery-5'] = {
     }
 
     return true;
+  },
+  handlerSubmit: function (e) {
+    const form = e.target.closest('[data-form-order-delivery-courier]');
+
+    if (form) e.preventDefault();
   },
   save: async function () {
     clearTimeout(this.debounceTimer);
@@ -350,9 +356,13 @@ window.deliveries['delivery-5'] = {
     if (0 === this.datetime.dates.length) return;
 
     this.form.querySelector('.datetime').hidden = false;
+    this.form.querySelector('[data-alert-address]').hidden = true;
   },
   hideDateTime: function () {
+    if (0 === this.datetime.dates.length) return;
+
     this.form.querySelector('.datetime').hidden = true;
+    this.form.querySelector('[data-alert-address]').hidden = false;
   },
   form: null,
   calendar: {},
