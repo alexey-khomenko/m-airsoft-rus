@@ -17,6 +17,7 @@ window.deliveries['delivery-5'] = {
     document.removeEventListener('focusout', this.handlerFocusout);
     document.removeEventListener('submit', this.handlerSubmit);
     console.log('delivery-5 unmount');
+    if (null !== this.slider) this.slider.destroy();
   },
   handlerClick: async function (e) {
     const _this = window.deliveries['delivery-5'];
@@ -275,7 +276,7 @@ window.deliveries['delivery-5'] = {
   buildDatesTiles: function () {
     if (0 === this.datetime.dates.length) return;
 
-    const wrapper = this.form.querySelector('.dates');
+    const wrapper = this.form.querySelector('.dates .swiper-wrapper');
     const sample = document.querySelector('[data-tile-sample="courier-date"] div');
 
     wrapper.innerHTML = '';
@@ -284,7 +285,7 @@ window.deliveries['delivery-5'] = {
       const tile = sample.cloneNode(true);
 
       tile.hidden = false;
-
+      tile.classList.add('swiper-slide');
       tile.querySelector('[type="radio"]').setAttribute('value', date.inputValue);
       tile.querySelector('[type="radio"]').disabled = date.disabled;
       tile.querySelector('[data-date-value]').textContent = date.dateValue;
@@ -292,6 +293,35 @@ window.deliveries['delivery-5'] = {
 
       wrapper.append(tile);
     }
+
+    if (1 === this.datetime.dates.length) return;
+    if (2 === this.datetime.dates.length) return;
+    if (3 === this.datetime.dates.length) return;
+    if (4 === this.datetime.dates.length) return;
+    if (5 === this.datetime.dates.length) return;
+
+    this.slider = new Swiper('.dates', {
+      direction: 'horizontal',
+      loop: false,
+      breakpointsBase: 'container',
+      slidesPerView: 5,
+      slidesPerGroup: 5,
+      breakpoints: {
+        244: {
+          spaceBetween: 6,
+        },
+        278: {
+          spaceBetween: 7,
+        },
+        312: {
+          spaceBetween: 8,
+        },
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   },
   buildTimesTiles: function () {
     if (0 === this.datetime.dates.length) return;
@@ -369,6 +399,7 @@ window.deliveries['delivery-5'] = {
   times: {},
   session: {},
   datetime: {},
+  slider: null,
   debounceTimer: null,
   debounceMs: 1500,
 };
