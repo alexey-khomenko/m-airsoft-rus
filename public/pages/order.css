@@ -85,6 +85,7 @@
 }
 
 .alert {
+  min-height: 2.5rem;
   width: fit-content;
   padding: .625rem 1rem;
   border-radius: 1rem;
