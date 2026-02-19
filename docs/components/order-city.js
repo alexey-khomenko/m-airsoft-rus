@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
     },
     limit: 2,
     debounceTimer: null,
-    debounceMs: 1500,
+    debounceMs: 3000,
   };
 
   if (!component.open) console.log('[data-order-city-form-open] not found');
@@ -84,6 +84,11 @@ window.addEventListener('load', () => {
 
     const action = component.formSearch.action;
     const value = input.value.trim();
+
+    component.form.innerHTML = component.limit > value.length
+      ? '<div class="alert"><span>Уточните поиск</span></div>'
+      : '<div class="cities-loader"></div>';
+    component.form.hidden = false;
 
     if (component.limit > value.length) return true;
 

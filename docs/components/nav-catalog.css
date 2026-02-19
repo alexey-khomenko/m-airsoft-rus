@@ -1,13 +1,18 @@
 .nav-catalog {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 112px), 1fr));
-  gap: .25rem;
+  &:not([hidden]) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 112px), 1fr));
+    gap: .25rem;
+  }
 
   .tile {
+    position: relative;
     display: block;
     border-radius: .25rem;
     text-decoration: none;
     overflow: hidden;
+    background-color: #F1F4F6;
+    cursor: pointer;
   }
 
   .cover {
@@ -15,5 +20,23 @@
     object-fit: cover;
     width: 100%;
     aspect-ratio: 112/150;
+    border-radius: .25rem;
+  }
+
+  .title {
+    position: absolute;
+    bottom: .625rem;
+    left: .25rem;
+    right: .25rem;
+    z-index: 1;
+    min-height: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: .75rem;
+    line-height: .875rem;
+    color: #373635;
   }
 }
