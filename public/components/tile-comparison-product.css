@@ -12,8 +12,15 @@
     left: .5rem;
     z-index: 1;
     padding: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
-    background-color: transparent;
+    background-color: #626262;
+    border-radius: .25rem;
+    color: #FFFFFF;
   }
 
   .img {
