@@ -1,8 +1,81 @@
 ---
 import Popup from '../components/Popup.astro';
-import NavCatalog from '../components/NavCatalog.astro';
+import type {IBanner} from '../interfaces';
+
+const links: IBanner[] = [
+  {id: 1, link: '/catalog-section', img: './images/menu-header/3.png', title: 'Рации, наушники и аксессуары'},
+  {id: 2, link: '/catalog-section', img: './images/menu-header/3.png', title: 'Хронографы, мишени'},
+  {id: 3, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {id: 4, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {id: 5, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {id: 6, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {id: 7, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+  {id: 8, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+  {id: 9, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+];
+
+const submenu: {
+  parentId: number;
+  links: IBanner[];
+}[] = [
+  {
+    parentId: 1,
+    links: [
+      {id: 11, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+      {id: 12, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+      {id: 13, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+      {id: 14, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+      {id: 15, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+      {id: 16, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+    ],
+  },
+  {
+    parentId: 2,
+    links: [
+      {id: 21, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+      {id: 22, link: '/catalog-section', img: './images/menu-header/2.png', title: 'Каталог'},
+      {id: 23, link: '/catalog-section', img: './images/menu-header/1.png', title: 'Каталог'},
+    ],
+  },
+];
 ---
 
 <Popup name="menu-header" title="Каталог" bgLight={true}>
-  <NavCatalog/>
+  <link rel="stylesheet" href="./components/popup-menu-header.css"/>
+  <div class="popup-menu-header">
+    <button type="button" class="util-link" data-submenu-close hidden>
+      <span>Назад</span>
+    </button>
+
+    <link rel="stylesheet" href="./components/nav-catalog.css"/>
+
+    <nav class="nav-catalog" data-parent-id="0">
+      {links.map(({id, link, img, title}: IBanner) => (
+        (submenu.some(sub => sub.parentId === id) ? (
+          <div class="tile" data-submenu-id={id}>
+            <img src={img} alt=" " class="cover" decoding="async" loading="lazy"/>
+            <div class="title"><span>{title}</span></div>
+          </div>
+        ) : (
+          <a href={link} class="tile">
+            <img src={img} alt={title} class="cover" decoding="async" loading="lazy"/>
+            <div class="title"><span>{title}</span></div>
+          </a>
+        ))
+      ))}
+    </nav>
+
+    {submenu.map(({parentId, links}: { parentId: number; links: IBanner[] }) => (
+      <nav class="nav-catalog" data-parent-id={parentId} hidden>
+        {links.map(({link, img, title}: IBanner) => (
+          <a href={link} class="tile">
+            <img src={img} alt={title} class="cover" decoding="async" loading="lazy"/>
+            <div class="title"><span>{title}</span></div>
+          </a>
+        ))}
+      </nav>
+    ))}
+
+  </div>
+  <script src="./components/popup-menu-header.js" is:inline async></script>
 </Popup>

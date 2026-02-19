@@ -2,6 +2,7 @@ export interface IBanner {
   title: string;
   link: string;
   img: string;
+  id?: number;
 }
 
 export interface IOption {

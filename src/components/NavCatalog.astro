@@ -19,6 +19,7 @@ const links: IBanner[] = [
   {links.map(({img, link, title}: IBanner) => (
     <a href={link} class="tile">
       <img src={img} alt={title} class="cover" decoding="async" loading="lazy"/>
+      <div class="title"><span>{title}</span></div>
     </a>
   ))}
 </nav>
