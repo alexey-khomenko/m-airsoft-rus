@@ -27,8 +27,6 @@ window.deliveries['delivery-5'] = {
     const tile = e.target.closest('.datetime-tile');
 
     if (map) {
-      // TODO: _this.showDateTime();
-      // TODO: _this.hideDateTime();
       console.log('The map was clicked!');
 
       return true;

@@ -68,6 +68,9 @@ window.addEventListener('load', () => {
 
     form.dispatchEvent(new CustomEvent('orderRequestSent', {bubbles: true}));
 
+    const alert = form.querySelector('.alert');
+    if (alert) alert.remove();
+
     console.log('POST request to', action);
 
 
@@ -90,7 +93,7 @@ window.addEventListener('load', () => {
 
 
     if ('orderId' in response) {
-      window.location.assign(`${form.dataset.finished}?order_id=${response.orderId}`); // TODO: finish link
+      window.location.assign(`${form.dataset.finished}?order_id=${response.orderId}`);
     }
     else {
       if ('info' in response) {
@@ -101,8 +104,24 @@ window.addEventListener('load', () => {
       }
 
       if ('errors' in response) {
-        console.log('Errors:');
-        for (const error of response.errors) console.log(error);
+        const alert = document.createElement('div');
+        alert.classList.add('alert');
+        alert.style.marginBottom = '1rem';
+        alert.style.width = '100%';
+
+        const ol = document.createElement('ol');
+        ol.style.margin = '0';
+
+        for (const error of response.errors) {
+          const li = document.createElement('li');
+          li.textContent = error;
+          li.style.margin = '0';
+
+          ol.appendChild(li);
+        }
+
+        alert.appendChild(ol);
+        form.prepend(alert);
       }
       else {
         console.info('response.errors not found');
