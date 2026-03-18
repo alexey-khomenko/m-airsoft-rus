@@ -1,12 +1,4 @@
-document.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-popup-open]');
-
-  if (!button) return true;
-
-  e.preventDefault();
-
-  const name = button.dataset.popupOpen;
-
+window.openPopup = function (name) {
   const backdrop = document.querySelector('[data-popup-backdrop]');
   const popup = document.querySelector(`[data-popup-name="${name}"]`);
 
@@ -36,7 +28,7 @@ document.addEventListener('click', (e) => {
   setTimeout(() => {
     popup.hidden = false;
   }, 10);
-});
+}
 
 window.closePopup = function () {
   const backdrop = document.querySelector('[data-popup-backdrop]');
@@ -60,17 +52,52 @@ window.closePopup = function () {
   backdrop.hidden = true;
 };
 
-document.addEventListener('click', (e) => {
-  const backdrop = e.target.closest('[data-popup-backdrop]');
-  const popup = e.target.closest('[data-popup-name]');
+window.togglePopup = function (name) {
+  const backdrop = document.querySelector('[data-popup-backdrop]');
 
-  if (backdrop && !popup) window.closePopup();
+  if (backdrop.hidden) {
+    window.openPopup(name);
+  }
+  else {
+    window.closePopup();
+  }
+};
+
+document.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-popup-toggle]');
+
+  if (!button) return true;
+
+  e.preventDefault();
+
+  window.togglePopup(button.dataset.popupToggle);
+});
+
+document.addEventListener('click', (e) => {
+  const button = e.target.closest('[data-popup-open]');
+
+  if (!button) return true;
+
+  e.preventDefault();
+
+  window.openPopup(button.dataset.popupOpen);
 });
 
 document.addEventListener('click', (e) => {
   const button = e.target.closest('[data-popup-close]');
 
-  if (button) window.closePopup();
+  if (!button) return true;
+
+  e.preventDefault();
+
+  window.closePopup();
+});
+
+document.addEventListener('click', (e) => {
+  const backdrop = e.target.closest('[data-popup-backdrop]');
+  const popup = e.target.closest('[data-popup-name]');
+
+  if (backdrop && !popup) window.closePopup();
 });
 
 document.addEventListener('keydown', (e) => {
